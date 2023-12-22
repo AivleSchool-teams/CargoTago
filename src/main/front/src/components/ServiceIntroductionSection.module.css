@@ -1,0 +1,71 @@
+.groupChild {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-gainsboro);
+  width: 1440px;
+  height: 417px;
+}
+.icon {
+  position: absolute;
+  top: 44px;
+  left: 131px;
+  width: 223px;
+  height: 82px;
+  object-fit: cover;
+}
+.p {
+  margin-block-start: 0;
+  margin-block-end: 10px;
+}
+.fax {
+  margin: 0;
+}
+.fax020000000Container {
+  position: absolute;
+  top: 161px;
+  left: 152px;
+  font-size: var(--font-size-mini);
+  font-weight: 300;
+  white-space: pre-wrap;
+  text-align: left;
+}
+.div,
+.ktAivleschoolAllRights {
+  position: absolute;
+  top: 292px;
+  left: 152px;
+  font-weight: 300;
+}
+.ktAivleschoolAllRights {
+  top: 334px;
+  left: 150px;
+  font-size: var(--font-size-mini);
+  text-align: left;
+}
+.div1,
+.div2,
+.div3 {
+  position: absolute;
+  top: 292px;
+  left: 263px;
+  font-weight: 300;
+}
+.div2,
+.div3 {
+  left: 432px;
+}
+.div3 {
+  left: 532px;
+}
+.rectangleParent {
+  position: absolute;
+  top: 3478px;
+  left: 0;
+  width: 1440px;
+  height: 417px;
+  text-align: center;
+  font-size: var(--font-size-xl);
+  color: var(--color-black);
+  font-family: var(--font-sb-aggro);
+}
