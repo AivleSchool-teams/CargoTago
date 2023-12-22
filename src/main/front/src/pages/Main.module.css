@@ -195,6 +195,7 @@
     display: inline-block;
     width: 641px;
     height: 231px;
+    z-index: 9999;
 }
 .child6 {
     border-radius: 30px;
