@@ -1,6 +1,6 @@
 .idbox {
     position: absolute;
-    top: 352px;
+    top: 272px;
 
     border-radius: var(--br-3xs);
     background-color: var(--color-white);
@@ -34,7 +34,7 @@
 }
 .pwbox {
     position: absolute;
-    top: 459px;
+    top: 379px;
 
     border-radius: var(--br-3xs);
     background-color: var(--color-white);
@@ -54,7 +54,7 @@
 }
 .inner {
     position: absolute;
-    top: 582px;
+    top: 502px;
     border-radius: var(--br-3xs);
     background-color: var(--color-darkslateblue);
     border: 1px solid var(--color-darkslateblue);
@@ -66,7 +66,7 @@
 }
 .div1 {
     position: absolute;
-    top: 604px;
+    top: 524px;
 
     color: var(--color-white);
     display: inline-block;
@@ -81,7 +81,7 @@
 }
 .lineDiv {
     position: absolute;
-    top: 727.5px;
+    top: 647.5px;
 
     border-top: 1px solid var(--color-black);
     box-sizing: border-box;
@@ -95,7 +95,7 @@
 }
 .div2 {
     position: absolute;
-    top: 377px;
+    top: 297px;
 
     display: inline-block;
     width: 142px;
@@ -107,7 +107,7 @@
 }
 .div3 {
     position: absolute;
-    top: 486px;
+    top: 406px;
 
     display: inline-block;
     width: 183px;
@@ -126,7 +126,7 @@
 }
 .div4 {
     position: absolute;
-    top: 763px;
+    top: 683px;
 
     font-size: var(--font-size-xl);
     display: inline-block;
@@ -142,7 +142,7 @@
 }
 .div5 {
     position: absolute;
-    top: 236px;
+    top: 156px;
 
     font-size: var(--font-size-61xl);
     color: var(--color-darkslateblue);
@@ -162,7 +162,7 @@
     display: inline-block;
     width: 370px;
     left: 50%;
-    top: 10%;
+    top: 6%;
     transform: translateX(-50%);
 
 }
@@ -176,7 +176,5 @@
     font-size: var(--font-size-17xl);
     color: var(--color-gainsboro);
     font-family: var(--font-jalnan-gothic);
-
-
 
 }
