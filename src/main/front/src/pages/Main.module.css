@@ -8,18 +8,21 @@
 .child,
 .div1,
 .icon {
-    position: absolute;
+    margin: 0 !important;
 }
 .icon {
-    top: 1073px;
-    left: 589px;
+    position: absolute;
+    top: calc(50% - 850px);
+    left: calc(50% - 130px);
+
     width: 263px;
     height: 246px;
     object-fit: cover;
 }
 .div1 {
-    top: 1145px;
-    left: 354px;
+    position: absolute;
+    top: calc(50% - 810px);
+    left: calc(50% - 330px);
     font-size: var(--font-size-21xl);
     display: inline-block;
     width: 732px;
@@ -28,13 +31,18 @@
 .ai {
     margin: 0;
 }
-.aiContainer {
+.aiContainer,
+.componentItem {
     position: absolute;
-    top: 1217px;
-    left: 281px;
+    margin: 0 !important;
+}
+.aiContainer {
+    top: calc(50% - 740px);
+    left: calc(50% - 439px);
     font-size: var(--font-size-xl);
     font-weight: 300;
     font-family: var(--font-sb-aggro);
+    z-index: 3;
 }
 .item {
     position: absolute;
@@ -182,17 +190,13 @@
 .aiContainer2 {
     position: absolute;
     top: 423px;
-    left: 816px;
-    display: inline-block;
-    font-family: var(--font-inter);
+    left: 775px;
     color: var(--color-white);
-    width: 600px;
+    display: inline-block;
+    width: 641px;
     height: 231px;
-    font-size: 32px;
 }
 .child6 {
-    top: 39px;
-    left: 1248px;
     border-radius: 30px;
     width: 152px;
     height: 54px;
@@ -204,8 +208,8 @@
     position: absolute;
 }
 .div7 {
-    top: 53px;
-    left: 1285px;
+    left: 43px;
+    top: 15px;
     font-size: 25px;
     color: var(--color-white);
     display: inline-block;
@@ -221,17 +225,27 @@
     margin-right: auto;
     width: 100%;
 }
+.centerround {
+    position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
+    top: 815px; /* 상단에서부터의 위치를 지정합니다. */
+    left: 45%; /* 우측에서부터의 위치를 지정합니다. */
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+}
+.centerround2 {
+    position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
+    top: -10px; /* 상단에서부터의 위치를 지정합니다. */
+    left: calc(50% - 710px);
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+}
 .child7,
 .child8,
 .ellipseDiv {
-    top: 815px;
     border-radius: 50%;
     width: 38px;
     height: 37px;
 }
 .ellipseDiv {
     position: absolute;
-    left: 653px;
     background-color: var(--color-darkslateblue);
 }
 .child7,
@@ -241,10 +255,10 @@
 }
 .child7 {
     position: absolute;
-    left: 701px;
+    left: 50px;
 }
 .child8 {
-    left: 749px;
+    left: 100px;
 }
 .child8,
 .child9,
@@ -256,6 +270,10 @@
     border: none;
     cursor: pointer;
     font-family: var(--font-jalnan-gothic);
+    position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
+    top: 50px; /* 상단에서부터의 위치를 지정합니다. */
+    right: 15%; /* 우측에서부터의 위치를 지정합니다. */
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
 }
 .moa11 {
     top: 20px;

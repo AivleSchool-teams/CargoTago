@@ -30,74 +30,78 @@ const Main = () => {
                 src="/images/logo.png"
                 onClick={onLogoClick} // 이미지에 onClick 이벤트 핸들러를 추가합니다.
             />
-            <div className={styles.div6}>
+            <div className={styles.div8}>
                 다양한 차량 옵션 : 화물에 맞는 최적의 선택
             </div>
-            <b className={styles.aiContainer2}>
+            <div className={styles.aiContainer2}>
                 <p className={styles.ai}>만나면 잊지 못할,</p>
-                <p className={styles.ai3}>당신의 AI 화물 중개 파트너!</p>
-            </b>
+                <p className={styles.ai3}>AI 화물 중개 파트너!</p>
+            </div>
             <button className={styles.button} onClick={onLoginClick}>
                 <img className={styles.child6} alt="" src="/images/rectangle-10@2x.png" />
                 <div className={styles.div7}>로그인</div>
             </button>
 
             <img className={styles.icon1} alt="" src="/images/main1.jpg" />
-            <div className={styles.ellipseDiv} />
-            <div className={styles.child7} onClick={onEllipse1Click} />
-            <div className={styles.child8} onClick={onEllipse2Click} />
-
+            <div className={styles.centerround}>
+                <div className={styles.ellipseDiv} />
+                <div className={styles.child7} onClick={onEllipse1Click} />
+                <div className={styles.child8} onClick={onEllipse2Click} />
+            </div>
             <img className={styles.icon} alt="" src="/images/2-1@2x.png" />
             <div className={styles.div1}>화물타고만의 특별한 서비스</div>
             <div className={styles.aiContainer}>
                 <p className={styles.ai}>
-                    AI 기술을 활용한 우리의 매칭 서비스와 명확한 표준 요금제를 통해 운영의
-                    효율성을 극대화해보세요.
+                    AI 기술을 활용한 우리의 매칭 서비스와 명확한 표준 요금제를 통해
+                    운영의 효율성을 극대화해보세요.
                 </p>
                 <p className={styles.ai}>
-                    우리는 책임감 있는 운영과 편리한 정산 시스템을 통해 안정적이고 편안한
-                    업무 환경을 약속합니다.
-                </p>
-            </div>
-            <div className={styles.item} />
-            <div className={styles.ai1}>AI 배차 최적화</div>
-            <div className={styles.inner} />
-            <div className={styles.rectangleDiv} />
-            <div className={styles.aiContainer1}>
-                <p className={styles.ai}>{`AI 배차를 통해 최적의 차량을 추천하며, `}</p>
-                <p className={styles.ai}>
-                    왕복 화물 운송까지 고려하여 업무의 효율성을 극대화합니다.
-                </p>
-            </div>
-            <div className={styles.child1} />
-            <div className={styles.div2}>적정 금액 추천</div>
-            <img className={styles.rectangleIcon} alt="" src="/images/rectangle-29@2x.png" />
-            <div className={styles.child2} />
-            <div className={styles.div3}>
-                적정금액 추천 시스템이 공정한 거래를 위한 가격을 제안해드립니다.
-                편리하고 합리적인 거래를 경험해보세요.
-            </div>
-            <div className={styles.child3} />
-            <div className={styles.div4}>리뷰 시스템</div>
-            <div className={styles.child4} />
-            <div className={styles.child5} />
-            <div className={styles.div5}>
-                <p
-                    className={styles.ai}
-                >{`배송 완료 후 화주에 대한 리뷰를 남겨보세요.  `}</p>
-                <p className={styles.ai}>
-                    투명성을 높이며 더 나은 업무 환경을 만들어갑니다.
+                    우리는 책임감 있는 운영과 편리한 정산 시스템을 통해 안정적이고
+                    편안한 업무 환경을 약속합니다.
                 </p>
             </div>
 
-
-            <div className={styles.child9} />
-            <img className={styles.arrowIcon} alt="" src="/images/arrow-3@2x.png" />
-            <div className={styles.child10} />
-            <img className={styles.child11} alt="" src="/images/arrow-4@2x.png" />
-            <img className={styles.icon2} alt="" src="/images/3@2x.png" />
-            <img className={styles.icon3} alt="" src="/images/2@2x.png" />
-            <img className={styles.icon4} alt="" src="/images/1@2x.png" />
+            <div className={styles.centerround2}>
+                <div className={styles.item} />
+                <div className={styles.ai1}>AI 배차 최적화</div>
+                <div className={styles.inner} />
+                <div className={styles.rectangleDiv} />
+                <div className={styles.aiContainer1}>
+                    <p className={styles.ai}>{`AI 배차를 통해 최적의 차량을 추천하며, `}</p>
+                    <p className={styles.ai}>
+                        왕복 화물 운송까지 고려하여 업무의 효율성을 극대화합니다.
+                    </p>
+                </div>
+                <div className={styles.child1} />
+                <div className={styles.div2}>적정 금액 추천</div>
+                <img className={styles.rectangleIcon} alt="" src="/images/rectangle-29@2x.png" />
+                <div className={styles.child2} />
+                <div className={styles.div3}>
+                    적정금액 추천 시스템이 공정한 거래를 위한 가격을 제안해드립니다.
+                    편리하고 합리적인 거래를 경험해보세요.
+                </div>
+                <div className={styles.child3} />
+                <div className={styles.div4}>리뷰 시스템</div>
+                <div className={styles.child4} />
+                <div className={styles.child5} />
+                <div className={styles.div5}>
+                    <p
+                        className={styles.ai}
+                    >{`배송 완료 후 화주에 대한 리뷰를 남겨보세요.  `}</p>
+                    <p className={styles.ai}>
+                        투명성을 높이며 더 나은 업무 환경을 만들어갑니다.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <div className={styles.child9} />
+                <img className={styles.arrowIcon} alt="" src="/images/arrow-3@2x.png" />
+                <div className={styles.child10} />
+                <img className={styles.child11} alt="" src="/images/arrow-4@2x.png" />
+                <img className={styles.icon2} alt="" src="/images/3@2x.png" />
+                <img className={styles.icon3} alt="" src="/images/2@2x.png" />
+                <img className={styles.icon4} alt="" src="/images/1@2x.png" />
+            </div>
             <div className={styles.rectangleParent}>
                 <div className={styles.groupChild} />
                 <img className={styles.icon5} alt="" src="/images/1-1@2x.png" />
