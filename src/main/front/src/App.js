@@ -1,3 +1,4 @@
+import './App.css';
 import { Routes, Route } from 'react-router-dom';
 
 import { useEffect } from "react";
@@ -6,7 +7,12 @@ import {
     useLocation,
 } from "react-router-dom";
 import Main from "./pages/Main";
-
+import Login from "./pages/Login";
+import Joinmain from "./pages/Joinmain";
+import JoinShipper1 from "./pages/Join-Shipper1";
+import JoinShipper2 from "./pages/Join-Shipper2";
+import JoinShipper3 from "./pages/Join-Shipper3";
+import JoinShipper4 from "./pages/Join-Shipper4";
 function App() {
     const action = useNavigationType();
     const location = useLocation();
@@ -54,7 +60,12 @@ function App() {
     return (
         <Routes>
             <Route path="/" element={<Main />} />
-
+            <Route path="/Login" element={<Login />} />
+            <Route path="/Joinmain" element={<Joinmain />} />
+            <Route path="/Shipper/1" element={<JoinShipper1 />} />
+            <Route path="/Shipper/2" element={<JoinShipper2 />} />
+            <Route path="/Shipper/3" element={<JoinShipper3 />} />
+            <Route path="/Shipper/4" element={<JoinShipper4 />} />
         </Routes>
     );
 }
