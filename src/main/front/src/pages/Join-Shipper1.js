@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 import styles from "./Join-Shipper1.module.css";
 
 const JoinShipper1 = () => {
-
+    const [isAgreed0, setIsAgreed0] = useState(false);
     const [isAgreed1, setIsAgreed1] = useState(false); // 첫 번째 체크박스의 상태 변수
     const [isAgreed2, setIsAgreed2] = useState(false); // 두 번째 체크박스의 상태 변수
     const [isAgreed3, setIsAgreed3] = useState(false); // 세 번째 체크박스의 상태 변수
@@ -39,7 +39,17 @@ const JoinShipper1 = () => {
             </div>
             <div className={styles.child}/>
             <div className={styles.div2}>약관 동의</div>
-            <div className={styles.div3}>모두 동의 합니다.</div>
+
+
+            <div className={styles.div3}>
+                <label>
+                    <input type="checkbox" className={styles.frameChild} checked={isAgreed0}
+                           onChange={() => setIsAgreed0(prevState => !prevState)}/>
+                    모두 동의 합니다.
+                </label>
+            </div>
+
+
             <div className={styles.inner1}>
                 <div className={styles.frameChild}/>
             </div>
