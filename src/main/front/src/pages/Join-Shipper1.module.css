@@ -49,8 +49,8 @@
     width: 239px;
 }
 .frameChild {
-    top: 0;
-    left: 0;
+    top: -4px;
+    left: -40px;
     width: 20px;
     height: 20px;
 }
@@ -129,6 +129,7 @@
 .div6,
 .inner1 {
     position: absolute;
+    text-align: left;
     top: 537px;
 }
 .inner1 {
@@ -138,10 +139,10 @@
     height: 20px;
 }
 .div6 {
-    left: 553px;
+    left: 561px;
     font-weight: 300;
     display: inline-block;
-    width: 354px;
+    width: 350px;
     height: 31px;
 }
 .div7,
