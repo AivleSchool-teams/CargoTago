@@ -1,13 +1,23 @@
 .idbox {
     position: absolute;
     top: 352px;
-    left: 479px;
+
     border-radius: var(--br-3xs);
     background-color: var(--color-white);
     border: 2px solid var(--color-gainsboro);
     box-sizing: border-box;
     width: 481px;
     height: 88px;
+    font-size: 27px;
+    text-align: left;
+    padding-left: 30px;
+    font-family: var(--font-jalnan-gothic);
+
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
 }
 .idbox::placeholder,
 .pwbox::placeholder {
@@ -15,8 +25,7 @@
     font-family: var(--font-jalnan-gothic);
     font-size: var(--font-size-17xl);
     position: relative;
-    top: 10px;
-    left: 30px;
+    top: 7px;
     background-color: var(--color-white);
     width: 100%;
     height: 1024px;
@@ -26,90 +35,136 @@
 .pwbox {
     position: absolute;
     top: 459px;
-    left: 479px;
+
     border-radius: var(--br-3xs);
     background-color: var(--color-white);
     border: 2px solid var(--color-gainsboro);
     box-sizing: border-box;
     width: 481px;
     height: 88px;
+    font-size: 27px;
+    text-align: left;
+    padding-left: 30px;
+    font-family: var(--font-jalnan-gothic);
+
+
+    left: 50%;
+
+    transform: translateX(-50%);
 }
 .inner {
     position: absolute;
     top: 582px;
-    left: 479px;
     border-radius: var(--br-3xs);
     background-color: var(--color-darkslateblue);
     border: 1px solid var(--color-darkslateblue);
     box-sizing: border-box;
     width: 481px;
     height: 88px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .div1 {
     position: absolute;
     top: 604px;
-    left: 633px;
+
     color: var(--color-white);
     display: inline-block;
     width: 173px;
     height: 44px;
+
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
 }
 .lineDiv {
     position: absolute;
     top: 727.5px;
-    left: 478.5px;
+
     border-top: 1px solid var(--color-black);
     box-sizing: border-box;
     width: 475px;
     height: 1px;
+
+
+    left: 50%;
+
+    transform: translateX(-50%);
 }
 .div2 {
     position: absolute;
     top: 377px;
-    left: 491px;
+
     display: inline-block;
     width: 142px;
     height: 41px;
+
+
+    left: 50%;
+    transform: translateX(-50%);
 }
 .div3 {
     position: absolute;
     top: 486px;
-    left: 488px;
+
     display: inline-block;
     width: 183px;
     height: 41px;
+
+
+    left: 50%;
+
+    transform: translateX(-50%);
 }
 .span {
     text-decoration: underline;
     color: var(--color-darkslateblue);
+
+
 }
 .div4 {
     position: absolute;
     top: 763px;
-    left: 483px;
+
     font-size: var(--font-size-xl);
     display: inline-block;
     width: 474px;
     height: 30px;
     cursor: pointer;
     color: var(--color-black);
+
+
+    left: 50%;
+
+    transform: translateX(-50%);
 }
 .div5 {
     position: absolute;
     top: 236px;
-    left: 526px;
+
     font-size: var(--font-size-61xl);
     color: var(--color-darkslateblue);
     display: inline-block;
     width: 388px;
     height: 74px;
+
+
+    left: 50%;
+
+    transform: translateX(-50%);
 }
 .Login_logo {
     position: absolute;
-    top: 180px;
-    left: 526px;
+    /*top: 180px;*/
+    /*left: 526px;*/
     display: inline-block;
     width: 370px;
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+
 }
 .div {
     position: relative;
@@ -121,4 +176,7 @@
     font-size: var(--font-size-17xl);
     color: var(--color-gainsboro);
     font-family: var(--font-jalnan-gothic);
+
+
+
 }
