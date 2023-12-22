@@ -1,6 +1,6 @@
 .div1 {
     position: absolute;
-    top: 236px;
+    top: 186px;
     left: 526px;
     font-size: var(--font-size-61xl);
     color: var(--color-darkslateblue);
@@ -29,7 +29,7 @@
 }
 .rectangleParent {
     position: absolute;
-    top: 541px;
+    top: 481px;
     left: 479px;
     width: 481px;
     height: 88px;
@@ -45,7 +45,7 @@
 }
 .rectangleGroup {
     position: absolute;
-    top: 395px;
+    top: 345px;
     left: 479px;
     width: 481px;
     height: 88px;
@@ -61,4 +61,11 @@
     font-size: var(--font-size-17xl);
     color: var(--color-white);
     font-family: var(--font-jalnan-gothic);
+}
+
+.counters{
+    position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
+    top: -10px; /* 상단에서부터의 위치를 지정합니다. */
+    left: calc(50% - 700px);
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
 }

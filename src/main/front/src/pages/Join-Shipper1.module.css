@@ -190,6 +190,7 @@
     max-height: 100%;
     width: 39.1px;
     object-fit: contain;
+
 }
 .p {
     margin: 0;
@@ -288,13 +289,17 @@
 }
 .div12 {
     top: 39px;
-    left: calc(50% - 164px);
+
     font-size: var(--font-size-36xl);
     font-family: var(--font-jalnan-gothic);
     color: var(--color-darkslateblue);
     display: inline-block;
     width: 388px;
     height: 74px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
 }
 .groupChild {
     position: absolute;

@@ -15,6 +15,7 @@ const Joinmain = () => {
 
     return (
         <div className={styles.div}>
+            <div className={styles.counters}>
             <div className={styles.div1}>화물타고</div>
             <div className={styles.rectangleParent} onClick={onShipperJoinClick}>
                 <div className={styles.groupChild} />
@@ -23,6 +24,7 @@ const Joinmain = () => {
             <div className={styles.rectangleGroup} onClick={onCarrierJoinClick}>
                 <div className={styles.groupChild} />
                 <div className={styles.div3}>차주로 회원가입하기</div>
+            </div>
             </div>
         </div>
     );

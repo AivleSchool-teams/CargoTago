@@ -33,16 +33,14 @@ const Main = () => {
             <div className={styles.div8}>
                 다양한 차량 옵션 : 화물에 맞는 최적의 선택
             </div>
-            <div className={styles.aiContainer2}>
-                <p className={styles.ai}>만나면 잊지 못할,</p>
-                <p className={styles.ai3}>AI 화물 중개 파트너!</p>
-            </div>
+            
+            <img className={styles.icon1} alt="" src="/images/main1.png" />
+
             <button className={styles.button} onClick={onLoginClick}>
                 <img className={styles.child6} alt="" src="/images/rectangle-10@2x.png" />
                 <div className={styles.div7}>로그인</div>
             </button>
-
-            <img className={styles.icon1} alt="" src="/images/main1.jpg" />
+            
             <div className={styles.centerround}>
                 <div className={styles.ellipseDiv} />
                 <div className={styles.child7} onClick={onEllipse1Click} />
