@@ -3,7 +3,7 @@
     left: 0;
     background-color: #f1f1f1;
     width: 100%;
-    height: 844px;
+    height: 900px;
 }
 
 .child,
@@ -14,7 +14,7 @@
 
 .icon {
     position: absolute;
-    top: calc(50% - 850px);
+    top: 1100px;
     left: calc(50% - 130px);
 
     width: 263px;
@@ -23,8 +23,8 @@
 }
 .div1 {
     position: absolute;
-    top: calc(50% - 810px);
-    left: calc(50% - 330px);
+    top: 1150px;
+    left: calc(50% - 360px);
     font-size: var(--font-size-21xl);
     display: inline-block;
     width: 732px;
@@ -39,8 +39,8 @@
     margin: 0 !important;
 }
 .aiContainer {
-    top: calc(50% - 740px);
-    left: calc(50% - 439px);
+    top: 1230px;
+    left: calc(50% - 410px);
     font-size: var(--font-size-xl);
     font-weight: 300;
     font-family: var(--font-sb-aggro);
@@ -51,6 +51,7 @@
     top: 1360px;
     left: 45px;
     border-radius: var(--br-21xl);
+    /*background-image: ;*/
     background-color: var(--color-darkslateblue);
     width: 426px;
     height: 206px;
@@ -236,8 +237,8 @@
 }
 .centerround2 {
     position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
-    top: -10px; /* 상단에서부터의 위치를 지정합니다. */
-    left: calc(50% - 710px);
+    top: 30px; /* 상단에서부터의 위치를 지정합니다. */
+    left: calc(50% - 715px);
     transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
 }
 .child7,
@@ -268,13 +269,22 @@
 .moa11 {
     position: absolute;
 }
+.logoimg {
+    position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
+    top: 60px; /* 상단에서부터의 위치를 지정합니다. */
+    left: 12%; /* 우측에서부터의 위치를 지정합니다. */
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+    width: 253px;
+    height: 93px;
+    object-fit: cover;
+}
 .button {
     background: none;
     border: none;
     cursor: pointer;
     font-family: var(--font-jalnan-gothic);
     position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
-    top: 50px; /* 상단에서부터의 위치를 지정합니다. */
+    top: 40px; /* 상단에서부터의 위치를 지정합니다. */
     right: 15%; /* 우측에서부터의 위치를 지정합니다. */
     transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
 }
@@ -325,24 +335,19 @@
     max-height: 100%;
     width: 31px;
 }
+
 .icon2,
 .icon3,
 .icon4 {
-    top: 2628px;
-    left: 107px;
-    width: 1240px;
+    position: absolute;
+    top: 2200px;
+    width: 1400px;
     height: 388px;
+    object-fit: cover;
+    left: 50%;
+    transform: translateX(-50%);
 }
-.icon3,
-.icon4 {
-    top: 3016px;
-    width: 1243px;
-}
-.icon4 {
-    top: 2234px;
-    width: 1241px;
-    height: 394px;
-}
+
 .groupChild {
     position: absolute;
     top: 0;
@@ -372,15 +377,30 @@
     white-space: pre-wrap;
     text-align: left;
 }
-.div8,
+.divCargo {
+    position: absolute;
+    top: 2000px;
+    left: 50%;
+    font-size: 40px;
+    transform: translateX(-50%);
+}
+.div8 {
+    position: absolute;
+    top: 250px;
+    left: 150px;
+    text-align: left;
+}
+.spanbr {
+    display: inline-block;
+}
 .ktAivleschoolAllRights {
     position: absolute;
-    top: 292px;
+    top: 250px;
     left: 152px;
     font-weight: 300;
 }
 .ktAivleschoolAllRights {
-    top: 334px;
+    top: 310px;
     left: 150px;
     font-size: var(--font-size-mini);
     text-align: left;
@@ -389,20 +409,20 @@
 .div11,
 .div9 {
     position: absolute;
-    top: 292px;
-    left: 263px;
+    top: 250px;
+    left: 280px;
     font-weight: 300;
 }
 .div10,
 .div11 {
-    left: 432px;
+    left: 460px;
 }
 .div11 {
-    left: 532px;
+    left: 560px;
 }
 .rectangleParent {
     position: absolute;
-    top: 3478px;
+    top: 2800px;
     left: 0;
     width: 100%;
     height: 417px;
@@ -413,7 +433,7 @@
     position: relative;
     background-color: var(--color-white);
     width: 100%;
-    height: 3895px;
+    height: 3200px;
     overflow: hidden;
     text-align: center;
     font-size: var(--font-size-9xl);

@@ -1,6 +1,6 @@
 .idbox {
     position: absolute;
-    top: 272px;
+    top: 370px;
 
     border-radius: var(--br-3xs);
     background-color: var(--color-white);
@@ -12,10 +12,7 @@
     text-align: left;
     padding-left: 30px;
     font-family: var(--font-jalnan-gothic);
-
-
     left: 50%;
-
     transform: translateX(-50%);
 
 }
@@ -52,36 +49,61 @@
 
     transform: translateX(-50%);
 }
-.inner {
+.CenterDiv {
     position: absolute;
+    left: 50%;
     top: 502px;
+    transform: translateX(-50%);
+}
+
+.right {
+    position: absolute;
+    left: 10px;
+}
+.rightinner {
+    position: absolute;
     border-radius: var(--br-3xs);
     background-color: var(--color-darkslateblue);
     border: 1px solid var(--color-darkslateblue);
     box-sizing: border-box;
-    width: 481px;
+    width: 230px;
     height: 88px;
-    left: 50%;
-    transform: translateX(-50%);
 }
-.div1 {
+.rightbox {
     position: absolute;
-    top: 524px;
-
+    top: 24px;
     color: var(--color-white);
     display: inline-block;
     width: 173px;
     height: 44px;
-
-
-    left: 50%;
-
-    transform: translateX(-50%);
-
+    left: 30px;
 }
+.left {
+    position: absolute;
+    left: -240px;
+}
+.leftinner {
+    position: absolute;
+    border-radius: var(--br-3xs);
+    background-color: var(--color-lightgray);
+    border: 1px solid var(--color-lightgray);
+    box-sizing: border-box;
+    width: 230px;
+    height: 88px;
+}
+.leftbox {
+    position: absolute;
+    top: 24px;
+    color: var(--color-white);
+    display: inline-block;
+    width: 173px;
+    height: 44px;
+    left: 30px;
+}
+
 .lineDiv {
     position: absolute;
-    top: 660px;
+    top: 480px;
 
     border-top: 1px solid var(--color-black);
     box-sizing: border-box;
@@ -135,24 +157,20 @@
     left: 140%;
     transform: translateX(-50%);
 }
-.findspan {
-    color: var(--color-darkslateblue);
+.spanbr {
+    display: block;
 }
 .div4 {
     position: absolute;
-    top: 683px;
-
+    top: 235px;
     font-size: var(--font-size-xl);
-    display: inline-block;
     width: 474px;
     height: 30px;
     cursor: pointer;
     color: var(--color-black);
-
-
     left: 50%;
-
     transform: translateX(-50%);
+    font-size: 20px;
 }
 .div5 {
     position: absolute;
@@ -163,8 +181,6 @@
     display: inline-block;
     width: 388px;
     height: 74px;
-
-
     left: 50%;
 
     transform: translateX(-50%);
