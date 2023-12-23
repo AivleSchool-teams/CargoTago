@@ -22,25 +22,20 @@ const Main = () => {
 
     return (
         <div className={styles.div}>
-            <div className={styles.child} />
-            {/* 클릭 가능한 이미지 */}
-            <img
-                className={styles.moa11}
-                alt=""
-                src="/images/logo.png"
-                onClick={onLogoClick} // 이미지에 onClick 이벤트 핸들러를 추가합니다.
-            />
-            <div className={styles.div8}>
-                다양한 차량 옵션 : 화물에 맞는 최적의 선택
-            </div>
-            
-            <img className={styles.icon1} alt="" src="/images/main1.png" />
+            <div className={styles.child}>
+                <img
+                    className={styles.logoimg}
+                    alt=""
+                    src="/images/logo.png"
+                    onClick={onLogoClick} // 이미지에 onClick 이벤트 핸들러를 추가합니다.
+                />
+                <img className={styles.icon1} alt="" src="/images/main1.png" />
 
-            <button className={styles.button} onClick={onLoginClick}>
-                <img className={styles.child6} alt="" src="/images/rectangle-10@2x.png" />
-                <div className={styles.div7}>로그인</div>
-            </button>
-            
+                <button className={styles.button} onClick={onLoginClick}>
+                    <img className={styles.child6} alt="" src="/images/rectangle-10@2x.png" />
+                    <div className={styles.div7}>로그인</div>
+                </button>
+            </div>
             <div className={styles.centerround}>
                 <div className={styles.ellipseDiv} />
                 <div className={styles.child7} onClick={onEllipse1Click} />
@@ -96,30 +91,37 @@ const Main = () => {
                 <img className={styles.arrowIcon} alt="" src="/images/arrow-3@2x.png" />
                 <div className={styles.child10} />
                 <img className={styles.child11} alt="" src="/images/arrow-4@2x.png" />
+                <div className={styles.divCargo}>
+                    <span className={styles.spanbr}>다양한 차량 옵션 :</span>
+                    <span className={styles.spanbr}>&nbsp;화물에 맞는 최적의 선택</span>
+                </div>
                 <img className={styles.icon2} alt="" src="/images/3@2x.png" />
                 <img className={styles.icon3} alt="" src="/images/2@2x.png" />
                 <img className={styles.icon4} alt="" src="/images/1@2x.png" />
             </div>
             <div className={styles.rectangleParent}>
-                <div className={styles.groupChild} />
-                <img className={styles.icon5} alt="" src="/images/1-1@2x.png" />
-                <div className={styles.fax020000000Container}>
-                    <p className={styles.p5}>
-                        사업자 등록번호 : 000-00-00000 | 정보보호책임자 : 홍길동 |
-                        화물운송주선사업자 : 제2023-00호 | 화물운송사업자 : 제2023-00호
-                    </p>
-                    <p className={styles.ai}>
-                        통신판매업신고번호 : 제2023-서울000호 | 대표번호 : 02-000-0000 | FAX
-                        : 02-000-0000 | aivle@cargotago.com
-                    </p>
+                <div className={styles.groupChild}>
+                    <img className={styles.icon5} alt="" src="/images/1-1@2x.png" />
+                    <div className={styles.fax020000000Container}>
+                        <p className={styles.p5}>
+                            사업자 등록번호 : 000-00-00000 | 정보보호책임자 : 홍길동 |
+                            화물운송주선사업자 : 제2023-00호 | 화물운송사업자 : 제2023-00호
+                        </p>
+                        <p className={styles.ai}>
+                            통신판매업신고번호 : 제2023-서울000호 | 대표번호 : 02-000-0000 | FAX
+                            : 02-000-0000 | aivle@cargotago.com
+                        </p>
+                    </div>
+                    <div>
+                        <div className={styles.div8}>서비스 소개</div>
+                        <div className={styles.ktAivleschoolAllRights}>
+                            ⓒ 2024. KT-AivleSchool All rights reserved.
+                        </div>
+                        <div className={styles.div9}>개인정보 처리방침</div>
+                        <div className={styles.div10}>이용약관</div>
+                        <div className={styles.div11}>운송약관</div>
+                    </div>
                 </div>
-                <div className={styles.div8}>서비스 소개</div>
-                <div className={styles.ktAivleschoolAllRights}>
-                    ⓒ 2024. KT-AivleSchool All rights reserved.
-                </div>
-                <div className={styles.div9}>개인정보 처리방침</div>
-                <div className={styles.div10}>이용약관</div>
-                <div className={styles.div11}>운송약관</div>
             </div>
         </div>
     );
