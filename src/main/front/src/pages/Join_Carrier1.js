@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import styles from "./Join-Shipper1.module.css";
 
-const JoinShipper1 = () => {
+const JoinCarrier1 = () => {
+
     const [isAgreed0, setIsAgreed0] = useState(false);
     const [isAgreed1, setIsAgreed1] = useState(false); // 첫 번째 체크박스의 상태 변수
     const [isAgreed2, setIsAgreed2] = useState(false); // 두 번째 체크박스의 상태 변수
@@ -28,6 +29,8 @@ const JoinShipper1 = () => {
         }
     }, [isAgreed0]);
 
+
+
     const navigate = useNavigate();
 
     const onBackClick = useCallback(() => {
@@ -36,7 +39,7 @@ const JoinShipper1 = () => {
 
     const onShipperJoinClick = useCallback(() => {
         if (isAgreed1 && isAgreed2 && isAgreed3) {
-            navigate("/Shipper/2");
+            navigate("/Carrier/2");
         } else {
             alert("필수 약관에 동의해야 합니다."); // 필수 약관에 동의하지 않은 경우 알림 표시
         }
@@ -44,6 +47,7 @@ const JoinShipper1 = () => {
 
     const handleAgreementChange = useCallback(() => {
         setIsAllAgreed((prevState) => !prevState); // 모두 동의 체크박스 상태 토글
+        // 다른 체크박스 상태를 모두 전체 동의 체크박스와 동일하게 설정
         setIsAgreed0((prevState) => !prevState);
         setIsAgreed1((prevState) => !prevState);
         setIsAgreed2((prevState) => !prevState);
@@ -206,4 +210,4 @@ const JoinShipper1 = () => {
     );
 };
 
-export default JoinShipper1;
+export default JoinCarrier1;
