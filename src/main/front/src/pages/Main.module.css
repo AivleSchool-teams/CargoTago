@@ -3,7 +3,7 @@
     left: 0;
     background-color: #f1f1f1;
     width: 100%;
-    height: 900px;
+    height: 850px;
 }
 
 .child,
@@ -16,7 +16,6 @@
     position: absolute;
     top: 1100px;
     left: calc(50% - 130px);
-
     width: 263px;
     height: 246px;
     object-fit: cover;
@@ -220,6 +219,26 @@
     width: 79px;
     height: 33px;
 }
+.mainslide {
+    position: absolute;
+    top: 127px;
+    height: 769px;
+    object-fit: contain;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+.subslide {
+    position: absolute;
+    top: 2500px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+}
+
 .icon1 {
     top: 127px;
     left: 0;
@@ -384,6 +403,14 @@
     font-size: 40px;
     transform: translateX(-50%);
 }
+.iconCargo {
+    position: absolute;
+    top: 1940px;
+    left: calc(50% - 130px);
+    width: 263px;
+    height: 235px;
+    object-fit: cover;
+}
 .div8 {
     position: absolute;
     top: 250px;
@@ -392,6 +419,7 @@
 }
 .spanbr {
     display: inline-block;
+    font-size: var(--font-size-21xl);
 }
 .ktAivleschoolAllRights {
     position: absolute;
@@ -447,4 +475,17 @@
 
 .div1, .aiContainer {
     z-index: 9999;
+}
+
+.react-slideshow-container .react-slideshow-button {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.react-slideshow-container .nav:nth-child(2) {
+    right: 20px; /* 오른쪽 화살표의 위치를 20px 안쪽으로 이동시킵니다. */
+}
+
+.react-slideshow-container .nav:nth-child(1) {
+    left: 20px; /* 왼쪽 화살표의 위치를 20px 안쪽으로 이동시킵니다. */
 }

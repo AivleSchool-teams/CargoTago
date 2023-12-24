@@ -1,6 +1,9 @@
 import { useCallback } from "react";
 import { useNavigate } from 'react-router-dom'; // v6에서는 useNavigate를 사용합니다.
+import 'react-slideshow-image/dist/styles.css';
+import { Fade, Zoom, Slide } from "react-slideshow-image";
 import styles from "./Main.module.css";
+import "./Main.css";
 
 const Main = () => {
     const onEllipse1Click = useCallback(() => {
@@ -20,6 +23,59 @@ const Main = () => {
         navigate('/Login'); // 로고 클릭 시 '/Login' 경로로 이동합니다 --> 주소 수정 요망
     }, [navigate]);
 
+    // 메인 이미지 슬라이드 부분
+    const slideImages = [
+        {
+            url : "/images/main1.png",
+        },
+        {
+            url : "/images/main2.png",
+        },
+        {
+            url : "/images/main3.png",
+        },
+    ];
+    // 차량 이미지 슬라이드 부분
+    const CargoImages = [
+        {
+            url : "/images/3@2x.png",
+        },
+        {
+            url : "/images/2@2x.png",
+        },
+        {
+            url : "/images/1@2x.png",
+        },
+    ];
+    const divStyle = {
+        display : 'flex',
+        alignItems : 'center',
+        justifyContent : 'center',
+        height : '740px',
+        backgroundSize : 'cover', // 'contain'으로 수정
+        backgroundPosition : 'center',  // 가운데 정렬
+        backgroundRepeat: 'no-repeat',  // 배경 이미지가 반복되지 않도록 설정
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        width: '100%',
+
+    }
+
+    const CargoStyle = {
+        display : 'flex',
+        alignItems : 'center',
+        justifyContent : 'center',
+        height : '500px',
+        backgroundSize : 'contain', // 'contain'으로 수정
+        backgroundPosition : 'center',  // 가운데 정렬
+        backgroundRepeat: 'no-repeat',  // 배경 이미지가 반복되지 않도록 설정
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        width: '85%',
+
+    }
+
+
     return (
         <div className={styles.div}>
             <div className={styles.child}>
@@ -29,27 +85,34 @@ const Main = () => {
                     src="/images/logo.png"
                     onClick={onLogoClick} // 이미지에 onClick 이벤트 핸들러를 추가합니다.
                 />
-                <img className={styles.icon1} alt="" src="/images/main1.png" />
+
+                {/* 메인이미지 슬라이드 부분 */}
+                <div className={styles.mainslide}>
+                    <Fade>
+                        {slideImages.map((image, index) => (
+                            <div key={index}>
+                                <div style={{...divStyle, backgroundImage: `url(${image.url})`}}>
+                                </div>
+                            </div>
+                        ))}
+                    </Fade>
+                </div>
 
                 <button className={styles.button} onClick={onLoginClick}>
                     <img className={styles.child6} alt="" src="/images/rectangle-10@2x.png" />
                     <div className={styles.div7}>로그인</div>
                 </button>
             </div>
-            <div className={styles.centerround}>
-                <div className={styles.ellipseDiv} />
-                <div className={styles.child7} onClick={onEllipse1Click} />
-                <div className={styles.child8} onClick={onEllipse2Click} />
-            </div>
+
             <img className={styles.icon} alt="" src="/images/2-1@2x.png" />
             <div className={styles.div1}>화물타고만의 특별한 서비스</div>
             <div className={styles.aiContainer}>
                 <p className={styles.ai}>
-                    AI 기술을 활용한 우리의 매칭 서비스와 명확한 표준 요금제를 통해
+                    AI 기술을 활용한 카고타고의 매칭 서비스와 명확한 표준 요금제를 통해
                     운영의 효율성을 극대화해보세요.
                 </p>
                 <p className={styles.ai}>
-                    우리는 책임감 있는 운영과 편리한 정산 시스템을 통해 안정적이고
+                    카고타고는 책임감 있는 운영과 AI 배차 시스템을 통해 안정적이고
                     편안한 업무 환경을 약속합니다.
                 </p>
             </div>
@@ -87,18 +150,26 @@ const Main = () => {
                 </div>
             </div>
             <div>
-                <div className={styles.child9} />
-                <img className={styles.arrowIcon} alt="" src="/images/arrow-3@2x.png" />
-                <div className={styles.child10} />
-                <img className={styles.child11} alt="" src="/images/arrow-4@2x.png" />
+                <img className={styles.iconCargo} alt="" src="/images/2-1@2x.png" />
                 <div className={styles.divCargo}>
                     <span className={styles.spanbr}>다양한 차량 옵션 :</span>
                     <span className={styles.spanbr}>&nbsp;화물에 맞는 최적의 선택</span>
+
                 </div>
-                <img className={styles.icon2} alt="" src="/images/3@2x.png" />
-                <img className={styles.icon3} alt="" src="/images/2@2x.png" />
-                <img className={styles.icon4} alt="" src="/images/1@2x.png" />
+                {/* 차량 이미지 슬라이드 부분 */}
+                <div className={styles.subslide}>
+                    <Fade>
+                        {CargoImages.map((image, index) => (
+                            <div key={index}>
+                                <div style={{...CargoStyle, backgroundImage: `url(${image.url})`}}>
+                                </div>
+                            </div>
+                        ))}
+                    </Fade>
+                </div>
+
             </div>
+
             <div className={styles.rectangleParent}>
                 <div className={styles.groupChild}>
                     <img className={styles.icon5} alt="" src="/images/1-1@2x.png" />

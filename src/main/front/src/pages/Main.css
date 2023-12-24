@@ -1,0 +1,16 @@
+
+.react-slideshow-container .react-slideshow-button {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.react-slideshow-container .nav:nth-child(1) {
+    position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
+    left: 3%; /* 우측에서부터의 위치를 지정합니다. */
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+}
+.react-slideshow-container .nav {
+    position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
+    left: 98.5%; /* 우측에서부터의 위치를 지정합니다. */
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+}
