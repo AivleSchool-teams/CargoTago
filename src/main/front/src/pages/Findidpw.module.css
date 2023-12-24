@@ -171,6 +171,7 @@
     left: 50%;
     transform: translateX(-50%);
     font-size: 20px;
+    cursor: default;
 }
 .div5 {
     position: absolute;

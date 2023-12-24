@@ -5,6 +5,10 @@ import styles from "./Joinmain.module.css";
 const Joinmain = () => {
     const navigate = useNavigate();
 
+    const onLogoClick = useCallback(() => {
+        navigate('/'); // 로고 클릭 시 '/' 경로로 이동합니다.
+    }, [navigate]);
+
     const onShipperJoinClick = useCallback(() => {
         navigate("/Shipper/1");
     }, [navigate]);
@@ -16,7 +20,7 @@ const Joinmain = () => {
     return (
         <div className={styles.div}>
             <div className={styles.counters}>
-            <div className={styles.div1}>화물타고</div>
+            <div className={styles.div1} onClick={onLogoClick} >화물타고</div>
             <div className={styles.rectangleParent} onClick={onShipperJoinClick}>
                 <div className={styles.groupChild} />
                 <div className={styles.div2}>화주로 회원가입하기</div>
