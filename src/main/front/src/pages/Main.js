@@ -38,13 +38,13 @@ const Main = () => {
     // 차량 이미지 슬라이드 부분
     const CargoImages = [
         {
-            url : "/images/3@2x.png",
+            url : "/images/Cargo1.png",
         },
         {
-            url : "/images/2@2x.png",
+            url : "/images/Cargo2.png",
         },
         {
-            url : "/images/1@2x.png",
+            url : "/images/Cargo3.png",
         },
     ];
     const divStyle = {
