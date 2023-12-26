@@ -181,16 +181,23 @@ const JoinCarrier1 = () => {
 
             <img
                 className={styles.arrowIcon}
+                onClick={onBackClick}
                 alt=""
-                src="/images/arrow-2@2x.png"
+                src="/images/arrow-3@2x.png"
             />
-            <div className={styles.div9}>
-                <p className={styles.p}>이용 약관 동의</p>
+
+            <div className={styles.centered}>
+                <div className={styles.div9}>
+                    <p className={styles.p}>이용 약관 동의</p>
+                </div>
+                <div className={styles.div10}>
+                    <p className={styles.p}>신원 확인</p>
+                </div>
+                <div className={styles.div11}>
+                    <p className={styles.p}>정보 등록</p>
+                </div>
             </div>
-            <div className={styles.div10}>신원 확인</div>
-            <div className={styles.div11}>
-                <p className={styles.p}>정보 등록</p>
-            </div>
+
             <div className={styles.ellipseDiv}/>
             <div className={styles.child3}/>
             <b className={styles.b}>1</b>
@@ -199,6 +206,7 @@ const JoinCarrier1 = () => {
             <b className={styles.b2}>2</b>
             <div className={styles.child5}/>
             <div className={styles.child6}/>
+
             <div
                 className={styles.rectangleParent}
                 onClick={onShipperJoinClick}
