@@ -211,6 +211,18 @@
     left: 50%;
     transform: translateX(-46%);
 }
+.divemail {
+    position: absolute;
+    text-align: left;
+    top: 638px;
+    font-weight: 300;
+    color: var(--color-lightcoral);
+    font-size: var(--font-size-mini);
+
+    left: 50%;
+    transform: translateX(-87%);
+
+}
 .child2 {
     top: 813px;
     text-align: left;
@@ -306,7 +318,7 @@
     transform: translateX(-50%);
 }
 .child3 {
-    left: 538px;
+
     background-color: var(--color-lightsteelblue);
 
     left: calc(50% - 230px);
@@ -344,7 +356,7 @@
 .b2,
 .b3 {
     top: 123px;
-    left: 932px;
+
     font-size: var(--font-size-xs);
     display: inline-block;
     font-family: var(--font-inter);
@@ -404,7 +416,7 @@
 }
 .rectangleIcon {
     position: absolute;
-    top: 483px;
+    top: 595px;
 
     border-radius: var(--br-mini);
     width: 90px;
@@ -415,7 +427,7 @@
     transform: translateX(155%);
 }
 .div17 {
-    top: 496px;
+    top: 610px;
 
     font-family: var(--font-jalnan-gothic);
     color: var(--color-white);
