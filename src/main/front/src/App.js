@@ -71,7 +71,6 @@ function App() {
             <Route path="/Shipper/1" element={<JoinShipper1 />} />
             <Route path="/Shipper/2" element={<JoinShipper2 />} />
             <Route path="/Shipper/3" element={<JoinShipper3 />} />
-            <Route path="/Shipper/4" element={<JoinShipper4 />} />
 
             <Route path="/Carrier/1" element={<JoinCarrier1 />} />
             <Route path="/Carrier/2" element={<JoinCarrier2 />} />

@@ -5,13 +5,16 @@
 .div1 {
     position: absolute;
     top: 229px;
-    left: 516px;
     font-size: var(--font-size-9xl);
     font-family: var(--font-jalnan-gothic);
     color: var(--color-cornflowerblue);
     display: inline-block;
     width: 481px;
     height: 77px;
+
+
+    left: 50%;
+    transform: translateX(-50%);
 }
 .b {
     top: 629px;
@@ -31,10 +34,13 @@
 .div2 {
     position: absolute;
     top: 317px;
-    left: 813px;
+
     font-size: var(--font-size-mini);
     font-family: var(--font-jalnan-gothic);
     color: var(--color-lightcoral);
+
+    left: calc(50% + 120px);
+    transform: translateX(-50%);
 }
 .child,
 .inner,
@@ -42,13 +48,21 @@
 .rectangleDiv {
     position: absolute;
     top: 464px;
-    left: 516px;
+
     border-radius: var(--br-xl);
     background-color: var(--color-white);
     border: 1px solid var(--color-gainsboro);
     box-sizing: border-box;
     width: 481px;
     height: 88px;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding-left:38px;
+    font-family: var(--font-jalnan-gothic);
+    text-align: left;
+    font-size: 27px;
 }
 .inner,
 .item,
@@ -70,12 +84,14 @@
 }
 .div3,
 .div4 {
-    left: 547px;
     font-weight: 500;
     text-align: left;
     display: inline-block;
     width: 169px;
     height: 29px;
+
+    left: 50%;
+    transform: translateX(-120%);
 }
 .div3 {
     position: absolute;
@@ -93,35 +109,52 @@
 }
 .div5 {
     top: 613px;
-    left: 547px;
+
     font-weight: 500;
     text-align: left;
     display: inline-block;
     width: 169px;
     height: 24px;
     color: var(--color-steelblue-200);
+
+    left: 50%;
+    transform: translateX(-120%);
 }
 .child1 {
     top: 933px;
-    left: 516px;
+    font-weight: 500;
     border-radius: var(--br-xl);
     background-color: var(--color-white);
     border: 1px solid var(--color-gainsboro);
     box-sizing: border-box;
     width: 481px;
     height: 88px;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding-left:38px;
+    font-family: var(--font-jalnan-gothic);
+    font-size: 27px;
 }
 .div6,
 .div7 {
     position: absolute;
     top: 971px;
-    left: 547px;
-    font-weight: 500;
+
+    font-weight: 400;
     text-align: left;
     display: inline-block;
-    width: 241px;
+    width: 199px;
     height: 38px;
     color: var(--color-steelblue-200);
+
+    left: 50%;
+    transform: translateX(-120%);
+
+    padding-left:38px;
+    font-family: var(--font-jalnan-gothic);
+    font-size: 27px;
 }
 .div7 {
     top: 731px;
@@ -136,6 +169,10 @@
     background-color: var(--color-darkslateblue);
     width: 475px;
     height: 88px;
+
+
+
+
 }
 .div8 {
     position: absolute;
@@ -147,13 +184,16 @@
 }
 .rectangleParent {
     top: 1065px;
-    left: 516px;
+
     width: 475px;
     height: 88px;
     cursor: pointer;
     font-size: var(--font-size-17xl);
     color: var(--color-white);
     font-family: var(--font-jalnan-gothic);
+
+    left: 50%;
+    transform: translateX(-50%);
 }
 .child2,
 .div9,
@@ -162,21 +202,31 @@
 }
 .div9 {
     top: 760px;
-    left: 547px;
+    width: 433px;
     font-size: var(--font-size-mini);
     font-weight: 300;
     color: var(--color-lightcoral);
     text-align: left;
+
+    left: 50%;
+    transform: translateX(-46%);
 }
 .child2 {
     top: 813px;
-    left: 516px;
+    text-align: left;
     border-radius: var(--br-xl);
     background-color: var(--color-white);
     border: 1px solid var(--color-gainsboro);
     box-sizing: border-box;
     width: 481px;
     height: 88px;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding-left:38px;
+    font-family: var(--font-jalnan-gothic);
+    font-size: 27px;
 }
 .div10,
 .div11 {
@@ -191,10 +241,16 @@
     width: 169px;
     height: 24px;
     color: var(--color-steelblue-200);
+
+    left: 50%;
+    transform: translateX(-120%);
 }
 .div11 {
     top: 875px;
     color: var(--color-lightcoral);
+
+    left: 50%;
+    transform: translateX(-149%);
 }
 .div11,
 .div12,
@@ -204,12 +260,16 @@
     position: absolute;
     font-size: var(--font-size-mini);
     font-weight: 300;
+
 }
 .div12 {
     top: 527px;
-    left: 547px;
+
     color: var(--color-lightcoral);
     text-align: left;
+
+    left: 50%;
+    transform: translateX(-146%);
 }
 .div13,
 .div14,
@@ -220,35 +280,49 @@
     width: 169px;
     height: 29px;
 }
-.div14,
-.div15 {
-    left: 858px;
+.div13 {
+    left: calc(50% - 230px);
+    transform: translateX(-50%);
+}
+.div14{
+    left: calc(50% + 230px);
+    transform: translateX(-50%);
 }
 .div15 {
-    left: 664px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .child3,
 .ellipseDiv {
     position: absolute;
     top: 116px;
-    left: 735px;
+
     border-radius: 50%;
     background-color: var(--color-steelblue-300);
     width: 30px;
     height: 30px;
+
+    left: 50%;
+    transform: translateX(-50%);
 }
 .child3 {
     left: 538px;
     background-color: var(--color-lightsteelblue);
+
+    left: calc(50% - 230px);
+    transform: translateX(-50%);
 }
 .b1 {
     top: 123px;
-    left: 542px;
+
     font-size: var(--font-size-xs);
     display: inline-block;
     font-family: var(--font-inter);
     width: 22px;
     height: 19px;
+
+    left: calc(50% - 230px);
+    transform: translateX(-50%);
 }
 .b1,
 .b2,
@@ -258,11 +332,14 @@
 }
 .child4 {
     top: 116px;
-    left: 928px;
+
     border-radius: 50%;
     background-color: var(--color-lightsteelblue);
     width: 30px;
     height: 30px;
+
+    left: calc(50% + 230px);
+    transform: translateX(-50%);
 }
 .b2,
 .b3 {
@@ -273,59 +350,81 @@
     font-family: var(--font-inter);
     width: 22px;
     height: 19px;
+
+    left: calc(50% + 230px);
+    transform: translateX(-50%);
 }
 .b3 {
-    left: 739px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .child5,
 .lineDiv {
     position: absolute;
     top: 132.2px;
-    left: 579.7px;
+
     border-top: 0.6px solid var(--color-gray);
     box-sizing: border-box;
     width: 147.6px;
     height: 0.6px;
+
+    left: calc(50% - 120px);
+    transform: translateX(-50%);
 }
 .child5 {
-    left: 772.7px;
+
+    left: calc(50% + 120px);
+    transform: translateX(-50%);
 }
+
 .arrowIcon {
     position: absolute;
     top: 68px;
-    left: 503px;
     max-height: 100%;
     width: 39.1px;
-    object-fit: contain;
+
+
+    left: calc(50% - 200px);
+    transform: translateX(-50%);
 }
+
 .div16 {
     position: absolute;
     top: 39px;
-    left: calc(50% - 164px);
+
     font-size: var(--font-size-36xl);
     font-family: var(--font-jalnan-gothic);
     color: var(--color-darkslateblue);
     display: inline-block;
     width: 388px;
     height: 74px;
+
+    left: 50%;
+    transform: translateX(-50%);
 }
 .rectangleIcon {
     position: absolute;
     top: 483px;
-    left: 886px;
+
     border-radius: var(--br-mini);
     width: 90px;
     height: 50px;
     object-fit: cover;
+
+    left: 50%;
+    transform: translateX(155%);
 }
 .div17 {
     top: 496px;
-    left: 891px;
+
     font-family: var(--font-jalnan-gothic);
     color: var(--color-white);
     display: inline-block;
     width: 79px;
     height: 33px;
+
+    left: 50%;
+    transform: translateX(185%);
 }
 .child6,
 .div17,
@@ -334,20 +433,26 @@
 }
 .child6 {
     top: 952px;
-    left: 886px;
+
     border-radius: var(--br-mini);
     width: 90px;
     height: 50px;
     object-fit: cover;
+
+    left: 50%;
+    transform: translateX(155%);
 }
 .div18 {
     top: 965px;
-    left: 891px;
+
     font-family: var(--font-jalnan-gothic);
     color: var(--color-white);
     display: inline-block;
     width: 79px;
     height: 33px;
+
+    left: 50%;
+    transform: translateX(185%);
 }
 .div {
     position: relative;
@@ -359,4 +464,44 @@
     font-size: var(--font-size-xl);
     color: var(--color-black);
     font-family: var(--font-sb-aggro);
+}
+
+
+.innerText{
+    position: absolute;
+    top: 352px;
+
+    border-radius: var(--br-xl);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gainsboro);
+    box-sizing: border-box;
+    width: 481px;
+    height: 88px;
+
+    left: 100%;
+    transform: translateX(-50%);
+    font-family: var(--font-jalnan-gothic);
+
+
+    text-align: left;
+}
+
+.inner::placeholder,
+.item::placeholder,
+.child::placeholder,
+.div7::placeholder,
+.rectangleDiv::placeholder,
+.child2::placeholder,
+.child1::placeholder {
+    font-weight: 400;
+    text-align: left;
+    display: inline-block;
+
+    color: var(--color-steelblue-100);
+    font-family: var(--font-jalnan-gothic);
+    font-size: var(--font-size-3xl);
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: transparent;
 }
