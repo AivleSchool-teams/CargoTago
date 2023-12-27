@@ -298,13 +298,23 @@
 }
 .div12,
 .div13,
-.div14 {
+.div14,
+.divemail {
     position: absolute;
 
     text-align: left;
 
     left: 50%;
     transform: translateX(-50%);
+}
+.divemail {
+    top: 638px;
+    font-weight: 300;
+    color: var(--color-lightcoral);
+
+    left: 50%;
+    transform: translateX(-87%);
+
 }
 .div12 {
     top: 845px;
@@ -336,7 +346,7 @@
 }
 .rectangleIcon {
     position: absolute;
-    top: 483px;
+    top: 595px;
 
     border-radius: var(--br-mini);
     width: 90px;
@@ -348,7 +358,7 @@
 }
 .div15 {
     position: absolute;
-    top: 496px;
+    top: 610px;
 
     font-size: var(--font-size-xl);
     font-family: var(--font-jalnan-gothic);

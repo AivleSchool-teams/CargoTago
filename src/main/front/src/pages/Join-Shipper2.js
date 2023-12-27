@@ -51,7 +51,7 @@ const JoinShipper2 = () => {
             </div>
             <div>
                 <input type="text" className={styles.child2}
-                       placeholder="아이디 *"/>
+                       placeholder="이메일 *"/>
             </div>
             <div>
                 <input type="text" className={styles.child3}
@@ -63,7 +63,9 @@ const JoinShipper2 = () => {
             </div>
 
 
-
+            <div className={styles.divemail}>
+                올바른 이메일 형식을 입력해 주세요.
+            </div>
             <div className={styles.div11}>
                 비밀번호는 특수문자(!,@,#)를 포함하여 8~16자를 입력해 주세요.
             </div>

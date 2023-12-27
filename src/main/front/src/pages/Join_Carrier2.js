@@ -32,14 +32,14 @@ const JoinCarrier2 = () => {
 
             <div>
                 <input type="text" className={styles.item}
-                       placeholder="아이디 *"/>
-                </div>
+                       placeholder="이메일 *"/>
+            </div>
 
             <div>
                 <input type="text" className={styles.inner}
                        placeholder="이름(실명) *"/>
             </div>
-            <div className={styles.rectangleDiv} />
+            <div className={styles.rectangleDiv}/>
             {/*
             <div className={styles.div3}>
                 <span>전화번호</span>
@@ -80,8 +80,11 @@ const JoinCarrier2 = () => {
                 */}
             </div>
             <div className={styles.rectangleParent} onClick={onGroupContainerClick}>
-            <div className={styles.groupChild} />
+                <div className={styles.groupChild}/>
                 <div className={styles.div8}>다음</div>
+            </div>
+            <div className={styles.divemail}>
+                올바른 이메일 형식을 입력해 주세요.
             </div>
             <div className={styles.div9}>
                 비밀번호는 특수문자(!,@,#)를 포함하여 8~16자를 입력해 주세요.
@@ -107,19 +110,19 @@ const JoinCarrier2 = () => {
             <div className={styles.div15}>
                 <p className={styles.p}>정보 등록</p>
             </div>
-            <div className={styles.ellipseDiv} />
-            <div className={styles.child3} />
+            <div className={styles.ellipseDiv}/>
+            <div className={styles.child3}/>
             <b className={styles.b1}>1</b>
-            <div className={styles.child4} />
+            <div className={styles.child4}/>
             <b className={styles.b2}>3</b>
             <b className={styles.b3}>2</b>
-            <div className={styles.lineDiv} />
-            <div className={styles.child5} />
-            <img className={styles.arrowIcon} onClick={onBackClick} alt="" src="/images/arrow-3@2x.png" />
+            <div className={styles.lineDiv}/>
+            <div className={styles.child5}/>
+            <img className={styles.arrowIcon} onClick={onBackClick} alt="" src="/images/arrow-3@2x.png"/>
             <div className={styles.div16}>화물타고</div>
-            <img className={styles.rectangleIcon} alt="" src="/images/rectangle-23@2x.png" />
+            <img className={styles.rectangleIcon} alt="" src="/images/rectangle-23@2x.png"/>
             <div className={styles.div17}>인증</div>
-            <img className={styles.child6} alt="" src="/images/rectangle-23@2x.png" />
+            <img className={styles.child6} alt="" src="/images/rectangle-23@2x.png"/>
             <div className={styles.div18}>인증</div>
         </div>
     );
