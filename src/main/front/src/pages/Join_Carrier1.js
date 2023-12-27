@@ -131,7 +131,7 @@ const JoinCarrier1 = () => {
                     />
                 </label>
                 <span className={styles.popupText} onClick={openPopup}>
-                    [필수] 트럭타고 서비스 이용 약관 동의
+                    [필수] 화물타고 서비스 이용 약관 동의
                 </span>
             </div>
 
