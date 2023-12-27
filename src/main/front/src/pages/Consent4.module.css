@@ -1,0 +1,44 @@
+.child,
+.div1 {
+    position: absolute;
+}
+.child {
+    top: 62px;
+    left: 50%;
+    border-top: 1px solid var(--color-black);
+    box-sizing: border-box;
+    width: 469px;
+    height: 1px;
+    transform: translateX(-50%);
+}
+.div1 {
+    top: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    width: 190px;
+    height: 13px;
+}
+.p {
+    margin: 0;
+}
+.smartroBcContainer {
+    position: absolute;
+    top: 98px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: var(--font-size-3xs);
+    display: inline-block;
+    width: 50%;
+}
+.div {
+    background-color: var(--color-white);
+    width: 750px;
+    height: 788px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--font-size-2xs);
+    color: var(--color-black);
+    font-family: var(--font-jalnan-gothic);
+
+}

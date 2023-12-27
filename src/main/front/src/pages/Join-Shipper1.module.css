@@ -22,6 +22,16 @@
     left: 50%;
     transform: translateX(-50%);
 }
+.popupText{
+    transition: color 0.3s ease;
+    text-decoration: none; /* 기본 상태에서는 밑줄이 없음 */
+    text-decoration-color: transparent; /* 밑줄 색상을 투명하게 설정하여 보이지 않게 함 */
+
+}.popupText:hover {
+     color: #ff0000; /* 마우스를 올렸을 때의 텍스트 색상을 빨간색으로 설정 */
+     text-decoration: underline; /* 마우스를 올렸을 때 밑줄이 생기도록 설정 */
+     text-decoration-color: #ff0000; /* 마우스를 올렸을 때의 밑줄 색상을 빨간색으로 설정 */
+ }
 .child {
     top: 349px;
 
