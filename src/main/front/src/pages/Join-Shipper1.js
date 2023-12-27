@@ -54,19 +54,27 @@ const JoinShipper1 = () => {
 
     const openPopup = useCallback(() => {
         // 팝업 창 열기
-        window.open("/Carrier/3", "_blank", "width=600,height=400"); //여기 링크만 바꾸면됨
+        window.open("/Consent/1", "_blank", "width=600,height=400"); //여기 링크만 바꾸면됨
     }, []);
 
     const openPopup1 = useCallback(() => {
         // 팝업 창 열기
-        window.open("/Carrier/3", "_blank", "width=600,height=400"); //여기 링크만 바꾸면됨
+        window.open("/Consent/2", "_blank", "width=600,height=400"); //여기 링크만 바꾸면됨
     }, []);
 
     const openPopup2 = useCallback(() => {
         // 팝업 창 열기
-        window.open("/Carrier/3", "_blank", "width=600,height=400"); //여기 링크만 바꾸면됨
+        window.open("/Consent/3", "_blank", "width=600,height=400"); //여기 링크만 바꾸면됨
+    }, []);
+    const openPopup3 = useCallback(() => {
+        // 팝업 창 열기
+        window.open("/Consent/4", "_blank", "width=600,height=400"); //여기 링크만 바꾸면됨
     }, []);
 
+    const openPopup4 = useCallback(() => {
+        // 팝업 창 열기
+        window.open("/Consent/5", "_blank", "width=600,height=400"); //여기 링크만 바꾸면됨
+    }, []);
 
     return (
         <div className={styles.div}>
@@ -116,10 +124,10 @@ const JoinShipper1 = () => {
                         checked={isAgreed1}
                         onChange={() => setIsAgreed1((prevState) => !prevState)}
                     />
-                    [필수] 트럭타고 서비스 이용 약관 동의<span className={styles.popupText} onClick={openPopup}>
-                    [약관]
-                </span>
                 </label>
+                <span className={styles.popupText} onClick={openPopup}>
+                    [필수] 트럭타고 서비스 이용 약관 동의
+                </span>
 
             </div>
 
@@ -131,10 +139,11 @@ const JoinShipper1 = () => {
                         checked={isAgreed2}
                         onChange={() => setIsAgreed2((prevState) => !prevState)}
                     />
-                    [필수] 개인 정보 수집 이용 동의<span className={styles.popupText} onClick={openPopup1}>
-                    [약관]</span>
 
                 </label>
+                <span className={styles.popupText} onClick={openPopup1}>
+                    [필수] 개인 정보 수집 이용 동의
+                </span>
             </div>
 
             <div className={styles.div6}>
@@ -145,10 +154,11 @@ const JoinShipper1 = () => {
                         checked={isAgreed3}
                         onChange={() => setIsAgreed3((prevState) => !prevState)}
                     />
-                    [필수] 개인 정보 제3자 제공에 관한 동의
-                    <span className={styles.popupText} onClick={openPopup2}>
-                        [약관]</span>
+
                 </label>
+                <span className={styles.popupText} onClick={openPopup2}>
+                    [필수] 개인 정보 제3자 제공에 관한 동의
+                </span>
             </div>
 
             <div className={styles.div7}>
@@ -159,8 +169,11 @@ const JoinShipper1 = () => {
                         checked={isAgreed4}
                         onChange={() => setIsAgreed4((prevState) => !prevState)}
                     />
-                    [선택] 마케팅 활용을 위한 개인정보 수집 및 이용 동의
+
                 </label>
+                <span className={styles.popupText} onClick={openPopup3}>
+                    [선택] 마케팅 활용을 위한 개인정보 수집 및 이용 동의
+                </span>
             </div>
 
             <div className={styles.div8}>
@@ -171,8 +184,11 @@ const JoinShipper1 = () => {
                         checked={isAgreed5}
                         onChange={() => setIsAgreed5((prevState) => !prevState)}
                     />
-                    [선택] 광고성 정보 수신 동의
+
                 </label>
+                <span className={styles.popupText} onClick={openPopup4}>
+                    [선택] 광고성 정보 수신 동의
+                </span>
             </div>
 
             <img

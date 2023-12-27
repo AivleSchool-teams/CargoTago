@@ -18,6 +18,11 @@ import JoinShipper4 from "./pages/Join-Shipper4";
 import JoinCarrier1 from "./pages/Join_Carrier1";
 import JoinCarrier2 from "./pages/Join_Carrier2";
 import JoinCarrier3 from "./pages/Join-Carrier3";
+import Consent1 from "./pages/Consent1";
+import Consent2 from "./pages/Consent2";
+import Consent3 from "./pages/Consent3";
+import Consent4 from "./pages/Consent4";
+import Consent5 from "./pages/Consent5";
 function App() {
     const action = useNavigationType();
     const location = useLocation();
@@ -75,6 +80,13 @@ function App() {
             <Route path="/Carrier/1" element={<JoinCarrier1 />} />
             <Route path="/Carrier/2" element={<JoinCarrier2 />} />
             <Route path="/Carrier/3" element={<JoinCarrier3 />} />
+
+
+            <Route path="/Consent/1" element={<Consent1 />} />
+            <Route path="/Consent/2" element={<Consent2 />} />
+            <Route path="/Consent/3" element={<Consent3 />} />
+            <Route path="/Consent/4" element={<Consent4 />} />
+            <Route path="/Consent/5" element={<Consent5 />} />
         </Routes>
     );
 }
