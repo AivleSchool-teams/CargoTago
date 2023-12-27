@@ -89,7 +89,7 @@ const Consent4 = () => {
                 <p className={styles.p}>&nbsp;</p>
                 <p className={styles.p}>
                     개인정보 제3자 제공에 대한 상세한 내용은 브로캐리
-                    홈페이지(www.brokarry.com) 및 브로캐리 App 내 게시된
+                    홈페이지(www.hwamultago.com) 및 브로캐리 App 내 게시된
                     ‘개인정보처리방침’에서 확인할 수 있습니다.
                 </p>
             </div>
