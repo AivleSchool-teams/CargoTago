@@ -1,14 +1,47 @@
-import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import {useCallback, useState} from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./Join-Shipper3.module.css";
 
 
 const JoinShipper3 = () => {
+
     const navigate = useNavigate();
 
     const onBackClick = useCallback(() => {
         navigate("/Shipper/2");
     }, [navigate]);
+
+
+    const location = useLocation();
+    const { inputId, inputPw } = location.state;
+
+
+    const [inputCname, setInputCname] = useState("");
+    const [inputHname, setInputHname] = useState("");
+    const [inputHnumber, setInputHnumber] = useState("");
+
+    const onBackClickLogin = useCallback(() => {
+        navigate("/Login", { state: { inputId, inputPw, inputCname, inputHname, inputHnumber } });
+        console.log("click login");
+        console.log("Id : ", inputId);
+        console.log("PW : ", inputPw);
+        console.log("Cname : ", inputCname);
+        console.log("Hname : ", inputHname);
+        console.log("Hnumber : ", inputHnumber);
+    }, [navigate, inputId, inputPw, inputCname, inputHname, inputHnumber]);
+    const handleInputCname = (e) => {
+        setInputCname(e.target.value);
+    };
+
+    const handleInputHname = (e) => {
+        setInputHname(e.target.value);
+    };
+
+    const handleInputHnumber = (e) => {
+        setInputHnumber(e.target.value);
+    };
+
+
 
     return (
         <div className={styles.div}>
@@ -46,15 +79,24 @@ const JoinShipper3 = () => {
             <b className={styles.b3}></b>
             <div>
                 <input type="text" className={styles.rectangleDiv}
-                       placeholder="대표자명 *"/>
+                       placeholder="대표자명 *"
+                       value={inputHname}
+                       onChange={handleInputHname}
+                />
+
             </div>
             <div>
                 <input type="text" className={styles.child4}
-                       placeholder="사업자 등록 번호 *"/>
+                       placeholder="사업자 등록 번호 *"
+                       value={inputHnumber}
+                       onChange={handleInputHnumber}
+                />
             </div>
             <div>
                 <input type="text" className={styles.child5}
-                       placeholder="상호명 *"/>
+                       placeholder="상호명 *"
+                       value={inputCname}
+                       onChange={handleInputCname}/>
             </div>
             <div>
                 <input type="text" className={styles.child6}
@@ -68,7 +110,7 @@ const JoinShipper3 = () => {
                        placeholder="계좌 등록 *"/>
             </div>
 
-            <div className={styles.div12}>등록</div>
+            <div className={styles.div12} onClick={onBackClickLogin}>등록</div>
             <div>
                 <input type="text" className={styles.child9}
                        placeholder="사업자 등록증 *"/>

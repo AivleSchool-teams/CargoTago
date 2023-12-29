@@ -23,6 +23,8 @@ import Consent2 from "./pages/Consent2";
 import Consent3 from "./pages/Consent3";
 import Consent4 from "./pages/Consent4";
 import Consent5 from "./pages/Consent5";
+
+import TestRegister from "./pages/TestRegister";
 function App() {
     const action = useNavigationType();
     const location = useLocation();
@@ -87,6 +89,8 @@ function App() {
             <Route path="/Consent/3" element={<Consent3 />} />
             <Route path="/Consent/4" element={<Consent4 />} />
             <Route path="/Consent/5" element={<Consent5 />} />
+
+            <Route path="/test-register" element={<TestRegister />} />
         </Routes>
     );
 }

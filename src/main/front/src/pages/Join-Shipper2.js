@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import {useCallback, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Join-Shipper2.module.css";
 
@@ -12,6 +12,10 @@ const JoinShipper2 = () => {
     const onGroupContainerClick = useCallback(() => {
         navigate("/Shipper/3");
     }, [navigate]);
+
+
+    const [inputId, setInputId] = useState("");
+    const [inputPw, setInputPw] = useState("");
 
 
     return (

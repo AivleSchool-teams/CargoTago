@@ -1,9 +1,13 @@
-import { useCallback } from "react";
+import {useCallback, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
 
 const Login = () => {
     const navigate = useNavigate();
+
+    const [inputEmail, setInputEmail] = useState("");
+    const [inputPw, setInputPw] = useState("");
+
 
     const onLogoClick = useCallback(() => {
         navigate('/'); // 로고 클릭 시 '/frame' 경로로 이동합니다.
@@ -16,7 +20,23 @@ const Login = () => {
     const onFindidpwClick = useCallback(() => {
         navigate('/Joinmain/Findidpw'); // 로고 클릭 시 '/FindIDPW' 경로로 이동합니다
     }, [navigate]);
+    {/*
+    const onLoginClick = () => {
+        console.log("click Login to UserPage !");
+        console.log("Email : ", inputEmail);
+        console.log("Pw : ", inputPw);
 
+        axios
+            .post('http://localhost:8080/api/user/login', {
+                email: inputEmail,
+                pw: inputPw,
+            })
+            .then((res => {
+
+            })
+        navigate('/user/page');
+    }, [navigate]);
+    */}
 
     return (
         <div className={styles.div}>

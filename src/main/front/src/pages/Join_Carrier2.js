@@ -1,17 +1,48 @@
-import { useCallback } from "react";
+import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Join_Carrier2.module.css";
+import axios from 'axios';
 
 const JoinCarrier2 = () => {
     const navigate = useNavigate();
 
-    const onGroupContainerClick = useCallback(() => {
-        navigate("/Carrier/3");
-    }, [navigate]);
-
     const onBackClick = useCallback(() => {
         navigate("/Carrier/1");
     }, [navigate]);
+
+    const [inputName, setInputName] = useState("");
+    const [inputPhone, setInputPhone] = useState("");
+    const [inputEmail, setInputEmail] = useState("");
+    const [inputPw, setInputPw] = useState("");
+    const [inputTransportLicense, setInputTransportLicense] = useState("");
+
+
+    const handleInputName = (e) => {
+        setInputName(e.target.value);
+    };
+    const handleInputPhone = (e) => {
+        setInputPhone(e.target.value);
+    };
+    const handleInputEmail = (e) => {
+        setInputEmail(e.target.value);
+    };
+    const handleInputPw = (e) => {
+        setInputPw(e.target.value);
+    };
+    const handleInputTransportLicense = (e) => {
+        setInputTransportLicense(e.target.value);
+    };
+
+    const onGroupContainerClick = useCallback(() => {
+        navigate("/Carrier/3", { state: { inputName, inputPhone, inputEmail, inputPw, inputTransportLicense } });
+        console.log("click Page2 to Page3");
+        console.log("Name : ", inputName);
+        console.log("Phone : ", inputPhone);
+        console.log("Email : ", inputEmail);
+        console.log("Pw : ", inputPw);
+        console.log("TransportLicense : ", inputTransportLicense);
+    }, [navigate, inputName, inputPhone, inputEmail, inputPw, inputTransportLicense]);
+
 
     return (
         <div className={styles.div}>
@@ -27,57 +58,43 @@ const JoinCarrier2 = () => {
             </div>
             <div>
                 <input type="text" className={styles.child}
-                       placeholder="전화번호 *"/>
+                       placeholder="전화번호 *"
+                       value={inputPhone}
+                       onChange={handleInputPhone}
+                />
             </div>
 
             <div>
                 <input type="text" className={styles.item}
-                       placeholder="이메일 *"/>
+                       placeholder="이메일 *"
+                       value={inputEmail}
+                       onChange={handleInputEmail}
+                />
             </div>
 
             <div>
                 <input type="text" className={styles.inner}
-                       placeholder="이름(실명) *"/>
+                       placeholder="이름(실명) *"
+                       value={inputName}
+                       onChange={handleInputName}
+                />
             </div>
             <div className={styles.rectangleDiv}/>
-            {/*
-            <div className={styles.div3}>
-                <span>전화번호</span>
-                <span className={styles.span}>{` `}</span>
-                <span className={styles.span1}>*</span>
-            </div>
-
-            <div className={styles.div4}>
-                <span>{`이름(실명) `}</span>
-                <span className={styles.span1}>*</span>
-            </div>
-
-            <div className={styles.div5}>
-                <span>아이디</span>
-                <span className={styles.span}>{` `}</span>
-                <span className={styles.span1}>*</span>
-            </div>
-
-            */}
             <div>
                 <input type="text" className={styles.child1}
-                       placeholder="화물운송 자격증 *"/>
+                       placeholder="화물운송 자격증 *"
+                       value={inputTransportLicense}
+                       onChange={handleInputTransportLicense}
+                />
             </div>
-            {/*
-            <div className={styles.div6}>
-                <span>화물운송 자격증</span>
-                <span className={styles.span}>{` `}</span>
-                <span className={styles.span1}>*</span>
-            </div>
-            */}
+
             <div>
                 <input type="password" className={styles.rectangleDiv}
-                       placeholder="비밀번호 *"/>
-                {/*
-                <span>비밀번호</span>
-                <span className={styles.span}>{` `}</span>
-                <span className={styles.span1}>*</span>
-                */}
+                       placeholder="비밀번호 *"
+                       value={inputPw}
+                       onChange={handleInputPw}
+                />
+
             </div>
             <div className={styles.rectangleParent} onClick={onGroupContainerClick}>
                 <div className={styles.groupChild}/>
@@ -93,13 +110,6 @@ const JoinCarrier2 = () => {
                 <input type="password" className={styles.child2}
                        placeholder="비밀번호 확인 *"/>
             </div>
-            {/*
-            <div className={styles.div10}>
-                <span>비밀번호 확인</span>
-                <span className={styles.span}>{` `}</span>
-                <span className={styles.span1}>*</span>
-            </div>
-            */}
             <div className={styles.div11}>비밀번호가 다릅니다.</div>
             <div className={styles.div12}>숫자만 입력해 주세요.</div>
 
