@@ -13,7 +13,8 @@ import Findidpw from "./pages/Findidpw";
 import JoinShipper1 from "./pages/Join-Shipper1";
 import JoinShipper2 from "./pages/Join-Shipper2";
 import JoinShipper3 from "./pages/Join-Shipper3";
-import JoinShipper4 from "./pages/Join-Shipper4";
+import ShipperList from "./pages/Shipper-List";
+import ShipperDetail from "./pages/Shipper-Detail";
 
 import JoinCarrier1 from "./pages/Join_Carrier1";
 import JoinCarrier2 from "./pages/Join_Carrier2";
@@ -78,6 +79,8 @@ function App() {
             <Route path="/Shipper/1" element={<JoinShipper1 />} />
             <Route path="/Shipper/2" element={<JoinShipper2 />} />
             <Route path="/Shipper/3" element={<JoinShipper3 />} />
+            <Route path="/Shipper/List" element={<ShipperList />} />
+            <Route path="/Shipper/Detail" element={<ShipperDetail />} />
 
             <Route path="/Carrier/1" element={<JoinCarrier1 />} />
             <Route path="/Carrier/2" element={<JoinCarrier2 />} />
