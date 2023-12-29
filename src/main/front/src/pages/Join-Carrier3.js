@@ -1,6 +1,7 @@
-import { useCallback } from "react";
+import {useCallback, useState} from "react";
 import styles from "./Join-Carrier3.module.css";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
+import axios from 'axios';
 
 const JoinCarrier3 = () => {
     const navigate = useNavigate();
@@ -12,6 +13,51 @@ const JoinCarrier3 = () => {
     const onBackClick = useCallback(() => {
         navigate("/Carrier/2");
     }, [navigate]);
+
+
+    const location = useLocation();
+    const {inputName, inputPhone, inputEmail, inputPw, inputTransportLicense} = location.state;
+
+
+    const [inputAccount, setInputAccount] = useState("");
+
+
+    const onBackClickLogin = () => {
+        console.log("click Page3 and Registration to Login");
+        console.log("Name : ", inputName);
+        console.log("Phone : ", inputPhone);
+        console.log("Email : ", inputEmail);
+        console.log("Pw : ", inputPw);
+        console.log("CarLicense : ", inputTransportLicense);
+        console.log("Account : ", inputAccount);
+
+        axios
+            .post('http://localhost:8080/api/register/carrier', {
+                name: inputName,
+                phone: inputPhone,
+                email: inputEmail,
+                pw: inputPw,
+                transportlicense: inputTransportLicense,
+                account: inputAccount,
+            })
+            .then(response => {
+                // 서버로부터의 응답에 따라 다른 메시지 설정
+                if (response.data === 1) {
+                    window.alert("사용자 등록이 성공적으로 완료되었습니다");
+                    navigate("/Login");
+                } else if (response.data === 0) {
+                    window.alert("사용자 ID가 이미 존재합니다");
+                }
+            })
+            .catch(error => {
+                console.error("There was an error!", error);
+                window.alert("등록 중 에러가 발생했습니다");
+            });
+    };
+
+    const handleInputAccount = (e) => {
+        setInputAccount(e.target.value);
+    };
 
     return (
         <div className={styles.div}>
@@ -44,7 +90,7 @@ const JoinCarrier3 = () => {
             <b className={styles.b3}></b>
             <div>
                 <input type="text" className={styles.rectangleDiv}
-                       placeholder="대표자명 *"/>
+                       placeholder="대표자명 *" />
             </div>
             <div>
                 <input type="text" className={styles.child2}
@@ -61,11 +107,14 @@ const JoinCarrier3 = () => {
 
             <div>
                 <input type="text" className={styles.child5}
-                       placeholder="계좌 등록 *"/>
+                       placeholder="계좌 등록 *"
+                       value={inputAccount}
+                       onChange={handleInputAccount}
+                />
             </div>
 
 
-            <div className={styles.rectangleParent} onClick={onGroupContainerClick}>
+            <div className={styles.rectangleParent} onClick={onBackClickLogin}>
                 <div className={styles.groupChild}/>
                 <div className={styles.div12}>등록</div>
             </div>
