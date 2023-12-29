@@ -7,11 +7,11 @@ const ShipperDetail = () => {
     const navigate = useNavigate();
 
     const onLogoClick = useCallback(() => {
-        navigate('/'); // 로고 클릭 시 '/' 경로로 이동합니다.
+        navigate('/Shipper/Main'); // 로고 클릭 시 '/' 경로로 이동합니다.
     }, [navigate]);
 
     const onBackClick = useCallback(() => { // 화주 메인페이지로 링크 변경 해야함.
-        navigate("/Joinmain");
+        navigate("/Shipper/List");
     }, [navigate]);
 
     return (

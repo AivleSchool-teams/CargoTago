@@ -14,7 +14,10 @@ const ShipperList = () => {
     const [endDate, setEndDate] = useState(new Date("2024.01.20"));
 
     const onLogoClick = useCallback(() => {
-        navigate('/'); // 로고 클릭 시 '/' 경로로 이동합니다.
+        navigate('/Shipper/Main'); // 로고 클릭 시 '/' 경로로 이동합니다.
+    }, [navigate]);
+    const onBackClick = useCallback(() => {
+        navigate('/Shipper/Main'); // 로고 클릭 시 '/' 경로로 이동합니다.
     }, [navigate]);
 
     // 검색바
@@ -22,15 +25,15 @@ const ShipperList = () => {
     const onChange = (e) => {
         setSearch(e.target.value)
     }
-    const onBackClick = useCallback(() => {  // 화주 메인페이지로 링크 변경 해야함.
-        navigate("/Joinmain");
+    const onDetailClick = useCallback(() => {  // 화주 메인페이지로 링크 변경 해야함.
+        navigate("/Shipper/Detail");
     }, [navigate]);
 
     // 정렬 개수 선택
     const options = [
         { value: "five", label: "5개씩 보기" },
-        { value: "ten", label: "15개씩 보기" },
-        { value: "fifteen", label: "20개씩 보기" },
+        { value: "ten", label: "10개씩 보기" },
+        { value: "fifteen", label: "15개씩 보기" },
     ]
 
     return (
@@ -41,7 +44,7 @@ const ShipperList = () => {
                 <div className={styles.inner}>
 
                     {/* 배차 1개 박스 - back 연결 필요 /링크도 연결 필요-현재는 메인으로/*/}
-                    <div className={styles.rectangleParent} onClick={onLogoClick}>
+                    <div className={styles.rectangleParent} onClick={onDetailClick}>
                         <div className={styles.frameChild} />
                         <div className={styles.frameParent}>
                             <div className={styles.parent}>

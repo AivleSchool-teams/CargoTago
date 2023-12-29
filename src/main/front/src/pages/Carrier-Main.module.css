@@ -1,0 +1,438 @@
+.div1 {
+    position: absolute;
+    top: 382px;
+    left: 80px;
+    font-size: 40px;
+    font-family: var(--font-inter);
+    color: var(--color-white);
+}
+.groupChild {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    border-radius: 30px;
+    width: 152px;
+    height: 54px;
+    object-fit: cover;
+}
+.div2,
+.vectorParent {
+    position: absolute;
+    width: 173px;
+}
+.div2 {
+    border: none;
+    top: 14px;
+    left: 0;
+    font-weight: 500;
+    font-family: var(--font-sb-aggro);
+    font-size: 22px;
+    color: white;
+    background-color: transparent;
+    display: inline-block;
+    height: 33px;
+    cursor: pointer;
+}
+.vectorParent {
+    top: 33px;
+    left: 840px;
+    height: 54px;
+    font-size: 23px;
+    color: var(--color-white);
+    font-family: var(--font-sb-aggro);
+}
+.moa11 {
+    position: absolute;
+    top: 24px;
+    left: 362px;
+    width: 181px;
+    height: 69px;
+    object-fit: cover;
+}
+.groupItem {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: var(--br-xl);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-darkslateblue);
+    box-sizing: border-box;
+    width: 300px;
+    height: 110px;
+}
+.div3 {
+    position: absolute;
+    top: 44px;
+    left: 73px;
+    display: inline-block;
+    width: 197px;
+    height: 36px;
+}
+.image11Icon {
+    position: absolute;
+    top: 23px;
+    left: 21px;
+    width: 67px;
+    height: 69px;
+    object-fit: cover;
+}
+.rectangleParent {
+    position: absolute;
+    top: 167px;
+    left: 19px;
+    width: 300px;
+    height: 110px;
+    cursor: pointer;
+}
+.groupInner {
+    left: 19px;
+    position: absolute;
+    top: 0;
+    border-radius: var(--br-xl);
+    width: 633px;
+    height: 150px;
+    object-fit: cover;
+}
+.div4 {
+    position: absolute;
+    left: 116px;
+    display: inline-block;
+}
+.div4,
+.div5,
+.div6 {
+    top: 107px;
+    white-space: pre-wrap;
+    width: 122px;
+    height: 31px;
+}
+.div5 {
+    position: absolute;
+    left: 275px;
+    display: inline-block;
+}
+.div6 {
+    left: 439px;
+}
+.div6,
+.div7,
+.div8 {
+    position: absolute;
+    display: inline-block;
+}
+.div7 {
+    top: 36px;
+    left: 0;
+    width: 670px;
+    height: 36px;
+}
+.div8 {
+    top: 0;
+    left: 124px;
+    width: 423px;
+}
+.parent,
+.vectorGroup {
+    position: absolute;
+    top: 49px;
+    left: 0;
+    width: 670px;
+    height: 72px;
+    font-size: var(--font-size-5xl);
+}
+.vectorGroup {
+    top: 0;
+    height: 150px;
+    font-size: var(--font-size-3xl);
+}
+.image12Icon {
+    position: absolute;
+    top: 31px;
+    left: 21px;
+    width: 67px;
+    height: 54.4px;
+    object-fit: cover;
+}
+.rectangleGroup {
+    position: absolute;
+    top: 167px;
+    left: 352px;
+    width: 300px;
+    height: 110px;
+    cursor: pointer;
+}
+.groupParent {
+    position: absolute;
+    top: 245px;
+    left: 50%;
+    width: 670px;
+    height: 277px;
+    font-size: var(--font-size-5xl);
+    position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+}
+.child {
+    top: 518.5px;
+    left: 368.5px;
+    border-top: 1px solid var(--color-darkslateblue);
+    box-sizing: border-box;
+    width: 634px;
+    height: 1px;
+}
+.child,
+.div10,
+.lineDiv {
+    position: absolute;
+}
+.div10 {
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 197px;
+    height: 43px;
+}
+.lineDiv {
+    top: 21.5px;
+    left: 63.5px;
+    border-top: 1px solid var(--color-darkslateblue);
+    box-sizing: border-box;
+    width: 634px;
+    height: 1px;
+}
+.rectangleIcon {
+    position: absolute;
+    top: 0;
+    left: 19px;
+    border-radius: var(--br-3xs);
+    width: 633px;
+    height: 120px;
+}
+.hoverIcon {
+    position: absolute;
+    top: 20px;
+    border-radius: var(--br-3xs);
+    width: 450px;
+    height: 60px;
+    background-color: var(--color-midnightblue);
+    left: calc(50% + 115px);
+    font-size: var(--font-size-5xl);
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.div24:hover + .hoverIcon {
+    display: block;
+}
+
+.hoverIcon_text {
+    vertical-align: middle;
+    padding: 20px;
+    font-size: 13px;
+    color: white;
+    height: 55px;
+}
+.p {
+    margin: 0;
+}
+.div11 {
+    top: 78px;
+    left: 71px;
+    font-size: var(--font-size-xl);
+    width: 197px;
+    height: 24px;
+}
+.div11,
+.div12,
+.div13,
+.div14,
+.km {
+    position: absolute;
+    display: inline-block;
+}
+.div12 {
+    top: 78px;
+    left: 397px;
+    font-size: var(--font-size-xl);
+    width: 197px;
+    height: 24px;
+}
+.div13,
+.div14,
+.km {
+    top: 21px;
+    left: 0;
+    text-align: center;
+    width: 241px;
+}
+.div14,
+.km {
+    top: 93px;
+    left: 274px;
+    font-size: var(--font-size-smi);
+    width: 117px;
+}
+.div14 {
+    top: 20px;
+    left: 518px;
+    font-size: var(--font-size-mid);
+}
+.image13Icon {
+    position: absolute;
+    top: 50px;
+    left: 312px;
+    width: 42px;
+    height: 26px;
+    object-fit: cover;
+}
+.span {
+    color: var(--color-darkslateblue);
+}
+.div15,
+.div16 {
+    position: absolute;
+    top: 50px;
+    left: 74px;
+    display: inline-block;
+    width: 101px;
+    height: 17px;
+    color: var(--color-darkgray);
+}
+.div16 {
+    left: 397px;
+    width: 103px;
+}
+.vectorContainer {
+    position: absolute;
+    top: 26px;
+    left: 45px;
+    width: 652px;
+    height: 120px;
+    text-align: left;
+    cursor: pointer;
+}
+.group{
+    position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
+    top:670px;
+    left: calc(50% - 380px);
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+}
+.groupChild2 {
+    position: absolute;
+    top: 671px;
+    left: 305px;
+    width: 697px;
+    height: 146px;
+}
+.groupChild2 {
+    position: absolute;
+    top: 120px;
+    left: 20px;
+    border-radius: var(--br-3xs) var(--br-3xs) 0 0;
+    background-color: #0a2174;
+    width: 119px;
+    height: 22px;
+    transform: rotate(-90deg);
+    transform-origin: 0 0;
+}
+.groupDiv {
+    position: absolute;
+    top: 70px;
+    left: 45px;
+    width: 652px;
+    height: 120px;
+    cursor: pointer;
+}
+.div23 {
+    position: absolute;
+    left: 45px;
+    top: 0;
+    display: inline-block;
+    width: 197px;
+    height: 43px;
+}
+.ellipseDiv {
+    position: absolute;
+    top: 4px;
+    left: 65px;
+    border-radius: 50%;
+    background-color: var(--color-darkslateblue);
+    width: 14px;
+    height: 14px;
+}
+.groupChild3 {
+    position: absolute;
+    top: 30.5px;
+    left: 63.5px;
+    border-top: 1px solid var(--color-darkslateblue);
+    box-sizing: border-box;
+    width: 634px;
+    height: 1px;
+}
+.ai {
+    left: 0;
+    display: inline-block;
+    width: 197px;
+    height: 43px;
+}
+.ai,
+.div24,
+.groupChild4 {
+    position: absolute;
+    top: 38px;
+}
+.groupChild4 {
+    left: 140px;
+    border-radius: 50%;
+    border: 1px solid var(--color-darkslateblue);
+    box-sizing: border-box;
+    width: 21px;
+    height: 21px;
+}
+.div24 {
+    top: 39.4px;
+    left: 145px;
+    font-size: 18px;
+    font-family: var(--font-jalnan-gothic);
+    color: var(--color-darkslateblue);
+}
+.container,
+.groupContainer {
+    position: absolute;
+    width: 697px;
+}
+.container {
+    top: 0;
+    left: 0;
+    height: 79px;
+    text-align: center;
+    font-size: var(--font-size-xl);
+}
+.groupContainer {
+    top: 523px;
+    height: 190px;
+    text-align: left;
+    position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
+    left: calc(50% - 30px);
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+}
+.div {
+    position: relative;
+    background-color: var(--color-white);
+    width: 100%;
+    height: 1342px;
+    overflow: hidden;
+    text-align: center;
+    font-size: var(--font-size-mini);
+    color: var(--color-black);
+    font-family: var(--font-jalnan-gothic);
+}
+.center {
+    position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
+    left: calc(50% - 690px);
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+}
+.center2 {
+    position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
+    left: 50%;
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+}
