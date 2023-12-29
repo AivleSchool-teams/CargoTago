@@ -14,12 +14,16 @@ body {
   /* font sizes */
   --font-size-xl: 20px;
   --font-size-mini: 15px;
+  --font-size-mid: 17px;
   --font-size-21xl: 40px;
   --font-size-9xl: 28px;
   --font-size-17xl: 36px;
   --font-size-61xl: 80px;
   --font-size-36xl: 55px;
   --font-size-xs: 12px;
+  --font-size-smi: 13px;
+  --font-size-lg: 18px;
+  --font-size-lgi: 19px;
   --font-size-5xl: 24px;
   --font-size-3xl: 22px;
 
@@ -27,9 +31,13 @@ body {
   --color-white: #fff;
   --color-black: #000;
   --color-gainsboro: #d9d9d9;
+  --color-darkgray: #999;
+  --color-dimgray-100: #555;
+  --color-dimgray-200: #525252;
   --color-lightgray: #d0d0d0;
   --color-cornflowerblue: #668cd7;
   --color-darkslateblue: #00498c;
+  --color-midnightblue: #0a2174;
   --color-gray: rgba(0, 0, 0, 0.42);
   --color-lightsteelblue: rgba(181, 215, 255, 0.5);
   --color-steelblue-100: rgba(107, 147, 183, 0.69);
@@ -48,4 +56,5 @@ body {
   --br-xl: 20px;
   --br-3xs: 10px;
   --br-mini: 15px;
+  --br-11xs: 2px;
 }

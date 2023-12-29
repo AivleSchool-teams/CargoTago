@@ -13,11 +13,14 @@ import Findidpw from "./pages/Findidpw";
 import JoinShipper1 from "./pages/Join-Shipper1";
 import JoinShipper2 from "./pages/Join-Shipper2";
 import JoinShipper3 from "./pages/Join-Shipper3";
-import JoinShipper4 from "./pages/Join-Shipper4";
+import ShipperList from "./pages/Shipper-List";
+import ShipperDetail from "./pages/Shipper-Detail";
+import ShipperMain from "./pages/Shipper-Main";
 
 import JoinCarrier1 from "./pages/Join_Carrier1";
 import JoinCarrier2 from "./pages/Join_Carrier2";
 import JoinCarrier3 from "./pages/Join-Carrier3";
+import CarrierMain from "./pages/Carrier-Main";
 import Consent1 from "./pages/Consent1";
 import Consent2 from "./pages/Consent2";
 import Consent3 from "./pages/Consent3";
@@ -78,11 +81,14 @@ function App() {
             <Route path="/Shipper/1" element={<JoinShipper1 />} />
             <Route path="/Shipper/2" element={<JoinShipper2 />} />
             <Route path="/Shipper/3" element={<JoinShipper3 />} />
+            <Route path="/Shipper/List" element={<ShipperList />} />
+            <Route path="/Shipper/Detail" element={<ShipperDetail />} />
+            <Route path="/Shipper/Main" element={<ShipperMain />} />
 
             <Route path="/Carrier/1" element={<JoinCarrier1 />} />
             <Route path="/Carrier/2" element={<JoinCarrier2 />} />
             <Route path="/Carrier/3" element={<JoinCarrier3 />} />
-
+            <Route path="/Carrier/Main" element={<CarrierMain />} />
 
             <Route path="/Consent/1" element={<Consent1 />} />
             <Route path="/Consent/2" element={<Consent2 />} />

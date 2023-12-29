@@ -67,7 +67,7 @@ const Login = () => {
             <div className={styles.lineDiv} />
             <div className={styles.div4} onClick={onJoinmainClick}>
                 <span>{`계정이 없으신가요? `}</span>
-                <span className={styles.span}>가입하기</span>
+                <span className={styles.span} >가입하기</span>
             </div>
 
         </div>
