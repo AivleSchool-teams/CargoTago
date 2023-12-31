@@ -25,7 +25,7 @@ public class CarrierInfo {
     @Column(nullable = false, length = 20)
     private String phone;
 
-    @Column(nullable = false, length = 16)
+    @Column(nullable = false, length = 60)
     private String password;
 
     @Column(length = 10) // 희망지역 포함
