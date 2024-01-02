@@ -4,6 +4,7 @@ import styles from "./Login.module.css";
 import axios from "axios";
 
 const Login = () => {
+
     const navigate = useNavigate();
 
     const [inputEmail, setInputEmail] = useState("");
@@ -46,15 +47,20 @@ const Login = () => {
                     localStorage.setItem('jwt-token', res.data.token)
                     const token = localStorage.getItem('jwt-token')
                     axios
-                        .get('http://localhost:8080/user/mypage', {
+                        .get('http://localhost:8080/user/mainpage', {
                             headers: {
                                 Authorization: `Bearer ${token}`
                             }
                         })
                         .then(response => {
                             window.alert('로그인 성공!')
-                            console.log(response.data); //test용입니다~
-                            navigate("/Carrier/main");
+
+                            if (res.data.typed === "Carrier") {
+                                navigate("/Carrier/main");
+                            } else if (res.data.typed === "Shipper") {
+                                navigate("/Shipper/main");
+                            }
+
                         })
                         .catch(error => {
                             console.error("There was an error!", error);

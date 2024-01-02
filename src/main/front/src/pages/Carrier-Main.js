@@ -4,7 +4,18 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Carrier-Main.module.css";
 
 const CarrierMain = () => {
+    
+    
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const token = localStorage.getItem('jwt-token');
+        if (!token) {
+            navigate('/Login'); // 토큰이 없으면 로그인 페이지로 리디렉션 go
+        }
+    }, [navigate]);
+    
+    
 
     const onLogoClick = useCallback(() => {
         navigate('/Carrier/Main'); // 로고 클릭 시 '/' 경로로 이동합니다.

@@ -355,6 +355,7 @@
 
     left: 50%;
     transform: translateX(155%);
+    cursor: pointer;
 }
 .div15 {
     position: absolute;

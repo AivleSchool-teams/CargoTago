@@ -32,7 +32,7 @@ const JoinCarrier3 = () => {
         console.log("Account : ", inputAccount);
 
         axios
-            .post('http://localhost:8080/auth/signup', {
+            .post('http://localhost:8080/auth/signup/carrier', {
                 name: inputName,
                 phone: inputPhone,
                 email: inputEmail,
@@ -42,6 +42,7 @@ const JoinCarrier3 = () => {
             })
             .then(response => {
                 console.log(response.data);
+                console.log(response.data.name);
                 window.alert("사용자 등록이 성공적으로 완료되었습니다");
                 navigate("/Login");
                 {/*
@@ -95,24 +96,29 @@ const JoinCarrier3 = () => {
             <b className={styles.b3}></b>
             <div>
                 <input type="text" className={styles.rectangleDiv}
+                       tabIndex={2}
                        placeholder="대표자명 *" />
             </div>
             <div>
                 <input type="text" className={styles.child2}
+                       tabIndex={3}
                        placeholder="사업자 번호 *"/>
             </div>
             <div>
                 <input type="text" className={styles.child3}
+                       tabIndex={1}
                        placeholder="상호명 *"/>
             </div>
             <div>
                 <input type="text" className={styles.child4}
+                       tabIndex={4}
                        placeholder="사업장 주소 *"/>
             </div>
 
             <div>
                 <input type="text" className={styles.child5}
                        placeholder="계좌 등록 *"
+                       tabIndex={6}
                        value={inputAccount}
                        onChange={handleInputAccount}
                 />
@@ -125,6 +131,7 @@ const JoinCarrier3 = () => {
             </div>
             <div>
                 <input type="text" className={styles.child6}
+                       tabIndex={5}
                        placeholder="사업자 등록증 *"/>
             </div>
 
