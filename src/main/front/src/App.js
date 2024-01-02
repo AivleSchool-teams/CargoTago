@@ -27,7 +27,9 @@ import Consent3 from "./pages/Consent3";
 import Consent4 from "./pages/Consent4";
 import Consent5 from "./pages/Consent5";
 
+
 import TestRegister from "./pages/TestRegister";
+import CargoRegi from "./pages/CargoRegi";
 function App() {
     const action = useNavigationType();
     const location = useLocation();
@@ -97,6 +99,9 @@ function App() {
             <Route path="/Consent/5" element={<Consent5 />} />
 
             <Route path="/test-register" element={<TestRegister />} />
+            <Route path="/CargoRegi" element={<CargoRegi />} />
+
+
         </Routes>
     );
 }
