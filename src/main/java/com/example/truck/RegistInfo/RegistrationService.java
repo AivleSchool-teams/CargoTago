@@ -26,21 +26,22 @@ public class RegistrationService {
             RegistInfo newRegist = new RegistInfo();
             newRegist.setId(registInfoDTO.getId());
             newRegist.setUsername(registInfoDTO.getUsername());
-            newRegist.setSelected(registInfoDTO.getSelected());
+//            newRegist.setSelected(registInfoDTO.getSelected());
             newRegist.setSelected2(registInfoDTO.getSelected2());
             newRegist.setArrivalDateTime(registInfoDTO.getArrivalDateTime());
             newRegist.setDepartureDateTime(registInfoDTO.getDepartureDateTime());
             newRegist.setTonnage(registInfoDTO.getTonnage());
             newRegist.setSelectedBox(registInfoDTO.getSelectedBox());
             newRegist.setSelectedBoxNew(registInfoDTO.getSelectedBoxNew());
-            newRegist.setChecked1(registInfoDTO.isChecked1());
-            newRegist.setChecked2(registInfoDTO.isChecked2());
-            newRegist.setChecked3(registInfoDTO.isChecked3());
+            newRegist.setIsChecked1(registInfoDTO.getIsChecked1());
+            newRegist.setIsChecked2(registInfoDTO.getIsChecked2());
+            newRegist.setIsChecked3(registInfoDTO.getIsChecked3());
             newRegist.setText(registInfoDTO.getText());
             newRegist.setWeight(registInfoDTO.getWeight());
             newRegist.setSelectedSize(registInfoDTO.getSelectedSize());
             newRegist.setTextAreaValue(registInfoDTO.getTextAreaValue());
             newRegist.setSelectedValue(registInfoDTO.getSelectedValue());
+            newRegist.setSelectedButton(registInfoDTO.getSelectedButton());
 
 //            private boolean isChecked1; // 무진동 여부 T/F
 //            private boolean isChecked2; // 냉동 여부 T/F

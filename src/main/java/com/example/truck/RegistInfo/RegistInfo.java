@@ -16,8 +16,8 @@ public class RegistInfo {
     @Column(nullable = false, length = 40)
     private String username; //userid와 비교용?
 
-    @Column(nullable = false , length = 20)
-    private String selected; //독차 혼적
+//    @Column(nullable = false , length = 20)
+//    private String selected; //독차 혼적
 
     @Column(nullable = false, length = 20)
     private String selected2;  //편도 왕복
@@ -35,13 +35,13 @@ public class RegistInfo {
     private String selectedBox; // 카고 윙바디
 
     @Column(nullable = false, length = 20)
-    private boolean isChecked1; // 무진동 여부 T/F
+    private Boolean isChecked1; // 무진동 여부 T/F
 
     @Column(nullable = false, length = 20)
-    private boolean isChecked2; // 냉동 여부 T/F
+    private Boolean isChecked2; // 냉동 여부 T/F
 
     @Column(nullable = false, length = 20)
-    private boolean isChecked3;// 냉장 여부 T/F
+    private Boolean isChecked3;// 냉장 여부 T/F
 
     @Column(nullable = false, length = 100)
     private String text; // 요청사항 텍스트 에어리어
@@ -61,6 +61,9 @@ public class RegistInfo {
 
     @Column(nullable = false, length = 100)
     private String selectedValue; // 수량? -> 일단 만들어두래서 만듬
+
+    @Column(nullable = false, length = 20)
+    private String selectedButton;
 
 
 }
