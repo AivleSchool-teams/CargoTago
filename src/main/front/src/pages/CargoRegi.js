@@ -4,6 +4,14 @@ import axios from 'axios';
 
 const CargoRegi = () => {
 
+    const [selectedButton, setSelectedButton] = useState(null);
+
+    const handleSelect = (button) => {
+        setSelectedButton(button);
+    }
+
+    const buttons = ['본인이 직접 옮김', '상하차만 도움', '상하차 및 운반도움'];
+
     const [weight, setWeight] = useState(45);
     const [textAreaValue, setTextAreaValue] = useState('');
 
@@ -25,6 +33,11 @@ const CargoRegi = () => {
     const handleClickNew = (boxName) => {
         setSelectedBoxNew(boxName);
     };
+
+
+
+
+
 
     const [tonnage, setTonnage] = useState('');
 
@@ -59,7 +72,8 @@ const CargoRegi = () => {
     const handleOptionChange = (event) => {
         setSelectedOption(event.target.value);
     }
-    const [selected, setSelected] = useState('독차');
+    // const [selected, setSelected] = useState('독차');
+
     const [selected2, setSelected2] = useState('편도');
 
 
@@ -109,14 +123,15 @@ const CargoRegi = () => {
     function handleSizeChange(event) {
         setSelectedSize(event.target.value);
     }
-    const id = 1; // 임의의 id
-    const username = "songhyunsung"; // 임의의 username
+    const id = 100; // 임의의 id
+    const username = "song"; // 임의의 username
     //=========================================================
     const handleSubmit = async (event) => {
         event.preventDefault();
+        console.log(selectedButton)
         console.log(id);
         console.log(username);
-        console.log(selected);
+        // console.log(selected);
         console.log(selected2);
         console.log(arrivalDateTime);
         console.log(departureDateTime);
@@ -134,7 +149,7 @@ const CargoRegi = () => {
         axios.post('http://localhost:8080/api/actual-endpoint',{
             id : id,
             username : username,
-            selected : selected,
+            // selected : selected,
             selected2 : selected2,
             arrivalDateTime : arrivalDateTime,
             departureDateTime : departureDateTime,
@@ -148,7 +163,8 @@ const CargoRegi = () => {
             selectedBoxNew : selectedBoxNew,
             weight : weight,
             textAreaValue : textAreaValue,
-            selectedValue : selectedValue
+            selectedValue : selectedValue,
+            selectedButton : selectedButton
 
         })
             .catch(error => {
@@ -208,7 +224,6 @@ const CargoRegi = () => {
 
                     <select className={styles.child2} value={tonnage} onChange={e => setTonnage(e.target.value)}>
                         <option value="">선택하세요</option>
-
                         <option value="1톤">1톤</option>
                         <option value="1.4톤">1.4톤</option>
                         <option value="2.5톤">2.5톤</option>
@@ -221,11 +236,11 @@ const CargoRegi = () => {
 
                     <div className={styles.child5}/>
                     <div className={styles.div16}>
-                        <span>{`요청 차량 `}</span>
+                        <span className ={styles.span1} >{`요청 차량 `}</span>
                         <span className={styles.span}>*</span>
                     </div>
                     <div className={styles.div17}>
-                        <span>{`차량 옵션 `}</span>
+                        <span className={styles.span1}>{`차량 옵션 `}</span>
                         <span className={styles.span}>*</span>
                     </div>
 
@@ -301,8 +316,21 @@ const CargoRegi = () => {
                             onChange={handleCheckboxChange3}
                         />
                         <div className={styles.div25}>냉장</div>
-                    </div>
 
+
+                        <div>
+                            {buttons.map((button, index) => (
+                                <button
+                                    key={index}
+                                    className={`${styles.customButton} ${selectedButton === button ? styles.selected : ''}`}
+                                    onClick={() => handleSelect(button)}
+                                >
+                                    {button}
+                                </button>
+                            ))}
+                        </div>
+
+                    </div>
 
                     <div className={styles.wingbody2}/>
 
@@ -341,7 +369,7 @@ const CargoRegi = () => {
                     <div className={styles.child4}/>
                     <div className={styles.child5}/>
                     <div className={styles.div16}>
-                        <span>{`화물 정보 `}</span>
+                        <span className={styles.span1}>{`화물 정보 `}</span>
                         <span className={styles.span}>*</span>
                     </div>
 
@@ -349,7 +377,7 @@ const CargoRegi = () => {
                         className={styles.child15}
                         onChange={handleSelectChange}
                     >
-                        <option value="">수량 * </option>
+                        <option value="">수량 *</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -484,29 +512,29 @@ const CargoRegi = () => {
 
 
                 </div>
-                <div className={styles.div51}>혼적 여부</div>
-                <div
-                    className={styles.div52}
-                    onClick={() => setSelected('독차')}
-                >
-                    <span className={selected === '독차' ? styles.selectedText : styles.text}>독차</span>
-                    <div className={selected === '독차' ? styles.c27 : styles.c28}/>
-                    {selected === '독차' && <div className={styles.c29}/>}
-                </div>
-                <div
-                    className={styles.div53}
-                    onClick={() => setSelected('혼적')}
-                >
-                    <span className={selected === '혼적' ? styles.selectedText : styles.text}>혼적</span>
-                    <div className={selected === '혼적' ? styles.c27 : styles.c28}/>
-                    {selected === '혼적' && <div className={styles.c29}/>}
-                </div>
+                {/*<div className={styles.div51}>혼적 여부</div>*/}
+                {/*<div*/}
+                {/*    className={styles.div52}*/}
+                {/*    onClick={() => setSelected('독차')}*/}
+                {/*>*/}
+                {/*    <span className={selected === '독차' ? styles.selectedText : styles.text}>독차</span>*/}
+                {/*    <div className={selected === '독차' ? styles.c27 : styles.c28}/>*/}
+                {/*    {selected === '독차' && <div className={styles.c29}/>}*/}
+                {/*</div>*/}
+                {/*<div*/}
+                {/*    className={styles.div53}*/}
+                {/*    onClick={() => setSelected('혼적')}*/}
+                {/*>*/}
+                {/*    <span className={selected === '혼적' ? styles.selectedText : styles.text}>혼적</span>*/}
+                {/*    <div className={selected === '혼적' ? styles.c27 : styles.c28}/>*/}
+                {/*    {selected === '혼적' && <div className={styles.c29}/>}*/}
+                {/*</div>*/}
 
                 <div className={styles.child30}/>
             </div>
             <div className={styles.child31}/>
             <img className={styles.arrowIcon} alt="" src="/images/arrow-3@2x.png"/>
-            <div className={styles.child32}  onClick={handleSubmit}/>
+            <div className={styles.child32} onClick={handleSubmit}/>
             <div className={styles.div54} onClick={handleSubmit}>등록</div>
 
             <img className={styles.moa11} alt="" src="/images/1-1@2x.png"/>
@@ -515,7 +543,6 @@ const CargoRegi = () => {
             <div className={styles.container}>
 
             </div>
-
 
         </div>
 

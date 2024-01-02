@@ -4,10 +4,12 @@
     top: 0;
     left: 0;
 }
+
 .text_1 {
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-lg);
     font-family: var(--font-sb-aggro);
     color : lightgray;
+
 }
 .d52, .d53 {
     position: relative;
@@ -20,6 +22,38 @@
     justify-content: space-between;
     padding: 10px;
 }
+
+.customButton {
+    z-index: 1;
+    border-radius: var(--br-3xs);
+    background-color: var(--color-white);
+    border: 3px solid var(--color-darkslateblue);
+    font-size: var(--font-size-xs);
+    color: var(--color-black);
+    font-family: var(--font-sb-aggro);
+    box-sizing : border-box;
+    width: 120px;
+    height: 30px;
+    margin-top: 320px;
+    margin-left: 9px;
+    padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+.customButton:hover {
+    background-color: var(--color-darkslateblue);
+    color: white;
+}
+
+.selected {
+    color: white;
+    font-family: var(--font-sb-aggro);
+}
+
+
+
+
 .div12_1{
     position: absolute;
     top :-30px;
@@ -151,6 +185,13 @@
 }
 .span {
     color: var(--color-darkslateblue);
+    font-family: var(--font-jalnan-gothic-ttf);
+}
+
+.span1 {
+    font-weight: 900;
+    color: var(--color-darkgray);
+    font-family: var(--font-jalnan-gothic-ttf);
 }
 .div5 {
     position: absolute;
@@ -297,6 +338,7 @@
 .child2,
 .child3 {
     position: absolute;
+    z-index: 1;
     top: 283px;
     left: 310px;
     border-radius: var(--br-10xs);
@@ -388,6 +430,7 @@
 .div17,
 .div18,
 .div19 {
+
     top: 256px;
     left: 30px;
     width: 140px;
@@ -1123,4 +1166,6 @@
     color: var(--color-black);
     font-family: var(--font-jalnan-gothic-ttf);
 }
+
+
 
