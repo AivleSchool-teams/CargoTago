@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @Data
 @Getter
-public class UserResponseDTO {
+public class CarrierResponseDTO {
     private String token;
     private String name;
     private String phone;

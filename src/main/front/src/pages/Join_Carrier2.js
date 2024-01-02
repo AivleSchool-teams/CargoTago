@@ -59,6 +59,7 @@ const JoinCarrier2 = () => {
             <div>
                 <input type="text" className={styles.child}
                        placeholder="전화번호 *"
+                       tabIndex={2}
                        value={inputPhone}
                        onChange={handleInputPhone}
                 />
@@ -67,6 +68,7 @@ const JoinCarrier2 = () => {
             <div>
                 <input type="text" className={styles.item}
                        placeholder="이메일 *"
+                       tabIndex={3}
                        value={inputEmail}
                        onChange={handleInputEmail}
                 />
@@ -75,6 +77,7 @@ const JoinCarrier2 = () => {
             <div>
                 <input type="text" className={styles.inner}
                        placeholder="이름(실명) *"
+                       tabIndex={1}
                        value={inputName}
                        onChange={handleInputName}
                 />
@@ -84,6 +87,7 @@ const JoinCarrier2 = () => {
                 <input type="text" className={styles.child1}
                        placeholder="화물운송 자격증 *"
                        value={inputTransportLicense}
+                       tabIndex={6}
                        onChange={handleInputTransportLicense}
                 />
             </div>
@@ -92,6 +96,7 @@ const JoinCarrier2 = () => {
                 <input type="password" className={styles.rectangleDiv}
                        placeholder="비밀번호 *"
                        value={inputPw}
+                       tabIndex={4}
                        onChange={handleInputPw}
                 />
 
@@ -108,6 +113,7 @@ const JoinCarrier2 = () => {
             </div>
             <div>
                 <input type="password" className={styles.child2}
+                       tabIndex={5}
                        placeholder="비밀번호 확인 *"/>
             </div>
             <div className={styles.div11}>비밀번호가 다릅니다.</div>

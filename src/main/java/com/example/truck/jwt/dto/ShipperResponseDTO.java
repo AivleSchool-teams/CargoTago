@@ -1,18 +1,18 @@
 package com.example.truck.jwt.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class UserDTO {
+@Getter
+public class ShipperResponseDTO {
     private String token;
+    private String name;
+    private String phone;
     private String email;
     private String pw;
-    private String typed;
-
+    private String cname;
+    private String account;
 }

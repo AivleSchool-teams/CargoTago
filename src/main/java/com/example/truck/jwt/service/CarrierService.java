@@ -1,6 +1,6 @@
 package com.example.truck.jwt.service;
 
-import com.example.truck.jwt.dto.UserResponseDTO;
+import com.example.truck.jwt.dto.CarrierResponseDTO;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
@@ -13,26 +13,26 @@ import java.util.Optional;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class UserService {
+public class CarrierService {
 
 
     private final CarrierInfoRepository carrierInfoRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public void findByEmailCheck(final UserResponseDTO userResponseDTO) {
-        Optional<CarrierInfo> vars1 = carrierInfoRepository.findByEmail(userResponseDTO.getEmail());
+    public void findByEmailCheck(final CarrierResponseDTO carrierResponseDTO) {
+        Optional<CarrierInfo> vars1 = carrierInfoRepository.findByEmail(carrierResponseDTO.getEmail());
         if (vars1.isPresent()) {
-            log.warn("Email already exists {}", userResponseDTO.getEmail());
+            log.warn("Email already exists {}", carrierResponseDTO.getEmail());
             throw new RuntimeException("Email already exists");
         } else {
 
             CarrierInfo newCarrier = new CarrierInfo();
-            newCarrier.setName(userResponseDTO.getName());
-            newCarrier.setPhone(userResponseDTO.getPhone());
-            newCarrier.setEmail(userResponseDTO.getEmail());
-            newCarrier.setPassword(passwordEncoder.encode(userResponseDTO.getPw()));
-            newCarrier.setTransportLicense(userResponseDTO.getTransportlicense());
-            newCarrier.setAccount(userResponseDTO.getAccount());
+            newCarrier.setName(carrierResponseDTO.getName());
+            newCarrier.setPhone(carrierResponseDTO.getPhone());
+            newCarrier.setEmail(carrierResponseDTO.getEmail());
+            newCarrier.setPassword(passwordEncoder.encode(carrierResponseDTO.getPw()));
+            newCarrier.setTransportLicense(carrierResponseDTO.getTransportlicense());
+            newCarrier.setAccount(carrierResponseDTO.getAccount());
             carrierInfoRepository.save(newCarrier);
         }
     }

@@ -1,6 +1,7 @@
 import {useCallback, useState} from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./Join-Shipper3.module.css";
+import axios from "axios";
 
 
 const JoinShipper3 = () => {
@@ -13,35 +14,59 @@ const JoinShipper3 = () => {
 
 
     const location = useLocation();
-    const { inputId, inputPw } = location.state;
+    const { inputName, inputPhone, inputEmail, inputPw } = location.state;
 
 
     const [inputCname, setInputCname] = useState("");
-    const [inputHname, setInputHname] = useState("");
-    const [inputHnumber, setInputHnumber] = useState("");
+    const [inputAccount, setInputAccount] = useState("");
+
 
     const onBackClickLogin = useCallback(() => {
-        navigate("/Login", { state: { inputId, inputPw, inputCname, inputHname, inputHnumber } });
+        navigate("/Login", { state: { inputName, inputPhone, inputEmail, inputPw, inputCname, inputAccount } });
         console.log("click login");
-        console.log("Id : ", inputId);
-        console.log("PW : ", inputPw);
-        console.log("Cname : ", inputCname);
-        console.log("Hname : ", inputHname);
-        console.log("Hnumber : ", inputHnumber);
-    }, [navigate, inputId, inputPw, inputCname, inputHname, inputHnumber]);
+        console.log("Name : ", inputName);
+        console.log("Phone : ", inputPhone);
+        console.log("Email : ", inputEmail);
+        console.log("Pw : ", inputPw);
+        console.log("Cname: ", inputCname);
+        console.log("Account : ", inputAccount);
+
+        axios
+            .post('http://localhost:8080/auth/signup/shipper', {
+                name: inputName,
+                phone: inputPhone,
+                email: inputEmail,
+                pw: inputPw,
+                cname: inputCname,
+                account: inputAccount,
+            })
+            .then(response => {
+                console.log(response.data);
+                window.alert("사용자 등록이 성공적으로 완료되었습니다");
+                navigate("/Login");
+                {/*
+                // 서버로부터의 응답에 따라 다른 메시지 설정
+                if (response.data === 1) {
+                    window.alert("사용자 등록이 성공적으로 완료되었습니다");
+                    navigate("/Login");
+                } else if (response.data === 0) {
+                    window.alert("사용자 ID가 이미 존재합니다");
+                }
+                */}
+            })
+            .catch(error => {
+                console.error("There was an error!", error);
+                window.alert("등록 중 에러가 발생했습니다");
+            });
+    });
+
     const handleInputCname = (e) => {
         setInputCname(e.target.value);
     };
 
-    const handleInputHname = (e) => {
-        setInputHname(e.target.value);
+    const handleInputAccount = (e) => {
+        setInputAccount(e.target.value);
     };
-
-    const handleInputHnumber = (e) => {
-        setInputHnumber(e.target.value);
-    };
-
-
 
     return (
         <div className={styles.div}>
@@ -80,39 +105,47 @@ const JoinShipper3 = () => {
             <div>
                 <input type="text" className={styles.rectangleDiv}
                        placeholder="대표자명 *"
-                       value={inputHname}
-                       onChange={handleInputHname}
+                       tabIndex={2}
                 />
 
             </div>
             <div>
                 <input type="text" className={styles.child4}
                        placeholder="사업자 등록 번호 *"
-                       value={inputHnumber}
-                       onChange={handleInputHnumber}
+                       tabIndex={3}
                 />
             </div>
             <div>
                 <input type="text" className={styles.child5}
                        placeholder="상호명 *"
                        value={inputCname}
-                       onChange={handleInputCname}/>
+                       onChange={handleInputCname}
+                       tabIndex={1}
+                />
+
             </div>
             <div>
                 <input type="text" className={styles.child6}
-                       placeholder="사업장 주소 *"/>
+                       placeholder="사업장 주소 *"
+                       tabIndex={4}
+                />
             </div>
             <div className={styles.child7}/>
 
 
             <div>
                 <input type="text" className={styles.child8}
-                       placeholder="계좌 등록 *"/>
+                       tabIndex={6}
+                       placeholder="계좌 등록 *"
+                       value={inputAccount}
+                       onChange={handleInputAccount}
+                />
             </div>
 
             <div className={styles.div12} onClick={onBackClickLogin}>등록</div>
             <div>
                 <input type="text" className={styles.child9}
+                       tabIndex={5}
                        placeholder="사업자 등록증 *"/>
             </div>
 
