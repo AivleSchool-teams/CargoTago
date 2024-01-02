@@ -19,6 +19,7 @@ public class CorsConfig {
 
         source.registerCorsConfiguration("/auth/**", config);
         source.registerCorsConfiguration("/user/**", config);
+        source.registerCorsConfiguration("/api/**", config);
         return new CorsFilter(source);
     }
 }

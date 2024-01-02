@@ -1,10 +1,7 @@
 import './App.css';
-import {
-    Routes,
-    Route,
-    useNavigationType,
-    useLocation
-} from 'react-router-dom';
+import { Routes, Route, useNavigationType, useLocation } from 'react-router-dom';
+
+import { useEffect } from "react";
 
 import {useEffect} from "react";
 
@@ -29,10 +26,13 @@ import Consent3 from "./pages/Consent3";
 import Consent4 from "./pages/Consent4";
 import Consent5 from "./pages/Consent5";
 
+
 import TestRegister from "./pages/TestRegister";
+import CargoRegi from "./pages/CargoRegi";
 import PostList from "./pages/post/PostList"; // 게시판
 import PostView from "./pages/post/PostView"; // 게시판
 import PostCreate from "./pages/post/PostCreate"; // 게시판
+
 
 function App() {
     const action = useNavigationType();
@@ -100,6 +100,9 @@ function App() {
 
 
             <Route path="/test-register" element={<TestRegister />} />
+            <Route path="/CargoRegi" element={<CargoRegi />} />
+
+
         </Routes>
     );
 }
