@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.truck.jwt.service.UserService;
+import com.example.truck.jwt.service.CarrierService;
 
 
 @RestController
@@ -15,9 +15,9 @@ import com.example.truck.jwt.service.UserService;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private CarrierService carrierService;
 
-    @GetMapping("/mypage")
+    @GetMapping("/mainpage")
     public String getUserDetails() {
         // SecurityContext에서 인증 정보를 가져옵니다.
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

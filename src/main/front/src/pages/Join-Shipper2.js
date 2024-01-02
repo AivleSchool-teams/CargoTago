@@ -9,14 +9,32 @@ const JoinShipper2 = () => {
         navigate("/Shipper/1");
     }, [navigate]);
 
-    const onGroupContainerClick = useCallback(() => {
-        navigate("/Shipper/3");
-    }, [navigate]);
-
-
-    const [inputId, setInputId] = useState("");
+    const [inputName, setInputName] = useState("");
+    const [inputPhone, setInputPhone] = useState("");
+    const [inputEmail, setInputEmail] = useState("");
     const [inputPw, setInputPw] = useState("");
 
+    const handleInputName = (e) => {
+        setInputName(e.target.value);
+    };
+    const handleInputPhone = (e) => {
+        setInputPhone(e.target.value);
+    };
+    const handleInputEmail = (e) => {
+        setInputEmail(e.target.value);
+    };
+    const handleInputPw = (e) => {
+        setInputPw(e.target.value);
+    };
+
+    const onGroupContainerClick = useCallback(() => {
+        navigate("/Shipper/3", { state: { inputName, inputPhone, inputEmail, inputPw} });
+        console.log("click Page2 to Page3");
+        console.log("Name : ", inputName);
+        console.log("Phone : ", inputPhone);
+        console.log("Email : ", inputEmail);
+        console.log("Pw : ", inputPw);
+    }, [navigate, inputName, inputPhone, inputEmail, inputPw]);
 
     return (
         <div className={styles.div}>
@@ -51,18 +69,30 @@ const JoinShipper2 = () => {
             </div>
             <div>
                 <input type="text" className={styles.rectangleDiv}
+                       tabIndex={2}
+                       value={inputPhone}
+                       onChange={handleInputPhone}
                        placeholder="전화번호 *"/>
             </div>
             <div>
                 <input type="text" className={styles.child2}
+                       tabIndex={3}
+                       value={inputEmail}
+                       onChange={handleInputEmail}
                        placeholder="이메일 *"/>
             </div>
             <div>
                 <input type="text" className={styles.child3}
+                       tabIndex={1}
+                       value={inputName}
+                       onChange={handleInputName}
                        placeholder="이름(실명) *"/>
             </div>
             <div>
                 <input type="password" className={styles.child4}
+                       tabIndex={4}
+                       value={inputPw}
+                       onChange={handleInputPw}
                        placeholder="비밀번호 *"/>
             </div>
 
@@ -75,6 +105,7 @@ const JoinShipper2 = () => {
             </div>
             <div>
                 <input type="password" className={styles.child5}
+                       tabIndex={5}
                        placeholder="비밀번호 확인 *"/>
             </div>
             <div className={styles.div13}>비밀번호가 다릅니다.</div>
