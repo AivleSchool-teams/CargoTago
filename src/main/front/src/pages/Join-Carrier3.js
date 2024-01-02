@@ -32,7 +32,7 @@ const JoinCarrier3 = () => {
         console.log("Account : ", inputAccount);
 
         axios
-            .post('http://localhost:8080/api/register/carrier', {
+            .post('http://localhost:8080/auth/signup', {
                 name: inputName,
                 phone: inputPhone,
                 email: inputEmail,
@@ -41,6 +41,10 @@ const JoinCarrier3 = () => {
                 account: inputAccount,
             })
             .then(response => {
+                console.log(response.data);
+                window.alert("사용자 등록이 성공적으로 완료되었습니다");
+                navigate("/Login");
+                {/*
                 // 서버로부터의 응답에 따라 다른 메시지 설정
                 if (response.data === 1) {
                     window.alert("사용자 등록이 성공적으로 완료되었습니다");
@@ -48,6 +52,7 @@ const JoinCarrier3 = () => {
                 } else if (response.data === 0) {
                     window.alert("사용자 ID가 이미 존재합니다");
                 }
+                */}
             })
             .catch(error => {
                 console.error("There was an error!", error);
