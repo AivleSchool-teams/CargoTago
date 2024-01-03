@@ -41,6 +41,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizeHttpRequests -> authorizeHttpRequests
                         .requestMatchers("/auth/**").permitAll()
                         .requestMatchers("/api/**").permitAll()
+                        .requestMatchers("/post/**").permitAll()
+                        .requestMatchers("/user/**").permitAll() // username 받아오는 부분
                         .requestMatchers(PathRequest.toH2Console()).permitAll()
                         .anyRequest().authenticated()
                 )

@@ -3,8 +3,6 @@ import { Routes, Route, useNavigationType, useLocation } from 'react-router-dom'
 
 import { useEffect } from "react";
 
-import {useEffect} from "react";
-
 import Main from "./pages/Main";
 import Login from "./pages/Login";
 import Joinmain from "./pages/Joinmain";
@@ -94,9 +92,9 @@ function App() {
             <Route path="/Consent/4" element={<Consent4 />} />
             <Route path="/Consent/5" element={<Consent5 />} />
 
-            <Route path='/postView/:no' element={<PostView />} />
+            <Route path='/post/view/:id' element={<PostView />} />
             <Route path='/Post' element={<PostList />} />
-            <Route path='/PostCreate' element={<PostCreate />} />
+            <Route path='/Post/Create' element={<PostCreate />} />
 
 
             <Route path="/test-register" element={<TestRegister />} />

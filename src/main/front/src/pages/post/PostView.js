@@ -1,58 +1,154 @@
-import React, { useEffect, useState } from 'react';
-import { getPostByid } from './Data';
-import './Post.css';
+import React, {useCallback, useEffect, useState} from 'react';
+import {Link, useNavigate, useParams} from 'react-router-dom';
+import moment from 'moment';
+import axios from 'axios';
 
-const PostView = ({ history, location, match }) => {
-    const [ Posts, setPosts ] = useState({});
+import styles from './Post.module.css';
 
-    const { id } = match.params;
+const PostView = () => {
+    const navigate = useNavigate();
+    const { id } = useParams();
+    const [currentPosts, setCurrentPosts] = useState([]);
+    const [fileList, setFileList] = useState([]);
+    const [isWriter, setIsWriter] = useState(false);
+
+    const onLogoClick = useCallback(() => {
+        navigate('/'); // 로고 클릭 시 '/' 경로로 이동합니다.
+    }, [navigate]);
+
+    const onLoginClick = useCallback(() => {
+        navigate('/Login'); // 로그인 클릭 시 '/Login' 경로로 이동합니다 --> 주소 수정 요망
+    }, [navigate]);
+
+    const fetchPost = async () => {
+        const token = localStorage.getItem('jwt-token');
+        if (!token) {
+            navigate('/Login');
+            return;
+        }
+
+        const config = {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        };
+
+        let res = await axios.get(`/Post/view/${id}`, config);
+
+        if (!res.data || res.data.length === 0) {
+            alert('조회된 결과가 없습니다');
+        } else {
+            setCurrentPosts(res.data.result);
+            setFileList(res.data.result.fileList);
+
+            const loggedInUser = /* 로그인한 사용자 아이디를 가져옵니다. */
+                setIsWriter(loggedInUser === res.data.result.createdBy);
+        }
+    };
 
     useEffect(() => {
-        setPosts(getPostByid(id));
-    }, [id]);
+        fetchPost();
+    }, [navigate]);
+
+
+    const onClickDeleteNotice = () => {
+        if (window.confirm('삭제 하시겠습니까?')) {
+            const token = localStorage.getItem('jwt-token');
+            const config = {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            };
+            axios.delete(`/Post/delete/${id}`, config).then((res) => {
+                if (res.data && res.data.ok === 1) {
+                    alert('삭제 완료');
+                    navigate('/post');
+                }
+            });
+        }
+    }
 
     return (
-        <>
-            <h2 align="center">게시글 상세정보</h2>
+        <div>
+            <div className={styles.child}>
+                <img
+                    className={styles.logoimg}
+                    alt=""
+                    src="/images/logo.png"
+                    onClick={onLogoClick} // 이미지에 onClick 이벤트 핸들러를 추가합니다.
+                />
 
-            <div className="post-view-wrapper">
-                {
-                    Posts ? (
-                        <>
-                            <div className="post-view-row">
-                                <label>게시글 번호</label>
-                                <label>{ Posts.id }</label>
-                            </div>
-                            <div className="post-view-row">
-                                <label>제목</label>
-                                <label>{ Posts.title }</label>
-                            </div>
-                            <div className="post-view-row">
-                                <label>작성자</label>
-                                <label>{ Posts.createdBy }</label>
-                            </div>
-                            <div className="post-view-row">
-                                <label>작성일</label>
-                                <label>{ Posts.createdAt }</label>
-                            </div>
-                            <div className="post-view-row">
-                                <label>조회수</label>
-                                <label>{ Posts.readCount }</label>
-                            </div>
-                            <div className="post-view-row">
-                                <label>내용</label>
-                                <div>
-                                    {
-                                        Posts.content
-                                    }
-                                </div>
-                            </div>
-                        </>
-                    ) : '해당 게시글을 찾을 수 없습니다.'
-                }
-                <button className="post-view-go-list-btn" onClick={() => history.goBack()}>목록으로 돌아가기</button>
+                <button className={styles.button} onClick={onLoginClick}>
+                    <img className={styles.child6} alt="" src="/images/rectangle-10@2x.png" />
+                    <div className={styles.div7}>로그인</div>
+                </button>
             </div>
-        </>
+            <div className={styles.white}/>
+            <div className={styles.main_text}>게시글 상세정보</div>
+
+            <div className="container" style={{ overflow: 'auto' }}>
+                <div className="lf-contents pd12">
+                    {/* align-right */}
+                    <div className="top-controls">
+                        <a href="/post"><button className="lf-button primary float-right">목록으로</button></a>
+                    </div>
+                    <div style={{ padding: "12px" }}>
+                        {currentPosts.map((post) => (
+                            <table className="notice-table" key={post.id}>
+                            <colgroup>
+                                <col width="10%" />
+                                <col width="40%" />
+                                <col width="10%" />
+                                <col width="40%" />
+                            </colgroup>
+
+                            <thead>
+                            <tr>
+                                <th>게시판종류</th>
+                                <td colSpan="3">{post.type}</td>
+                            </tr>
+                            <tr>
+                                <th>제목</th>
+                                <td colSpan="3">{post.title}</td>
+                            </tr>
+                            <tr>
+                                <th>작성자</th>
+                                <td>{post.createdBy}</td>
+                                <th>작성일시</th>
+                                <td>{moment(post.date).format('YYYY-MM-DD')}</td>
+                            </tr>
+                            <tr>
+                                <th>첨부파일</th>
+                                <td colSpan="3">
+                                    {fileList.map((name, index) => (
+                                        <span key={index}> <a href={'/uploads/' + name} target="_blank">{name}</a> |</span>
+                                    ))}
+                                </td>
+                            </tr>
+
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td className="notice-contents" colSpan="4" dangerouslySetInnerHTML={{
+                                    __html: post.content
+                                }}></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        ))}
+                    </div>
+                    {
+                        isWriter &&
+                        currentPosts.map((post) => (
+                            <div className="text-center mb8" key={post.id}>
+                                <button className="lf-button dark-gray" onClick={onClickDeleteNotice}>삭제</button>
+                                <Link to={{ pathname: '/PostsModify', state: { _id: post._id } }}><button className="lf-button primary ml8">수정</button></Link>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
     )
 }
 

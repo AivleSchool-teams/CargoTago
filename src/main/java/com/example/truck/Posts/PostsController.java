@@ -1,55 +1,60 @@
 package com.example.truck.Posts;
 
-import com.example.truck.Posts.PostsInfo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.Authentication;
+import java.time.LocalDateTime; // LocalDateTime import 추가
 import java.util.List;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/posts")
+@RequestMapping("/post")
 @RequiredArgsConstructor
 public class PostsController {
 
-    private final PostsInfoRepository repository;
+    private final PostsService service;
 
-    // 모든 게시글 조회
     @GetMapping
     public List<PostsInfo> all() {
-        return repository.findAll();
+        return service.all();
     }
 
-    // 게시글 작성
     @PostMapping
-    public PostsInfo newPostInfo(@RequestBody PostsInfo newPostsInfo) {
-        return repository.save(newPostsInfo);
+    public PostsInfo newPostInfo(Authentication authentication, @RequestBody PostsInfoDTO newPostsInfoDTO) {
+        if (authentication == null) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "로그인이 필요합니다.");
+        }
+
+        String email = authentication.getName();
+        PostsInfo newPostsInfo = new PostsInfo();
+        newPostsInfo.setTitle(newPostsInfoDTO.getTitle());
+        newPostsInfo.setContent(newPostsInfoDTO.getContent());
+        newPostsInfo.setType(newPostsInfoDTO.getType()); // type 필드 추가
+        newPostsInfo.setCreatedBy(email);
+        newPostsInfo.setCreatedAt(LocalDateTime.now()); // 'createdAt' 필드 설정. 현재 시간을 사용함
+
+        return service.newPostInfo(newPostsInfo);
     }
 
-    // 특정 게시글 조회
     @GetMapping("/{id}")
     public PostsInfo one(@PathVariable Long id) {
-        return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Could not find post with id " + id));
+        return service.one(id);
     }
 
-    // 특정 게시글 수정
     @PutMapping("/{id}")
-    public PostsInfo replacePost(@RequestBody PostsInfo newPostsInfo, @PathVariable Long id) {
-        return repository.findById(id)
-                .map(postsInfo -> {
-                    postsInfo.setTitle(newPostsInfo.getTitle());
-                    postsInfo.setContent(newPostsInfo.getContent());
-                    return repository.save(postsInfo);
-                })
-                .orElseGet(() -> {
-                    newPostsInfo.setId(id);
-                    return repository.save(newPostsInfo);
-                });
+    public PostsInfo replacePost(@RequestBody PostsInfoDTO newPostsInfoDTO, @PathVariable Long id) {
+        PostsInfo newPostsInfo = new PostsInfo();
+        newPostsInfo.setTitle(newPostsInfoDTO.getTitle());
+        newPostsInfo.setContent(newPostsInfoDTO.getContent());
+        newPostsInfo.setType(newPostsInfoDTO.getType()); // type 필드 추가
+
+        return service.replacePost(newPostsInfo, id);
     }
 
-    // 특정 게시글 삭제
     @DeleteMapping("/{id}")
     public void deletePost(@PathVariable Long id) {
-        repository.deleteById(id);
+        service.deletePost(id);
     }
 }
