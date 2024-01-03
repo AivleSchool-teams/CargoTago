@@ -1,6 +1,8 @@
 package com.example.truck.Posts;
 
+import com.example.truck.DTO.PageDTO;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.core.Authentication;
 import java.time.LocalDateTime; // LocalDateTime import 추가
@@ -22,10 +24,9 @@ public class PostsController {
     }
 
     @PostMapping
-    public PostsInfo newPostInfo(Authentication authentication, @RequestBody PostsInfoDTO newPostsInfoDTO) {
-        if (authentication == null) {
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "로그인이 필요합니다.");
-        }
+    public PostsInfo newPostInfo(@RequestBody PostsInfoDTO newPostsInfoDTO) {
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         String email = authentication.getName();
         PostsInfo newPostsInfo = new PostsInfo();
@@ -38,12 +39,12 @@ public class PostsController {
         return service.newPostInfo(newPostsInfo);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/view/{id}")
     public PostsInfo one(@PathVariable Long id) {
         return service.one(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/view/{id}")
     public PostsInfo replacePost(@RequestBody PostsInfoDTO newPostsInfoDTO, @PathVariable Long id) {
         PostsInfo newPostsInfo = new PostsInfo();
         newPostsInfo.setTitle(newPostsInfoDTO.getTitle());
@@ -53,7 +54,7 @@ public class PostsController {
         return service.replacePost(newPostsInfo, id);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/view/{id}")
     public void deletePost(@PathVariable Long id) {
         service.deletePost(id);
     }

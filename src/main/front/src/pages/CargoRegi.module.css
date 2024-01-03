@@ -143,7 +143,7 @@
 .kt {
     top: 52.3px;
     font-size: var(--font-size-5xl);
-    font-family: var(--font-jalnan-gothic-ttf);
+    font-family: var(--font-jalnan-gothic);
     width: 103px;
 }
 .div2,
@@ -185,20 +185,20 @@
 }
 .span {
     color: var(--color-darkslateblue);
-    font-family: var(--font-jalnan-gothic-ttf);
+    font-family: var(--font-jalnan-gothic);
 }
 
 .span1 {
     font-weight: 900;
     color: var(--color-darkgray);
-    font-family: var(--font-jalnan-gothic-ttf);
+    font-family: var(--font-jalnan-gothic);
 }
 .div5 {
     position: absolute;
     top: 16.1px;
     left: 20px;
     font-size: var(--font-size-xl);
-    font-family: var(--font-jalnan-gothic-ttf);
+    font-family: var(--font-jalnan-gothic);
     display: inline-block;
     width: 157px;
     height: 36.2px;
@@ -225,7 +225,7 @@
     position: absolute;
     top: 52px;
     font-size: var(--font-size-5xl);
-    font-family: var(--font-jalnan-gothic-ttf);
+    font-family: var(--font-jalnan-gothic);
     width: 103px;
 }
 .div6,
@@ -279,7 +279,7 @@
     top: 16px;
     left: 20px;
     font-size: var(--font-size-xl);
-    font-family: var(--font-jalnan-gothic-ttf);
+    font-family: var(--font-jalnan-gothic);
     width: 157px;
     height: 36px;
 }
@@ -318,7 +318,7 @@
     position: absolute;
     top: 253.5px;
     left: 385px;
-    border-radius: var(--br-10xs);
+    border-radius: var(--br-3xs);
     background-color: var(--color-white);
     border: 3px solid var(--color-gainsboro);
     box-sizing: border-box;
@@ -341,7 +341,7 @@
     z-index: 1;
     top: 283px;
     left: 310px;
-    border-radius: var(--br-10xs);
+    border-radius: var(--br-3xs);
     background-color: var(--color-white);
     border: 3px solid var(--color-gainsboro);
     box-sizing: border-box;
@@ -532,7 +532,7 @@
 .child8 {
     top: 253.5px;
     left: 136.5px;
-    border-radius: var(--br-10xs);
+    border-radius: var(--br-3xs);
     background-color: var(--color-white);
     border: 3px solid var(--color-gainsboro);
     box-sizing: border-box;
@@ -554,7 +554,7 @@
 .child9 {
     top: 253.5px;
     left: 212.5px;
-    border-radius: var(--br-10xs);
+    border-radius: var(--br-3xs);
     background-color: var(--color-white);
     border: 3px solid var(--color-gainsboro);
     box-sizing: border-box;
@@ -570,7 +570,7 @@
 }
 .child10,
 .child11 {
-    border-radius: var(--br-10xs);
+    border-radius: var(--br-3xs);
     background-color: var(--color-white);
     border: 3px solid var(--color-gainsboro);
     box-sizing: border-box;
@@ -602,7 +602,7 @@
 .child12 {
     top: 283px;
     left: 223px;
-    border-radius: var(--br-10xs);
+    border-radius: var(--br-3xs);
     background-color: var(--color-white);
     border: 3px solid var(--color-gainsboro);
     box-sizing: border-box;
@@ -656,7 +656,7 @@
     left: 53px;
     width: 595px;
     height: 417px;
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-mid);
 }
 .child13,
 .child15,
@@ -842,7 +842,7 @@
     left: 53px;
     width: 595px;
     height: 393px;
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-mid);
 }
 .div39 {
     top: 21px;
@@ -876,7 +876,7 @@
     height: 36px;
     font-size: var(--font-size-5xl);
     color: var(--color-black);
-    font-family: var(--font-jalnan-gothic-ttf);
+    font-family: var(--font-jalnan-gothic);
     outline: none;
 }
 .calendar1Icon {
@@ -918,7 +918,7 @@
     height: 36px;
     font-size: var(--font-size-5xl);
     color: var(--color-black);
-    font-family: var(--font-jalnan-gothic-ttf);
+    font-family: var(--font-jalnan-gothic);
     outline: none;
 }
 .calendar2Icon {
@@ -1164,7 +1164,7 @@
     text-align: center;
     font-size: var(--font-size-5xl);
     color: var(--color-black);
-    font-family: var(--font-jalnan-gothic-ttf);
+    font-family: var(--font-jalnan-gothic);
 }
 
 

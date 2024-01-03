@@ -31,6 +31,8 @@ import PostList from "./pages/post/PostList"; // 게시판
 import PostView from "./pages/post/PostView"; // 게시판
 import PostCreate from "./pages/post/PostCreate"; // 게시판
 
+import Chat from "./pages/Chat"; // 게시판
+
 
 function App() {
     const action = useNavigationType();
@@ -96,6 +98,7 @@ function App() {
             <Route path='/Post' element={<PostList />} />
             <Route path='/Post/Create' element={<PostCreate />} />
 
+            <Route path='/Chat' element={<Chat />} />
 
             <Route path="/test-register" element={<TestRegister />} />
             <Route path="/CargoRegi" element={<CargoRegi />} />
