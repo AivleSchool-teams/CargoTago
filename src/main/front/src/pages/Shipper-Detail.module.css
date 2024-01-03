@@ -405,8 +405,8 @@
 .chat {
     all:unset;
     position: absolute;
-    top: -250px;
-    left: calc(50% + 300px);
+    top: -230px;
+    left: calc(50% + 180px);
     width: 180px;
     height: 50px;
     cursor: pointer;
@@ -414,20 +414,22 @@
 .chatItem {
     position: absolute;
     top: -20px;
-    left: 50%;
+    left: calc(50% + 29px);
     border-radius: var(--br-3xs);
-    background-color: var(--color-midnightblue);
-    width: 200px;
+    background-color: var(--color-darkslateblue);
+    width: 160px;
     height: 60px;
 }
 .chatdiv {
-    top: 7px;
-    left: 0;
+    position: absolute;
+    top: -5px;
+    left: calc(50% + 10px);;
     font-size: var(--font-size-9xl);
     color: var(--color-white);
     text-align: center;
     justify-content: center;
     width: 200px;
+    letter-spacing :1.5px;
 }
 .groupItem {
     position: absolute;
@@ -489,17 +491,16 @@
 
 }
 .child2,
-.div18,
-.moa11 {
+.div18 {
     position: absolute;
 }
 .moa11 {
+    position: absolute;
     width: 300px;
     object-fit: cover;
     top: 65px; /* 상단에서부터의 위치를 지정합니다. */
     left: calc(50% - 30px);
     transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
-
 }
 .child2 {
     top: 63px;

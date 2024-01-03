@@ -43,7 +43,7 @@ const ShipperDetail = () => {
                 />
                 <button className={styles.chat} onClick={joinRoom}>
                     <div className={styles.chatItem} />
-                    <div className={styles.chatdiv}>대화창</div>
+                    <div className={styles.chatdiv}>채팅창</div>
                 </button>
                 {/* {showChat && <Chat socket={socket} username={username} room={room} />} */}
                 <div className={styles.startloc}>

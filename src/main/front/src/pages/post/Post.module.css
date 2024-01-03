@@ -147,6 +147,13 @@
     width: 100%;
     height: 40px;
 }
+.fileupload {
+    position: absolute;
+    top: 1024px;
+    left: calc(50% + 100px);
+    width: 300px;
+    height: 40px;
+}
 .create {
     position: absolute;
     border-radius: 30px;
@@ -202,17 +209,43 @@
 }
 .div14 {
     position: absolute;
-    top: 0;
-    left: 25px;
+    top: 30px;
+    left: calc(50% - 178px);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 140px;
-    height: 24px;
+    border-radius: 5px; /* 원형에 가깝게 만들기 위해 값을 늘립니다. */
+    width: 210px; /* 원래 크기의 .5배 */
+    height: 40px; /* 원래 크기의 1.5배 */
+    border: 1px solid #dddddd; /* 테두리를 검은색으로 설정합니다. */
+    outline: none; /* 선택했을 때 생기는 테두리를 제거합니다. */
+    padding: 10px; /* 안쪽 여백을 추가해 텍스트와 테두리 간의 간격을 벌립니다. */
+    font-size: 1em; /* 폰트 크기를 늘립니다. */
+    background-color: transparent; /* 배경색을 투명하게 설정합니다. */
+    font-family: var(--font-jalnan-gothic);
+}
+.formcontrol {
+    position: absolute;
+    top:110px;
+    left: calc(50% - 488px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px; /* 원형에 가깝게 만들기 위해 값을 늘립니다. */
+    width: 953px; /* 원래 크기의 .5배 */
+    height: 18px; /* 원래 크기의 1.5배 */
+    border: 1px solid #dddddd; /* 테두리를 검은색으로 설정합니다. */
+    outline: none; /* 선택했을 때 생기는 테두리를 제거합니다. */
+    padding: 10px; /* 안쪽 여백을 추가해 텍스트와 테두리 간의 간격을 벌립니다. */
+    font-size: 1em; /* 폰트 크기를 늘립니다. */
+    background-color: transparent; /* 배경색을 투명하게 설정합니다. */
+    font-family: var(--font-jalnan-gothic);
 }
 .container {
+    left: calc(50% - 310px);
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
     position: absolute;
-    top: 32px;
+    top: 50px;
     width: 166.1px;
     height: 24px;
     text-align: center;
@@ -250,3 +283,23 @@
     text-decoration: none;
 }
 
+.submitsave {
+    position: absolute;
+    top: 650px;
+    left: calc(50% + 390px);
+    width: 100px;
+    height: 40px;
+    background-color: var(--color-darkslateblue);
+    border-radius: 20px;
+}
+
+.submitsave_button {
+    position: absolute;
+    top:10px;
+    left: 23px;
+    border: 0;
+    background-color: transparent;
+    font-family: var(--font-jalnan-gothic);
+    color: white;
+    font-size: var(--font-size-xl);
+}

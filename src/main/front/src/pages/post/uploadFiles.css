@@ -1,0 +1,26 @@
+.filebox {
+    position: absolute;
+    left: calc(50% + 265px);
+    top:70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 210px;
+    height: 13px; /* 원래 크기의 1.5배 */
+    outline: none; /* 선택했을 때 생기는 테두리를 제거합니다. */
+    padding: 10px; /* 안쪽 여백을 추가해 텍스트와 테두리 간의 간격을 벌립니다. */
+    font-size: 1em; /* 폰트 크기를 늘립니다. */
+    background-color: transparent; /* 배경색을 투명하게 설정합니다. */
+    font-family: var(--font-jalnan-gothic);
+}
+.filebox .upload-name {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 0 10px;
+    vertical-align: middle;
+    border: 1px solid #dddddd;
+    color: #999999;
+    font-family: var(--font-jalnan-gothic);
+}

@@ -1,7 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import './Post.module.css';
 import Editor from './EditorComponent';
 import UploadFiles from './UploadFiles';
 import styles from "./Post.module.css";
@@ -30,9 +29,9 @@ const PostCreate = () => {
     }, [navigate]);
 
     const tabs = [
-        { value: '자유', text: '자유' },
-        { value: '화주', text: '화주' },
-        { value: '차주', text: '차주' }
+        { value: '자유', text: '자유게시판' },
+        { value: '화주', text: '화주게시판' },
+        { value: '차주', text: '차주게시판' }
     ]
 
     const createPost = (post) => {
@@ -101,27 +100,28 @@ const PostCreate = () => {
                 <div style={{ padding: "12px" }}>
 
                     <div className={styles.container}>
-                        {/* LFSelect 컴포넌트를 select 태그로 대체 */}
                         <select className={styles.div14} onChange={(event) => setType(event.target.value)}>
                             {tabs.map((tab, index) => (
                                 <option key={index} value={tab.value}>{tab.text}</option>
                             ))}
                         </select>
                     </div>
-
+                    <div className={styles.white}/>
                     <div className="form-group">
-                        <input type="text" value={title} placeholder="제목" className="form-control" onChange={(event) => setTitle(event.target.value)} />
+                        <input type="text" value={title} placeholder="제목" className={styles.formcontrol} onChange={(event) => setTitle(event.target.value)} />
                     </div>
 
                     <UploadFiles ref={uploadReferenece} />
+                    <div className={styles.white}/>
+                    <div className={styles.white}/>
                     <Editor value={content} onChange={onEditorChange} />
 
-                    <div className="text-center pd12">
-                        <button className="lf-button primary" onClick={onClickSearch}>저장</button>
+                    <div className={styles.submitsave}>
+                        <button className={styles.submitsave_button} onClick={onClickSearch}>저장</button>
                     </div>
 
                     {id && <Link id="PostView" to={{ pathname: `/Post/view/${id}`, state: { _id: id } }}></Link>}
-
+                    <div className={styles.white}/><div className={styles.white}/>
                 </div>
             </div>
         </div>

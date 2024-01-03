@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 // import ScrollToBottom from "react-scroll-to-bottom";
 import { Message } from './component/Message';
+import { useNavigate } from "react-router-dom";
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 import io from 'socket.io-client';
@@ -53,10 +54,14 @@ function Chat() {
             SpeechRecognition.startListening({ continuous: true });
         }
     };
+    const navigate = useNavigate();
+    const onBackClick = useCallback(() => { // 화주 상세페이지 db연결 후 해당 번호로 이동되게 변경 필요
+        navigate("/Shipper/Detail");
+    }, [navigate]);
 
     return (
         <div className={styles.div}>
-            <img className={styles.child} alt="" src="/images/rectangle-57@2x.png" />
+            <img className={styles.child} alt="" src="/images/rectangle-63@2x.png" />
             {/* <div className={styles.inner} /> */}
             <div className={styles.inner}>
                 {messageList.map((messageContent) => {
@@ -85,11 +90,18 @@ function Chat() {
                         event.key === 'Enter' && sendMessage();
                     }}
                 />
-                <SendButton className={styles.b} onClick={sendMessage}>▶️</SendButton>
+                <SendButton className={styles.b} onClick={sendMessage}>
+                    <span>전송</span>
+                </SendButton>
             </div>
             {/* </div> */}
-            <img className={styles.moa12} alt="" src="/images/1-1@2x.png" />
-            <div className={styles.lineDiv} />
+            <img className={styles.moa11} alt="" src="/images/logo.png"/>
+            <img
+                className={styles.arrowIcon}
+                onClick={onBackClick}
+                alt=""
+                src="/images/arrow-3@2x.png"
+            />
 
         </div>
         // <RoomContainer>

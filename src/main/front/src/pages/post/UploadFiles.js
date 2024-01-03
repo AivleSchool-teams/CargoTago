@@ -5,7 +5,7 @@ import React, {
     forwardRef
 } from "react";
 import FileUploadService from "../api/FileUploadService";
-
+import "./uploadFiles.css"
 const UploadFiles = forwardRef((props, ref) => {
 
     const [selectedFiles, setSelectedFiles] = useState(undefined);
@@ -53,16 +53,11 @@ const UploadFiles = forwardRef((props, ref) => {
     const fileInput = useRef();
 
     return (
-        <div className="form-group">
-
-            <label className="btn btn-default">
-                <input type="file" onChange={selectFile} ref={fileInput} multiple />
-            </label>
-
-            <div className="alert alert-light" role="alert" style={{color:'red'}}>
+        <div className="filebox">
+            <input type="file" id="file" onChange={selectFile} ref={fileInput} className="upload-name" multiple />
+            <div className="alert alert-light" role="alert" >
                 {message}
             </div>
-
         </div>
     )
 

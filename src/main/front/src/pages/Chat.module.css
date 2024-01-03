@@ -32,29 +32,17 @@
 .div {
 
 }
-.lineDiv {
-  top: 758.5px;
-  left: 411.5px;
-  border-top: 1px solid var(--color-black);
-  box-sizing: border-box;
-  width: 614px;
-  height: 1px;
-}
-.km,
-.km1,
-.lineDiv,
+
 .moa12 {
   position: absolute;
-}
-.moa12 {
   top: 47px;
   left: 600px;
   width: 181px;
   height: 69px;
   object-fit: cover;
 }
-.km,
-.km1 {
+.km{
+  position: absolute;
   top: 327px;
   left: 1392px;
   font-size: var(--font-size-11xl);
@@ -63,8 +51,13 @@
   text-align: left;
 }
 .km1 {
+  position: absolute;
   top: 395px;
   left: 1393px;
+  font-size: var(--font-size-11xl);
+  font-family: var(--font-inter);
+  color: var(--color-white);
+  text-align: left;
 }
 .aiChild1,
 .aiChild2 {
@@ -357,11 +350,11 @@
 }
 .arrowIcon {
   position: absolute;
-  top: 82px;
-  left: 402px;
+  top: 50px;
   max-height: 100%;
-  width: 39.1px;
-  object-fit: contain;
+  width: 60px;
+  left: calc(50% - 430px);
+  transform: translateX(-50%);
 }
 .aiChild19,
 .rectangleDiv {
@@ -370,7 +363,7 @@
   left: 744px;
   border-radius: var(--br-xl);
   background-color: #00498c;
-  width: 300px;
+  width: 600px;
   height: 88px;
 }
 .aiChild19 {
@@ -422,55 +415,43 @@
   text-align: center;
   font-size: var(--font-size-base);
   color: var(--color-black);
-  font-family: var(--font-jalnan-gothic-ttf);
+  font-family: var(--font-jalnan-gothic);
 }
 
-.b,
-.child,
-.item {
+.child {
   position: absolute;
 }
+
 .child {
-  top: 49px;
-  left: 438px;
   border-radius: 20px;
   width: 564px;
-  height: 925px;
-  object-fit: cover;
+  height: 500px;
+
+  position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
+  top: 400px;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
 }
-.b,
-.item {
-  top: 879px;
-  height: 59px;
-}
-.item {
-  left: 475px;
-  border-radius: 10px;
-  width: 490px;
-  object-fit: cover;
-}
-.b {
-  left: 907px;
-  font-size: 48px;
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  top : 883px;
-}
-.inner,
+
 .rectangleDiv {
   position: absolute;
-  top: 231px;
-  left: 660px;
+  top: 311px;
+  left: 458px;
   border-radius: var(--br-8xs);
   /* background-color: #00498c; */
   width: 305px;
   height: 41px;
 }
-.rectangleDiv {
-  top: 311px;
-  left: 458px;
-  /* background-color: #d3e8fb; */
+.inner{
+  position: absolute;
+  top: 200px;
+  left: calc(50% + 120px);
+  border-radius: var(--br-8xs);
+  /* background-color: #00498c; */
+  width: 305px;
+  height: 41px;
+  transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+  letter-spacing:1.5px
 }
 .happytruck,
 .lovetruck {
@@ -499,24 +480,25 @@
   color: var(--color-white);
 }
 .div2 {
+  position: absolute;
   top: 322px;
   left: 467px;
 }
-.div2,
-.lineDiv,
 .moa12 {
-  position: absolute;
-}
-.moa12 {
-  top: 77px;
-  left: 611px;
-  width: 200px;
+  top: 75px;
+  width: 260px;
   height: 100px;
   object-fit: cover;
+  position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
+  left: 50%;
+  transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
 }
+
 .lineDiv {
-  top: 194.5px;
-  left: 457.5px;
+  position: absolute;
+  transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+  top: 205px;
+  left: 50%;
   border-top: 1px solid rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
   width: 515px;
@@ -530,21 +512,69 @@
   font-size: 20px;
 }
 .div3 {
-  top: 782px;
-  left: 605px;
+  top: 530px;
   font-size: 64px;
   display: inline-block;
   width: 235px;
   height: 76px;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+}
+.chatInputBox{
+  top: 40px;
+  font-size: 64px;
+  display: inline-block;
+  width: 235px;
+  height: 76px;
+  left: calc(50% - 715px);
+  transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
 }
 .div {
   position: relative;
   background-color: var(--color-white);
   width: 100%;
-  height: 1024px;
+  height: 700px;
   overflow: hidden;
   text-align: center;
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-mid);
   color: var(--color-black);
-  font-family: var(--font-inter);
+  font-family: var(--font-sb-aggro);
+
+}
+.item {
+  position: absolute;
+  top: 600px;
+  height: 50px;
+  left: calc(50% - 130px);
+  border-radius: 10px;
+  width: 490px;
+  object-fit: cover;
+  font-size: var(--font-size-mid);
+  font-family: var(--font-sb-aggro);
+}
+.b {
+  position: absolute;
+  left: calc(50% + 325px);
+  font-size: 48px;
+  display: inline-block;
+  width: 60px;
+  height: 45px;
+  top : 623px;
+  transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+}
+.b span {
+  position: relative; /* 상위 요소인 .b가 absolute이므로, 여기서는 relative를 사용합니다 */
+  height: 30px;
+  width: 60px;
+  font-size: var(--font-size-mid);
+  font-family: var(--font-sb-aggro);
+  /* 필요하다면 여기에 다른 스타일을 추가하세요 */
+}
+.moa11 {
+  position: absolute;
+  width: 300px;
+  object-fit: cover;
+  top: 65px; /* 상단에서부터의 위치를 지정합니다. */
+  left: calc(50% - 15px);
+  transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
 }

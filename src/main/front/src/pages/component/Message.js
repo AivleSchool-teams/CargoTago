@@ -24,7 +24,7 @@ export const Message = (props) => {
     );
   };
 
-  const MessageContainer = styled.div`
+const MessageContainer = styled.div`
   display: flex;
   justify-content: ${({ who }) => (who === 'me' ? 'flex-end' : 'flex-start')};
   padding: 0 10px;
@@ -43,6 +43,7 @@ const MessageBody = styled.div`
   word-break: break-all;
   justify-content: ${({ who }) => (who === 'me' ? 'flex-end' : 'flex-start')};
   background-color: ${({ who }) => (who === 'me' ? '#00498c' : '#d3e8fb')};
+  margin-left: ${({ who }) => (who === 'me' ? '' : '-240px')};
 `;
 
 const MessageText = styled.p`
@@ -54,7 +55,7 @@ const MessageSub = styled.div`
   font-size: 12px;
   justify-content: ${({ who }) => (who === 'me' ? 'flex-end' : 'flex-start')};
   margin-right: ${({ who }) => (who === 'me' ? '10px' : '')};
-  margin-left: ${({ who }) => (who === 'me' ? '' : '10px')};
+  margin-left: ${({ who }) => (who === 'me' ? '' : '-240px')};
 `;
 
 const Time = styled.p`
