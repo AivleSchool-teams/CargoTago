@@ -11,6 +11,7 @@ const PostView = () => {
     const [currentPosts, setCurrentPosts] = useState([]);
     const [fileList, setFileList] = useState([]);
     const [isWriter, setIsWriter] = useState(false);
+    const [username, setUsername] = useState(null);
 
     const onLogoClick = useCallback(() => {
         navigate('/'); // 로고 클릭 시 '/' 경로로 이동합니다.
@@ -19,6 +20,29 @@ const PostView = () => {
     const onLoginClick = useCallback(() => {
         navigate('/Login'); // 로그인 클릭 시 '/Login' 경로로 이동합니다 --> 주소 수정 요망
     }, [navigate]);
+
+
+    useEffect(() => {
+        const token = localStorage.getItem('jwt-token');
+        if (!token) {
+            navigate('/Login');
+        } else {
+            // 토큰이 있으면 사용자 정보를 가져옵니다.
+            axios.get('http://localhost:8080/user/mainpage', {
+                headers: {Authorization: `Bearer ${token}`}
+            })
+                .then(res2 => {
+                    setUsername(res2.data.email.split('@')[0]);
+                    console.log(username);
+                })
+                .catch(error => {
+                    // 오류 처리
+                    console.error('비정상적인 접근입니다.', error);
+                });
+
+
+        }
+    });
 
 
     useEffect(() => {
@@ -78,7 +102,7 @@ const PostView = () => {
 
                 <button className={styles.button} onClick={onLoginClick}>
                     <img className={styles.child6} alt="" src="/images/rectangle-10@2x.png" />
-                    <div className={styles.div7}>로그인</div>
+                    <div className={styles.div7}>{username}</div>
                 </button>
             </div>
             <div className={styles.white}/>

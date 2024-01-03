@@ -1,4 +1,4 @@
-import {useCallback, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
 import axios from "axios";
@@ -9,6 +9,30 @@ const Login = () => {
 
     const [inputEmail, setInputEmail] = useState("");
     const [inputPw, setInputPw] = useState("");
+
+
+
+    useEffect(() => {
+        if (localStorage.getItem('jwt-token')) {
+            const token = localStorage.getItem('jwt-token')
+
+            axios
+                .get('http://localhost:8080/user/mainpage', {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                })
+                .then(response => {
+                    if (response.data.typed === "Carrier") {
+                        navigate("/Carrier/main");
+                    } else if (response.data.typed === "Shipper") {
+                        navigate("/Shipper/main");
+                    }
+                })
+
+        }
+    });
+
 
 
     const handleInputEmail = (e) => {

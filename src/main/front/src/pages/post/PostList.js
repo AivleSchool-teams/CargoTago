@@ -18,7 +18,7 @@ const PostList = (props) => {
     const [posts, setPosts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(10);
-    const [username, setUsername] = useState('사용자'); // 사용자 이름을 저장할 상태를 추가합니다.
+    const [username, setUsername] = useState(null); // 사용자 이름을 저장할 상태를 추가합니다.
 
     useEffect(() => {
         const token = localStorage.getItem('jwt-token');
