@@ -7,9 +7,46 @@ import { ko } from 'date-fns/esm/locale';
 import { useNavigate } from "react-router-dom";
 
 import styles from "./Shipper-List.module.css";
+import axios from "axios";
 
 const ShipperList = () => {
     const navigate = useNavigate();
+
+    const [username, setUsername] = useState(null);
+    const [userid, setUserid] = useState(null);
+    const [usertype, setUsertype] = useState(null);
+
+    useEffect(() => {
+        const token = localStorage.getItem('jwt-token');
+        if (!token) {
+            // 토큰이 없으면 로그인 페이지로 리디렉션
+            navigate('/login');
+            console.log('비정상적인 접근입니다.')
+        } else {
+            axios.get('http://localhost:8080/user/shipper/mylist', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+                .then(response => {
+                    // 사용자 이름 표시
+                    if(response.data.length === 0) {
+                        console.log('등록한 화물이 없습니다.')
+                    } else {
+                        console.log(response.data);
+                        console.log(response.data[0].id);
+                    }
+
+
+                })
+                .catch(error => {
+                    // 오류 처리
+                    console.error('비정상적인 접근입니다.', error);
+                });
+        }
+    }, [navigate]);
+
+
     const [startDate, setStartDate] = useState(new Date("2024.01.17"));
     const [endDate, setEndDate] = useState(new Date("2024.01.20"));
 

@@ -24,4 +24,6 @@ public class RegistInfoDTO {
     private String textAreaValue; // 화물정보 세부내용 텍스트
     private String selectedValue; // 수량? -> 일단 만들어두래서 만듬
     private String selectedButton;
+
+    private Long shipmember; //
 }
