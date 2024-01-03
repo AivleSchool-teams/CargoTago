@@ -1,11 +1,8 @@
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigationType, useLocation } from 'react-router-dom';
 
 import { useEffect } from "react";
-import {
-    useNavigationType,
-    useLocation,
-} from "react-router-dom";
+
 import Main from "./pages/Main";
 import Login from "./pages/Login";
 import Joinmain from "./pages/Joinmain";
@@ -30,6 +27,11 @@ import Consent5 from "./pages/Consent5";
 
 import TestRegister from "./pages/TestRegister";
 import CargoRegi from "./pages/CargoRegi";
+import PostList from "./pages/post/PostList"; // 게시판
+import PostView from "./pages/post/PostView"; // 게시판
+import PostCreate from "./pages/post/PostCreate"; // 게시판
+
+
 function App() {
     const action = useNavigationType();
     const location = useLocation();
@@ -47,14 +49,6 @@ function App() {
 
         switch (pathname) {
             case "/":
-                title = "";
-                metaDescription = "";
-                break;
-            case "/":
-                title = "";
-                metaDescription = "";
-                break;
-            case "/1":
                 title = "";
                 metaDescription = "";
                 break;
@@ -97,6 +91,11 @@ function App() {
             <Route path="/Consent/3" element={<Consent3 />} />
             <Route path="/Consent/4" element={<Consent4 />} />
             <Route path="/Consent/5" element={<Consent5 />} />
+
+            <Route path='/post/view/:id' element={<PostView />} />
+            <Route path='/Post' element={<PostList />} />
+            <Route path='/Post/Create' element={<PostCreate />} />
+
 
             <Route path="/test-register" element={<TestRegister />} />
             <Route path="/CargoRegi" element={<CargoRegi />} />

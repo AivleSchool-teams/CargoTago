@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.truck.jwt.service.CarrierService;
+import com.example.truck.jwt.service.CarrierService; // 이거 빼도 되는 코드 아닌가용? -> 작성자가 확인 후 삭제해 주세욥
 
 
 @RestController
@@ -15,7 +15,7 @@ import com.example.truck.jwt.service.CarrierService;
 public class UserController {
 
     @Autowired
-    private CarrierService carrierService;
+    private CarrierService carrierService; // 이거 빼도 되는 코드 아닌가용? -> 작성자가 확인 후 삭제해 주세욥
 
     @GetMapping("/mainpage")
     public String getUserDetails() {
