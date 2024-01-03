@@ -1,7 +1,11 @@
 import { useCallback, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-
 import styles from "./Shipper-Detail.module.css";
+// chat socket
+import { useNavigate } from "react-router-dom";
+import io from 'socket.io-client';
+const socket = io.connect('http://localhost:4000');
+const username = Math.random()
+const room = '1'
 
 const ShipperDetail = () => {
     const navigate = useNavigate();
@@ -14,6 +18,21 @@ const ShipperDetail = () => {
         navigate("/Shipper/List");
     }, [navigate]);
 
+    const [showChat, setShowChat] = useState(false);
+    const [errorMsg, setErrorMsg] = useState('');
+
+    const joinRoom = (e) => {
+      e.preventDefault();
+        if (username !== '' && room !== '') {
+            socket.emit('join_room', { room: '1', username }); // room을 '1'로 고정합니다.
+            setShowChat(true);
+            navigate("/chat"); // 채팅방에 입장한 후 /chat 으로 이동합니다.
+        } else {
+            setErrorMsg('사용자 이름을 입력해주세요.'); // 사용자 이름이 비어있을 경우의 에러 메시지입니다.
+        }
+    };
+
+
     return (
         <div className={styles.div}>
             <div className={styles.div1}>
@@ -22,6 +41,11 @@ const ShipperDetail = () => {
                     alt=""
                     src="/images/rectangle-58@2x.png"
                 />
+                <button className={styles.chat} onClick={joinRoom}>
+                    <div className={styles.chatItem} />
+                    <div className={styles.chatdiv}>대화창</div>
+                </button>
+                {/* {showChat && <Chat socket={socket} username={username} room={room} />} */}
                 <div className={styles.startloc}>
                     <div className={styles.kt}>KT 본사</div>
                     <div className={styles.kt1}>경기 성남시 분당구 불정로 90 KT빌딩</div>
@@ -135,4 +159,4 @@ const ShipperDetail = () => {
         </div>
     );
 };
-export default ShipperDetail;
+export { socket, username, room, ShipperDetail as default };

@@ -402,6 +402,33 @@
     font-size: var(--font-size-xs);
     color: var(--color-darkgray);
 }
+.chat {
+    all:unset;
+    position: absolute;
+    top: -250px;
+    left: calc(50% + 300px);
+    width: 180px;
+    height: 50px;
+    cursor: pointer;
+}
+.chatItem {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    border-radius: var(--br-3xs);
+    background-color: var(--color-midnightblue);
+    width: 200px;
+    height: 60px;
+}
+.chatdiv {
+    top: 7px;
+    left: 0;
+    font-size: var(--font-size-9xl);
+    color: var(--color-white);
+    text-align: center;
+    justify-content: center;
+    width: 200px;
+}
 .groupItem {
     position: absolute;
     top: 0;
