@@ -9,12 +9,35 @@ import styles from "./Post.module.css";
 const PostCreate = () => {
     const navigate = useNavigate();
 
+    const [useremail, setUseremail] = useState(null);
+    const [Posts, setPosts] = useState(null);
+
     useEffect(() => {
         const token = localStorage.getItem('jwt-token');
+        console.log(token);
         if (!token) {
-            navigate('/Login');
+            // 토큰이 없으면 로그인 페이지로 리디렉션
+            navigate('/login');
+            console.log('비정상적인 접근입니다.')
+        } else {
+            axios.get('http://localhost:8080/user/mainpage', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+                .then(response => {
+
+                    setUseremail(response.data.email.split('@')[0]);
+                    console.log(useremail);
+
+                })
+                .catch(error => {
+                    // 오류 처리
+                    console.error('비정상적인 접근입니다.', error);
+                });
         }
-    }, [navigate]);
+    }, [navigate, useremail]);
+
     const [id, setId] = useState(null);
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
@@ -22,8 +45,7 @@ const PostCreate = () => {
     const uploadReferenece = React.createRef();
 
     const onLogoClick = useCallback(() => {
-        navigate('/');
-    }, [navigate]);
+y    }, [navigate]);
 
     const onLoginClick = useCallback(() => {
         navigate('/Login');
@@ -35,16 +57,7 @@ const PostCreate = () => {
         { value: '차주', text: '차주' }
     ]
 
-    const createPost = (post) => {
-        const token = localStorage.getItem('jwt-token');
-        return axios.post('http://localhost:3000/post', post, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        });
-    };
-
-    const onClickSearch = async () => {
+    const onClickSearch = () => {
         if (title.trim() === '') {
             alert('제목을 입력해주세요');
             return;
@@ -55,20 +68,33 @@ const PostCreate = () => {
             return;
         }
 
-        try {
-            const res = await createPost({title, content, type});
-            console.log(res.data);  // 이 줄을 추가합니다.
+        console.log({title, content, type});
+        const token = localStorage.getItem('jwt-token');
+        axios.post('http://localhost:8080/post', {
+                title: title,
+                content: content,
+                type: type
+            },
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            .then(res => {
+                console.log(res.data);
 
-            if (res.data && res.data.id) {
-                alert('저장 완료');
-                setId(res.data.id);
-                navigate(`/Post/view/${res.data.id}`);
-            } else {
-                alert('게시물을 저장하는 도중 오류가 발생하였습니다.')
-            }
-        } catch (err) {
-            console.error(err);
-        }
+                if (res.data && res.data.id) {
+                    alert('저장 완료');
+                    setId(res.data.id);
+                    navigate(`/Post/view/${res.data.id}`);
+                } else {
+                    alert('게시물을 저장하는 도중 오류가 발생하였습니다.')
+                }
+
+            })
+            .catch(error => {
+                console.error("There was an error!", error);
+            });
     }
 
     const onEditorChange = (value) => {
@@ -87,7 +113,7 @@ const PostCreate = () => {
 
                 <button className={styles.button} onClick={onLoginClick}>
                     <img className={styles.child6} alt="" src="/images/rectangle-10@2x.png" />
-                    <div className={styles.div7}>로그인</div>
+                    <div className={styles.div7}>{useremail}</div>
                 </button>
             </div>
             <div className={styles.white}/>

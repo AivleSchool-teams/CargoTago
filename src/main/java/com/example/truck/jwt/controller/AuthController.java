@@ -76,6 +76,7 @@ public class AuthController {
             // 토큰 생성
             final String token = tokenProvider.create1(user1);
             final UserDTO responseUserDTO = UserDTO.builder()
+                    .name(user1.getName())
                     .email(user1.getEmail())
                     .pw(user1.getPassword())
                     .token(token)
@@ -86,6 +87,7 @@ public class AuthController {
             // 토큰 생성
             final String token = tokenProvider.create2(user2);
             final UserDTO responseUserDTO = UserDTO.builder()
+                    .name(user2.getName())
                     .email(user2.getEmail())
                     .pw(user2.getPassword())
                     .token(token)

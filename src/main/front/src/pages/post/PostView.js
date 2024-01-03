@@ -20,36 +20,34 @@ const PostView = () => {
         navigate('/Login'); // 로그인 클릭 시 '/Login' 경로로 이동합니다 --> 주소 수정 요망
     }, [navigate]);
 
-    const fetchPost = async () => {
+
+    useEffect(() => {
         const token = localStorage.getItem('jwt-token');
         if (!token) {
             navigate('/Login');
-            return;
         }
 
-        const config = {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        };
+        axios
+            .get(`http://localhost:8080/post/view/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            .then(res => {
+                console.log('받아온 데이터', res.data);
 
-        let res = await axios.get(`/Post/view/${id}`, config);
 
-        if (!res.data || res.data.length === 0) {
-            alert('조회된 결과가 없습니다');
-        } else {
-            setCurrentPosts(res.data.result);
-            setFileList(res.data.result.fileList);
+                    setCurrentPosts([res.data]);
+                    //setFileList(res.data.result.fileList);
 
-            const loggedInUser = /* 로그인한 사용자 아이디를 가져옵니다. */
-                setIsWriter(loggedInUser === res.data.result.createdBy);
-        }
-    };
+                    //const loggedInUser = /* 로그인한 사용자 아이디를 가져옵니다. */
+                    //    setIsWriter(loggedInUser === res.data.result.createdBy);
 
-    useEffect(() => {
-        fetchPost();
-    }, [navigate]);
+            })
 
+
+
+    }, [id]);
 
     const onClickDeleteNotice = () => {
         if (window.confirm('삭제 하시겠습니까?')) {

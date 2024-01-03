@@ -54,6 +54,7 @@ const Login = () => {
                         })
                         .then(response => {
                             window.alert('로그인 성공!')
+                            console.log(response.data)
 
                             if (res.data.typed === "Carrier") {
                                 navigate("/Carrier/main");
