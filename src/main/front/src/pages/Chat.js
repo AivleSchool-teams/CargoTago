@@ -70,7 +70,7 @@ function Chat() {
 
     return (
         <div className={styles.div}>
-            <img className={styles.child} alt="" src="/images/rectangle-63@2x.png" />
+            <img className={styles.child} alt="" src="/images/rectangle-57@2x.png" />
             {/* <div className={styles.inner} /> */}
             <div className={styles.inner}>
                 {messageList.map((messageContent) => {
@@ -102,7 +102,7 @@ function Chat() {
                 <SendButton className={styles.b} onClick={sendMessage}>▶️</SendButton>
             </div>
             {/* </div> */}
-            <img className={styles.moa12} alt="" src="/images/moa-1-2@2x.png" />
+            <img className={styles.moa12} alt="" src="/images/1-1@2x.png" />
             <div className={styles.lineDiv} />
 
         </div>
