@@ -1,10 +1,11 @@
 import { useCallback, useState, useEffect } from "react";
 import styles from "./Shipper-Detail.module.css";
-
 // chat socket
 import { useNavigate } from "react-router-dom";
 import io from 'socket.io-client';
 const socket = io.connect('http://localhost:4000');
+const username = Math.random()
+const room = '1'
 
 const ShipperDetail = () => {
     const navigate = useNavigate();
@@ -17,14 +18,12 @@ const ShipperDetail = () => {
         navigate("/Shipper/List");
     }, [navigate]);
 
-    const [username, setUsername] = useState('사용자');
-    const [room, setRoom] = useState('');
     const [showChat, setShowChat] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
 
-
-    const joinRoom = () => {
-        if (username !== '') {
+    const joinRoom = (e) => {
+      e.preventDefault();
+        if (username !== '' && room !== '') {
             socket.emit('join_room', { room: '1', username }); // room을 '1'로 고정합니다.
             setShowChat(true);
             navigate("/chat"); // 채팅방에 입장한 후 /chat 으로 이동합니다.
@@ -46,6 +45,7 @@ const ShipperDetail = () => {
                     <div className={styles.chatItem} />
                     <div className={styles.chatdiv}>대화창</div>
                 </button>
+                {/* {showChat && <Chat socket={socket} username={username} room={room} />} */}
                 <div className={styles.startloc}>
                     <div className={styles.kt}>KT 본사</div>
                     <div className={styles.kt1}>경기 성남시 분당구 불정로 90 KT빌딩</div>
@@ -159,4 +159,4 @@ const ShipperDetail = () => {
         </div>
     );
 };
-export default ShipperDetail;
+export { socket, username, room, ShipperDetail as default };

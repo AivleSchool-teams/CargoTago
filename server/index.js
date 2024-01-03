@@ -19,7 +19,13 @@ const io = new Server(server, {
 io.on("connection", (socket) => {
   socket.on("join_room", (data) => {
     socket.join(data.room);
+    console.log(`${data.username}유저가 ${data.room}번 방에 입장했습니다`);
     // 'noti' 사용 부분을 삭제했습니다.
+    let noti = {
+      message:`${data.username} 유저가 방에 입장했습니다`,
+      author:'알림'
+    }
+    socket.to(data.room).emit('receive_message', noti);
   });
 
   socket.on("send_message", (data) => {

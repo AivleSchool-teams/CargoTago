@@ -3,14 +3,19 @@ import styled from 'styled-components';
 import styles from "../Chat.module.css";
 export const Message = (props) => {
     const messageContent = props.messageContent;
-  
+    const username = props.username;
+    const [who, setWho] = useState('me');
+    useEffect(() => {
+      username === messageContent.author ? setWho('me') : setWho('other');
+    }, [props]);
+
     return (
-      <MessageContainer>
+      <MessageContainer who={who}>
         <div>
-          <MessageBody>
+          <MessageBody who={who}>
             <MessageText>{messageContent.message}</MessageText>
           </MessageBody>
-          <MessageSub>
+          <MessageSub who={who}>
             <Time>{messageContent.time}</Time>
             <Author>{messageContent.author}</Author>
           </MessageSub>
@@ -21,7 +26,7 @@ export const Message = (props) => {
 
   const MessageContainer = styled.div`
   display: flex;
-  justify-content: ${({ who }) => (who === 'me' ? 'flex-end' : 'flex-end')};
+  justify-content: ${({ who }) => (who === 'me' ? 'flex-end' : 'flex-start')};
   padding: 0 10px;
   box-sizing: border-box;
 `;
@@ -37,7 +42,7 @@ const MessageBody = styled.div`
   overflow-wrap: break-word;
   word-break: break-all;
   justify-content: ${({ who }) => (who === 'me' ? 'flex-end' : 'flex-start')};
-  background-color: ${({ who }) => (who === 'me' ? '#d3e8fb' : '#00498c')};
+  background-color: ${({ who }) => (who === 'me' ? '#00498c' : '#d3e8fb')};
 `;
 
 const MessageText = styled.p`

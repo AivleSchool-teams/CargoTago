@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 // import ScrollToBottom from "react-scroll-to-bottom";
-import { Message } from '../components/Message';
+import { Message } from './component/Message';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 import io from 'socket.io-client';
@@ -8,15 +8,13 @@ import styles from "./Chat.module.css";
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import MicIcon from '@material-ui/icons/Mic';
 import IconButton from '@material-ui/core/IconButton';
+import { socket, username, room, default as ShipperDetail } from './Shipper-Detail';
 
-
-const username = Math.random()
 function Chat() {
     const inputRef = useRef();
     const [messageList, setMessageList] = useState([]);
-    const room = 1
     const messageBottomRef = useRef(null);
-    const socket = io.connect('http://localhost:4000');
+    // const socket = io.connect('http://localhost:4000');
     const sendMessage = async () => {
         const currentMsg = inputRef.current.value;
         if (currentMsg !== '') {
@@ -39,22 +37,10 @@ function Chat() {
             setMessageList((list) => [...list, data]);
         });
     }, [socket]);
-
     useEffect(() => {
         messageBottomRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messageList]);
 
-    // const { transcript, listening, resetTranscript } = useSpeechRecognition();
-
-    // const startListening = () => {
-    //   resetTranscript();
-    //   SpeechRecognition.startListening({ continuous: true });
-    // };
-
-    // const stopListening = () => {
-    //   SpeechRecognition.stopListening();
-    //   inputRef.current.value = transcript;
-    // };
     const { transcript, resetTranscript } = useSpeechRecognition();
     const [isListening, setIsListening] = useState(false);
     const toggleListening = () => {
