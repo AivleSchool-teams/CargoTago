@@ -27,11 +27,13 @@ import Consent5 from "./pages/Consent5";
 
 import TestRegister from "./pages/TestRegister";
 import CargoRegi from "./pages/CargoRegi";
-import PostList from "./pages/post/PostList"; // 게시판
-import PostView from "./pages/post/PostView"; // 게시판
-import PostCreate from "./pages/post/PostCreate"; // 게시판
+import CargoRegiAI from "./pages/CargoRegiAI";
 
-import Chat from "./pages/Chat"; // 게시판
+import PostList from "./pages/post/PostList"; // 게시판 목록
+import PostView from "./pages/post/PostView"; // 게시판 상세보기
+import PostCreate from "./pages/post/PostCreate"; // 게시판 게시글 작성
+
+import Chat from "./pages/Chat"; // 채팅 페이지
 
 
 function App() {
@@ -102,6 +104,7 @@ function App() {
 
             <Route path="/test-register" element={<TestRegister />} />
             <Route path="/CargoRegi" element={<CargoRegi />} />
+            <Route path="/CargoRegiAI" element={<CargoRegiAI />} />
 
 
         </Routes>
