@@ -29,6 +29,8 @@ import TestRegister from "./pages/TestRegister";
 import CargoRegi from "./pages/CargoRegi";
 import CargoRegiAI from "./pages/CargoRegiAI";
 
+import CarrierAIselect from "./pages/CarrierAIselect";
+
 import PostList from "./pages/post/PostList"; // 게시판 목록
 import PostView from "./pages/post/PostView"; // 게시판 상세보기
 import PostCreate from "./pages/post/PostCreate"; // 게시판 게시글 작성
@@ -99,6 +101,8 @@ function App() {
             <Route path='/post/view/:id' element={<PostView />} />
             <Route path='/Post' element={<PostList />} />
             <Route path='/Post/Create' element={<PostCreate />} />
+
+            <Route path="/CarrierAIselect" element={<CarrierAIselect />} />
 
             <Route path='/Chat' element={<Chat />} />
 
