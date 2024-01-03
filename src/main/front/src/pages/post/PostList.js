@@ -26,6 +26,40 @@ const PostList = (props) => {
             navigate('/Login');
         } else {
             // 토큰이 있으면 사용자 정보를 가져옵니다.
+            axios.get('http://localhost:8080/user/mainpage', {
+                headers: {Authorization: `Bearer ${token}`}
+            })
+                .then(res2 => {
+                    setUsername(res2.data.email.split('@')[0]);
+                    console.log(username);
+                })
+                .catch(error => {
+                    // 오류 처리
+                    console.error('비정상적인 접근입니다.', error);
+                });
+
+
+        }
+
+        axios
+            .get('http://localhost:8080/post', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            .then(res => {
+                console.log(res.data);
+                const sortedPosts = res.data.sort((a, b) =>
+                    moment(b.createdAt).valueOf() - moment(a.createdAt).valueOf()
+                );
+                setPosts(sortedPosts);
+            })
+            .catch(error => {
+                // 오류 처리
+                console.error('비정상적인 접근입니다.', error);
+            });
+    }, []);
+    {/*
             const fetchUser = async () => {
                 const config = {
                     headers: { Authorization: `Bearer ${token}` }
@@ -33,6 +67,7 @@ const PostList = (props) => {
                 let res = await axios.get('http://localhost:8080/user', config); // 사용자 정보를 가져오는 API 주소를 적절하게 수정해주세요.
                 // '@' 앞부분만 보이게 사용자 이름을 설정합니다.
                 setUsername(res.data.username.split('@')[0]);
+                console.log(res.data);
             }
             fetchUser();
 
@@ -44,6 +79,7 @@ const PostList = (props) => {
             fetchPosts();
         }
     }, []);
+    */}
 
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -85,7 +121,7 @@ const PostList = (props) => {
                                 <col width="*" />
                             </colgroup>
                             <thead>
-                            <tr>
+                            <tr style={{letterSpacing: '1.5px'}}>
                                 <th>번호</th>
                                 <th>게시판종류</th>
                                 <th>제목</th>
@@ -101,7 +137,7 @@ const PostList = (props) => {
                                     <td>{post.id}</td>
                                     <td>{post.type}</td>
                                     <td>
-                                        <Link to={{ pathname: '/Post/view/${post.id}', state: { id: post.id } }}>
+                                        <Link to={{pathname: `/post/view/${post.id}`, state: { id: post.id } }}>
                                             {post.title}
                                         </Link>
                                     </td>

@@ -25,13 +25,14 @@ const ShipperMain = () => {
                     // 사용자 이름 표시
                     console.log('안녕하세요,', response.data.name, '님?');
                     setUsername(response.data.name);
+                    console.log(username);
                 })
                 .catch(error => {
                     // 오류 처리
                     console.error('비정상적인 접근입니다.', error);
                 });
         }
-    }, [navigate]);
+    }, [navigate, username]);
 
 
     const onLogoClick = useCallback(() => {
