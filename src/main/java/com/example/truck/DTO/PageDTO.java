@@ -1,4 +1,4 @@
-package com.example.truck.jwt.dto;
+package com.example.truck.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,11 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class UserDTO {
-    private String token;
+public class PageDTO {
+    private Long id;
     private String name;
     private String email;
-    private String pw;
     private String typed;
 
 }

@@ -7,16 +7,15 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/user")
 @RequiredArgsConstructor
 public class RegistrationController {
 
     private final RegistrationService registrationService;
-    @PostMapping("/actual-endpoint")
-
+    @PostMapping("/cargoregi/regi")
     public Integer registerInfo(@RequestBody final RegistInfoDTO registInfoDTO) {
-
         return registrationService.findByUsernamecheck(registInfoDTO);
-
     }
+
+
 }

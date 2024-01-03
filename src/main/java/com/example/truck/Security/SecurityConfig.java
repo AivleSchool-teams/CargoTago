@@ -39,10 +39,14 @@ public class SecurityConfig {
 
 
                 .authorizeHttpRequests(authorizeHttpRequests -> authorizeHttpRequests
-                        .requestMatchers("/auth/**").permitAll()
-                        .requestMatchers("/api/**").permitAll()
-                        .requestMatchers(PathRequest.toH2Console()).permitAll()
-                        .anyRequest().authenticated()
+                                .requestMatchers("/**").permitAll()
+//                        .requestMatchers("/auth/**").permitAll()
+//                        .requestMatchers("/api/**").permitAll()
+//                        .requestMatchers("/post/**").permitAll()
+//                        .requestMatchers("/user/**").permitAll() // username 받아오는 부분
+//                        .requestMatchers("/chat/**").permitAll()
+                                .requestMatchers(PathRequest.toH2Console()).permitAll()
+                                .anyRequest().authenticated()
                 )
 
                 // 세션을 사용하지 않기 때문에 STATELESS로 설정
