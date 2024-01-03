@@ -1,0 +1,107 @@
+.container {
+    margin: 0 auto;
+    width: 80%;
+    padding: 20px;
+}
+
+.notice-table {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 20px;
+    font-family: var(--font-jalnan-gothic);
+    letter-spacing: 1.5px;
+}
+
+.notice-table th,
+.notice-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left; /* 기본적으로 왼쪽 정렬 */
+}
+
+.notice-table th {
+    background-color: var(--color-darkslateblue);
+    color: white;
+    text-align: center; /* th 부분만 중앙 정렬 */
+    font-size: 13px;
+    text-shadow: 1px 1px 2px black; /* 글씨에 검정색 테두리 추가 */
+}
+
+.notice-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.button {
+    background-color: var(--color-darkslateblue);
+    color: white;
+    padding: 15px 20px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.button:hover {
+    opacity: 0.8;
+}
+
+.lf-button {
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.lf-button.primary {
+    background-color: var(--color-darkslateblue);
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+.lf-button.dark-gray {
+    background-color: #555555;
+    color: white;
+}
+
+.lf-button.dark-gray:hover {
+    background-color: #333333;
+}
+.listing {
+    position: absolute;
+    border-radius: 30px;
+    width: 100px;
+    height: 40px;
+    object-fit: cover;
+    left: calc(50% + 200px);
+    top:160px;
+}
+
+.listingSpan {
+    border: 0;
+    background-color: transparent;
+    position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
+    font-family: var(--font-jalnan-gothic);
+    top:160px;
+    color: white;
+    font-size: 18px;
+    width: 100px;
+    height: 40px;
+    left: calc(50% + 200px);
+    cursor: pointer;
+}

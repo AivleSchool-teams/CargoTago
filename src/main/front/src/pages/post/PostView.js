@@ -4,6 +4,7 @@ import moment from 'moment';
 import axios from 'axios';
 
 import styles from './Post.module.css';
+import './PostView.css';
 
 const PostView = () => {
     const navigate = useNavigate();
@@ -107,12 +108,13 @@ const PostView = () => {
             </div>
             <div className={styles.white}/>
             <div className={styles.main_text}>게시글 상세정보</div>
-
+            <div className={styles.white}/>
             <div className="container" style={{ overflow: 'auto' }}>
                 <div className="lf-contents pd12">
                     {/* align-right */}
-                    <div className="top-controls">
-                        <a href="/post"><button className="lf-button primary float-right">목록으로</button></a>
+                    <div>
+                        <img className="listing" alt="" src="/images/rectangle-10@2x.png" />
+                        <a href="/Post"><button className="listingSpan">목록</button></a>
                     </div>
                     <div style={{ padding: "12px" }}>
                         {currentPosts.map((post) => (
