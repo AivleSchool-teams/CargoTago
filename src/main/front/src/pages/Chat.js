@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 // import ScrollToBottom from "react-scroll-to-bottom";
-import { Message } from './components/Message';
+import { Message } from '../components/Message';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 import io from 'socket.io-client';
@@ -12,131 +12,131 @@ import IconButton from '@material-ui/core/IconButton';
 
 const username = Math.random()
 function Chat() {
-  const inputRef = useRef();
-  const [messageList, setMessageList] = useState([]);
-  const room = 1
-  const messageBottomRef = useRef(null);
-  const socket = io.connect('http://localhost:4000');
-  const sendMessage = async () => {
-    const currentMsg = inputRef.current.value;
-    if (currentMsg !== '') {
-      const messageData = {
-        room: room,
-        message: currentMsg,
-        author: username,
-        time:
-          new Date(Date.now()).getHours() +
-          ':' +
-          new Date(Date.now()).getMinutes(),
-      };
-      await socket.emit('send_message', messageData);
-      setMessageList((list) => [...list, messageData]);
-      inputRef.current.value = '';
-    }
-  };
-  useEffect(() => {
-    socket.on('receive_message', (data) => {
-      setMessageList((list) => [...list, data]);
-    });
-  }, [socket]);
+    const inputRef = useRef();
+    const [messageList, setMessageList] = useState([]);
+    const room = 1
+    const messageBottomRef = useRef(null);
+    const socket = io.connect('http://localhost:4000');
+    const sendMessage = async () => {
+        const currentMsg = inputRef.current.value;
+        if (currentMsg !== '') {
+            const messageData = {
+                room: room,
+                message: currentMsg,
+                author: username,
+                time:
+                    new Date(Date.now()).getHours() +
+                    ':' +
+                    new Date(Date.now()).getMinutes(),
+            };
+            await socket.emit('send_message', messageData);
+            setMessageList((list) => [...list, messageData]);
+            inputRef.current.value = '';
+        }
+    };
+    useEffect(() => {
+        socket.on('receive_message', (data) => {
+            setMessageList((list) => [...list, data]);
+        });
+    }, [socket]);
 
-  useEffect(() => {
-    messageBottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messageList]);
+    useEffect(() => {
+        messageBottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, [messageList]);
 
-  // const { transcript, listening, resetTranscript } = useSpeechRecognition();
+    // const { transcript, listening, resetTranscript } = useSpeechRecognition();
 
-  // const startListening = () => {
-  //   resetTranscript();
-  //   SpeechRecognition.startListening({ continuous: true });
-  // };
+    // const startListening = () => {
+    //   resetTranscript();
+    //   SpeechRecognition.startListening({ continuous: true });
+    // };
 
-  // const stopListening = () => {
-  //   SpeechRecognition.stopListening();
-  //   inputRef.current.value = transcript;
-  // };
-  const { transcript, resetTranscript } = useSpeechRecognition();
-  const [isListening, setIsListening] = useState(false);
-  const toggleListening = () => {
-    setIsListening(!isListening);
-    if (isListening) {
-      SpeechRecognition.stopListening();
-      inputRef.current.value = transcript;
-    } else {
-      resetTranscript();
-      SpeechRecognition.startListening({ continuous: true });
-    }
-  };
+    // const stopListening = () => {
+    //   SpeechRecognition.stopListening();
+    //   inputRef.current.value = transcript;
+    // };
+    const { transcript, resetTranscript } = useSpeechRecognition();
+    const [isListening, setIsListening] = useState(false);
+    const toggleListening = () => {
+        setIsListening(!isListening);
+        if (isListening) {
+            SpeechRecognition.stopListening();
+            inputRef.current.value = transcript;
+        } else {
+            resetTranscript();
+            SpeechRecognition.startListening({ continuous: true });
+        }
+    };
 
-  return (
-    <div className={styles.div}>
-      <img className={styles.child} alt="" src="/images/rectangle-63@2x.png" />
-      {/* <div className={styles.inner} /> */}
-      <div className={styles.inner}>
-        {messageList.map((messageContent) => {
-          return (
-            <Message
-              messageContent={messageContent}
-              username={username}
-              key={uuidv4()}
-            />
-          );
-        })}
-        <div ref={messageBottomRef} />
-      </div>
-      <div className = {styles.div3}>
-        <IconButton onClick={toggleListening}>
-          <MicIcon />
-        </IconButton>
-      </div>
-      <div className={styles.chatInputBox}>
-        <input
-          className={styles.item} alt="" style={{backgroundImage: "url(/images/rectangle-57@2x.png)",  backgroundSize: "cover", backgroundPosition: "center"}}
-          ref={inputRef}
-          type='text'
-          placeholder='메세지를 입력해주세요'
-          onKeyPress={(event) => {
-            event.key === 'Enter' && sendMessage();
-          }}
-        />
-        <SendButton className={styles.b} onClick={sendMessage}>▶️</SendButton>
-      </div>
-      {/* </div> */}
-      <img className={styles.moa12} alt="" src="/images/moa-1-2@2x.png" />
-      <div className={styles.lineDiv} />
+    return (
+        <div className={styles.div}>
+            <img className={styles.child} alt="" src="/images/rectangle-63@2x.png" />
+            {/* <div className={styles.inner} /> */}
+            <div className={styles.inner}>
+                {messageList.map((messageContent) => {
+                    return (
+                        <Message
+                            messageContent={messageContent}
+                            username={username}
+                            key={uuidv4()}
+                        />
+                    );
+                })}
+                <div ref={messageBottomRef} />
+            </div>
+            <div className = {styles.div3}>
+                <IconButton onClick={toggleListening}>
+                    <MicIcon />
+                </IconButton>
+            </div>
+            <div className={styles.chatInputBox}>
+                <input
+                    className={styles.item} alt="" style={{backgroundImage: "url(/images/rectangle-57@2x.png)",  backgroundSize: "cover", backgroundPosition: "center"}}
+                    ref={inputRef}
+                    type='text'
+                    placeholder='메세지를 입력해주세요'
+                    onKeyPress={(event) => {
+                        event.key === 'Enter' && sendMessage();
+                    }}
+                />
+                <SendButton className={styles.b} onClick={sendMessage}>▶️</SendButton>
+            </div>
+            {/* </div> */}
+            <img className={styles.moa12} alt="" src="/images/moa-1-2@2x.png" />
+            <div className={styles.lineDiv} />
 
-    </div>
-    // <RoomContainer>
-    //   <RoomHeader>
-    //     <RoomTitle>{room}번 채팅방</RoomTitle>
-    //   </RoomHeader>
-    //   <RoomBody>
-    //     <MessageBox>
-    //       {messageList.map((messageContent) => {
-    //         return (
-    //           <Message
-    //             messageContent={messageContent}
-    //             username={username}
-    //             key={uuidv4()}
-    //           />
-    //         );
-    //       })}
-    //       <div ref={messageBottomRef} />
-    //     </MessageBox>
-    //   </RoomBody>
-    //   <ChatInputBox>
-    //     <ChatInput
-    //       ref={inputRef}
-    //       type='text'
-    //       placeholder='메세지를 입력해주세요'
-    //       onKeyPress={(event) => {
-    //         event.key === 'Enter' && sendMessage();
-    //       }}
-    //     />
-    //     <ChatButton onClick={sendMessage}>▹</ChatButton>
-    //   </ChatInputBox>
-    // </RoomContainer>
-  );
+        </div>
+        // <RoomContainer>
+        //   <RoomHeader>
+        //     <RoomTitle>{room}번 채팅방</RoomTitle>
+        //   </RoomHeader>
+        //   <RoomBody>
+        //     <MessageBox>
+        //       {messageList.map((messageContent) => {
+        //         return (
+        //           <Message
+        //             messageContent={messageContent}
+        //             username={username}
+        //             key={uuidv4()}
+        //           />
+        //         );
+        //       })}
+        //       <div ref={messageBottomRef} />
+        //     </MessageBox>
+        //   </RoomBody>
+        //   <ChatInputBox>
+        //     <ChatInput
+        //       ref={inputRef}
+        //       type='text'
+        //       placeholder='메세지를 입력해주세요'
+        //       onKeyPress={(event) => {
+        //         event.key === 'Enter' && sendMessage();
+        //       }}
+        //     />
+        //     <ChatButton onClick={sendMessage}>▹</ChatButton>
+        //   </ChatInputBox>
+        // </RoomContainer>
+    );
 }
 
 export default Chat;
@@ -155,7 +155,6 @@ const SendButton = styled.button`
   cursor: pointer; // 마우스를 올렸을 때 커서 모양을 변경합니다
   transition-duration: 0.4s; // 전환 효과의 지속 시간을 설정합니다
   border-radius: 10px; // 버튼의 모서리를 둥글게 만듭니다
-
   &:hover {
     background-color: #d3e8fb; // 마우스를 올렸을 때 버튼의 배경색을 변경합니다
     color: black; // 마우스를 올렸을 때 텍스트 색상을 변경합니다
