@@ -137,15 +137,15 @@ const Main = () => {
                     편리하고 합리적인 거래를 경험해보세요.
                 </div>
                 <div className={styles.child3} />
-                <div className={styles.div4}>리뷰 시스템</div>
+                <div className={styles.div4}>채팅 시스템</div>
                 <div className={styles.child4} />
                 <div className={styles.child5} />
                 <div className={styles.div5}>
                     <p
                         className={styles.ai}
-                    >{`배송 완료 후 화주에 대한 리뷰를 남겨보세요.  `}</p>
+                    >{`음성인식을 통한 채팅 시스템으로  `}</p>
                     <p className={styles.ai}>
-                        투명성을 높이며 더 나은 업무 환경을 만들어갑니다.
+                        화주와 차주를 연결합니다.
                     </p>
                 </div>
             </div>

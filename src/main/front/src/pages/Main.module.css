@@ -423,29 +423,28 @@
 }
 .ktAivleschoolAllRights {
     position: absolute;
-    top: 250px;
-    left: 152px;
     font-weight: 300;
-}
-.ktAivleschoolAllRights {
     top: 310px;
     left: 150px;
     font-size: var(--font-size-mini);
     text-align: left;
 }
-.div10,
-.div11,
 .div9 {
     position: absolute;
     top: 250px;
     left: 280px;
     font-weight: 300;
 }
-.div10,
-.div11 {
+.div10 {
+    position: absolute;
+    top: 250px;
+    font-weight: 300;
     left: 460px;
 }
 .div11 {
+    position: absolute;
+    top: 250px;
+    font-weight: 300;
     left: 560px;
 }
 .rectangleParent {

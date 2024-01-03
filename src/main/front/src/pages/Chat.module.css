@@ -1,0 +1,580 @@
+.aiChild,
+.aiItem {
+  border-radius: var(--br-xl);
+  object-fit: cover;
+}
+.aiChild {
+  position: absolute;
+  top: 31px;
+  left: 369px;
+  width: 701px;
+  height: 950px;
+}
+.aiItem {
+  top: 634px;
+  left: 394px;
+  width: 650px;
+  height: 209px;
+}
+.aiInner,
+.aiItem,
+.div {
+  position: absolute;
+}
+.aiInner {
+  top: 793.5px;
+  left: 411.5px;
+  border-top: 1px solid var(--color-black);
+  box-sizing: border-box;
+  width: 614px;
+  height: 1px;
+}
+.div {
+
+}
+
+.moa12 {
+  position: absolute;
+  top: 47px;
+  left: 600px;
+  width: 181px;
+  height: 69px;
+  object-fit: cover;
+}
+.km{
+  position: absolute;
+  top: 327px;
+  left: 1392px;
+  font-size: var(--font-size-11xl);
+  font-family: var(--font-inter);
+  color: var(--color-white);
+  text-align: left;
+}
+.km1 {
+  position: absolute;
+  top: 395px;
+  left: 1393px;
+  font-size: var(--font-size-11xl);
+  font-family: var(--font-inter);
+  color: var(--color-white);
+  text-align: left;
+}
+.aiChild1,
+.aiChild2 {
+  border-right: 1px solid var(--color-white);
+  width: 1px;
+}
+.aiChild1 {
+  position: absolute;
+  top: 215.5px;
+  left: 793.5px;
+  box-sizing: border-box;
+  height: 267.1px;
+}
+.aiChild2 {
+  top: 184.5px;
+  left: 542px;
+  height: 433.2px;
+}
+.aiChild2,
+.aiChild3,
+.aiChild4 {
+  position: absolute;
+  box-sizing: border-box;
+}
+.aiChild3 {
+  top: 350.5px;
+  left: 689.8px;
+  border-right: 1px solid var(--color-white);
+  width: 1px;
+  height: 267.1px;
+}
+.aiChild4 {
+  top: 425px;
+  left: 377.5px;
+  border-top: 1px solid var(--color-white);
+  width: 594px;
+  height: 1px;
+}
+.lineIcon {
+  position: absolute;
+  top: 152.5px;
+  left: 380px;
+  max-height: 100%;
+  width: 590px;
+  object-fit: cover;
+}
+.aiChild5,
+.aiChild6 {
+  border-top: 1px solid var(--color-white);
+  box-sizing: border-box;
+  height: 1px;
+}
+.aiChild5 {
+  position: absolute;
+  top: 206px;
+  left: 374.5px;
+  width: 592px;
+}
+.aiChild6 {
+  top: 253px;
+  left: 377.5px;
+  width: 596px;
+}
+.aiChild6,
+.aiChild7,
+.div1 {
+  position: absolute;
+}
+.aiChild7 {
+  top: 364px;
+  left: 374.5px;
+  border-top: 1px solid var(--color-white);
+  box-sizing: border-box;
+  width: 594px;
+  height: 1px;
+}
+.div1 {
+  top: 104px;
+  left: 402px;
+  color: var(--color-gray);
+}
+.div2,
+.rectangleIcon {
+  position: absolute;
+  left: 394px;
+}
+.div2 {
+  top: 276px;
+  color: var(--color-gray);
+}
+.rectangleIcon {
+  top: 122px;
+  border-radius: var(--br-xl);
+  width: 650px;
+  height: 150px;
+  object-fit: cover;
+}
+.div3 {
+  top: 179px;
+  left: 426px;
+}
+.aiChild8,
+.div3,
+.div4 {
+  position: absolute;
+}
+.div4 {
+  top: 220px;
+  left: 442px;
+  font-size: var(--font-size-mid);
+  display: inline-block;
+  width: 197px;
+  height: 42px;
+}
+.aiChild8 {
+  top: 123px;
+  left: 394px;
+  width: 22px;
+  height: 150px;
+  object-fit: contain;
+}
+.aiChild9 {
+  position: absolute;
+  top: 329.5px;
+  left: 380px;
+  max-height: 100%;
+  width: 590px;
+  object-fit: cover;
+}
+.aiChild10,
+.aiChild11 {
+  position: absolute;
+  top: 383px;
+  left: 374.5px;
+  border-top: 1px solid var(--color-white);
+  box-sizing: border-box;
+  width: 592px;
+  height: 1px;
+}
+.aiChild11 {
+  top: 430px;
+  left: 377.5px;
+  width: 596px;
+}
+.aiChild12 {
+  position: absolute;
+  top: 299px;
+  left: 394px;
+  border-radius: var(--br-xl);
+  width: 650px;
+  height: 150px;
+  object-fit: cover;
+}
+.div5,
+.div6 {
+  position: absolute;
+  top: 360px;
+  left: 428px;
+}
+.div6 {
+  top: 400px;
+  left: 427px;
+  font-size: var(--font-size-mid);
+  display: inline-block;
+  width: 197px;
+  height: 19px;
+}
+.aiChild13,
+.div7 {
+  position: absolute;
+  top: 328px;
+  left: 432px;
+}
+.aiChild13 {
+  top: 346.5px;
+  left: 426.5px;
+  border-top: 1px solid var(--color-black);
+  box-sizing: border-box;
+  width: 117.1px;
+  height: 1px;
+}
+.aiChild14,
+.div10,
+.div8,
+.div9 {
+  position: absolute;
+  top: 219px;
+  left: 427px;
+}
+.aiChild14,
+.div10,
+.div9 {
+  top: 401px;
+}
+.aiChild14,
+.div10 {
+  top: 147px;
+}
+.aiChild14 {
+  top: 634px;
+  left: 394px;
+  border-radius: var(--br-xl);
+  width: 650px;
+  height: 74px;
+  object-fit: cover;
+}
+.aiChild15,
+.aiChild16 {
+  position: absolute;
+  top: 658.5px;
+  left: 514.5px;
+  border-top: 1px solid var(--color-black);
+  box-sizing: border-box;
+  width: 61px;
+  height: 1px;
+}
+.aiChild16 {
+  left: 864.5px;
+}
+.aiChild17 {
+  position: absolute;
+  top: 299px;
+  left: 391px;
+  width: 22px;
+  height: 150px;
+  object-fit: contain;
+}
+.aiChild18 {
+  position: absolute;
+  top: 165.5px;
+  left: 421.5px;
+  border-top: 1px solid var(--color-black);
+  box-sizing: border-box;
+  width: 117.1px;
+  height: 1px;
+}
+.groupChild,
+.groupItem {
+  width: 300px;
+  object-fit: cover;
+}
+.groupChild {
+  position: absolute;
+  top: 1px;
+  left: 0;
+  height: 150px;
+}
+.groupItem {
+  height: 29px;
+}
+.div11,
+.groupItem {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.groupContainer,
+.wrapper {
+  position: absolute;
+  top: 4px;
+  left: 126px;
+  width: 48px;
+  height: 19px;
+}
+.groupContainer {
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 151px;
+}
+.groupInner {
+  position: absolute;
+  top: 24px;
+  left: 121px;
+  max-height: 100%;
+  width: 60px;
+  object-fit: cover;
+}
+.groupDiv,
+.groupParent {
+  position: absolute;
+  top: 472px;
+  left: 394px;
+  width: 300px;
+  height: 151px;
+  color: var(--color-white);
+}
+.groupDiv {
+  left: 744px;
+}
+.arrowIcon {
+  position: absolute;
+  top: 50px;
+  max-height: 100%;
+  width: 60px;
+  left: calc(50% - 430px);
+  transform: translateX(-50%);
+}
+.aiChild19,
+.rectangleDiv {
+  position: absolute;
+  top: 865px;
+  left: 744px;
+  border-radius: var(--br-xl);
+  background-color: #00498c;
+  width: 600px;
+  height: 88px;
+}
+.aiChild19 {
+  left: 394px;
+  background-color: #999;
+}
+.div13 {
+  top: 887px;
+  left: 856px;
+  font-size: var(--font-size-17xl);
+  font-family: var(--font-jalnan-gothic);
+  color: var(--color-white);
+  width: 89px;
+  height: 44px;
+}
+.div13,
+.div14,
+.div15,
+.div16 {
+  position: absolute;
+  display: inline-block;
+}
+.div14 {
+  top: 887px;
+  left: 498px;
+  font-size: var(--font-size-17xl);
+  font-family: var(--font-jalnan-gothic);
+  color: var(--color-white);
+  width: 89px;
+  height: 44px;
+}
+.div15,
+.div16 {
+  top: 638px;
+  left: 515px;
+  font-family: var(--font-inter);
+  width: 53px;
+  height: 33px;
+}
+.div16 {
+  left: 867px;
+}
+.ai {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 1024px;
+  overflow: hidden;
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--color-black);
+  font-family: var(--font-jalnan-gothic);
+}
+
+.child {
+  position: absolute;
+}
+
+.child {
+  border-radius: 20px;
+  width: 564px;
+  height: 500px;
+
+  position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
+  top: 400px;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+}
+
+.rectangleDiv {
+  position: absolute;
+  top: 311px;
+  left: 458px;
+  border-radius: var(--br-8xs);
+  /* background-color: #00498c; */
+  width: 305px;
+  height: 41px;
+}
+.inner{
+  position: absolute;
+  top: 200px;
+  left: calc(50% + 120px);
+  border-radius: var(--br-8xs);
+  /* background-color: #00498c; */
+  width: 305px;
+  height: 41px;
+  transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+  letter-spacing:1.5px
+}
+.happytruck,
+.lovetruck {
+  position: absolute;
+  top: 208px;
+  left: 865px;
+  display: inline-block;
+  width: 107px;
+  height: 36px;
+}
+.happytruck {
+  top: 286px;
+  left: 458px;
+}
+.div1,
+.div2 {
+  text-align: left;
+  display: inline-block;
+  width: 167px;
+  height: 28px;
+}
+.div1 {
+  position: absolute;
+  top: 244px;
+  left: 671px;
+  color: var(--color-white);
+}
+.div2 {
+  position: absolute;
+  top: 322px;
+  left: 467px;
+}
+.moa12 {
+  top: 75px;
+  width: 260px;
+  height: 100px;
+  object-fit: cover;
+  position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
+  left: 50%;
+  transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+}
+
+.lineDiv {
+  position: absolute;
+  transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+  top: 205px;
+  left: 50%;
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  width: 515px;
+  height: 1px;
+}
+.b1,
+.div3 {
+  position: absolute;
+  top: 158px;
+  left: 458px;
+  font-size: 20px;
+}
+.div3 {
+  top: 530px;
+  font-size: 64px;
+  display: inline-block;
+  width: 235px;
+  height: 76px;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+}
+.chatInputBox{
+  top: 40px;
+  font-size: 64px;
+  display: inline-block;
+  width: 235px;
+  height: 76px;
+  left: calc(50% - 715px);
+  transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+}
+.div {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
+  text-align: center;
+  font-size: var(--font-size-mid);
+  color: var(--color-black);
+  font-family: var(--font-sb-aggro);
+
+}
+.item {
+  position: absolute;
+  top: 600px;
+  height: 50px;
+  left: calc(50% - 130px);
+  border-radius: 10px;
+  width: 490px;
+  object-fit: cover;
+  font-size: var(--font-size-mid);
+  font-family: var(--font-sb-aggro);
+}
+.b {
+  position: absolute;
+  left: calc(50% + 325px);
+  font-size: 48px;
+  display: inline-block;
+  width: 60px;
+  height: 45px;
+  top : 623px;
+  transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+}
+.b span {
+  position: relative; /* 상위 요소인 .b가 absolute이므로, 여기서는 relative를 사용합니다 */
+  height: 30px;
+  width: 60px;
+  font-size: var(--font-size-mid);
+  font-family: var(--font-sb-aggro);
+  /* 필요하다면 여기에 다른 스타일을 추가하세요 */
+}
+.moa11 {
+  position: absolute;
+  width: 300px;
+  object-fit: cover;
+  top: 65px; /* 상단에서부터의 위치를 지정합니다. */
+  left: calc(50% - 15px);
+  transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+}
