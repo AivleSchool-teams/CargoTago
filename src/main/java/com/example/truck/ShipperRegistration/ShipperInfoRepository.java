@@ -6,5 +6,7 @@ import com.example.truck.CarrierRegistration.CarrierInfo;
 public interface ShipperInfoRepository extends JpaRepository<ShipperInfo, Long> {
 
     Optional<ShipperInfo> findByEmail(String email);
+
+    Optional<ShipperInfo> findByShipMember(Long shipMember);
 }
 

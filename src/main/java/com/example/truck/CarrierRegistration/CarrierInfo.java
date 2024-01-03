@@ -43,6 +43,6 @@ public class CarrierInfo {
     @Column(nullable = false, length = 20)
     private String account;
 
-    @Column(nullable = false, unique = true, length = 20)
+    @Column(nullable = false, unique = true, length = 30)
     private String email;
 }

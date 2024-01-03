@@ -2,9 +2,37 @@ import { useCallback, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import styles from "./Shipper-Main.module.css";
+import axios from "axios";
 
 const ShipperMain = () => {
     const navigate = useNavigate();
+
+    const [username, setUsername] = useState(null);
+
+    useEffect(() => {
+        const token = localStorage.getItem('jwt-token');
+        if (!token) {
+            // 토큰이 없으면 로그인 페이지로 리디렉션
+            navigate('/login');
+            console.log('비정상적인 접근입니다.')
+        } else {
+            axios.get('http://localhost:8080/user/mainpage', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+                .then(response => {
+                    // 사용자 이름 표시
+                    console.log('안녕하세요,', response.data.name, '님?');
+                    setUsername(response.data.name);
+                })
+                .catch(error => {
+                    // 오류 처리
+                    console.error('비정상적인 접근입니다.', error);
+                });
+        }
+    }, [navigate]);
+
 
     const onLogoClick = useCallback(() => {
         navigate('/Shipper/Main'); // 로고 클릭 시 '/' 경로로 이동합니다.
@@ -18,6 +46,9 @@ const ShipperMain = () => {
         navigate("/Shipper/Detail");
     }, [navigate]);
 
+    const onCargoRegi = useCallback(() => {
+        navigate('/CargoRegi'); // 로고 클릭 시 '/FindIDPW' 경로로 이동합니다
+    }, [navigate]);
 
     return (
         <div className={styles.div}>
@@ -53,10 +84,10 @@ const ShipperMain = () => {
                     <div className={styles.div6}>완료 -건</div>
                     <div className={styles.parent}>
                         <div className={styles.div7}>오늘도 좋은 하루 되세요!</div>
-                        <div className={styles.div8}>000님, 안녕하세요!</div>
+                        <div className={styles.div8}>{username}님, 안녕하세요!</div>
                     </div>
                 </div>
-                <div className={styles.rectangleGroup}>
+                <div className={styles.rectangleGroup} onClick={onCargoRegi}>
                     <div className={styles.groupItem} />
                     <div className={styles.div3}>신규 등록</div>
                     <img

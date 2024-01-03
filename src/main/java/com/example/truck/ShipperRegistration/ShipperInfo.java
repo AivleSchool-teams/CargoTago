@@ -1,13 +1,13 @@
 package com.example.truck.ShipperRegistration;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.truck.RegistInfo.RegistInfo;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -17,7 +17,7 @@ public class ShipperInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long carMember;
+    private Long shipMember;
 
     @Column(nullable = false, length = 20)
     private String name;
@@ -31,10 +31,18 @@ public class ShipperInfo {
     @Column(nullable = false, length = 20)
     private String account;
 
-    @Column(nullable = false, unique = true, length = 20)
+    @Column(nullable = false, unique = true, length = 30)
     private String email;
 
     @Column(nullable = false, unique = true, length = 20)
     private String cname;
+
+    @OneToMany(mappedBy = "shipperInfo")
+    @JsonBackReference
+    private List<RegistInfo> registInfo ;
+
+
+
+
 }
 

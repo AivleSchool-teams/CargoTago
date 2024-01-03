@@ -1,5 +1,7 @@
 package com.example.truck.RegistInfo;
 
+import com.example.truck.ShipperRegistration.ShipperInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -35,13 +37,13 @@ public class RegistInfo {
     private String selectedBox; // 카고 윙바디
 
     @Column(nullable = false, length = 20)
-    private Boolean isChecked1; // 무진동 여부 T/F
+    private boolean isChecked1; // 무진동 여부 T/F
 
     @Column(nullable = false, length = 20)
-    private Boolean isChecked2; // 냉동 여부 T/F
+    private boolean isChecked2; // 냉동 여부 T/F
 
     @Column(nullable = false, length = 20)
-    private Boolean isChecked3;// 냉장 여부 T/F
+    private boolean isChecked3;// 냉장 여부 T/F
 
     @Column(nullable = false, length = 100)
     private String text; // 요청사항 텍스트 에어리어
@@ -65,6 +67,10 @@ public class RegistInfo {
     @Column(nullable = false, length = 20)
     private String selectedButton;
 
+    @ManyToOne
+    @JsonManagedReference
+    @JoinColumn(name = "shipMember")
+    private ShipperInfo shipperInfo;
 
 }
 
