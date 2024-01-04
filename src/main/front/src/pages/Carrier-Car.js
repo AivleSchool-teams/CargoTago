@@ -7,8 +7,6 @@ import axios from "axios";
 const CarrierCar = () => {
     const navigate = useNavigate();
 
-    const [username, setUsername] = useState(null);
-
     useEffect(() => {
         const token = localStorage.getItem('jwt-token');
         if (!token) {
@@ -23,21 +21,26 @@ const CarrierCar = () => {
             })
                 .then(response => {
                     // 사용자 이름 표시
-                    console.log('안녕하세요,', response.data.name, '님?');
+                    console.log('사용자 이름:', response.data.name);
+                    setUserid(response.data.id);
                     setUsername(response.data.name);
-                    console.log(username);
+                    setUsertype(response.data.type);
                 })
                 .catch(error => {
                     // 오류 처리
                     console.error('비정상적인 접근입니다.', error);
                 });
         }
-    }, [navigate, username]);
+    }, [navigate]);
 
 
     const onBackClick = useCallback(() => {
         navigate('/Carrier/Main'); // 로고 클릭 시 '/' 경로로 이동합니다.
     }, [navigate]);
+
+    const [username, setUsername] = useState(null);
+    const [userid, setUserid] = useState(null);
+    const [usertype, setUsertype] = useState(null);
 
     // 톤 수 드롭 박스 구현 부분
     const [tonnage, setTonnage] = useState('');
@@ -75,77 +78,34 @@ const CarrierCar = () => {
 
 
     //=========================================================
+
+    //=========================================================
     const handleSubmit = async (event) => {
         event.preventDefault();
-
-        const now = new Date(); //한국은 UTC+9 시간대에 속하므로, UTC 시간으로 변환하면 한국 시간보다 9시간 빠른 시간이 나옴
-        const currentDateTime = now.getFullYear() + '-' +
-            ('0' + (now.getMonth()+1)).slice(-2) + '-' +
-            ('0' + now.getDate()).slice(-2) + 'T' +
-            ('0' + now.getHours()).slice(-2) + ':' +
-            ('0' + now.getMinutes()).slice(-2) + ':' +
-            ('0' + now.getSeconds()).slice(-2);
         console.log(userid);
         console.log(username);
-        console.log(selectedButton)
-        // console.log(selected);
-        console.log(selected2);
-        console.log(arrivalDateTime);
-        console.log(departureDateTime);
+
         console.log(tonnage);
         console.log(selectedBox);
         console.log(isChecked1);
         console.log(isChecked2);
-        console.log(isChecked3);
-        console.log(text);
-        console.log(selectedSize);
-        console.log('selectedBoXNew' + ":" + selectedBoxNew);
-        console.log(weight);
-        console.log(textAreaValue);
-        console.log(selectedValue);
+        console.log(area1);
+        console.log(area2);
+        console.log(distance);
 
-        console.log("headquarters2"+ headquarters2);
-        console.log("headquarters3"+headquarters3);
-
-        console.log('location.zipCode'+ location.zipCode);
-        console.log(location.roadAddress);
-        console.log(location.detailAddress);
-
-        console.log(address.postcode);
-        console.log(address.address);
-        console.log(address.detailAddress);
-        console.log(currentDateTime);
 
         const token = localStorage.getItem('jwt-token');
-        axios.post('http://localhost:8080/user/cargoregi/regi',{
-                shipmember : userid,
+        axios.post('http://localhost:8080/user/carrier/car',{
+                carmember : userid,
                 username : username,
-                // selected : selected,
-                selected2 : selected2,
-                arrivalDateTime : arrivalDateTime,
-                departureDateTime : departureDateTime,
+
                 tonnage : tonnage,
                 selectedBox : selectedBox,
                 isChecked1 :isChecked1,
                 isChecked2 : isChecked2,
-                isChecked3 : isChecked3,
-                text : text,
-                selectedSize : selectedSize,
-                selectedBoxNew : selectedBoxNew,
-                weight : weight,
-                textAreaValue : textAreaValue,
-                selectedValue : selectedValue,
-                selectedButton : selectedButton,
-                headquarters2 : headquarters2,
-                headquarters3 : headquarters3,
-                arrival_Code : location.zipCode,
-                arrival_Address : location.roadAddress,
-                arrival_detailAddress : location.detailAddress,
-                departure_code : address.postcode,
-                departure_address : address.address,
-                departure_detailAddress : address.detailAddress,
-                currentDateTime: currentDateTime,
-
+                area1 : area1,
+                area2 : area2,
+                distance : distance,
             }
             , {
                 headers: {
@@ -153,8 +113,8 @@ const CarrierCar = () => {
                 }
             })
             .then(res => {
-                window.alert("화물 접수가 정상적으로 등록되었습니다.")
-                navigate('/Shipper/main');
+                window.alert("차량이 정상적으로 등록되었습니다.")
+                navigate('/Carrier/main');
             })
             .catch(error => {
                 console.error("There was an error!", error);
