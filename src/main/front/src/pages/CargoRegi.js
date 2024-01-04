@@ -259,7 +259,7 @@ const CargoRegi = () => {
     }
 
 
-    const id = 100; // 임의의 id
+    //const id = 100; // 임의의 id
     //const username = "songhyunsung"; // 임의의 username
 
     //=========================================================

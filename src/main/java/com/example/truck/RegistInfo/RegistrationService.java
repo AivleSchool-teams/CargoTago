@@ -63,6 +63,10 @@ public class RegistrationService {
             newRegist.setDeparture_detailAddress(registInfoDTO.getDeparture_detailAddress());
             newRegist.setCurrentDateTime(registInfoDTO.getCurrentDateTime());
 
+            newRegist.setDist(registInfoDTO.getDist());
+            newRegist.setElapsed(registInfoDTO.getElapsed());
+            newRegist.setYourcost(registInfoDTO.getYourcost());
+
             newRegist.setShipperInfo(shipperInfo);
 
 

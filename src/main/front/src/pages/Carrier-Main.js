@@ -10,6 +10,7 @@ const CarrierMain = () => {
 
     const [username, setUsername] = useState(null);
 
+
     useEffect(() => {
         const token = localStorage.getItem('jwt-token');
         if (!token) {
@@ -33,6 +34,7 @@ const CarrierMain = () => {
                     console.error('비정상적인 접근입니다.', error);
                 });
         }
+
     }, [navigate, username]);
 
     const onListClick = useCallback(() => { // 차주 배차완료 리스트 페이지 이동

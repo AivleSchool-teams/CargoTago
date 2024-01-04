@@ -8,6 +8,8 @@ const ShipperMain = () => {
     const navigate = useNavigate();
 
     const [username, setUsername] = useState(null);
+    const [registInfoList, setRegistInfoList] = useState([]);
+
 
     useEffect(() => {
         const token = localStorage.getItem('jwt-token');
@@ -32,6 +34,16 @@ const ShipperMain = () => {
                     console.error('비정상적인 접근입니다.', error);
                 });
         }
+
+        axios.get('http://localhost:8080/user/shipper/mylist', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(res => {
+                setRegistInfoList(res.data);
+                console.log(res.data);
+            })
     }, [navigate, username]);
 
     const onListClick = useCallback(() => { // 화주 배차완료 리스트 페이지 이동
@@ -75,7 +87,7 @@ const ShipperMain = () => {
                         alt=""
                         src="/images/rectangle-15@2x.png"
                     />
-                    <div className={styles.div4}>주문 -건</div>
+                    <div className={styles.div4}>주문 {registInfoList.length}건</div>
                     <div className={styles.div5}>배차 -건</div>
                     <div className={styles.div6}>완료 -건</div>
                     <div className={styles.parent}>
@@ -102,33 +114,35 @@ const ShipperMain = () => {
                 </div>
 
                 {/* 배차 1개 */}
-                <div className={styles.groupDiv} onClick={onDetailClick}>
-                    <img
-                        className={styles.rectangleIcon}
-                        alt=""
-                        src="/images/rectangle-57@2x.png"
-                    />
-                    <div className={styles.div11}>
-                        <p className={styles.p}>경기 김포시 양촌</p>
+                {registInfoList.map((registInfo, index) => (
+                    <div key={index} className={styles.groupDiv} onClick={onDetailClick}>
+                        <img
+                            className={styles.rectangleIcon}
+                            alt=""
+                            src="/images/rectangle-57@2x.png"
+                        />
+                        <div className={styles.div11}>
+                            <p className={styles.p}>{registInfo.departure_address}</p>
+                        </div>
+                        <div className={styles.div12}>{registInfo.arrival_Address}</div>
+                        <div className={styles.div13}>{`${registInfo.tonnage} | ${registInfo.selectedBox} | `}</div>
+                        <div className={styles.km}>{registInfo.distance} km</div>
+                        <div className={styles.div14}>335,000 원</div>
+                        <img
+                            className={styles.image13Icon}
+                            alt=""
+                            src="/images/image-13@2x.png"
+                        />
+                        <div className={styles.div15}>
+                            <span>{`출발지 주소 `}</span>
+                            <span className={styles.span}>*</span>
+                        </div>
+                        <div className={styles.div16}>
+                            <span>{`도착지 주소 `}</span>
+                            <span className={styles.span}>*</span>
+                        </div>
                     </div>
-                    <div className={styles.div12}>서울 강동 동남로</div>
-                    <div className={styles.div13}>{`11톤 | 윙바디 | `}</div>
-                    <div className={styles.km}>17 km</div>
-                    <div className={styles.div14}>335,000 원</div>
-                    <img
-                        className={styles.image13Icon}
-                        alt=""
-                        src="/images/image-13@2x.png"
-                    />
-                    <div className={styles.div15}>
-                        <span>{`출발지 주소 `}</span>
-                        <span className={styles.span}>*</span>
-                    </div>
-                    <div className={styles.div16}>
-                        <span>{`도착지 주소 `}</span>
-                        <span className={styles.span}>*</span>
-                    </div>
-                </div>
+                    ))}
 
 
             </div>

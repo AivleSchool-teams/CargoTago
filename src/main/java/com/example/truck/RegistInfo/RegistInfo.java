@@ -54,7 +54,7 @@ public class RegistInfo {
     private String selectedBoxNew; // 파렛트 박스 기타
 
     @Column(nullable = false, length = 20)
-    private int weight; // 총중량
+    private Integer weight; // 총중량
 
     @Column(nullable = false, length = 100)
     private String textAreaValue; // 화물정보 세부내용 텍스트
@@ -91,6 +91,15 @@ public class RegistInfo {
 
     @Column(nullable = false, length = 50)
     private String currentDateTime; //등록시간
+
+    @Column(nullable = false,length = 50)
+    private Float dist; // 총 거리
+
+    @Column(nullable = false,length = 50)
+    private Integer elapsed; // 소요 시간
+
+    @Column(nullable = false,length = 50)
+    private Integer yourcost; // 실제 운임
 
     @ManyToOne
     @JsonManagedReference
