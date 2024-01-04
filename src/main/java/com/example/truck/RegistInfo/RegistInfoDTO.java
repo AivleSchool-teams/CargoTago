@@ -8,7 +8,7 @@ public class RegistInfoDTO {
 
     private Long id; //PK
     private String username; //userid와 비교용?
-//    private String selected; //독차 혼적
+    //    private String selected; //독차 혼적
     private String selected2;  //편도 왕복
     private String arrivalDateTime; //도착날짜
     private String departureDateTime;  //출발날짜
@@ -25,5 +25,14 @@ public class RegistInfoDTO {
     private String selectedValue; // 수량? -> 일단 만들어두래서 만듬
     private String selectedButton;
 
-    private Long shipmember; //
+    private String headquarters2; // 출발지 이름
+    private String headquarters3; // 도착지 이름
+    private String arrival_Code; //도착지 우편번호
+    private String arrival_Address; //도착지 주소
+    private String arrival_detailAddress; //도착지 세부 주소
+    private String departure_code; //출발지 우편번호
+    private String departure_address; //출발지 주소
+    private String departure_detailAddress; //출발지 세부 주소
+    private String currentDateTime; //등록 시간
+
 }

@@ -1,7 +1,5 @@
 package com.example.truck.RegistInfo;
 
-import com.example.truck.ShipperRegistration.ShipperInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -67,24 +65,33 @@ public class RegistInfo {
     @Column(nullable = false, length = 20)
     private String selectedButton;
 
-    @ManyToOne
-    @JsonManagedReference
-    @JoinColumn(name = "shipMember")
-    private ShipperInfo shipperInfo;
+    @Column(nullable = false, length = 20)
+    private String headquarters2; // 출발지 이름
+
+    @Column(nullable = false, length = 20)
+    private String headquarters3; //도착지 이름
+
+    @Column(nullable = false, length = 20)
+    private String arrival_Code; //도착지 우편번호
+
+    @Column(nullable = false, length = 100)
+    private String arrival_Address; //도착지 주소
+
+    @Column(nullable = false, length = 50)
+    private String arrival_detailAddress; //도착지 세부 주소
+
+    @Column(nullable = false, length = 20)
+    private String departure_code; //출발지 우편번호
+
+    @Column(nullable = false, length = 100)
+    private String departure_address; //출발지 주소
+
+    @Column(nullable = false, length = 50)
+    private String departure_detailAddress; //출발지 세부 주소
+
+    @Column(nullable = false, length = 50)
+    private String currentDateTime; //등록시간
+
+
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
