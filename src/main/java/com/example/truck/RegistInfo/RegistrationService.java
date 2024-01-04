@@ -3,6 +3,8 @@ package com.example.truck.RegistInfo;
 import com.example.truck.RegistInfo.RegistInfo;
 import com.example.truck.RegistInfo.RegistInfoDTO;
 import com.example.truck.RegistInfo.RegistInfoRepository;
+import com.example.truck.ShipperRegistration.ShipperInfo;
+import com.example.truck.ShipperRegistration.ShipperInfoRepository;
 import jakarta.persistence.Column;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -18,12 +20,17 @@ public class RegistrationService {
     private final RegistInfoRepository registInfoRepository;
     private final PasswordEncoder passwordEncoder;
 
+    private final ShipperInfoRepository shipperInfoRepository; // ShipperInfoRepository 의존성 추가
+
     @Transactional
     public Integer findByUsernamecheck(final RegistInfoDTO registInfoDTO) {
         Optional<RegistInfo> vars1 = registInfoRepository.findByUsername(registInfoDTO.getText());
         if (vars1.isPresent()) {
             return 0;
         } else {
+            ShipperInfo shipperInfo = shipperInfoRepository.findByShipMember(registInfoDTO.getShipmember())
+                    .orElseThrow(() -> new RuntimeException("ShipperInfo not found"));
+
             RegistInfo newRegist = new RegistInfo();
             newRegist.setId(registInfoDTO.getId());
             newRegist.setUsername(registInfoDTO.getUsername());
@@ -56,6 +63,9 @@ public class RegistrationService {
             newRegist.setDeparture_address(registInfoDTO.getDeparture_address());
             newRegist.setDeparture_detailAddress(registInfoDTO.getDeparture_detailAddress());
             newRegist.setCurrentDateTime(registInfoDTO.getCurrentDateTime());
+
+            newRegist.setShipperInfo(shipperInfo);
+
 
 //            private boolean isChecked1; // 무진동 여부 T/F
 //            private boolean isChecked2; // 냉동 여부 T/F

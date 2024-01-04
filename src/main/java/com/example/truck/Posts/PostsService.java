@@ -10,6 +10,8 @@ public class PostsService {
 
     private final PostsInfoRepository repository;
 
+    private final FilesInfoRepository filerepository;
+
     public List<PostsInfo> all() {
         return repository.findAll();
     }
@@ -18,6 +20,7 @@ public class PostsService {
         return repository.save(newPostsInfo);
     }
 
+    public void newFileInfo(FilesInfo newFilesInfo) { filerepository.save(newFilesInfo); }
     public PostsInfo one(Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Could not find post with id " + id));
