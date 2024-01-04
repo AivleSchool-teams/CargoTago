@@ -103,7 +103,7 @@ function App() {
             <Route path='/Post' element={<PostList />} />
             <Route path='/Post/Create' element={<PostCreate />} />
 
-            <Route path="/CarrierAIselect" element={<CarrierAIselect />} />
+            <Route path="/Carrier/AIselect" element={<CarrierAIselect />} />
 
             <Route path='/Chat' element={<Chat />} />
 

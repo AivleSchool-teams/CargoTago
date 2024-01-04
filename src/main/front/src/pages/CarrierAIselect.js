@@ -33,6 +33,7 @@ const AI = () => {
                 <div className={styles.rectangleGroup}>
                     <div className={styles.groupInner} />
                     <div className={styles.div8}>예상 시간</div>
+                    <div className={styles.div25}> 11톤 | 윙바디 | </div>
                     <div className={styles.rectangleDiv} />
                     <div className={styles.rectangleContainer}>
                         <div className={styles.groupChild1} />
