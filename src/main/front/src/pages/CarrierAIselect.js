@@ -6,13 +6,13 @@ const AI = () => {
     const navigate = useNavigate();
 
     const onLogoClick = useCallback(() => {
-        navigate('/'); // '화물 타고' 클릭 시 '/frame' 경로로 이동합니다.
+        navigate('/'); // '화물 타고' 클릭 시 '/frame' 경로로 이동.
     }, [navigate]);
 
     return (
         <div className={styles.ai}>
             <div className={styles.div}>
-                <img className={styles.child} alt="" src="/images/rectangle-59@2x.png" />
+                <img className={styles.child} alt="" src="/images/rectangle-60@2x.png" />
                 <div className={styles.div1}>다음</div>
                 <div className={styles.item} />
                 <div className={styles.rectangleParent}>
