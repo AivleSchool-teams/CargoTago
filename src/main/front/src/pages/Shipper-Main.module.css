@@ -210,13 +210,18 @@
     margin: 0;
 }
 .div11 {
+    position: absolute;
+    display: inline-block;
     top: 78px;
     left: 71px;
     font-size: var(--font-size-xl);
     width: 197px;
     height: 24px;
+    margin: 0;
+    white-space: nowrap; /* 한 줄에 텍스트 표시 */
+    overflow: hidden; /* 넘치는 부분 숨기기 */
+    text-overflow: ellipsis; /* 텍스트가 넘치면 "..."으로 표시 */
 }
-.div11,
 .div12,
 .div13,
 .div14,
@@ -230,6 +235,9 @@
     font-size: var(--font-size-xl);
     width: 197px;
     height: 24px;
+    white-space: nowrap; /* 한 줄에 텍스트 표시 */
+    overflow: hidden; /* 넘치는 부분 숨기기 */
+    text-overflow: ellipsis; /* 텍스트가 넘치면 "..."으로 표시 */
 }
 .div13,
 .div14,
