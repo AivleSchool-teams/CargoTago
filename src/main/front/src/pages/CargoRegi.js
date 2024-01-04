@@ -1,43 +1,9 @@
 import styles from "./CargoRegi.module.css";
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import {useNavigate} from "react-router-dom";
 
 const CargoRegi = () => {
-
-    const [username, setUsername] = useState(null);
-    const [userid, setUserid] = useState(null);
-    const [usertype, setUsertype] = useState(null);
-
-
-    useEffect(() => {
-        const token = localStorage.getItem('jwt-token');
-        if (!token) {
-            // 토큰이 없으면 로그인 페이지로 리디렉션
-            navigate('/login');
-            console.log('비정상적인 접근입니다.')
-        } else {
-            axios.get('http://localhost:8080/user/mainpage', {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            })
-                .then(response => {
-                    // 사용자 이름 표시
-                    console.log('사용자 이름:', response.data.name);
-                    setUserid(response.data.id);
-                    setUsername(response.data.name);
-                    setUsertype(response.data.typed);
-                })
-                .catch(error => {
-                    // 오류 처리
-                    console.error('비정상적인 접근입니다.', error);
-                });
-        }
-    }, [navigate]);
-
-
-
-
     const [location, setLocation] = useState({
         zipCode: '',
         roadAddress: '',
@@ -147,6 +113,41 @@ const CargoRegi = () => {
 
     const buttons = ['본인이 직접 옮김', '상하차만 도움', '상하차 및 운반도움'];
 
+    const navigate = useNavigate();
+
+    const [username, setUsername] = useState(null);
+    const [userid, setUserid] = useState(null);
+    const [usertype, setUsertype] = useState(null);
+
+
+    useEffect(() => {
+        const token = localStorage.getItem('jwt-token');
+        if (!token) {
+            // 토큰이 없으면 로그인 페이지로 리디렉션
+            navigate('/login');
+            console.log('비정상적인 접근입니다.')
+        } else {
+            axios.get('http://localhost:8080/user/mainpage', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+                .then(response => {
+                    // 사용자 이름 표시
+                    console.log('사용자 이름:', response.data.name);
+                    setUserid(response.data.id);
+                    setUsername(response.data.name);
+                    setUsertype(response.data.typed);
+                })
+                .catch(error => {
+                    // 오류 처리
+                    console.error('비정상적인 접근입니다.', error);
+                });
+        }
+    }, [navigate]);
+
+
+
     const [weight, setWeight] = useState(45);
     const [textAreaValue, setTextAreaValue] = useState('');
 
@@ -252,12 +253,15 @@ const CargoRegi = () => {
     function handleSizeChange(event) {
         setSelectedSize(event.target.value);
     }
-    const id = 100; // 임의의 id
 
+
+    const id = 100; // 임의의 id
+    //const username = "songhyunsung"; // 임의의 username
 
     //=========================================================
     const handleSubmit = async (event) => {
         event.preventDefault();
+
         const now = new Date(); //한국은 UTC+9 시간대에 속하므로, UTC 시간으로 변환하면 한국 시간보다 9시간 빠른 시간이 나옴
         const currentDateTime = now.getFullYear() + '-' +
             ('0' + (now.getMonth()+1)).slice(-2) + '-' +
@@ -265,8 +269,6 @@ const CargoRegi = () => {
             ('0' + now.getHours()).slice(-2) + ':' +
             ('0' + now.getMinutes()).slice(-2) + ':' +
             ('0' + now.getSeconds()).slice(-2);
-
-
         console.log(userid);
         console.log(username);
         console.log(selectedButton)
@@ -298,12 +300,9 @@ const CargoRegi = () => {
         console.log(address.detailAddress);
         console.log(currentDateTime);
 
-
-
         const token = localStorage.getItem('jwt-token');
-
         axios.post('http://localhost:8080/user/cargoregi/regi',{
-                id : id,
+                shipmember : userid,
                 username : username,
                 // selected : selected,
                 selected2 : selected2,
@@ -740,7 +739,7 @@ const CargoRegi = () => {
             </div>
             <div className={styles.child31}/>
             <img className={styles.arrowIcon} alt="" src="/images/arrow-3@2x.png"/>
-            <div className={styles.child32} onClick={handleSubmit}/>
+            <div className={styles.child32}/>
             <div className={styles.div54} onClick={handleSubmit}>등록</div>
 
             <img className={styles.moa11} alt="" src="/images/1-1@2x.png"/>
@@ -831,4 +830,3 @@ const CargoRegi = () => {
 };
 
 export default CargoRegi;
-
