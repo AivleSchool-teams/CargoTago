@@ -5,11 +5,11 @@ import com.example.truck.RegistInfo.RegistInfoDTO;
 import com.example.truck.RegistInfo.RegistInfoRepository;
 import com.example.truck.ShipperRegistration.ShipperInfo;
 import com.example.truck.ShipperRegistration.ShipperInfoRepository;
+import jakarta.persistence.Column;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.Optional;
 
@@ -25,7 +25,6 @@ public class RegistrationService {
     @Transactional
     public Integer findByUsernamecheck(final RegistInfoDTO registInfoDTO) {
         Optional<RegistInfo> vars1 = registInfoRepository.findByUsername(registInfoDTO.getText());
-
         if (vars1.isPresent()) {
             return 0;
         } else {
@@ -51,7 +50,22 @@ public class RegistrationService {
             newRegist.setTextAreaValue(registInfoDTO.getTextAreaValue());
             newRegist.setSelectedValue(registInfoDTO.getSelectedValue());
             newRegist.setSelectedButton(registInfoDTO.getSelectedButton());
+
+            newRegist.setHeadquarters2(registInfoDTO.getHeadquarters2());
+            newRegist.setHeadquarters3(registInfoDTO.getHeadquarters3());
+
+
+            newRegist.setArrival_Code(registInfoDTO.getArrival_Code());
+            newRegist.setArrival_Address(registInfoDTO.getArrival_Address());
+            newRegist.setArrival_detailAddress(registInfoDTO.getArrival_detailAddress());
+
+            newRegist.setDeparture_code(registInfoDTO.getDeparture_code());
+            newRegist.setDeparture_address(registInfoDTO.getDeparture_address());
+            newRegist.setDeparture_detailAddress(registInfoDTO.getDeparture_detailAddress());
+            newRegist.setCurrentDateTime(registInfoDTO.getCurrentDateTime());
+
             newRegist.setShipperInfo(shipperInfo);
+
 
 //            private boolean isChecked1; // 무진동 여부 T/F
 //            private boolean isChecked2; // 냉동 여부 T/F
@@ -63,4 +77,3 @@ public class RegistrationService {
 
     }
 }
-
