@@ -7,17 +7,17 @@
     max-height: 100%;
     width: 39.1px;
     object-fit: contain;
-    left: calc(50% - 120px);
+    left: calc(50% - 250px);
     transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
 }
 .centeralign {
     position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
-    left: calc(50% - 615px);
+    left: calc(50% - 730px);
     transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
 }
 .div1 {
     top: 55px;
-    left: calc(50% - 100px);
+    left: calc(50% - 200px);
     font-size: 55px;
     font-family: var(--font-jalnan-gothic);
     color: var(--color-darkslateblue);
