@@ -12,7 +12,6 @@ body {
   --font-inter: Inter;
 
   /* font sizes */
-  --font-size-13xl: 32px;
   --font-size-xl: 20px;
   --font-size-mini: 15px;
   --font-size-mid: 17px;
@@ -29,6 +28,7 @@ body {
   --font-size-5xl: 24px;
   --font-size-3xl: 22px;
   --font-size-7xl: 26px;
+  --font-size-13xl: 32px;
 
   /* Colors */
   --color-white: #fff;

@@ -24,11 +24,11 @@ import Consent3 from "./pages/Consent3";
 import Consent4 from "./pages/Consent4";
 import Consent5 from "./pages/Consent5";
 
-import CarrierAIselect from "./pages/CarrierAIselect";
-
 import TestRegister from "./pages/TestRegister";
 import CargoRegi from "./pages/CargoRegi";
 import CargoRegiAI from "./pages/CargoRegiAI";
+
+import CarrierAIselect from "./pages/CarrierAIselect";
 
 import PostList from "./pages/post/PostList"; // 게시판 목록
 import PostView from "./pages/post/PostView"; // 게시판 상세보기
