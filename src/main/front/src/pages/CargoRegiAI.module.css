@@ -111,6 +111,28 @@
     text-align: right;
     width: 250px;
 }
+.idbox {
+    position: absolute;
+    top: -30%;
+
+    border-radius: var(--br-3xs);
+    background-color: transparent;
+    border: 0px solid var(--color-gainsboro);
+    box-sizing: border-box;
+    width: 200px;
+    height: 60px;
+    font-size: 27px;
+    text-align: right;
+    padding-left: 30px;
+    font-family: var(--font-jalnan-gothic);
+    color: var(--color-white);
+
+
+    left: 48%;
+
+    transform: translateX(-50%);
+
+}
 .ai1,
 .div6 {
     left: 78px;
@@ -186,4 +208,16 @@
     font-size: 80px;
     color: var(--color-darkslateblue);
     font-family: var(--font-jalnan-gothic);
+}
+
+.idbox::placeholder {
+    color: var(--color-gainsboro);
+    font-family: var(--font-jalnan-gothic);
+    font-size: var(--font-size-5xl);
+    position: relative;
+    top: -2%;
+    background-color: transparent;
+    width: 50%;
+    overflow: hidden;
+    text-align: right;
 }

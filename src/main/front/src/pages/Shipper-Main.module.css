@@ -310,7 +310,7 @@
     transform-origin: 0 0;
 }
 .groupDiv {
-    position: absolute;
+    position: relative;
     top: 40px;
     left: 45px;
     width: 652px;

@@ -34,5 +34,9 @@ public class RegistInfoDTO {
     private String departure_detailAddress; //출발지 세부 주소
     private String currentDateTime; //등록 시간
 
+    private Float dist;
+    private Integer elapsed;
+    private Integer yourcost;
+
     private Long shipmember;
 }
