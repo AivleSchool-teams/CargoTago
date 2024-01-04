@@ -908,6 +908,7 @@
     border: 2px solid var(--color-gainsboro);
     box-sizing: border-box;
     resize: none;
+    color: var(--color-dimgray-200);
 }
 
 .child13 {

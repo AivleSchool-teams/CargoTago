@@ -50,8 +50,8 @@ const ShipperMain = () => {
         navigate("/Shipper/List");
     }, [navigate]);
 
-    const onDetailClick = useCallback(() => { // 화주 배차완료 리스트 페이지 이동
-        navigate("/Shipper/Detail");
+    const onDetailClick = useCallback((id) => { // 화주 배차완료 리스트 페이지 이동
+        navigate(`/Shipper/Detail/${id}`);
     }, [navigate]);
 
     const onCargoRegi = useCallback(() => {
@@ -115,15 +115,13 @@ const ShipperMain = () => {
 
                 {/* 배차 1개 */}
                 {registInfoList.map((registInfo, index) => (
-                    <div key={index} className={styles.groupDiv} onClick={onDetailClick}>
+                    <div key={index} className={styles.groupDiv} onClick={() => onDetailClick(registInfo.id)}>
                         <img
                             className={styles.rectangleIcon}
                             alt=""
                             src="/images/rectangle-57@2x.png"
                         />
-                        <div className={styles.div11}>
-                            <p className={styles.p}>{registInfo.departure_address}</p>
-                        </div>
+                        <div className={styles.div11}>{registInfo.departure_address}></div>
                         <div className={styles.div12}>{registInfo.arrival_Address}</div>
                         <div className={styles.div13}>{`${registInfo.tonnage} | ${registInfo.selectedBox} | `}</div>
                         <div className={styles.km}>{registInfo.distance} km</div>
@@ -134,12 +132,10 @@ const ShipperMain = () => {
                             src="/images/image-13@2x.png"
                         />
                         <div className={styles.div15}>
-                            <span>{`출발지 주소 `}</span>
-                            <span className={styles.span}>*</span>
+                            <span>출발지 주소</span>
                         </div>
                         <div className={styles.div16}>
-                            <span>{`도착지 주소 `}</span>
-                            <span className={styles.span}>*</span>
+                            <span>도착지 주소</span>
                         </div>
                     </div>
                     ))}

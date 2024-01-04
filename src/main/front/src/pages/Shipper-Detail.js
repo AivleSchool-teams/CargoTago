@@ -1,4 +1,5 @@
 import { useCallback, useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import styles from "./Shipper-Detail.module.css";
 // chat socket
 import { useNavigate } from "react-router-dom";
@@ -9,10 +10,10 @@ const socket = io.connect('http://localhost:4000');
 const room = '1'
 
 const ShipperDetail = () => {
-
+    const { id } = useParams();
     const navigate = useNavigate();
     const [username, setUsername] = useState(null);
-
+    const [registInfoList, setRegistInfoList] = useState([]);
 
     useEffect(() => {
         const token = localStorage.getItem('jwt-token');
@@ -28,16 +29,31 @@ const ShipperDetail = () => {
             })
                 .then(response => {
                     // 사용자 이름 표시
-                    console.log('사용자 이름:', response.data.name);
+                    console.log('안녕하세요,', response.data.name, '님?');
                     setUsername(response.data.name);
-
+                    console.log(username);
                 })
                 .catch(error => {
                     // 오류 처리
                     console.error('비정상적인 접근입니다.', error);
                 });
         }
-    }, [navigate]);
+
+        axios.get('http://localhost:8080/user/shipper/mylist', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(res => {
+                const filteredData = res.data.filter(item => item.id === parseInt(id));  // id를 기반으로 데이터 필터링
+                setRegistInfoList(filteredData);  // 필터링한 데이터를 상태로 설정
+                console.log(filteredData);
+            })
+            .catch(error => {
+                console.error('에러가 발생했습니다.', error);
+            });
+    }, [navigate, username, id]);
+
     const onLogoClick = useCallback(() => {
         navigate('/Shipper/Main'); // 로고 클릭 시 '/' 경로로 이동합니다.
     }, [navigate]);
@@ -58,7 +74,10 @@ const ShipperDetail = () => {
     };
 
     return (
+        <div>
+        {registInfoList.map((registInfo, index) => (
         <div className={styles.div}>
+
             <div className={styles.div1}>
                 <img
                     className={styles.child}
@@ -71,16 +90,36 @@ const ShipperDetail = () => {
                 </button>
 
                 <div className={styles.startloc}>
-                    <div className={styles.kt}>KT 본사</div>
-                    <div className={styles.kt1}>경기 성남시 분당구 불정로 90 KT빌딩</div>
-                    <div className={styles.div2}>세부 주소</div>
-                    <div className={styles.div3}>2023.12.28 09:00</div>
+                    <div className={styles.kt}>{registInfo.headquarters2}</div>
+                    <div className={styles.kt1}>{registInfo.departure_address}</div>
+                    <div className={styles.div2}>{registInfo.departure_detailAddress}</div>
+                    <div className={styles.div3}>
+                        {
+                            new Date(registInfo.departureDateTime).toLocaleString('ko-KR', {
+                                year: 'numeric',
+                                month: '2-digit',
+                                day: '2-digit',
+                                hour: '2-digit',
+                                minute: '2-digit'
+                            })
+                        }
+                    </div>
                 </div>
                 <div className={styles.endloc}>
-                    <div className={styles.kt2}>KT 본사</div>
-                    <div className={styles.kt3}>경기 성남시 분당구 불정로 90 KT빌딩</div>
-                    <div className={styles.div4}>세부 주소</div>
-                    <div className={styles.div5}>2023.12.28 12:00</div>
+                    <div className={styles.kt2}>{registInfo.headquarters3}</div>
+                    <div className={styles.kt3}>{registInfo.arrival_Address}</div>
+                    <div className={styles.div4}>{registInfo.arrival_detailAddress}</div>
+                    <div className={styles.div5}>
+                        {
+                            new Date(registInfo.arrivalDateTime).toLocaleString('ko-KR', {
+                                year: 'numeric',
+                                month: '2-digit',
+                                day: '2-digit',
+                                hour: '2-digit',
+                                minute: '2-digit'
+                            })
+                        }
+                    </div>
                 </div>
                 <div className={styles.div6}>
                   <span className={styles.txt}>
@@ -124,17 +163,18 @@ const ShipperDetail = () => {
                     </ul>
                   </span>
                 </div>
-                <div className={styles.div12}>1톤 카고</div>
+                <div className={styles.div12}>{registInfo.tonnage} {registInfo.selectedBox}</div>
+                <div className={styles.div131}>{registInfo.text}</div>
                 <div className={styles.cm15kg}>
-                    박스 | 중형 120cm/15kg 이하 | 40 개 | 1.1 톤
+                    종류 : {registInfo.selectedBoxNew} | 크기 : {registInfo.selectedSize} | 수량 : {registInfo.selectedValue}개 | 총 중량 : {registInfo.weight}톤
                 </div>
-                <div className={styles.div13}>{`세부사항 : `}</div>
+                <div className={styles.div13}>{registInfo.textAreaValue}</div>
                 <div className={styles.div14}>
                     {`계좌번호 :   `}
                     <span className={styles.span}>홍길동 국민 620000-00-000000</span>
                 </div>
-                <div className={styles.div15}>80,000 원</div>
-                <div className={styles.div16}>편도</div>
+                <div className={styles.div15}>{registInfo.yourcost} 원</div>
+                <div className={styles.div16}>{registInfo.selected2}</div>
                 <div className={styles.div17}>접수 상세 정보</div>
                 <div className={styles.item} />
                 <div className={styles.inner} />
@@ -163,12 +203,20 @@ const ShipperDetail = () => {
                     <div className={styles.div27}>운송완료</div>
                 </div>
                 <div className={styles.div28}>
-                    <div className={styles.div29}>접수일 : 2023.12.28 09:00</div>
-                    <div className={styles.div30}>접수자 : 홍길동</div>
+                    <div className={styles.div29}>
+                        접수일 : {
+                        new Date(registInfo.currentDateTime).toLocaleString('ko-KR', {
+                            year: 'numeric',
+                            month: '2-digit',
+                            day: '2-digit'
+                        })
+                    }
+                    </div>
+                    <div className={styles.div30}>접수자 : {registInfo.username}</div>
                 </div>
                 <div className={styles.rectangleGroup}>
                     <div className={styles.groupItem} />
-                    <div className={styles.n0001}>N0001</div>
+                    <div className={styles.n0001}>N000{registInfo.id}</div>
                     <div className={styles.div31}>접수완료</div>
                 </div>
                 <img className={styles.lineIcon} alt="" src="/images/line-37@2x.png" />
@@ -180,6 +228,8 @@ const ShipperDetail = () => {
                 alt=""
                 src="/images/arrow-3@2x.png"
             />
+        </div>
+            ))}
         </div>
     );
 };

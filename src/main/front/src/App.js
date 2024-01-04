@@ -84,7 +84,7 @@ function App() {
             <Route path="/Shipper/2" element={<JoinShipper2 />} />
             <Route path="/Shipper/3" element={<JoinShipper3 />} />
             <Route path="/Shipper/List" element={<ShipperList />} />
-            <Route path="/Shipper/Detail" element={<ShipperDetail />} />
+            <Route path="/Shipper/Detail/:id" element={<ShipperDetail />} />
             <Route path="/Shipper/Main" element={<ShipperMain />} />
 
             <Route path="/Carrier/1" element={<JoinCarrier1 />} />
