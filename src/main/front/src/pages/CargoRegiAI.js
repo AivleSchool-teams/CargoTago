@@ -32,6 +32,10 @@ const CargoRegiAI = () => {
     };
 
     const handleSubmit = () => {
+        if (!yourcost) {
+            window.alert("최종 운임료를 입력해주세요.");
+            return;
+        }
         console.log(userid);
         console.log(username);
         console.log(selectedButton)

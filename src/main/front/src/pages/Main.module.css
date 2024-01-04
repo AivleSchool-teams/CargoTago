@@ -80,7 +80,7 @@
 .aiContainer1 {
     top: 1669px;
     left: 45px;
-    font-size: var(--font-size-mini);
+    font-size: var(--font-size-mid);
     font-weight: 300;
     font-family: var(--font-sb-aggro);
     display: inline-block;
@@ -130,7 +130,7 @@
 .div3 {
     top: 1669px;
     left: 507px;
-    font-size: var(--font-size-mini);
+    font-size: var(--font-size-mid);
     font-weight: 300;
     font-family: var(--font-sb-aggro);
     display: inline-block;
@@ -173,7 +173,7 @@
 .div5 {
     top: 1669px;
     left: 970px;
-    font-size: var(--font-size-mini);
+    font-size: var(--font-size-mid);
     font-weight: 300;
     font-family: var(--font-sb-aggro);
     width: 426px;

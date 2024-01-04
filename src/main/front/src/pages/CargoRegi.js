@@ -154,7 +154,7 @@ const CargoRegi = () => {
 
 
 
-    const [weight, setWeight] = useState(45);
+    const [weight, setWeight] = useState(30);
     const [textAreaValue, setTextAreaValue] = useState('');
 
     const handleChange = (event) => {
@@ -376,8 +376,43 @@ const CargoRegi = () => {
         setHeadquarters3(event.target.value);
     };
 
-
     const handleSubmit = useCallback(() => {
+        if (!departureDateTime) {
+            window.alert("출발 시간을 입력해주세요.");
+            return;
+        }
+        if (!arrivalDateTime) {
+            window.alert("도착 시간을 입력해주세요.");
+            return;
+        }
+        if (!headquarters2) {
+            window.alert("출발지 명을 입력해주세요.");
+            return;
+        }
+        if (!headquarters3) {
+            window.alert("도착지 명을 입력해주세요.");
+            return;
+        }
+        if (!tonnage) {
+            window.alert("차량 톤수를 입력해주세요.");
+            return;
+        }
+        if (!selectedBox) {
+            window.alert("차량 종류를 선택해주세요.");
+            return;
+        }
+        if (!selectedSize) {
+            window.alert("화물 크기를 선택해주세요.");
+            return;
+        }
+        if (!selectedBoxNew) {
+            window.alert("화물 종류를 선택해주세요.");
+            return;
+        }
+        if (!selectedValue) {
+            window.alert("수량을 선택해주세요.");
+            return;
+        }
 
         const now = new Date(); //한국은 UTC+9 시간대에 속하므로, UTC 시간으로 변환하면 한국 시간보다 9시간 빠른 시간이 나옴
         const currentDateTime = now.getFullYear() + '-' +
