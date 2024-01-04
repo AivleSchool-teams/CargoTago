@@ -4,7 +4,16 @@
     top: 0;
     left: 0;
 }
-
+.arrowIcon1{
+    z-index: 1;
+    position: absolute;
+    top: 120px;
+    max-height: 100%;
+    width: 60px;
+    left: 380px;
+    color: var(--color-darkgray);
+    display: inline-block;
+}
 .address2 {
     position: absolute;
     top: 38px;
@@ -500,7 +509,7 @@
 .div12 {
     position: absolute;
     top: 285px;
-    left: 340.5px;
+    left: 300px;
     display: inline-block;
     color: var(--color-gainsboro);
     width: 65px;
@@ -513,8 +522,8 @@
     position: absolute;
     padding-left: 15px;
     z-index: 1;
-    top: 283px;
-    left: 310px;
+    top: 279px;
+    left: 265px;
     border-radius: var(--br-3xs);
     background-color: var(--color-white);
     border: 3px solid var(--color-gainsboro);
@@ -729,7 +738,7 @@
     left: 167px;
     display: inline-block;
     color: var(--color-gainsboro);
-    width: 45px;
+    width: 90px;
     height: 22px;
 }
 
@@ -794,8 +803,8 @@
 }
 
 .child11 {
-    top: 283px;
-    left: 136.5px;
+    top: 279px;
+    left: 132px;
 }
 
 .child11,
