@@ -26,6 +26,7 @@ import Consent5 from "./pages/Consent5";
 
 import CarrierAIselect from "./pages/CarrierAIselect";
 
+
 import TestRegister from "./pages/TestRegister";
 import CargoRegi from "./pages/CargoRegi";
 import CargoRegiAI from "./pages/CargoRegiAI";
