@@ -1,13 +1,13 @@
 package com.example.truck.CarrierRegistration;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.truck.CarrierCarInfo.CarrierCarInfo;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -45,4 +45,8 @@ public class CarrierInfo {
 
     @Column(nullable = false, unique = true, length = 30)
     private String email;
+
+    @OneToMany(mappedBy = "carrierInfo")
+    @JsonBackReference
+    private List<CarrierCarInfo> carrierCarInfo;
 }

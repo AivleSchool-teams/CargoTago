@@ -5,8 +5,7 @@ import styles from "./Carrier-Main.module.css";
 import axios from "axios";
 
 const CarrierMain = () => {
-    
-    
+
     const navigate = useNavigate();
 
     const [username, setUsername] = useState(null);
@@ -35,15 +34,13 @@ const CarrierMain = () => {
                 });
         }
     }, [navigate, username]);
-    
-    
 
-    const onLogoClick = useCallback(() => {
-        navigate('/Carrier/Main'); // 로고 클릭 시 '/' 경로로 이동합니다.
+    const onListClick = useCallback(() => { // 차주 배차완료 리스트 페이지 이동
+        navigate('/Carrier/Main');
     }, [navigate]);
 
-    const onListClick = useCallback(() => { // 화주 배차완료 리스트 페이지 이동
-        navigate('/Carrier/Main');
+    const onCarClick = useCallback(() => { // 차주 차량 등록 페이지 이동
+        navigate('/Carrier/Car');
     }, [navigate]);
 
 
@@ -67,7 +64,7 @@ const CarrierMain = () => {
                     <img
                         className={styles.image11Icon}
                         alt=""
-                        src="/images/image-11@2x.png"
+                        src="/images/notetime.png"
                     />
                 </div>
                 <div className={styles.vectorGroup}>
@@ -81,13 +78,13 @@ const CarrierMain = () => {
                         <div className={styles.div8}>{username}님, 안녕하세요!</div>
                     </div>
                 </div>
-                <div className={styles.rectangleGroup}>
+                <div className={styles.rectangleGroup} onClick={onCarClick}>
                     <div className={styles.groupItem} />
-                    <div className={styles.div3}>신규 등록????</div>
+                    <div className={styles.div3}>차량등록</div>
                     <img
                         className={styles.image12Icon}
                         alt=""
-                        src="/images/image-12@2x.png"
+                        src="/images/notepen.png"
                     />
                 </div>
             </div>

@@ -34,11 +34,6 @@ const ShipperMain = () => {
         }
     }, [navigate, username]);
 
-
-    const onLogoClick = useCallback(() => {
-        navigate('/Shipper/Main'); // 로고 클릭 시 '/' 경로로 이동합니다.
-    }, [navigate]);
-
     const onListClick = useCallback(() => { // 화주 배차완료 리스트 페이지 이동
         navigate("/Shipper/List");
     }, [navigate]);
@@ -71,7 +66,7 @@ const ShipperMain = () => {
                     <img
                         className={styles.image11Icon}
                         alt=""
-                        src="/images/image-11@2x.png"
+                        src="/images/notetime.png"
                     />
                 </div>
                 <div className={styles.vectorGroup}>
@@ -94,7 +89,7 @@ const ShipperMain = () => {
                     <img
                         className={styles.image12Icon}
                         alt=""
-                        src="/images/image-12@2x.png"
+                        src="/images/notepen.png"
                     />
                 </div>
             </div>
