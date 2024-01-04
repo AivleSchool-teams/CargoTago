@@ -42,8 +42,6 @@ public class RegistInfo {
     @Column(nullable = false, length = 20)
     private Boolean isChecked2; // 냉동 여부 T/F
 
-    @Column(nullable = false, length = 20)
-    private Boolean isChecked3;// 냉장 여부 T/F
 
     @Column(nullable = false, length = 100)
     private String text; // 요청사항 텍스트 에어리어

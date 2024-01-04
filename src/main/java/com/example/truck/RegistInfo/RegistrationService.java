@@ -43,7 +43,6 @@ public class RegistrationService {
             newRegist.setSelectedBoxNew(registInfoDTO.getSelectedBoxNew());
             newRegist.setIsChecked1(registInfoDTO.getIsChecked1());
             newRegist.setIsChecked2(registInfoDTO.getIsChecked2());
-            newRegist.setIsChecked3(registInfoDTO.getIsChecked3());
             newRegist.setText(registInfoDTO.getText());
             newRegist.setWeight(registInfoDTO.getWeight());
             newRegist.setSelectedSize(registInfoDTO.getSelectedSize());

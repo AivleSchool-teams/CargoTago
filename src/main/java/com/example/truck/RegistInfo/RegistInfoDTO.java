@@ -16,7 +16,6 @@ public class RegistInfoDTO {
     private String selectedBox; // 카고 윙바디
     private Boolean isChecked1; // 무진동 여부 T/F
     private Boolean isChecked2; // 냉동 여부 T/F
-    private Boolean isChecked3;// 냉장 여부 T/F
     private String text; // 요청사항 텍스트 에어리어
     private String selectedSize; // 크기 소형 중형 대형
     private String selectedBoxNew; // 파렛트 박스 기타
