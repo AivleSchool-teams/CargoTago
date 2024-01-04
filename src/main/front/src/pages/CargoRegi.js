@@ -230,7 +230,7 @@ const CargoRegi = () => {
 
     const [isChecked1, setIsChecked1] = useState(false);
     const [isChecked2, setIsChecked2] = useState(false);
-    const [isChecked3, setIsChecked3] = useState(false);
+
 
     const handleCheckboxChange1 = (event) => {
         setIsChecked1(event.target.checked);
@@ -239,9 +239,7 @@ const CargoRegi = () => {
         setIsChecked2(event.target.checked);
     };
 
-    const handleCheckboxChange3 = (event) => {
-        setIsChecked3(event.target.checked);
-    };
+
 
     const [text, setText] = useState('');
 
@@ -288,7 +286,7 @@ const CargoRegi = () => {
         console.log(selectedBox);
         console.log(isChecked1);
         console.log(isChecked2);
-        console.log(isChecked3);
+
         console.log(text);
         console.log(selectedSize);
         console.log('selectedBoXNew' + ":" + selectedBoxNew);
@@ -366,6 +364,14 @@ const CargoRegi = () => {
     // 도착지 인풋
     const [headquarters3, setHeadquarters3] = useState('');
 
+    const onBackClick = useCallback(() => {
+        navigate('/Shipper/Main'); // 로고 클릭 시 '/' 경로로 이동합니다.
+    }, [navigate]);
+
+    const onLogoClick = useCallback(() => {
+        navigate('/Shipper/Main'); // 로고 클릭 시 '/' 경로로 이동합니다.
+    }, [navigate]);
+
     const handleChange3 = (event) => {
         setHeadquarters3(event.target.value);
     };
@@ -383,7 +389,7 @@ const CargoRegi = () => {
 
 
         navigate("/CargoRegiAI", { state: { userid, username, selected2, arrivalDateTime, departureDateTime, tonnage, selectedBox,
-                isChecked1, isChecked2, isChecked3, text, selectedSize, selectedBoxNew, weight, textAreaValue, selectedValue,
+                isChecked1, isChecked2, text, selectedSize, selectedBoxNew, weight, textAreaValue, selectedValue,
                 selectedButton,headquarters2, headquarters3, location,  address, currentDateTime} });
         console.log("Cargo to CargoAI");
         console.log("shipmember:", userid);
@@ -396,7 +402,7 @@ const CargoRegi = () => {
         console.log("selectedBox:", selectedBox);
         console.log("isChecked1:",isChecked1);
         console.log("isChecked2:", isChecked2);
-        console.log("isChecked3:", isChecked3);
+
         console.log("text:", text);
         console.log("selectedSize:", selectedSize);
         console.log("selectedBoxNew:", selectedBoxNew);
@@ -414,11 +420,12 @@ const CargoRegi = () => {
         console.log("departure_detailAddress:", address.detailAddress);
         console.log("currentDateTime:", currentDateTime);
     }, [navigate, userid, username, selected2, arrivalDateTime, departureDateTime, tonnage, selectedBox,
-        isChecked1, isChecked2, isChecked3, text, selectedSize, selectedBoxNew, weight, textAreaValue, selectedValue,
+        isChecked1, isChecked2, text, selectedSize, selectedBoxNew, weight, textAreaValue, selectedValue,
         selectedButton,headquarters2, headquarters3, location,  address, currentDateTime]);
 
     return (
         <div className={styles.div}>
+            <img className={styles.arrowIcon1} onClick={onBackClick} alt="" src="/images/arrow-3@2x.png"/>
             <div className={styles.div1}>
                 <img className={styles.child} alt="" src="/images/R-58.png"/>
                 <div className={styles.rectangleParent}>
@@ -567,16 +574,7 @@ const CargoRegi = () => {
                             checked={isChecked2}
                             onChange={handleCheckboxChange2}
                         />
-                        <div className={styles.div22}>냉동</div>
-
-
-                        <input
-                            type="checkbox"
-                            className={styles.child12}
-                            checked={isChecked3}
-                            onChange={handleCheckboxChange3}
-                        />
-                        <div className={styles.div25}>냉장</div>
+                        <div className={styles.div22}>냉동 / 냉장</div>
 
 
                         <div>
@@ -798,7 +796,7 @@ const CargoRegi = () => {
             <div className={styles.child32}/>
             <div className={styles.div54} onClick={handleSubmit}>등록</div>
 
-            <img className={styles.moa11} alt="" src="/images/1-1@2x.png"/>
+            <img className={styles.moa11} alt="" src="/images/1-1@2x.png" onClick={onLogoClick}/>
 
 
             <div className={styles.container}>
