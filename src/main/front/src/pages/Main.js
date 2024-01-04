@@ -125,7 +125,7 @@ const Main = () => {
                 <div className={styles.aiContainer1}>
                     <p className={styles.ai}>{`AI 배차를 통해 최적의 차량을 추천하며, `}</p>
                     <p className={styles.ai}>
-                        왕복 화물 운송까지 고려하여 업무의 효율성을 극대화합니다.
+                        희망지역과 거리까지 고려하여 효율성을 극대화합니다.
                     </p>
                 </div>
                 <div className={styles.child1} />
@@ -133,7 +133,7 @@ const Main = () => {
                 <img className={styles.rectangleIcon} alt="" src="/images/rectangle-29@2x.png" />
                 <div className={styles.child2} />
                 <div className={styles.div3}>
-                    적정금액 추천 시스템이 공정한 거래를 위한 가격을 제안해드립니다.
+                    금액 추천 시스템이 공정한 거래를 위한 가격을 제안합니다.
                     편리하고 합리적인 거래를 경험해보세요.
                 </div>
                 <div className={styles.child3} />
@@ -145,7 +145,7 @@ const Main = () => {
                         className={styles.ai}
                     >{`음성인식을 통한 채팅 시스템으로  `}</p>
                     <p className={styles.ai}>
-                        화주와 차주를 연결합니다.
+                        편안하고 안전하게 화주와 차주를 연결합니다.
                     </p>
                 </div>
             </div>
