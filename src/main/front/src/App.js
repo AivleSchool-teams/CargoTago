@@ -26,6 +26,7 @@ import Consent3 from "./pages/Consent3";
 import Consent4 from "./pages/Consent4";
 import Consent5 from "./pages/Consent5";
 
+import CarrierAIselect from "./pages/CarrierAIselect";
 
 import TestRegister from "./pages/TestRegister";
 import CargoRegi from "./pages/CargoRegi";
@@ -101,6 +102,8 @@ function App() {
             <Route path='/post/view/:id' element={<PostView />} />
             <Route path='/Post' element={<PostList />} />
             <Route path='/Post/Create' element={<PostCreate />} />
+
+            <Route path="/CarrierAIselect" element={<CarrierAIselect />} />
 
             <Route path='/Chat' element={<Chat />} />
 
