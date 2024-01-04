@@ -18,6 +18,8 @@ import JoinCarrier1 from "./pages/Join_Carrier1";
 import JoinCarrier2 from "./pages/Join_Carrier2";
 import JoinCarrier3 from "./pages/Join-Carrier3";
 import CarrierMain from "./pages/Carrier-Main";
+import CarrierCar from "./pages/Carrier-Car";
+
 import Consent1 from "./pages/Consent1";
 import Consent2 from "./pages/Consent2";
 import Consent3 from "./pages/Consent3";
@@ -88,6 +90,7 @@ function App() {
             <Route path="/Carrier/2" element={<JoinCarrier2 />} />
             <Route path="/Carrier/3" element={<JoinCarrier3 />} />
             <Route path="/Carrier/Main" element={<CarrierMain />} />
+            <Route path="/Carrier/Car" element={<CarrierCar />} />
 
             <Route path="/Consent/1" element={<Consent1 />} />
             <Route path="/Consent/2" element={<Consent2 />} />
