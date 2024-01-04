@@ -2,27 +2,45 @@ import { useCallback, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import styles from "./Carrier-Main.module.css";
+import axios from "axios";
 
 const CarrierMain = () => {
-    
-    
+
     const navigate = useNavigate();
+
+    const [username, setUsername] = useState(null);
 
     useEffect(() => {
         const token = localStorage.getItem('jwt-token');
         if (!token) {
-            navigate('/Login'); // 토큰이 없으면 로그인 페이지로 리디렉션 go
+            // 토큰이 없으면 로그인 페이지로 리디렉션
+            navigate('/login');
+            console.log('비정상적인 접근입니다.')
+        } else {
+            axios.get('http://localhost:8080/user/mainpage', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+                .then(response => {
+                    // 사용자 이름 표시
+                    console.log('안녕하세요,', response.data.name, '님?');
+                    setUsername(response.data.name);
+                    console.log(username);
+                })
+                .catch(error => {
+                    // 오류 처리
+                    console.error('비정상적인 접근입니다.', error);
+                });
         }
-    }, [navigate]);
-    
-    
+    }, [navigate, username]);
 
-    const onLogoClick = useCallback(() => {
-        navigate('/Carrier/Main'); // 로고 클릭 시 '/' 경로로 이동합니다.
-    }, [navigate]);
-
-    const onListClick = useCallback(() => { // 화주 배차완료 리스트 페이지 이동
+    const onListClick = useCallback(() => { // 차주 배차완료 리스트 페이지 이동
         navigate('/Carrier/Main');
+    }, [navigate]);
+
+    const onCarClick = useCallback(() => { // 차주 차량 등록 페이지 이동
+        navigate('/Carrier/Car');
     }, [navigate]);
 
 
@@ -46,7 +64,7 @@ const CarrierMain = () => {
                     <img
                         className={styles.image11Icon}
                         alt=""
-                        src="/images/image-11@2x.png"
+                        src="/images/notetime.png"
                     />
                 </div>
                 <div className={styles.vectorGroup}>
@@ -57,16 +75,16 @@ const CarrierMain = () => {
                     />
                     <div className={styles.parent}>
                         <div className={styles.div7}>오늘도 좋은 하루 되세요!</div>
-                        <div className={styles.div8}>000님, 안녕하세요!</div>
+                        <div className={styles.div8}>{username}님, 안녕하세요!</div>
                     </div>
                 </div>
-                <div className={styles.rectangleGroup}>
+                <div className={styles.rectangleGroup} onClick={onCarClick}>
                     <div className={styles.groupItem} />
-                    <div className={styles.div3}>신규 등록????</div>
+                    <div className={styles.div3}>차량등록</div>
                     <img
                         className={styles.image12Icon}
                         alt=""
-                        src="/images/image-12@2x.png"
+                        src="/images/notepen.png"
                     />
                 </div>
             </div>
