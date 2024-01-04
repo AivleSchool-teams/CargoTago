@@ -1,5 +1,5 @@
 import styles from "./CargoRegi.module.css";
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import axios from 'axios';
 import {useNavigate} from "react-router-dom";
 
@@ -62,6 +62,8 @@ const CargoRegi = () => {
         extraAddress: '',
     });
 
+    const [currentDateTime, setCurrentDateTime] = useState();
+
     const handleAddress = (data) => {
         let fullAddress = data.address;
         let extraAddress = '';
@@ -118,6 +120,8 @@ const CargoRegi = () => {
     const [username, setUsername] = useState(null);
     const [userid, setUserid] = useState(null);
     const [usertype, setUsertype] = useState(null);
+    const [userphone, setUserphone] = useState(null);
+
 
 
     useEffect(() => {
@@ -135,9 +139,11 @@ const CargoRegi = () => {
                 .then(response => {
                     // 사용자 이름 표시
                     console.log('사용자 이름:', response.data.name);
+                    console.log('사용자 데이터:', response.data);
                     setUserid(response.data.id);
                     setUsername(response.data.name);
                     setUsertype(response.data.typed);
+                    setUserphone(response.data.phone);
                 })
                 .catch(error => {
                     // 오류 처리
@@ -259,6 +265,8 @@ const CargoRegi = () => {
     //const username = "songhyunsung"; // 임의의 username
 
     //=========================================================
+
+    {/*
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -346,6 +354,8 @@ const CargoRegi = () => {
             });
 
     };
+    */}
+
     //출발지 인풋
     const [headquarters2, setHeadquarters2] = useState('');
 
@@ -360,6 +370,52 @@ const CargoRegi = () => {
         setHeadquarters3(event.target.value);
     };
 
+
+    const handleSubmit = useCallback(() => {
+
+        const now = new Date(); //한국은 UTC+9 시간대에 속하므로, UTC 시간으로 변환하면 한국 시간보다 9시간 빠른 시간이 나옴
+        const currentDateTime = now.getFullYear() + '-' +
+            ('0' + (now.getMonth()+1)).slice(-2) + '-' +
+            ('0' + now.getDate()).slice(-2) + 'T' +
+            ('0' + now.getHours()).slice(-2) + ':' +
+            ('0' + now.getMinutes()).slice(-2) + ':' +
+            ('0' + now.getSeconds()).slice(-2);
+
+
+        navigate("/CargoRegiAI", { state: { userid, username, selected2, arrivalDateTime, departureDateTime, tonnage, selectedBox,
+                isChecked1, isChecked2, isChecked3, text, selectedSize, selectedBoxNew, weight, textAreaValue, selectedValue,
+                selectedButton,headquarters2, headquarters3, location,  address, currentDateTime} });
+        console.log("Cargo to CargoAI");
+        console.log("shipmember:", userid);
+        console.log("username:", username);
+        // selected : selected,
+        console.log("selected2:", selected2);
+        console.log("arrivalDateTime:", arrivalDateTime);
+        console.log("departureDateTime:", departureDateTime);
+        console.log("tonnage:", tonnage);
+        console.log("selectedBox:", selectedBox);
+        console.log("isChecked1:",isChecked1);
+        console.log("isChecked2:", isChecked2);
+        console.log("isChecked3:", isChecked3);
+        console.log("text:", text);
+        console.log("selectedSize:", selectedSize);
+        console.log("selectedBoxNew:", selectedBoxNew);
+        console.log("weight:", weight);
+        console.log("textAreaValue:", textAreaValue);
+        console.log("selectedValue:", selectedValue);
+        console.log("selectedButton:", selectedButton);
+        console.log("headquarters2:", headquarters2);
+        console.log("headquarters3:", headquarters3);
+        console.log("arrival_Code:", location.zipCode);
+        console.log("arrival_Address:", location.roadAddress);
+        console.log("arrival_detailAddress:", location.detailAddress);
+        console.log("departure_code:", address.postcode);
+        console.log("departure_address:", address.address);
+        console.log("departure_detailAddress:", address.detailAddress);
+        console.log("currentDateTime:", currentDateTime);
+    }, [navigate, userid, username, selected2, arrivalDateTime, departureDateTime, tonnage, selectedBox,
+        isChecked1, isChecked2, isChecked3, text, selectedSize, selectedBoxNew, weight, textAreaValue, selectedValue,
+        selectedButton,headquarters2, headquarters3, location,  address, currentDateTime]);
 
     return (
         <div className={styles.div}>
@@ -380,9 +436,9 @@ const CargoRegi = () => {
                     {/*<div className={styles.kt}>KT 본사</div>*/}
                     {/*<div className={styles.kt1}>경기 성남시 분당구 불정로 90 KT빌딩</div>*/}
                     <div className={styles.div2}>세부 주소</div>
-                    <div className={styles.div3}>홍길동</div>
+                    <div className={styles.div3}>{username}</div>
                     <div className={styles.groupItem}/>
-                    <div className={styles.div4}>010-1234-5678</div>
+                    <div className={styles.div4}>{userphone}</div>
                     <div className={styles.div5}>
                         <span>{`출발지 주소 `}</span>
                         <span className={styles.span}>*</span>
@@ -402,9 +458,9 @@ const CargoRegi = () => {
                     </div>
                     {/*<div className={styles.kt3}>경기 성남시 분당구 불정로 90 KT빌딩</div>*/}
                     <div className={styles.div6}>세부주소</div>
-                    <div className={styles.div7}>홍길동</div>
+                    <div className={styles.div7}>{username}</div>
                     <div className={styles.lineDiv}/>
-                    <div className={styles.div8}>010-1234-5678</div>
+                    <div className={styles.div8}>{userphone}</div>
                     <div className={styles.div9}>
                         <span>{`도착지 주소 `}</span>
                         <span className={styles.span}>*</span>

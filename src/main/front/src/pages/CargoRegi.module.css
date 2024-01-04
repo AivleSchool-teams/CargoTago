@@ -183,15 +183,22 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    left: -35px;
+    left: -30px;
     top: -1px;
 }
 
 .c27 {
     border: 5px solid var(--color-darkslateblue);
     box-sizing: border-box;
-    width: 30px;
-    height: 30px;
+    width: 27px;
+    height: 27px;
+}
+
+.c28 {
+    border: 2px solid var(--color-black);
+    box-sizing: border-box;
+    width: 27px;
+    height: 27px;
 }
 
 .c8 {
@@ -212,14 +219,13 @@
 
 .c30 {
     position: absolute;
-    right: 93px;
-    top: 7px;
-    width: 10px;
-    height: 10px;
+    right: 91.5px;
+    top: 20%;
+
     border-radius: 50%;
     background-color: var(--color-darkslateblue);
-    width: 14px;
-    height: 14px;
+    width: 11px;
+    height: 11px;
 }
 
 .text {

@@ -3,13 +3,41 @@ import styles from "./Shipper-Detail.module.css";
 // chat socket
 import { useNavigate } from "react-router-dom";
 import io from 'socket.io-client';
+import axios from "axios";
 const socket = io.connect('http://localhost:4000');
-const username = Math.random()
+
 const room = '1'
 
 const ShipperDetail = () => {
-    const navigate = useNavigate();
 
+    const navigate = useNavigate();
+    const [username, setUsername] = useState(null);
+
+
+    useEffect(() => {
+        const token = localStorage.getItem('jwt-token');
+        if (!token) {
+            // 토큰이 없으면 로그인 페이지로 리디렉션
+            navigate('/login');
+            console.log('비정상적인 접근입니다.')
+        } else {
+            axios.get('http://localhost:8080/user/mainpage', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+                .then(response => {
+                    // 사용자 이름 표시
+                    console.log('사용자 이름:', response.data.name);
+                    setUsername(response.data.name);
+
+                })
+                .catch(error => {
+                    // 오류 처리
+                    console.error('비정상적인 접근입니다.', error);
+                });
+        }
+    }, [navigate]);
     const onLogoClick = useCallback(() => {
         navigate('/Shipper/Main'); // 로고 클릭 시 '/' 경로로 이동합니다.
     }, [navigate]);
@@ -159,4 +187,5 @@ const ShipperDetail = () => {
         </div>
     );
 };
-export { socket, username, room, ShipperDetail as default };
+//export { socket, username, room, ShipperDetail as default };
+export { socket, room, ShipperDetail as default };

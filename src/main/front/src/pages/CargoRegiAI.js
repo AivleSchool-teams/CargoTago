@@ -1,12 +1,21 @@
 import styles from "./CargoRegiAI.module.css";
 import React, {useState, useEffect, useCallback} from 'react';
 import axios from 'axios';
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useLocation} from "react-router-dom";
 
 const CargoRegiAI = () => {
 
     const navigate = useNavigate();
+
+    const uselocation = useLocation();
+    const { userid, username, selected2, arrivalDateTime, departureDateTime, tonnage, selectedBox,
+        isChecked1, isChecked2, isChecked3, text, selectedSize, selectedBoxNew, weight, textAreaValue, selectedValue,
+        selectedButton,headquarters2, headquarters3, location,  address, currentDateTime } = uselocation.state;
+
     //
+
+    console.log('l:',location);
+    console.log('a:',address);
     const onBackClick = useCallback(() => {
         navigate('/CargoRegi'); // 로고 클릭 시 '/' 경로로 이동합니다.
     }, [navigate]);
