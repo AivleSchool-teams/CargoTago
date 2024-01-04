@@ -7,12 +7,13 @@
 .arrowIcon1{
     z-index: 1;
     position: absolute;
-    top: 120px;
+    top: 80px;
     max-height: 100%;
     width: 60px;
-    left: 380px;
+    left: calc(50% - 350px);
     color: var(--color-darkgray);
     display: inline-block;
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
 }
 .address2 {
     position: absolute;
@@ -70,7 +71,7 @@
     font-family: var(--font-jalnan-gothic);
     outline: none;
     border: none;
-    left: 90px;
+    left: 0px;
 }
 
 .street_number {
@@ -89,8 +90,8 @@
 .postNum {
     z-index: 1;
     position: absolute;
-    left: 470px;
-    top: 6px;
+    left: 450px;
+    top: -55px;
     width: 100px;
     font-family: var(--font-jalnan-gothic);
     background-color: white;
@@ -228,8 +229,8 @@
 
 .c30 {
     position: absolute;
-    right: 91.5px;
-    top: 20%;
+    right: 91px;
+    top: 19.5%;
 
     border-radius: 50%;
     background-color: var(--color-darkslateblue);
@@ -347,8 +348,9 @@
 
 .span1 {
     font-weight: 900;
-    color: var(--color-darkgray);
+    color: black;
     font-family: var(--font-jalnan-gothic);
+    letter-spacing: 1.8px;
 }
 
 .div5 {
@@ -511,7 +513,7 @@
     top: 285px;
     left: 300px;
     display: inline-block;
-    color: var(--color-gainsboro);
+    color: var(--color-gainsboro-200);
     width: 65px;
     height: 22px;
 }
@@ -532,22 +534,32 @@
     height: 23px;
 }
 
-.child2,
-.child3 {
+.child2{
     top: 58px;
     left: 29px;
     border-radius: var(--br-3xs);
     border: 2px solid var(--color-gainsboro);
     font-size: var(--font-size-lg);
     font-family: var(--font-sb-aggro);
-    color: lightgray;
+    color: var(--color-darkslateblue);
     width: 532px;
     height: 39px;
+    text-align: right;
+    padding: 0 20px;
 }
 
 .child3 {
+    left: 29px;
+    border-radius: var(--br-3xs);
+    border: 2px solid var(--color-gainsboro);
+    font-size: var(--font-size-lg);
+    font-family: var(--font-sb-aggro);
+    color: var(--color-dimgray-200);
+    width: 532px;
     top: 332px;
     height: 67px;
+    resize: none;
+    padding: 10px;
 }
 
 .div13,
@@ -737,7 +749,7 @@
     top: 285px;
     left: 167px;
     display: inline-block;
-    color: var(--color-gainsboro);
+    color: var(--color-gainsboro-200);
     width: 90px;
     height: 22px;
 }
@@ -889,17 +901,21 @@
     font-size: var(--font-size-mid);
 }
 
-.child13,
-.child15,
 .child16 {
     padding-left: 15px;
     border-radius: var(--br-3xs);
     background-color: var(--color-white);
     border: 2px solid var(--color-gainsboro);
     box-sizing: border-box;
+    resize: none;
 }
 
 .child13 {
+    padding-left: 15px;
+    border-radius: var(--br-3xs);
+    background-color: var(--color-white);
+    border: 2px solid var(--color-gainsboro);
+    box-sizing: border-box;
     position: absolute;
     top: 0;
     left: 0;
@@ -907,28 +923,35 @@
     height: 393px;
 }
 
-.child15,
 .child16 {
     left: 29px;
 }
 
 .child15 {
+    border-radius: var(--br-3xs);
+    background-color: var(--color-white);
+    border: 2px solid var(--color-gainsboro);
+
     position: absolute;
-    top: 247px;
+    left: 30px;
+    top: 246px;
     width: 258px;
     height: 39px;
     font-size: var(--font-size-xl);
     color: var(--color-black);
     font-family: var(--font-jalnan-gothic);
+    text-align: right;
+    padding: 0 10px;
 }
 
 .child16 {
+    position: absolute;
     top: 297px;
     width: 532px;
     height: 67px;
+    padding: 10px;
 }
 
-.child16,
 .cm15kg,
 .div27 {
     position: absolute;
@@ -973,7 +996,6 @@
     width: 51px;
 }
 
-.child19,
 .div31,
 .div32 {
     position: absolute;
@@ -988,6 +1010,7 @@
 }
 
 .child19 {
+    position: absolute;
     top: 246px;
     left: 303px;
     border-radius: var(--br-3xs);
@@ -1009,16 +1032,33 @@
     appearance: none; /* 표준 */
 
 }
+.child191 {
+    position: absolute;
+    top: 246px;
+    left: 30px;
+    border-radius: var(--br-3xs);
+    background-color: var(--color-white);
+    border: 2px solid var(--color-gainsboro);
 
-.div33,
-.div34 {
-    top: 253px;
-    height: 22px;
+    font-size: var(--font-size-xl);
+    color: var(--color-black);
+    font-family: var(--font-jalnan-gothic);
+    box-sizing: border-box;
+    text-align: right; /* 글자를 왼쪽으로 정렬 */
+    padding-right: 2ch; /* 오른쪽에서 4칸 띄우기 */
+    width: 258px;
+    height: 39px;
 
+    /* 스피너 숨기기 */
+    webkit-appearance: none; /* Chrome, Safari, Opera */
+    moz-appearance: none; /* Firefox */
+    appearance: none; /* 표준 */
 
 }
 
 .div33 {
+    top: 253px;
+    height: 22px;
     position: absolute;
     left: 469px;
     color: var(--color-black);
@@ -1028,16 +1068,28 @@
 }
 
 .div34 {
+    top: 253px;
+    height: 22px;
+    position: absolute;
+    display: inline-block;
     font-size: var(--font-size-xl);
     color: var(--color-black);
     left: 529px;
     width: 21px;
     padding-top: 2px;
-
+}
+.div341 {
+    top: 253px;
+    height: 22px;
+    position: absolute;
+    display: inline-block;
+    font-size: var(--font-size-xl);
+    color: var(--color-black);
+    left: 250px;
+    width: 21px;
+    padding-top: 2px;
 }
 
-.div34,
-.div35,
 .div36,
 .div37,
 .div38 {
@@ -1047,12 +1099,23 @@
 }
 
 .div35 {
+    z-index: 5;
+    position: absolute;
+    display: inline-block;
     top: 258px;
     left: 318px;
     width: 89px;
     height: 22px;
 }
-
+.div351 {
+    z-index: 5;
+    position: absolute;
+    display: inline-block;
+    top: 258px;
+    left: 45px;
+    width: 89px;
+    height: 22px;
+}
 .div36,
 .div37,
 .div38 {
@@ -1229,34 +1292,33 @@
     top: 176px;
 }
 
-.div45 {
+.div45{
+    position: absolute;
     top: 105px;
 }
 
-.div1,
-.div45,
-.div46 {
-    position: absolute;
-}
-
 .div1 {
-    top: 286px;
-    left: 369px;
+    position: absolute;
+    top: 980px;
+    left: 50%;
     width: 701px;
     height: 1504px;
     text-align: left;
     color: var(--color-darkgray);
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
 }
 
 .div46 {
-    top: 85px;
-    left: 526px;
+    position: absolute;
+    top: 65px;
+    left: 50%;
     font-size: 80px;
     font-family: var(--font-jalnan-gothic);
     color: var(--color-darkslateblue);
     display: inline-block;
     width: 388px;
     height: 74px;
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
 }
 
 .rectangleIcon {
@@ -1282,7 +1344,7 @@
 
 .div49,
 .div50 {
-    left: 145px;
+    left: 158px;
     top: 0px;
     color: var(--color-darkslateblue);
     width: 80px;
@@ -1290,7 +1352,7 @@
 }
 
 .div50 {
-    left: 235px;
+    left: 255px;
     color: var(--color-darkgray);
 }
 
@@ -1387,36 +1449,28 @@
     height: 75px;
 }
 
-.child30,
-.child31,
-.div47 {
+.child30{
     position: absolute;
 }
 
 .div47 {
-    top: 191px;
-    left: 369px;
+    position: absolute;
+    top: -45px;
+    left: 50%;
     width: 701px;
     height: 76px;
     text-align: left;
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
 }
 
 .child31 {
-    top: 348px;
-    left: 386px;
+    position: absolute;
+    top: 60px;
+    left: 15px;
     border-top: 2px solid #b5d7ff;
     box-sizing: border-box;
     width: 668px;
     height: 2px;
-}
-
-.arrowIcon {
-    position: absolute;
-    top: 139px;
-    left: 420px;
-    width: 39.1px;
-    height: 0;
-    object-fit: contain;
 }
 
 .child32 {
@@ -1478,5 +1532,10 @@
     font-family: var(--font-jalnan-gothic);
 }
 
-
+.center2 {
+    position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
+    top : -60px;
+    left:calc(50% - 720px); /* 우측에서부터의 위치를 지정합니다. */
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+}
 

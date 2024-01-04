@@ -46,9 +46,6 @@ const ShipperDetail = () => {
         navigate("/Shipper/List");
     }, [navigate]);
 
-    const [showChat, setShowChat] = useState(false);
-    const [errorMsg, setErrorMsg] = useState('');
-
     const joinRoom = (e) => {
       e.preventDefault();
         if (username !== '' && room !== '') {
@@ -59,7 +56,6 @@ const ShipperDetail = () => {
             setErrorMsg('사용자 이름을 입력해주세요.'); // 사용자 이름이 비어있을 경우의 에러 메시지입니다.
         }
     };
-
 
     return (
         <div className={styles.div}>
@@ -73,7 +69,7 @@ const ShipperDetail = () => {
                     <div className={styles.chatItem} />
                     <div className={styles.chatdiv}>채팅창</div>
                 </button>
-                {/* {showChat && <Chat socket={socket} username={username} room={room} />} */}
+
                 <div className={styles.startloc}>
                     <div className={styles.kt}>KT 본사</div>
                     <div className={styles.kt1}>경기 성남시 분당구 불정로 90 KT빌딩</div>

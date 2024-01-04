@@ -436,13 +436,12 @@ const CargoRegi = () => {
                             type="text"
                             value={headquarters2}
                             onChange={handleChange2}
-                            placeholder="출발지 주소를 입력하세요"
+                            placeholder="출발지 명을 입력하세요"
                             className={styles.kt_name}
                         />
                     </div>
                     {/*<div className={styles.kt}>KT 본사</div>*/}
                     {/*<div className={styles.kt1}>경기 성남시 분당구 불정로 90 KT빌딩</div>*/}
-                    <div className={styles.div2}>세부 주소</div>
                     <div className={styles.div3}>{username}</div>
                     <div className={styles.groupItem}/>
                     <div className={styles.div4}>{userphone}</div>
@@ -459,12 +458,11 @@ const CargoRegi = () => {
                             type="text"
                             value={headquarters3}
                             onChange={handleChange3}
-                            placeholder="도착지 주소를 입력하세요"
+                            placeholder="도착지 명을 입력하세요"
                             className={styles.kt_name}
                         />
                     </div>
                     {/*<div className={styles.kt3}>경기 성남시 분당구 불정로 90 KT빌딩</div>*/}
-                    <div className={styles.div6}>세부주소</div>
                     <div className={styles.div7}>{username}</div>
                     <div className={styles.lineDiv}/>
                     <div className={styles.div8}>{userphone}</div>
@@ -484,14 +482,11 @@ const CargoRegi = () => {
                         className={`${styles.child3}  ${styles.text_1}`}
                         value={text}
                         onChange={handleTextareaChange}
-                        placeholder="여기에 입력하세요."
+                        placeholder="차량 관련 요청사항을 입력하세요."
                     />
 
-                    <div className={styles.div14}>1톤</div>
-
-
                     <select className={styles.child2} value={tonnage} onChange={e => setTonnage(e.target.value)}>
-                        <option value="">선택하세요</option>
+                        <option value="">톤 단위를 선택하세요</option>
                         <option value="1톤">1톤</option>
                         <option value="1.4톤">1.4톤</option>
                         <option value="2.5톤">2.5톤</option>
@@ -504,7 +499,7 @@ const CargoRegi = () => {
 
                     <div className={styles.child5}/>
                     <div className={styles.div16}>
-                        <span className={styles.span1}>{`요청 차량 `}</span>
+                        <span className={styles.span1}>{`요청차량 `}</span>
                         <span className={styles.span}>*</span>
                     </div>
                     <div className={styles.div17}>
@@ -597,22 +592,17 @@ const CargoRegi = () => {
                 </div>
                 <div className={styles.div26}>
                     <div className={styles.child13}/>
-
-
-                    <span>{`크기 `}</span>
-                    <span className={styles.span}>*</span>
                     <select
                         className={styles.child2}
                         onChange={handleSizeChange}
                     >
-                        <option value=""> 크기 *</option>
+                        <option value=""> 화물 크기 *</option>
                         <option value="small"> 소형</option>
                         <option value="medium"> 중형</option>
                         <option value="large">대형</option>
                     </select>
 
 
-                    <div className={styles.child15}/>
 
                     <textarea className={styles.child16}/>
                     <div className={styles.div27}>상세정보</div>
@@ -621,7 +611,7 @@ const CargoRegi = () => {
                         className={`${styles.child16} ${styles.text_1}`}
                         value={textAreaValue}
                         onChange={handleChange}
-                        placeholder="세부 내용."
+                        placeholder="화물 관련 전달사항을 입력하세요"
                     />
 
 
@@ -632,15 +622,16 @@ const CargoRegi = () => {
                         <span className={styles.span}>*</span>
                     </div>
 
-                    <select
-                        className={styles.child15}
-                        onChange={handleSelectChange}
-                    >
-                        <option value="">수량 *</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                    <select className={styles.child15} onChange={handleSelectChange}>
+                        <option value="">개수</option>
+                        {Array.from({ length: 30 }, (_, i) => i + 1).map((num) => (
+                            <option value={num} key={num}>{num}개</option>
+                        ))}
                     </select>
+                    <div className={styles.div351}>
+                        <span>{`총 개수 `}</span>
+                        <span className={styles.span}>*</span>
+                    </div>
 
                     <div className={styles.div35}>
                         <span>{`총 중량 `}</span>
@@ -742,140 +733,108 @@ const CargoRegi = () => {
 
                 <div className={styles.div44}>도착 시간</div>
                 <div className={styles.div45}>출발 시간</div>
+
+                    <div className={styles.div47}>
+                        <img
+                            className={styles.rectangleIcon}
+                            alt=""
+                            src="/images/R-57.png"
+                        />
+                        <div className={styles.div48}>주문 유형
+                            <div
+                                className={styles.div49}
+                                onClick={() => setSelected2('편도')}
+                            >
+                                <span className={selected2 === '편도' ? styles.selectedText : styles.text}>편도</span>
+                                <div className={selected2 === '편도' ? styles.c27 : styles.c28}/>
+                                {selected2 === '편도' && <div className={styles.c30}/>}
+                            </div>
+
+                            <div
+                                className={styles.div50}
+                                onClick={() => setSelected2('왕복')}
+                            >
+                                <span className={selected2 === '왕복' ? styles.selectedText : styles.text}>왕복</span>
+                                <div className={selected2 === '왕복' ? styles.c27 : styles.c28}/>
+                                {selected2 === '왕복' && <div className={styles.c30}/>}
+                            </div>
+
+
+                        </div>
+                        <div className={styles.child30}/>
+                    </div>
+                    <div className={styles.child31}/>
+
             </div>
+
             <div className={styles.div46}>화물 접수</div>
-            <div className={styles.div47}>
-                <img
-                    className={styles.rectangleIcon}
-                    alt=""
-                    src="/images/R-57.png"
-                />
-                <div className={styles.div48}>주문 유형
-                    <div
-                        className={styles.div49}
-                        onClick={() => setSelected2('편도')}
-                    >
-                        <span className={selected2 === '편도' ? styles.selectedText : styles.text}>편도</span>
-                        <div className={selected2 === '편도' ? styles.c27 : styles.c28}/>
-                        {selected2 === '편도' && <div className={styles.c30}/>}
-                    </div>
 
-                    <div
-                        className={styles.div50}
-                        onClick={() => setSelected2('왕복')}
-                    >
-                        <span className={selected2 === '왕복' ? styles.selectedText : styles.text}>왕복</span>
-                        <div className={selected2 === '왕복' ? styles.c27 : styles.c28}/>
-                        {selected2 === '왕복' && <div className={styles.c30}/>}
-                    </div>
+            <div className={styles.center2}>
+                <div className={styles.child32}/>
+                <div className={styles.div54} onClick={handleSubmit}>등록</div>
 
+                <div className={styles.kakao}>
+                    <input
+                        type="text"
+                        id="sample6_postcode"
+                        placeholder="우편번호"
+                        value={address.postcode}
+                        readOnly
+                        className={styles.street_number}
+                    />
+                    <input
+                        type="text"
+                        id="sample6_address"
+                        placeholder="주소"
+                        value={address.address}
+                        readOnly
+                        className={styles.kakao_text}
+                    /><br/>
+                    <input
+                        type="button"
+                        onClick={loadPostcode}
+                        value="주소 찾기"
+                        className={styles.postNum}
+                    /><br/>
+                    <input
+                        type="text"
+                        id="sample6_detailAddress"
+                        placeholder="상세주소"
+                        value={address.detailAddress}
+                        className={styles.address}
+                        onChange={(e) => setAddress({...address, detailAddress: e.target.value})}
+                    />
 
                 </div>
-                {/*<div className={styles.div51}>혼적 여부</div>*/}
-                {/*<div*/}
-                {/*    className={styles.div52}*/}
-                {/*    onClick={() => setSelected('독차')}*/}
-                {/*>*/}
-                {/*    <span className={selected === '독차' ? styles.selectedText : styles.text}>독차</span>*/}
-                {/*    <div className={selected === '독차' ? styles.c27 : styles.c28}/>*/}
-                {/*    {selected === '독차' && <div className={styles.c29}/>}*/}
-                {/*</div>*/}
-                {/*<div*/}
-                {/*    className={styles.div53}*/}
-                {/*    onClick={() => setSelected('혼적')}*/}
-                {/*>*/}
-                {/*    <span className={selected === '혼적' ? styles.selectedText : styles.text}>혼적</span>*/}
-                {/*    <div className={selected === '혼적' ? styles.c27 : styles.c28}/>*/}
-                {/*    {selected === '혼적' && <div className={styles.c29}/>}*/}
-                {/*</div>*/}
+                <div className={styles.kakao2}>
+                    <input
+                        type="text"
+                        id="sample_zipCode"
+                        placeholder="우편번호"
+                        value={location.zipCode}
+                        className={styles.street_number}
+                        readOnly
+                    />
+                    <button onClick={openPostcode} className={styles.postNum}>주소 찾기</button>
+                    <br/>
+                    <input
+                        type="text"
+                        id="sample_roadAddress"
+                        placeholder="주소"
+                        value={location.roadAddress}
+                        className={styles.kakao_text}
+                        readOnly
+                    /><br/>
+                    <input
+                        type="text"
+                        id="sample_detailAddress"
+                        placeholder="상세주소"
+                        className={styles.address}
+                        value={location.detailAddress}
+                        onChange={(e) => setLocation({...location, detailAddress: e.target.value})}
+                    />
 
-                <div className={styles.child30}/>
-            </div>
-            <div className={styles.child31}/>
-            <img className={styles.arrowIcon} alt="" src="/images/arrow-3@2x.png"/>
-            <div className={styles.child32}/>
-            <div className={styles.div54} onClick={handleSubmit}>등록</div>
-
-            <img className={styles.moa11} alt="" src="/images/1-1@2x.png" onClick={onLogoClick}/>
-
-
-            <div className={styles.container}>
-
-            </div>
-
-            <div className={styles.kakao}>
-                <input
-                    type="text"
-                    id="sample6_postcode"
-                    placeholder="우편번호"
-                    value={address.postcode}
-                    readOnly
-                    className={styles.street_number}
-                />
-                <input
-                    type="text"
-                    id="sample6_address"
-                    placeholder="주소"
-                    value={address.address}
-                    readOnly
-                    className={styles.kakao_text}
-                /><br/>
-                <input
-                    type="button"
-                    onClick={loadPostcode}
-                    value="우편번호 찾기"
-                    className={styles.postNum}
-                /><br/>
-                <input
-                    type="text"
-                    id="sample6_detailAddress"
-                    placeholder="상세주소"
-                    value={address.detailAddress}
-                    className={styles.address}
-                    onChange={(e) => setAddress({...address, detailAddress: e.target.value})}
-                />
-                {/*<input*/}
-                {/*    type="text"*/}
-                {/*    id="sample6_extraAddress"*/}
-                {/*    placeholder="참고항목"*/}
-                {/*    value={address.extraAddress}*/}
-                {/*    readOnly*/}
-                {/*/>*/}
-            </div>
-            <div className={styles.kakao2}>
-                <input
-                    type="text"
-                    id="sample_zipCode"
-                    placeholder="우편번호"
-                    value={location.zipCode}
-                    className={styles.street_number}
-                    readOnly
-                />
-                <button onClick={openPostcode} className={styles.postNum}>우편번호 찾기</button>
-                <br/>
-                <input
-                    type="text"
-                    id="sample_roadAddress"
-                    placeholder="주소"
-                    value={location.roadAddress}
-                    className={styles.kakao_text}
-                    readOnly
-                /><br/>
-                <input
-                    type="text"
-                    id="sample_detailAddress"
-                    placeholder="상세주소"
-                    className={styles.address}
-                    value={location.detailAddress}
-                    onChange={(e) => setLocation({...location, detailAddress: e.target.value})}
-                />
-                {/*<input*/}
-                {/*    type="text"*/}
-                {/*    id="sample_referenceAddress"*/}
-                {/*    placeholder="참고항목"*/}
-                {/*    value={location.referenceAddress}*/}
-                {/*    readOnly*/}
-                {/*/>*/}
+                </div>
             </div>
         </div>
 
