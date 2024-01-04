@@ -10,8 +10,44 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 import MicIcon from '@material-ui/icons/Mic';
 import IconButton from '@material-ui/core/IconButton';
 import { socket, username, room, default as ShipperDetail } from './Shipper-Detail';
+//import { socket, room, default as ShipperDetail } from './Shipper-Detail';
+import axios from "axios";
 
 function Chat() {
+
+    const navigate = useNavigate();
+
+    const [username, setUsername] = useState(null);
+
+
+    useEffect(() => {
+        const token = localStorage.getItem('jwt-token');
+        if (!token) {
+            // 토큰이 없으면 로그인 페이지로 리디렉션
+            navigate('/login');
+            console.log('비정상적인 접근입니다.')
+        } else {
+            axios.get('http://localhost:8080/user/mainpage', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+                .then(response => {
+                    // 사용자 이름 표시
+                    console.log('사용자 이름:', response.data.name);
+                    setUsername(response.data.name);
+
+                })
+                .catch(error => {
+                    // 오류 처리
+                    console.error('비정상적인 접근입니다.', error);
+                });
+        }
+    }, [navigate]);
+
+
+
+
     const inputRef = useRef();
     const [messageList, setMessageList] = useState([]);
     const messageBottomRef = useRef(null);
@@ -54,7 +90,8 @@ function Chat() {
             SpeechRecognition.startListening({ continuous: true });
         }
     };
-    const navigate = useNavigate();
+
+
     const onBackClick = useCallback(() => { // 화주 상세페이지 db연결 후 해당 번호로 이동되게 변경 필요
         navigate("/Shipper/Detail");
     }, [navigate]);

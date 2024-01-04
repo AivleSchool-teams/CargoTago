@@ -48,6 +48,7 @@ public class UserController {
                     .id(originalUser1.getCarMember())
                     .name(originalUser1.getName())
                     .email(originalUser1.getEmail())
+                    .phone(originalUser1.getPhone())
                     .typed("Carrier")
                     .build();
 
@@ -57,6 +58,7 @@ public class UserController {
                     .id(originalUser2.getShipMember())
                     .name(originalUser2.getName())
                     .email(originalUser2.getEmail())
+                    .phone(originalUser2.getPhone())
                     .typed("Shipper")
                     .build();
         }

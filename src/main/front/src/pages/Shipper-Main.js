@@ -90,7 +90,7 @@ const ShipperMain = () => {
                 </div>
                 <div className={styles.rectangleGroup} onClick={onCargoRegi}>
                     <div className={styles.groupItem} />
-                    <div className={styles.div3}>신규 등록</div>
+                    <div className={styles.div3}>배차 등록</div>
                     <img
                         className={styles.image12Icon}
                         alt=""
