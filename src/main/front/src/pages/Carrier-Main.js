@@ -2,18 +2,39 @@ import { useCallback, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import styles from "./Carrier-Main.module.css";
+import axios from "axios";
 
 const CarrierMain = () => {
     
     
     const navigate = useNavigate();
 
+    const [username, setUsername] = useState(null);
+
     useEffect(() => {
         const token = localStorage.getItem('jwt-token');
         if (!token) {
-            navigate('/Login'); // 토큰이 없으면 로그인 페이지로 리디렉션 go
+            // 토큰이 없으면 로그인 페이지로 리디렉션
+            navigate('/login');
+            console.log('비정상적인 접근입니다.')
+        } else {
+            axios.get('http://localhost:8080/user/mainpage', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+                .then(response => {
+                    // 사용자 이름 표시
+                    console.log('안녕하세요,', response.data.name, '님?');
+                    setUsername(response.data.name);
+                    console.log(username);
+                })
+                .catch(error => {
+                    // 오류 처리
+                    console.error('비정상적인 접근입니다.', error);
+                });
         }
-    }, [navigate]);
+    }, [navigate, username]);
     
     
 
@@ -57,7 +78,7 @@ const CarrierMain = () => {
                     />
                     <div className={styles.parent}>
                         <div className={styles.div7}>오늘도 좋은 하루 되세요!</div>
-                        <div className={styles.div8}>000님, 안녕하세요!</div>
+                        <div className={styles.div8}>{username}님, 안녕하세요!</div>
                     </div>
                 </div>
                 <div className={styles.rectangleGroup}>
