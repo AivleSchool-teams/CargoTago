@@ -67,34 +67,52 @@ y    }, [navigate]);
             return;
         }
 
+
         console.log({title, content, type});
         const token = localStorage.getItem('jwt-token');
-        axios.post('http://localhost:8080/post', {
-                title: title,
-                content: content,
-                type: type
-            },
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            })
-            .then(res => {
-                console.log(res.data);
 
-                if (res.data && res.data.id) {
-                    alert('저장 완료');
-                    setId(res.data.id);
-                    navigate(`/Post/view/${res.data.id}`);
-                } else {
-                    alert('게시물을 저장하는 도중 오류가 발생하였습니다.')
-                }
+        const files = uploadReferenece.current.getSelectedFiles();
+        console.log("첨부한 파일들:", files);
 
-            })
-            .catch(error => {
-                console.error("There was an error!", error);
-            });
-    }
+        const formData = new FormData();
+        formData.append('title', title);
+        formData.append('content', content);
+        formData.append('type', type);
+
+        if (files && files.length > 0) {
+            for (let i = 0; i < files.length; i++) {
+                formData.append('files', files[i]);
+            }
+        }
+        console.log("첨부한 파일들4:", formData);
+        axios.post('http://localhost:8080/post', formData,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        'Content-Type': 'multipart/form-data',
+                    }
+                })
+                .then(res => {
+                    console.log(res.data);
+
+                    if (res.data && res.data.id) {
+                        alert('저장 완료');
+                        setId(res.data.id);
+                        // 파일 첨부 수정
+                        const files = uploadReferenece.current.getSelectedFiles();
+                        console.log("첨부한 파일들:", files);
+
+                        navigate(`/Post/view/${res.data.id}`);
+                    } else {
+                        alert('게시물을 저장하는 도중 오류가 발생하였습니다.')
+                    }
+
+                })
+                .catch(error => {
+                    console.error("There was an error!", error);
+                });
+        }
+
 
     const onEditorChange = (value) => {
         setContent(value)

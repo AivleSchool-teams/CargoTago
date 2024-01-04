@@ -1,5 +1,7 @@
 package com.example.truck.Posts;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -8,6 +10,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Entity
@@ -34,4 +37,8 @@ public class PostsInfo {
     @CreatedBy
     @Column(nullable = false, updatable = false, length = 255)
     private String createdBy; // 생성자
+
+    @OneToMany(mappedBy = "postsInfo", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties("postsInfo")
+    private List<FilesInfo> files; // 연관된 파일들
 }

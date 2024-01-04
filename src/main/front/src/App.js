@@ -35,7 +35,6 @@ import PostCreate from "./pages/post/PostCreate"; // 게시판 게시글 작성
 
 import Chat from "./pages/Chat"; // 채팅 페이지
 
-
 function App() {
     const action = useNavigationType();
     const location = useLocation();

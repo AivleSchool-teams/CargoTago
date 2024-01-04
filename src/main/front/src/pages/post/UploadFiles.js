@@ -47,6 +47,11 @@ const UploadFiles = forwardRef((props, ref) => {
 
 
             })
+        },
+
+        // 첨부한 파일을 PostCreate 컴포넌트로 불러오고 싶다면?
+        getSelectedFiles: () => {
+            return selectedFiles;
         }
     }));
 

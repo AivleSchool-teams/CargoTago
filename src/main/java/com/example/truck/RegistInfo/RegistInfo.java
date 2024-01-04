@@ -1,5 +1,7 @@
 package com.example.truck.RegistInfo;
 
+import com.example.truck.ShipperRegistration.ShipperInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -92,6 +94,9 @@ public class RegistInfo {
     @Column(nullable = false, length = 50)
     private String currentDateTime; //등록시간
 
-
+    @ManyToOne
+    @JsonManagedReference
+    @JoinColumn(name = "shipMember")
+    private ShipperInfo shipperInfo;
 
 }
