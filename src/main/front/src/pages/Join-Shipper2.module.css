@@ -297,7 +297,6 @@
     font-size: 27px;
 }
 .div12,
-.div13,
 .div14,
 .divemail {
     position: absolute;
@@ -329,18 +328,19 @@
     transform: translateX(-120%);
 
 }
-.div13,
-.div14 {
+.div13{
+    position: absolute;
+    text-align: left;
+    left: 50%;
     top: 875px;
     font-weight: 300;
     color: var(--color-lightcoral);
-
-    left: 50%;
     transform: translateX(-149%);
-
-
 }
 .div14 {
+    font-weight: 300;
+    color: var(--color-lightcoral);
+    left: 50%;
     top: 527px;
     transform: translateX(-145%);
 }

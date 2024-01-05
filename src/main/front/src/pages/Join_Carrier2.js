@@ -15,6 +15,9 @@ const JoinCarrier2 = () => {
     const [inputEmail, setInputEmail] = useState("");
     const [inputPw, setInputPw] = useState("");
     const [inputTransportLicense, setInputTransportLicense] = useState("");
+    const [inputPwConfirm, setInputPwConfirm] = useState(""); // 비밀번호 확인을 위한 상태 추가
+    const [showPwMismatch, setShowPwMismatch] = useState(false); // 비밀번호 불일치 표시를 위한 상태 추가
+    const [showPwError, setShowPwError] = useState(false); // 비밀번호 형식 오류 표시를 위한 상태 추가
 
 
     const handleInputName = (e) => {
@@ -23,17 +26,63 @@ const JoinCarrier2 = () => {
     const handleInputPhone = (e) => {
         setInputPhone(e.target.value);
     };
+// 이메일 형식 확인을 위한 상태 추가
+    const [showEmailError, setShowEmailError] = useState(false);
+
+// 이메일 핸들러 수정
     const handleInputEmail = (e) => {
         setInputEmail(e.target.value);
+        const re = /\S+@\S+\.\S+/; // 이메일 형식을 확인하는 정규표현식
+        if(!re.test(e.target.value)) { // 입력한 값이 이메일 형식이 아니면
+            setShowEmailError(true); // 에러 메시지 보이기
+        } else { // 이메일 형식이 맞으면
+            setShowEmailError(false); // 에러 메시지 숨기기
+        }
     };
     const handleInputPw = (e) => {
         setInputPw(e.target.value);
+        const re = /^(?=.*[!@#])[a-zA-Z0-9!@#]{8,16}$/; // 비밀번호 형식을 확인하는 정규표현식
+        if(!re.test(e.target.value)) { // 입력한 값이 비밀번호 형식이 아니면
+            setShowPwError(true); // 에러 메시지 보이기
+        } else { // 비밀번호 형식이 맞으면
+            setShowPwError(false); // 에러 메시지 숨기기
+        }
+    };
+    const handleInputPwConfirm = (e) => {
+        setInputPwConfirm(e.target.value);
+        if(e.target.value !== inputPw) {
+            setShowPwMismatch(true);
+        } else {
+            setShowPwMismatch(false);
+        }
     };
     const handleInputTransportLicense = (e) => {
         setInputTransportLicense(e.target.value);
     };
 
     const onGroupContainerClick = useCallback(() => {
+        if (!inputName || !inputPhone || !inputEmail || !inputPw) { // 필수 입력값 확인
+            alert("모든 필수 입력란을 채워주세요.");
+            return;
+        }
+        if (inputPw !== inputPwConfirm) { // 비밀번호 불일치 확인
+            setShowPwMismatch(true);
+            return;
+        }
+
+        // 추가된 부분: 이메일 형식 확인
+        const emailRe = /\S+@\S+\.\S+/; // 이메일 형식을 확인하는 정규표현식
+        if(!emailRe.test(inputEmail)) {
+            alert("올바른 이메일 형식을 입력해주세요.");
+            return;
+        }
+
+        const pwRe = /^(?=.*[!@#])[a-zA-Z0-9!@#]{8,16}$/; // 비밀번호 형식을 확인하는규표현식
+        if(!pwRe.test(inputPw)) {
+            alert("비밀번호는 특수문자(!,@,#)를 포함하여 8~16자를 입력해주세요.");
+            return;
+        }
+
         navigate("/Carrier/3", { state: { inputName, inputPhone, inputEmail, inputPw, inputTransportLicense } });
         console.log("click Page2 to Page3");
         console.log("Name : ", inputName);
@@ -105,7 +154,7 @@ const JoinCarrier2 = () => {
                 <div className={styles.groupChild}/>
                 <div className={styles.div8}>다음</div>
             </div>
-            <div className={styles.divemail}>
+            <div style={{display: showEmailError ? 'block' : 'none'}} className={styles.divemail}>
                 올바른 이메일 형식을 입력해 주세요.
             </div>
             <div className={styles.div9}>
@@ -116,8 +165,10 @@ const JoinCarrier2 = () => {
                        tabIndex={5}
                        placeholder="비밀번호 확인 *"/>
             </div>
-            <div className={styles.div11}>비밀번호가 다릅니다.</div>
-            <div className={styles.div12}>숫자만 입력해 주세요.</div>
+            <div style={{display: showPwError ? 'block' : 'none'}} className={styles.div11}>
+                비밀번호는 특수문자(!,@,#)를 포함하여 8~16자를 입력해 주세요.
+            </div>
+            <div className={styles.div12}>- 까지 입력해 주세요.</div>
 
             <div className={styles.div13}>
                 <p className={styles.p}>이용 약관 동의</p>

@@ -75,7 +75,7 @@ const CarrierCar = () => {
     const [area1, setArea1] = useState('');
     const [area2, setArea2] = useState('');
     const [distance, setDistance] = useState('');
-
+    const [sectors, setSectors] = useState('');
 
     //=========================================================
 
@@ -92,7 +92,7 @@ const CarrierCar = () => {
         console.log(area1);
         console.log(area2);
         console.log(distance);
-
+        console.log(sectors);
 
         const token = localStorage.getItem('jwt-token');
         axios.post('http://localhost:8080/user/carrier/car',{
@@ -106,6 +106,7 @@ const CarrierCar = () => {
                 area1 : area1,
                 area2 : area2,
                 distance : distance,
+                sectors : sectors,
             }
             , {
                 headers: {
@@ -154,6 +155,13 @@ const CarrierCar = () => {
                     <div className={styles.groupChild} />
                     <div className={styles.div2}>
                         <span>{`선호 이동 거리 `}</span>
+                        <span className={styles.span}>*</span>
+                    </div>
+                </div>
+                <div className={styles.groupDiv1}>
+                    <div className={styles.groupChild} />
+                    <div className={styles.div2}>
+                        <span>{`선호 화물 종류 `}</span>
                         <span className={styles.span}>*</span>
                     </div>
                 </div>
@@ -305,6 +313,18 @@ const CarrierCar = () => {
                     <option value="">이동 거리 선택</option>
                     <option value="장거리">장거리</option>
                     <option value="단거리">단거리</option>
+                </select>
+
+                <select className={styles.div201} value={sectors} onChange={e => setDistance(e.target.value)}>
+                    <option value="">선호 업종 선택</option>
+                    <option value="농림축산업">농림축산업</option>
+                    <option value="제조업">제조업</option>
+                    <option value="광업">광업</option>
+                    <option value="건설업">건설업</option>
+                    <option value="도소매업">도소매업</option>
+                    <option value="숙박 및 서비스업">숙박 및 서비스업</option>
+                    <option value="기타 서비스업">기타 서비스업</option>
+                    <option value="공공기관">공공기관</option>
                 </select>
             </div>
             
