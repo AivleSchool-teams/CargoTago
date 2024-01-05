@@ -17,6 +17,8 @@ const ShipperList = () => {
     const [usertype, setUsertype] = useState(null);
     const [registInfoList, setRegistInfoList] = useState([]);
 
+
+
     useEffect(() => {
         const token = localStorage.getItem('jwt-token');
         if (!token) {
@@ -86,6 +88,17 @@ const ShipperList = () => {
     };
 
 
+
+    const [a, setA] = useState(4);
+
+    const handleClick = (value) => {
+        setA(value);
+    }
+    function formatNumber(num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
+
+
     return (
         <div className={styles.div}>
 
@@ -95,7 +108,22 @@ const ShipperList = () => {
                 <div className={styles.inner}>
 
                     {/* 배차 1개 박스 - back 연결 필요 /링크도 연결 필요-현재는 메인으로/*/}
-                    {registInfoList.map((registInfo, index) => (
+                    {registInfoList
+                        .filter(registInfo => {
+                            // status 조건 체크
+                            const statusCondition = a === 4 ? true : registInfo.status === a;
+
+                            // 선택된 출발날짜와 도착날짜 사이의 데이터 선택
+                            const selectedDepartureDate = new Date(departureDate);
+                            const selectedArrivalDate = new Date(arrivalDate);
+                            const registDepartureDate = new Date(registInfo.departureDateTime);
+                            const registArrivalDate = new Date(registInfo.arrivalDateTime);
+                            const dateCondition = selectedDepartureDate <= registDepartureDate && registDepartureDate <= selectedArrivalDate &&
+                                selectedDepartureDate <= registArrivalDate && registArrivalDate <= selectedArrivalDate;
+
+                            return statusCondition && dateCondition;
+                        })
+                        .map((registInfo, index) => (
                     <div key={index}  className={styles.rectangleParent} onClick={() => onDetailClick(registInfo)}>
                         <div className={styles.frameChild}/>
                         <div className={styles.frameParent}>
@@ -103,7 +131,7 @@ const ShipperList = () => {
                                 <div className={styles.div2}>{`${registInfo.tonnage}  ${registInfo.selectedBox}  `}</div>
                                 <div className={styles.div3}>호루, 리프트에 뭘넣어?</div>
                             </div>
-                            <b className={styles.b}>{`${registInfo.yourcost} 원`}</b>
+                            <b className={styles.b}>{`${formatNumber(registInfo.yourcost)} 원`}</b>
                         </div>
                         <div className={styles.startloc}>
                             <div className={styles.kt}>{registInfo.headquarters2}</div>
@@ -145,7 +173,8 @@ const ShipperList = () => {
                             <div className={styles.div8}>접수완료</div>
                         </div>
                     </div>
-                    ))}
+                    )
+                    )}
                 </div>
 
                 <div className={styles.rectangleGroup}>
@@ -160,13 +189,21 @@ const ShipperList = () => {
                     <Select options={options} className={styles.div14} defaultValue={options[0]}/>
                 </div>
                 <div className={styles.groupDiv}>
-                    <button className={styles.div15}>전체</button>
+                    <button className={`${styles.div15} ${a === 4 ? styles.active : ''}`}
+                            onClick={() => handleClick(4)}>전체
+                    </button>
                     <div className={styles.groupItem}/>
-                    <button className={styles.div16}>접수 완료</button>
+                    <button className={`${styles.div16} ${a === 0 ? styles.active : ''}`}
+                            onClick={() => handleClick(0)}>접수 완료
+                    </button>
                     <div className={styles.groupInner}/>
-                    <button className={styles.div17}>배차중</button>
+                    <button className={`${styles.div17} ${a === 1 ? styles.active : ''}`}
+                            onClick={() => handleClick(1)}>배차 완료
+                    </button>
                     <div className={styles.lineDiv}/>
-                    <button className={styles.div18}>배차완료</button>
+                    <button className={`${styles.div18} ${a === 2 ? styles.active : ''}`}
+                            onClick={() => handleClick(2)}>운송 완료
+                    </button>
                     <div className={styles.groupChild1}/>
 
                 </div>
