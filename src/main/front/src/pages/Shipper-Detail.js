@@ -94,7 +94,7 @@ const ShipperDetail = () => {
                     <div className={styles.kt1}>{registInfo.departure_address}</div>
                     <div className={styles.div2}>{registInfo.departure_detailAddress}</div>
                     <div className={styles.div3}>
-                        {
+                       {
                             new Date(registInfo.departureDateTime).toLocaleString('ko-KR', {
                                 year: 'numeric',
                                 month: '2-digit',
@@ -102,7 +102,7 @@ const ShipperDetail = () => {
                                 hour: '2-digit',
                                 minute: '2-digit'
                             })
-                        }
+                       }
                     </div>
                 </div>
                 <div className={styles.endloc}>
