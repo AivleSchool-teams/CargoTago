@@ -339,7 +339,7 @@
 .div23 {
     top: 50px;
     left: 0;
-    color: var(--color-midnightblue);
+    color: var(--color-cornflowerblue);
     display: flex;
     align-items: center;
     width: 97.2px;
@@ -347,6 +347,7 @@
 }
 .div24 {
     left: 110px;
+    color: var(--color-lightgray);
 }
 .div24,
 .div25,
@@ -356,10 +357,12 @@
     align-items: center;
     width: 97.2px;
     height: 30px;
+    color: var(--color-lightgray);
 }
 .div25 {
     position: absolute;
     left: 210px;
+    color: var(--color-lightgray);
 }
 .div26 {
     left: 547px;
@@ -376,6 +379,7 @@
     align-items: center;
     width: 97.2px;
     height: 30px;
+    color: var(--color-lightgray);
 }
 .div19 {
     top: 23px;
@@ -444,7 +448,7 @@
     top: 0;
     left: 0;
     border-radius: var(--br-3xs);
-    background-color: var(--color-midnightblue);
+    background-color: var(--color-cornflowerblue);
     width: 91.7px;
     height: 25px;
 }
