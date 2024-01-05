@@ -27,6 +27,7 @@ import Consent4 from "./pages/Consent4";
 import Consent5 from "./pages/Consent5";
 
 import CarrierAIselect from "./pages/CarrierAIselect";
+import Receipt from "./pages/Receipt";
 
 import TestRegister from "./pages/TestRegister";
 import CargoRegi from "./pages/CargoRegi";
@@ -104,6 +105,7 @@ function App() {
             <Route path='/Post/Create' element={<PostCreate />} />
 
             <Route path="/Carrier/AIselect" element={<CarrierAIselect />} />
+            <Route path="/Receipt" element={<Receipt />} />
 
             <Route path='/Chat' element={<Chat />} />
 
