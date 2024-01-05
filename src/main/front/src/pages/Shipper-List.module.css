@@ -472,6 +472,11 @@ div4_1{
 }
 .div15 {
     width: 69.5px;
+    color: var(--font-jalnan-gothic);
+
+}
+
+.active {
     color: var(--color-darkslateblue);
 }
 .div16 {
@@ -493,7 +498,7 @@ div4_1{
     position: absolute;
     top: 32px;
     left: -1px;
-    border-top: 2px solid var(--color-darkslateblue);
+    border-top: 2px solid var(--color-black);
     box-sizing: border-box;
     width: 65px;
     height: 2px;
