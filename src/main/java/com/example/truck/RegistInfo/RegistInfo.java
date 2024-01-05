@@ -101,6 +101,9 @@ public class RegistInfo {
     @Column(nullable = false,length = 50)
     private Integer yourcost; // 실제 운임
 
+    @Column(nullable = false,length = 5)
+    private Integer status; // 배차 상태
+
     @ManyToOne
     @JsonManagedReference
     @JoinColumn(name = "shipMember")

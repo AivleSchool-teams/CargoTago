@@ -15,5 +15,4 @@ public class PageDTO {
     private String email;
     private String phone;
     private String typed;
-
 }

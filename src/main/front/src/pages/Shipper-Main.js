@@ -124,8 +124,8 @@ const ShipperMain = () => {
                         <div className={styles.div11}>{registInfo.departure_address}></div>
                         <div className={styles.div12}>{registInfo.arrival_Address}</div>
                         <div className={styles.div13}>{`${registInfo.tonnage} | ${registInfo.selectedBox} | `}</div>
-                        <div className={styles.km}>{registInfo.distance} km</div>
-                        <div className={styles.div14}>335,000 원</div>
+                        <div className={styles.km}>{registInfo.dist} km</div>
+                        <div className={styles.div14}>{registInfo.yourcost} 원</div>
                         <img
                             className={styles.image13Icon}
                             alt=""

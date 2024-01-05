@@ -10,4 +10,5 @@ public interface RegistInfoRepository extends JpaRepository<RegistInfo, Long> {
 
     Optional<RegistInfo> findByUsername(String username);
     List<RegistInfo> findByShipperInfo_ShipMember(Long shipMember);
+
 }

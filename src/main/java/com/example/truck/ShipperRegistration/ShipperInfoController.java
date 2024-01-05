@@ -44,6 +44,7 @@ public class ShipperInfoController {
                 .id(originalUser2.getShipMember())
                 .name(originalUser2.getName())
                 .email(originalUser2.getEmail())
+                .phone(originalUser2.getPhone())
                 .typed("Shipper")
                 .build();
 

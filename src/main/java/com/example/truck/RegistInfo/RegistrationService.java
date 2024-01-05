@@ -67,6 +67,8 @@ public class RegistrationService {
             newRegist.setElapsed(registInfoDTO.getElapsed());
             newRegist.setYourcost(registInfoDTO.getYourcost());
 
+            newRegist.setStatus(registInfoDTO.getStatus());
+
             newRegist.setShipperInfo(shipperInfo);
 
 

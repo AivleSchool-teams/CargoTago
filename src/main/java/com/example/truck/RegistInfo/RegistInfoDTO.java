@@ -38,5 +38,7 @@ public class RegistInfoDTO {
     private Integer elapsed;
     private Integer yourcost;
 
+    private Integer status;
+
     private Long shipmember;
 }
