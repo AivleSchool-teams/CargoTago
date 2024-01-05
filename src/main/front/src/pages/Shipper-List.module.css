@@ -7,14 +7,196 @@
     height: 834px;
     object-fit: cover;
 }
+div4_1{
+    top: 91px;
+    left: 0;
+    font-weight: 300;
+    color: var(--color-darkgray);
+    display: inline-block;
+    height: 24px;
+
+}
+.frameChild_1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.frameChild_1 {
+
+    border-radius: var(--br-3xs);
+    background-color: var(--color-white);
+    border: 2px solid var(--color-gainsboro);
+    box-sizing: border-box;
+    width: 915px;
+    height: 159px;
+
+}
+.rectangleParent_1 {
+    position: absolute;
+    top: 500px;
+    left: 178px;
+    width: 300px;
+    height: 110px;
+    cursor: pointer;
+
+}
+.container_1,
+.groupContainer_1 {
+    position: absolute;
+    width: 697px;
+}
+.container_1 {
+
+    top: 0;
+    left: 0;
+    height: 79px;
+    text-align: center;
+    font-size: var(--font-size-xl);
+}
+.groupContainer_1 {
+    position: absolute;
+    top: 523px;
+    height: 190px;
+    text-align: left;
+    left: calc(50% - 30px);
+
+}
+.image13Icon_1 {
+    position: absolute;
+    top: 50px;
+    left: 312px;
+    width: 42px;
+    height: 26px;
+    object-fit: cover;
+}
+.span_1 {
+    color: var(--color-darkslateblue);
+}
+.div15_1,
+.div16_1 {
+    position: absolute;
+    top: 50px;
+    left: 74px;
+    display: inline-block;
+    width: 101px;
+    height: 17px;
+    color: var(--color-darkgray);
+}
+.div16_1 {
+    left: 397px;
+    width: 103px;
+}
+.p_1 {
+    margin: 0;
+}
+.div11_1 {
+    top: 78px;
+    left: 71px;
+    font-size: var(--font-size-xl);
+    width: 197px;
+    height: 24px;
+}
+.div11_1,
+.div12_1,
+.div13_1,
+.div14_1,
+.km_1 {
+    position: absolute;
+    display: inline-block;
+}
+.div12_1 {
+    top: 60px;
+    left: 370px;
+    font-size: var(--font-size-xs);
+    width: 180px;
+    height: 24px;
+}
+.div12_2 {
+    position: absolute;
+    top: 30px;
+    left: 0px;
+    font-size: var(--font-size-xs);
+    width: 180px;
+    height: 24px;
+}
+.div13_1,
+.div14_1,
+.km_1 {
+    top: 21px;
+    left: 0;
+    text-align: center;
+    width: 241px;
+}
+.div14_1,
+.km_1 {
+    top: 93px;
+    left: 274px;
+    font-size: var(--font-size-smi);
+    width: 117px;
+}
+.div14_1 {
+    top: 125px;
+    left: 580px;
+    font-size: var(--font-size-mini);
+}
+.rectangleIcon_1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: var(--br-xl);
+    width: 701px;
+    height: 76px;
+    object-fit: cover;
+}
+.groupDiv_1 {
+    position: relative;
+
+    left : calc(50% - 20%);
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+    width: 652px;
+    height: 120px;
+    cursor: pointer;
+    margin-top: 50px;/* 칸 사이 간격*/
+}.div13_1{
+     position: absolute;
+     left : 500px;
+     top : -10px;
+ }
+.div40 {
+    position: absolute;
+    border: none;
+    top: 20px;
+    left: 200px;
+    display: inline-block;
+    width: 140px;
+    height: 36px;
+    font-size: var(--font-size-mid);
+    color: var(--color-black);
+    font-family: var(--font-jalnan-gothic);
+    outline: none;
+}.div42{
+     position: absolute;
+     border: none;
+     top: 20px;
+     left: 380px;
+     display: inline-block;
+     width: 140px;
+     height: 36px;
+     font-size: var(--font-size-mid);
+     color: var(--color-black);
+     font-family: var(--font-jalnan-gothic);
+     outline: none;
+ }
 .div2,
 .div3,
 .frameChild {
     position: absolute;
     top: 0;
     left: 0;
+
 }
 .frameChild {
+
     border-radius: var(--br-3xs);
     background-color: var(--color-white);
     border: 2px solid var(--color-gainsboro);
@@ -70,7 +252,7 @@
     left: 1.6px;
     font-size: var(--font-size-xl);
     font-family: var(--font-jalnan-gothic);
-    width: 168.4px;
+    width: 190px;
     height: 24.1px;
 }
 .kt1 {
@@ -84,13 +266,14 @@
 .startloc,
 .startloc1 {
     position: absolute;
-    width: 196px;
+    width: 240px;
 }
 .div4 {
     top: 91px;
     left: 0;
     font-weight: 300;
     color: var(--color-darkgray);
+    font-size: var(--font-size-xs);
     display: inline-block;
     height: 24px;
 }
@@ -178,13 +361,13 @@
     left: 0;
     border-radius: var(--br-3xs);
     border-color: var(--color-white);
-    height: 150px;
+    height: 165px;
     cursor: pointer;
 }
 .groupChild,
 .inner,
 .rectangleParent {
-    position: absolute;
+    position: relative;
     width: 915px;
 }
 .inner {
@@ -473,13 +656,13 @@
     left: 0;
     color: var(--color-black);
     display: inline-block;
-    width: 273.7px;
+    width: 60px;
     height: 24px;
 }
 .parent2 {
     top: 22px;
     left: 30.6px;
-    width: 473.4px;
+    width: 600px;
     height: 43px;
     color: var(--color-darkgray);
 }
@@ -489,6 +672,7 @@
 }
 .parent2 {
     position: relative;
+    left : 30px;
 }
 .div19 {
     width: 974px;

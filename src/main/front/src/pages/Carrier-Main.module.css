@@ -234,11 +234,17 @@
     margin: 0;
 }
 .div11 {
+    position: absolute;
+    display: inline-block;
     top: 78px;
     left: 71px;
     font-size: var(--font-size-xl);
     width: 197px;
     height: 24px;
+    margin: 0;
+    white-space: nowrap; /* 한 줄에 텍스트 표시 */
+    overflow: hidden; /* 넘치는 부분 숨기기 */
+    text-overflow: ellipsis; /* 텍스트가 넘치면 "..."으로 표시 */
 }
 .div11,
 .div12,
@@ -254,6 +260,9 @@
     font-size: var(--font-size-xl);
     width: 197px;
     height: 24px;
+    white-space: nowrap; /* 한 줄에 텍스트 표시 */
+    overflow: hidden; /* 넘치는 부분 숨기기 */
+    text-overflow: ellipsis; /* 텍스트가 넘치면 "..."으로 표시 */
 }
 .div13,
 .div14,
@@ -301,7 +310,7 @@
     width: 103px;
 }
 .vectorContainer {
-    position: absolute;
+    position: relative;
     top: 26px;
     left: 45px;
     width: 652px;
@@ -311,9 +320,11 @@
 }
 .group{
     position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
-    top:670px;
-    left: calc(50% - 380px);
+    top:1000px;
+    left: calc(50% - 55px);
     transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+    height: 190px;
+
 }
 .groupChild2 {
     position: absolute;
@@ -334,7 +345,7 @@
     transform-origin: 0 0;
 }
 .groupDiv {
-    position: absolute;
+    position: relative;
     top: 70px;
     left: 45px;
     width: 652px;

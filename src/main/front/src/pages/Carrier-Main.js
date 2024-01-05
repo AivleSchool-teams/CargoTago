@@ -10,6 +10,10 @@ const CarrierMain = () => {
 
     const [username, setUsername] = useState(null);
 
+    //화주가 등록한 화물 리스트
+    const [registInfoList, setRegistInfoList] = useState([]);
+
+
 
     useEffect(() => {
         const token = localStorage.getItem('jwt-token');
@@ -35,6 +39,15 @@ const CarrierMain = () => {
                 });
         }
 
+        axios.get('http://localhost:8080/user/carrier/mylist', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(res => {
+                setRegistInfoList(res.data);
+                console.log(res.data);
+            })
     }, [navigate, username]);
 
     const onListClick = useCallback(() => { // 차주 배차완료 리스트 페이지 이동
@@ -95,20 +108,20 @@ const CarrierMain = () => {
                 <div className={styles.div10}>일반 차량</div>
                 <div className={styles.lineDiv} />
 
+
                 {/* 배차 1개 */}
-                <div className={styles.vectorContainer} >
+                {registInfoList.map((registInfo, index) => (
+                <div key={index} className={styles.vectorContainer} onClick={() => onDetailClick(registInfo.id)}>
                     <img
                         className={styles.rectangleIcon}
                         alt=""
                         src="/images/rectangle-57@2x.png"
                     />
-                    <div className={styles.div11}>
-                        <p className={styles.p}>경기 김포시 양촌</p>
-                    </div>
-                    <div className={styles.div12}>서울 강동 동남로</div>
-                    <div className={styles.div13}>{`11톤 | 윙바디 | `}</div>
-                    <div className={styles.km}>17 km</div>
-                    <div className={styles.div14}>335,000 원</div>
+                    <div className={styles.div11}>{registInfo.departure_address}</div>
+                    <div className={styles.div12}>{registInfo.arrival_Address}</div>
+                    <div className={styles.div13}>{`${registInfo.tonnage} | ${registInfo.selectedBox} | `}</div>
+                    <div className={styles.km}>{registInfo.dist} km</div>
+                    <div className={styles.div14}>{registInfo.yourcost} 원</div>
                     <img
                         className={styles.image13Icon}
                         alt=""
@@ -123,9 +136,11 @@ const CarrierMain = () => {
                         <span className={styles.span}>*</span>
                     </div>
                 </div>
+                ))}
 
             </div>
             {/* AI 추천 배차 리스트 */}
+
             <div className={styles.groupContainer}>
                 <div className={styles.container}>
                     <div className={styles.div23}>내 주변 차량</div>
@@ -143,7 +158,8 @@ const CarrierMain = () => {
                 </div>
 
                 {/* 배차 1개 */}
-                <div className={styles.groupDiv} onClick={onListClick}>
+                {registInfoList.map((registInfo, index) => (
+                <div key={index}  className={styles.groupDiv} onClick={() => onListClick(registInfo.id)}>
                     <img
                         className={styles.rectangleIcon}
                         alt=""
@@ -171,6 +187,7 @@ const CarrierMain = () => {
                     </div>
                     <div className={styles.groupChild2} />
                 </div>
+                ))}
 
 
             </div>

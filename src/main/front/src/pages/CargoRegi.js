@@ -11,6 +11,8 @@ const CargoRegi = () => {
         referenceAddress: '',
     });
 
+     const status = 0;
+
     const handleComplete = (data) => {
         let fullRoadAddress = data.address;
         let extraAddress = '';
@@ -425,7 +427,7 @@ const CargoRegi = () => {
 
         navigate("/CargoRegiAI", { state: { userid, username, selected2, arrivalDateTime, departureDateTime, tonnage, selectedBox,
                 isChecked1, isChecked2, text, selectedSize, selectedBoxNew, weight, textAreaValue, selectedValue,
-                selectedButton,headquarters2, headquarters3, location,  address, currentDateTime} });
+                selectedButton,headquarters2, headquarters3, location,  address, currentDateTime, status} });
         console.log("Cargo to CargoAI");
         console.log("shipmember:", userid);
         console.log("username:", username);
@@ -456,7 +458,7 @@ const CargoRegi = () => {
         console.log("currentDateTime:", currentDateTime);
     }, [navigate, userid, username, selected2, arrivalDateTime, departureDateTime, tonnage, selectedBox,
         isChecked1, isChecked2, text, selectedSize, selectedBoxNew, weight, textAreaValue, selectedValue,
-        selectedButton,headquarters2, headquarters3, location,  address, currentDateTime]);
+        selectedButton,headquarters2, headquarters3, location,  address, currentDateTime, status]);
 
     return (
         <div className={styles.div}>
