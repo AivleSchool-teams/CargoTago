@@ -34,9 +34,10 @@ public class RegistInfoDTO {
     private String departure_detailAddress; //출발지 세부 주소
     private String currentDateTime; //등록 시간
 
-    private Float dist;
-    private Integer elapsed;
-    private Integer yourcost;
+    private Float distance; // 총 거리
+    private Integer durationHour; // 소요 시간(h)
+    private Integer durationMin; // 소요 시간(m)
+    private Integer yourcost; // 실제 운임
 
     private Integer status;
 

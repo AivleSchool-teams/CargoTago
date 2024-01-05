@@ -63,8 +63,9 @@ public class RegistrationService {
             newRegist.setDeparture_detailAddress(registInfoDTO.getDeparture_detailAddress());
             newRegist.setCurrentDateTime(registInfoDTO.getCurrentDateTime());
 
-            newRegist.setDist(registInfoDTO.getDist());
-            newRegist.setElapsed(registInfoDTO.getElapsed());
+            newRegist.setDistance(registInfoDTO.getDistance());
+            newRegist.setDurationHour(registInfoDTO.getDurationHour());
+            newRegist.setDurationMin(registInfoDTO.getDurationMin());
             newRegist.setYourcost(registInfoDTO.getYourcost());
 
             newRegist.setStatus(registInfoDTO.getStatus());

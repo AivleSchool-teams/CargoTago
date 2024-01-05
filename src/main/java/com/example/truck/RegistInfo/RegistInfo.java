@@ -93,10 +93,13 @@ public class RegistInfo {
     private String currentDateTime; //등록시간
 
     @Column(nullable = false,length = 50)
-    private Float dist; // 총 거리
+    private Float distance; // 총 거리
 
-    @Column(nullable = false,length = 50)
-    private Integer elapsed; // 소요 시간
+    @Column(nullable = false,length = 5)
+    private Integer durationHour; // 소요 시간(H)
+
+    @Column(nullable = false,length = 5)
+    private Integer durationMin; // 소요 시간(M)
 
     @Column(nullable = false,length = 50)
     private Integer yourcost; // 실제 운임
