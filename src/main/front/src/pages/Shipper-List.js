@@ -118,6 +118,13 @@ const ShipperList = () => {
                             const selectedArrivalDate = new Date(arrivalDate);
                             const registDepartureDate = new Date(registInfo.departureDateTime);
                             const registArrivalDate = new Date(registInfo.arrivalDateTime);
+
+                            // 시간 부분을 제거하고 날짜만 비교
+                            selectedDepartureDate.setHours(0, 0, 0, 0);
+                            selectedArrivalDate.setHours(0, 0, 0, 0);
+                            registDepartureDate.setHours(0, 0, 0, 0);
+                            registArrivalDate.setHours(0, 0, 0, 0);
+
                             const dateCondition = selectedDepartureDate <= registDepartureDate && registDepartureDate <= selectedArrivalDate &&
                                 selectedDepartureDate <= registArrivalDate && registArrivalDate <= selectedArrivalDate;
 
