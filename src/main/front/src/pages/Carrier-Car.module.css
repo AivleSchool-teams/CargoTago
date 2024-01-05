@@ -57,6 +57,7 @@
 }
 .groupChild1,
 .groupDiv,
+.groupDiv1,
 .rectangleContainer,
 .rectangleGroup {
     position: absolute;
@@ -73,6 +74,9 @@
 .groupChild1,
 .groupDiv {
     top: 771px;
+}
+.groupDiv1 {
+    top: 860px;
 }
 .groupChild1 {
     top: 0;
@@ -92,7 +96,7 @@
 }
 .rectangleParent1 {
     position: absolute;
-    top: 874px;
+    top: 960px;
     left: 478px;
     width: 475px;
     height: 88px;
@@ -404,6 +408,19 @@
     display: inline-block;
     width: 234px;
     top: 796px;
+}
+.div201 {
+    border: none;
+    outline: none;
+    position: absolute;
+    left: 744px;
+    font-family: var(--font-sb-aggro);
+    font-size: var(--font-size-4xl);
+    color: var(--color-black);
+    text-align: right;
+    display: inline-block;
+    width: 234px;
+    top: 885px;
 }
 .div21 {
     outline: none;

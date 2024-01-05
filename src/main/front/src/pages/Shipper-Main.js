@@ -50,6 +50,10 @@ const ShipperMain = () => {
         navigate("/Shipper/List");
     }, [navigate]);
 
+    const onPostClick = useCallback(() => { // 화주 배차완료 리스트 페이지 이동
+        navigate("/Post");
+    }, [navigate]);
+
     const onDetailClick = useCallback((id) => { // 화주 배차완료 리스트 페이지 이동
         navigate(`/Shipper/Detail/${id}`);
     }, [navigate]);
@@ -67,7 +71,7 @@ const ShipperMain = () => {
                         alt=""
                         src="/images/rectangle-10@2x.png"
                     />
-                    <button className={styles.div2}>마이 페이지</button>
+                    <button className={styles.div2} onClick={onPostClick}>게시판</button>
                 </div>
                 <img className={styles.moa11} alt="" src="/images/moa-1-1@2x.png" />
             </div>

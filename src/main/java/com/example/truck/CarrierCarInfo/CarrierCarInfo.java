@@ -40,6 +40,9 @@ public class CarrierCarInfo {
     @Column(nullable = false, length = 20)
     private String distance; // 선호 이동 거리
 
+    @Column(nullable = false, length = 20)
+    private String sectors; // 선호 업종
+
     @ManyToOne
     @JsonManagedReference
     @JoinColumn(name = "carMember")

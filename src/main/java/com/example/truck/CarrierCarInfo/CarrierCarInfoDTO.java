@@ -14,6 +14,7 @@ public class CarrierCarInfoDTO {
     private String area1;  // 선호 지역 1
     private String area2; // 선호 지역 2
     private String distance; // 선호 이동 거리
+    private String sectors; // 선호 업종
 
     private Long carmember;
 
