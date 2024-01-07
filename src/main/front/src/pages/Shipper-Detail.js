@@ -62,6 +62,10 @@ const ShipperDetail = () => {
         navigate("/Shipper/List");
     }, [navigate]);
 
+    function formatNumber(num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
+
     const joinRoom = (e) => {
       e.preventDefault();
         if (username !== '' && room !== '') {
@@ -173,7 +177,7 @@ const ShipperDetail = () => {
                     {`계좌번호 :   `}
                     <span className={styles.span}>홍길동 국민 620000-00-000000</span>
                 </div>
-                <div className={styles.div15}>{registInfo.yourcost} 원</div>
+                <div className={styles.div15}>{`${formatNumber(registInfo.yourcost)} 원`}</div>
                 <div className={styles.div16}>{registInfo.selected2}</div>
                 <div className={styles.div17}>접수 상세 정보</div>
                 <div className={styles.item} />
@@ -188,18 +192,20 @@ const ShipperDetail = () => {
                 <div className={styles.div19}>
                     <div className={styles.div20}>화물 현황</div>
                     <div className={styles.rectangleParent}>
-                        <div className={styles.groupChild} />
+                        <div className={styles.groupChild}/>
                         <div className={styles.xxxXxxx}>차량번호 : 서울 XXX XXXX</div>
                         <div className={styles.div21}>차주명 : 홍길동</div>
                         <div className={styles.div22}>연락처 : 010-1234-5678</div>
                     </div>
-                    <div className={styles.lineDiv} />
-                    <div className={styles.child1} />
-                    <div className={styles.div23}>접수 완료</div>
-                    <div className={styles.div24}>배차중</div>
-                    <div className={styles.div25}>배차완료</div>
+                    <div className={styles.lineDiv}/>
+                    <div className={styles.child1}/>
+                    <div className={styles.div23} style={registInfo.status === 0 ? {color: 'var(--color-cornflowerblue)'} : {}}>접수 완료</div>
+                    <div className={styles.div24} style={registInfo.status === 1 ? {color: 'var(--color-cornflowerblue)'} : {}}>배차 완료</div>
+                    <div className={styles.div25} style={registInfo.status === 2 ? {color: 'var(--color-cornflowerblue)'} : {}}>운송 완료</div>
+
+
                     <div className={styles.div26}>운행중</div>
-                    <div className={styles.child2} />
+                    <div className={styles.child2}/>
                     <div className={styles.div27}>운송완료</div>
                 </div>
                 <div className={styles.div28}>
@@ -217,9 +223,13 @@ const ShipperDetail = () => {
                 <div className={styles.rectangleGroup}>
                     <div className={styles.groupItem} />
                     <div className={styles.n0001}>N000{registInfo.id}</div>
-                    <div className={styles.div31}>접수완료</div>
+                    <div className={styles.div31}>
+                        {registInfo.status === 0 ? '접수 완료' :
+                            registInfo.status === 1 ? '배차 완료' :
+                                '운송 완료'}
+                    </div>
                 </div>
-                <img className={styles.lineIcon} alt="" src="/images/line-37@2x.png" />
+                <img className={styles.lineIcon} alt="" src="/images/line-37@2x.png"/>
             </div>
             <img className={styles.moa11} alt="" src="/images/logo.png" onClick={onLogoClick}/>
             <img
