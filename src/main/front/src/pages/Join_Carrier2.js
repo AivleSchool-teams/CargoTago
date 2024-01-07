@@ -65,6 +65,7 @@ const JoinCarrier2 = () => {
             alert("모든 필수 입력란을 채워주세요.");
             return;
         }
+
         if (inputPw !== inputPwConfirm) { // 비밀번호 불일치 확인
             setShowPwMismatch(true);
             return;
@@ -90,7 +91,7 @@ const JoinCarrier2 = () => {
         console.log("Email : ", inputEmail);
         console.log("Pw : ", inputPw);
         console.log("TransportLicense : ", inputTransportLicense);
-    }, [navigate, inputName, inputPhone, inputEmail, inputPw, inputTransportLicense]);
+    }, [navigate, inputName, inputPhone, inputEmail, inputPw, inputPwConfirm, inputTransportLicense]);
 
 
     return (
@@ -157,17 +158,17 @@ const JoinCarrier2 = () => {
             <div style={{display: showEmailError ? 'block' : 'none'}} className={styles.divemail}>
                 올바른 이메일 형식을 입력해 주세요.
             </div>
-            <div className={styles.div9}>
+            <div style={{display: showPwError ? 'block' : 'none'}} className={styles.div9}>
                 비밀번호는 특수문자(!,@,#)를 포함하여 8~16자를 입력해 주세요.
             </div>
             <div>
                 <input type="password" className={styles.child2}
                        tabIndex={5}
+                       value={inputPwConfirm} // 비밀번호 확인 값 바인딩
+                       onChange={handleInputPwConfirm} // 비밀번호 확인 핸들러 바인딩
                        placeholder="비밀번호 확인 *"/>
             </div>
-            <div style={{display: showPwError ? 'block' : 'none'}} className={styles.div11}>
-                비밀번호는 특수문자(!,@,#)를 포함하여 8~16자를 입력해 주세요.
-            </div>
+            <div style={{display: showPwMismatch ? 'block' : 'none'}} className={styles.div131}>비밀번호가 다릅니다.</div>
             <div className={styles.div12}>- 까지 입력해 주세요.</div>
 
             <div className={styles.div13}>

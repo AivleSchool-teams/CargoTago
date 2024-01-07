@@ -517,3 +517,13 @@
     overflow: hidden;
     background-color: transparent;
 }
+.div131{
+    position: absolute;
+    text-align: left;
+    left: 50%;
+    top: 875px;
+    font-weight: 300;
+    color: var(--color-lightcoral);
+    transform: translateX(-149%);
+    font-size: var(--font-size-mini);
+}
