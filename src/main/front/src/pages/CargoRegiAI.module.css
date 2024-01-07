@@ -114,6 +114,7 @@
 .idbox {
     position: absolute;
     top: -30%;
+    outline: none;
 
     border-radius: var(--br-3xs);
     background-color: transparent;

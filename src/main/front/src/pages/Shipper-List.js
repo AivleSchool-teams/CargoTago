@@ -19,6 +19,7 @@ const ShipperList = () => {
 
 
 
+
     useEffect(() => {
         const token = localStorage.getItem('jwt-token');
         if (!token) {
@@ -62,11 +63,31 @@ const ShipperList = () => {
 
     // 검색바
     const [search, setSearch] = useState("");
+
+
     const onChange = (e) => {
-        setSearch(e.target.value)
-    }
-    const onDetailClick = useCallback(() => {  // 화주 메인페이지로 링크 변경 해야함.
-        navigate("/Shipper/Detail");
+        setSearch(e.target.value);
+    };
+
+    const onSearch = (e) => {
+        e.preventDefault();
+        // If search is empty, refresh the page
+        if (search === "") {
+            window.location.reload();
+        } else {
+            setRegistInfoList(registInfoList.filter(registInfo => {
+                for (let key in registInfo) {
+                    if (String(registInfo[key]).includes(search)) {
+                        return true;
+                    }
+                }
+                return false;
+            }));
+        }
+    };
+
+    const onDetailClick = useCallback((registInfo) => {
+        navigate(`/Shipper/Detail/${registInfo.id}`);
     }, [navigate]);
 
     // 정렬 개수 선택
@@ -114,19 +135,20 @@ const ShipperList = () => {
                             const statusCondition = a === 4 ? true : registInfo.status === a;
 
                             // 선택된 출발날짜와 도착날짜 사이의 데이터 선택
-                            const selectedDepartureDate = new Date(departureDate);
-                            const selectedArrivalDate = new Date(arrivalDate);
+                            const selectedDepartureDate = departureDate ? new Date(departureDate) : null;
+                            const selectedArrivalDate = arrivalDate ? new Date(arrivalDate) : null;
                             const registDepartureDate = new Date(registInfo.departureDateTime);
                             const registArrivalDate = new Date(registInfo.arrivalDateTime);
 
                             // 시간 부분을 제거하고 날짜만 비교
-                            selectedDepartureDate.setHours(0, 0, 0, 0);
-                            selectedArrivalDate.setHours(0, 0, 0, 0);
+                            if (selectedDepartureDate) selectedDepartureDate.setHours(0, 0, 0, 0);
+                            if (selectedArrivalDate) selectedArrivalDate.setHours(0, 0, 0, 0);
                             registDepartureDate.setHours(0, 0, 0, 0);
                             registArrivalDate.setHours(0, 0, 0, 0);
 
-                            const dateCondition = selectedDepartureDate <= registDepartureDate && registDepartureDate <= selectedArrivalDate &&
-                                selectedDepartureDate <= registArrivalDate && registArrivalDate <= selectedArrivalDate;
+                            const dateCondition = selectedDepartureDate && selectedArrivalDate ?
+                                (selectedDepartureDate <= registDepartureDate && registDepartureDate <= selectedArrivalDate &&
+                                    selectedDepartureDate <= registArrivalDate && registArrivalDate <= selectedArrivalDate) : true;
 
                             return statusCondition && dateCondition;
                         })
@@ -177,11 +199,15 @@ const ShipperList = () => {
                         <div className={styles.n0001Parent}>
                             <div className={styles.n0001}>N0001</div>
                             <div className={styles.frameItem}/>
-                            <div className={styles.div8}>접수완료</div>
+                            <div className={styles.div8}>
+                                {registInfo.status === 0 ? '접수 완료' :
+                                    registInfo.status === 1 ? '배차 완료' :
+                                        '운송 완료'}
+                            </div>
                         </div>
                     </div>
-                    )
-                    )}
+                            )
+                        )}
                 </div>
 
                 <div className={styles.rectangleGroup}>
@@ -222,10 +248,12 @@ const ShipperList = () => {
                     src="/images/rectangle-571@2x.png"
                 />
                 <div className={styles.child1}/>
-                <form>
+                <form  onSubmit={onSearch}>
                     <div className={styles.parent1}>
                         <div className={styles.div20}>주소 검색</div>
                         <input type="text" className={styles.div21} value={search} onChange={onChange}/>
+
+
                         <button
                             type={"submit"} className={styles.search1Icon}
                             style={{backgroundImage: `url("/images/search-1@2x.png")`}}

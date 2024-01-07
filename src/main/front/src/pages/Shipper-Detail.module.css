@@ -7,6 +7,17 @@
     height: 711px;
 
 }
+/* styles.css */
+.div23_complete { /* 접수 완료 */
+    color: var(--color-cornflowerblue);
+}
+.div24_inProgress { /* 배차중 */
+    color: var(--color-cornflowerblue);
+}
+.div25_done { /* 배차완료 */
+    color: var(--color-cornflowerblue);
+}
+
 .div2,
 .kt,
 .kt1 {
@@ -337,9 +348,9 @@
     position: absolute;
 }
 .div23 {
+    color: var(--color-lightgray);
     top: 50px;
     left: 0;
-    color: var(--color-cornflowerblue);
     display: flex;
     align-items: center;
     width: 97.2px;

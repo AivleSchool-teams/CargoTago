@@ -35,8 +35,16 @@ const CargoRegiAI = () => {
 
 
     const handleInputYourcost = (e) => {
-        setYourcost(e.target.value)
+        const value = e.target.value.replace(/,/g, ''); // 콤마 제거
+        if (value === '') { // 입력값이 빈 문자열인 경우
+            setYourcost('');
+        } else if (!isNaN(value)) { // 숫자인 경우만 상태 업데이트
+            setYourcost(parseInt(value, 10));
+        }
     };
+
+
+
 
     const handleSubmit = () => {
         if (!yourcost) {
@@ -282,10 +290,11 @@ const CargoRegiAI = () => {
                         <input
                             type="text"
                             className={styles.idbox}
-                            //placeholder="입력"
-                            value={yourcost}
+                            value={(yourcost || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                             onChange={handleInputYourcost}
                         />원
+
+
                     </div>
                     <div className={styles.div6}>소요 시간</div>
                     <div className={styles.ai1}>AI 최적 운임</div>
