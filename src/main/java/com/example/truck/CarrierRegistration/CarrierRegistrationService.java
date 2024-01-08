@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -52,6 +53,11 @@ public class CarrierRegistrationService {
         // RegistInfoRepository에서 제공하는 쿼리 메소드를 사용하여 데이터 조회
         // 실제 구현에서는 리포지토리의 메소드 이름과 쿼리 로직이 다를 수 있습니다.
         return carrierCarInfoRepository.findByCarrierInfo_CarMember(carMemberId);
+    }
+
+    public CarrierInfo getCarrierInfo(Long id) {
+        return carrierInfoRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("해당 ID의 정보가 없습니다."));
     }
 
 }

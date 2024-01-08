@@ -62,6 +62,10 @@ const ShipperMain = () => {
         navigate('/CargoRegi'); // 로고 클릭 시 '/FindIDPW' 경로로 이동합니다
     }, [navigate]);
 
+    function formatNumber(num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
+
     return (
         <div className={styles.div}>
             <div className={styles.center}>
@@ -91,9 +95,9 @@ const ShipperMain = () => {
                         alt=""
                         src="/images/rectangle-15@2x.png"
                     />
-                    <div className={styles.div4}>주문 {registInfoList.length}건</div>
-                    <div className={styles.div5}>배차 -건</div>
-                    <div className={styles.div6}>완료 -건</div>
+                    <div className={styles.div4}>주문 {registInfoList.length}건</div>   {/* 여기 전체로 바꿔야하는거 아님? */}
+                    <div className={styles.div5}>배차 {registInfoList.filter(registInfo => registInfo.status === 1).length}건</div>
+                    <div className={styles.div6}>완료 {registInfoList.filter(registInfo => registInfo.status === 2).length}건</div>
                     <div className={styles.parent}>
                         <div className={styles.div7}>오늘도 좋은 하루 되세요!</div>
                         <div className={styles.div8}>{username}님, 안녕하세요!</div>
@@ -129,7 +133,7 @@ const ShipperMain = () => {
                         <div className={styles.div12}>{registInfo.arrival_Address}</div>
                         <div className={styles.div13}>{`${registInfo.tonnage} | ${registInfo.selectedBox} | `}</div>
                         <div className={styles.km}>{registInfo.distance} km</div>
-                        <div className={styles.div14}>{registInfo.yourcost} 원</div>
+                        <b className={styles.div14}>{`${formatNumber(registInfo.yourcost)} 원`}</b>
                         <img
                             className={styles.image13Icon}
                             alt=""
@@ -142,7 +146,7 @@ const ShipperMain = () => {
                             <span>도착지 주소</span>
                         </div>
                     </div>
-                    ))}
+                ))}
 
 
             </div>
@@ -150,3 +154,4 @@ const ShipperMain = () => {
     );
 };
 export default ShipperMain;
+
