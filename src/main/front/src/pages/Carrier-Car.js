@@ -33,6 +33,8 @@ const CarrierCar = () => {
         }
     }, [navigate]);
 
+    const [carnumber, setCarnumber] = useState(''); // 차량번호
+
 
     const onBackClick = useCallback(() => {
         navigate('/Carrier/Main'); // 로고 클릭 시 '/' 경로로 이동합니다.
@@ -67,6 +69,10 @@ const CarrierCar = () => {
     const handleCheckboxChange1 = (event) => {
         setIsChecked1(event.target.checked);
     };
+    const handleCarnumber = (event) => {
+        setCarnumber(event.target.value);
+    };
+
     const handleCheckboxChange2 = (event) => {
         setIsChecked2(event.target.checked);
     };
@@ -93,6 +99,7 @@ const CarrierCar = () => {
         console.log(area2);
         console.log(distance);
         console.log(sectors);
+        console.log(carnumber);
 
         const token = localStorage.getItem('jwt-token');
         axios.post('http://localhost:8080/user/carrier/car',{
@@ -107,6 +114,7 @@ const CarrierCar = () => {
                 area2 : area2,
                 distance : distance,
                 sectors : sectors,
+                carnumber: carnumber,
             }
             , {
                 headers: {
@@ -130,7 +138,7 @@ const CarrierCar = () => {
             <img className={styles.child} onClick={onBackClick} alt="" src="/images/arrow-3@2x.png" />
             <div className={styles.div1}>차량등록</div>
             <div className={styles.centeralign}>
-                <div className={styles.rectangleParent}>
+                <div className={styles.rectangleParent} >
                     <div className={styles.groupChild} />
                     <div className={styles.div2}>
                         <span>{`차량 번호 `}</span>
@@ -267,7 +275,7 @@ const CarrierCar = () => {
                         <li> * 아래 항목은 AI 배차 추천 시스템에 사용되는 정보 입니다.</li>
                     </ul>
                 </div>
-                <input className={styles.div18} placeholder="00가 0000" />
+                <input className={styles.div18} value={carnumber} onChange={handleCarnumber} placeholder="00가 0000" />
 
                 <select className={styles.div21} value={area1} onChange={e => setArea1(e.target.value)}>
                     <option value="">지역 선택</option>
@@ -315,7 +323,7 @@ const CarrierCar = () => {
                     <option value="단거리">단거리</option>
                 </select>
 
-                <select className={styles.div201} value={sectors} onChange={e => setDistance(e.target.value)}>
+                <select className={styles.div201} value={sectors} onChange={e => setSectors(e.target.value)}>
                     <option value="">선호 업종 선택</option>
                     <option value="농림축산업">농림축산업</option>
                     <option value="제조업">제조업</option>
