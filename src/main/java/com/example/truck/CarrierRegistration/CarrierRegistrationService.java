@@ -3,7 +3,9 @@ package com.example.truck.CarrierRegistration;
 import com.example.truck.CarrierCarInfo.CarrierCarInfo;
 import com.example.truck.RegistInfo.RegistInfo;
 import com.example.truck.CarrierCarInfo.CarrierCarInfoRepository;
+import com.example.truck.RegistInfo.RegistInfoRepository;
 import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,6 +20,9 @@ public class CarrierRegistrationService {
     private final CarrierInfoRepository carrierInfoRepository;
     private final CarrierCarInfoRepository carrierCarInfoRepository;
     private final PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private RegistInfoRepository registInfoRepository; // 예시 리포지토리
 
     @Transactional
     public Integer findByEmailCheck(final CarrierInfoDTO carrierInfoDTO) {
@@ -38,6 +43,9 @@ public class CarrierRegistrationService {
         }
 
 
+
+
+
     }
 
     public List<CarrierCarInfo> getCarrierCarInfoByCarMemberId(Long carMemberId) {
@@ -45,5 +53,6 @@ public class CarrierRegistrationService {
         // 실제 구현에서는 리포지토리의 메소드 이름과 쿼리 로직이 다를 수 있습니다.
         return carrierCarInfoRepository.findByCarrierInfo_CarMember(carMemberId);
     }
+
 }
 

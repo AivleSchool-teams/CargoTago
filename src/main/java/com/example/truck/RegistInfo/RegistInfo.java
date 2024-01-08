@@ -1,6 +1,7 @@
 package com.example.truck.RegistInfo;
 
 import com.example.truck.ShipperRegistration.ShipperInfo;
+import com.example.truck.CarrierRegistration.CarrierInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -111,5 +112,10 @@ public class RegistInfo {
     @JsonManagedReference
     @JoinColumn(name = "shipMember")
     private ShipperInfo shipperInfo;
+
+    @ManyToOne
+    @JsonManagedReference
+    @JoinColumn(name = "carMember")
+    private CarrierInfo carrierInfo; 
 
 }

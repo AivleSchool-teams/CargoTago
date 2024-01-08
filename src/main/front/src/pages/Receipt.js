@@ -8,8 +8,10 @@ const AI = () => {
     const navigate = useNavigate();
     const { id } = useParams();
     const [username, setUsername] = useState(null);
-    const [registInfoList, setRegistInfoList] = useState([]);
+    const [useremail, setUseremail] = useState(null);
+    const [registInfo, setRegistInfo] = useState([]);
 
+    const ids = id.padStart(4, '0');
     const onLogoClick = useCallback(() => {
         navigate('/'); // '화물 타고' 클릭 시 '/frame' 경로로 이동.
     }, [navigate]);
@@ -38,7 +40,9 @@ const AI = () => {
                     // 사용자 이름 표시
                     console.log('안녕하세요,', response.data.name, '님?');
                     setUsername(response.data.name);
+                    setUseremail(response.data.email);
                     console.log(username);
+                    console.log('zzzzz',response.data.email);
                 })
                 .catch(error => {
                     // 오류 처리
@@ -46,26 +50,58 @@ const AI = () => {
                 });
         }
 
-        axios.get('http://localhost:8080/user/shipper/mylist', {
+        axios.get(`http://localhost:8080/carrier/recipt/${id}`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
         })
             .then(res => {
-                const filteredData = res.data.filter(item => item.id === parseInt(id));  // id를 기반으로 데이터 필터링
-                //setRegistInfoList(filteredData);  // 필터링한 데이터를 상태로 설정
-                //console.log('dd',filteredData);
-                               setRegistInfoList(res.data);  // 필터링한 데이터를 상태로 설정
-                               console.log('dd',res.data);
+                console.log(res.data);
+                setRegistInfo(res.data);
+                console.log(typeof(id));
+
+
             })
             .catch(error => {
                 console.error('에러가 발생했습니다.', error);
             });
     }, [navigate, username, id]);
 
+
+    function formatNumber(num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
+
+    const onApproveClick = useCallback((registInfo) => {
+        const token = localStorage.getItem('jwt-token');
+        axios.post(`http://localhost:8080/carrier/approve/${registInfo.id}`, useremail,
+            {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'text/plain'
+            }
+        })
+            .then(res => {
+                if (res.data === 0) {
+                    window.alert('이미 배차된 화물입니다.');
+                    navigate('/Carrier/main');
+                } else {
+                    window.alert('배차 승인이 완료되었습니다.');
+                    navigate('/Carrier/main'); // 승인 클릭 시 '/Carrier/main' 경로로 이동합니다!
+                }
+            })
+            .catch(error => {
+                console.error('이미 배차된 화물입니다.', error);
+                navigate('/Carrier/main');
+                // status가 0이 아닌 경우 '이미 배차된 화물입니다' 라는 메시지 출력하고
+                // 메인페이지로 돌려보내자.
+            });
+    }, [navigate, useremail]);
+
+
     return (
         <div>
-        {registInfoList.map((registInfo, index) => (
+
         <div className={styles.ai}>
             <div className={styles.aidiv}>
                 <img className={styles.aiChild} alt="" src="/images/rectangle-84@2x.png" />
@@ -84,7 +120,7 @@ const AI = () => {
                             alt=""
                             src="/images/rectangle-20@2x.png"
                         />
-                        <div className={styles.div1}>배차 신청</div>
+                        <div className={styles.div1} onClick={() => onApproveClick(registInfo)}>배차 신청</div>
                     </div>
                 </div>
                 <div className={styles.div2}>
@@ -102,7 +138,7 @@ const AI = () => {
                             <div className={styles.groupInner} />
                             <b className={styles.b}>배차완료</b>
                         </div>
-                        <div className={styles.n0001}>N0001</div>
+                        <div className={styles.n0001}>N{ids}</div>
                     </div>
                     <div className={styles.lineDiv} />
                     <div className={styles.groupChild1} />
@@ -148,9 +184,13 @@ const AI = () => {
                 <b className={styles.b12}>{registInfo.departure_address}</b>
                 <b className={styles.b13}>{registInfo.tonnage}</b>
                 <b className={styles.b14}>{`인수증 `}</b>
-                <b className={styles.b15}>70,000</b>
+                <b className={styles.b15}>
+                    {registInfo.yourcost ? `${formatNumber(registInfo.yourcost)} 원` : '로딩 중...'}
+                </b>
                 <b className={styles.b16}>0</b>
-                <b className={styles.b17}>70,000  </b>
+                <b className={styles.b17}>
+                    {registInfo.yourcost ? `${formatNumber(registInfo.yourcost)} 원` : '로딩 중...'}
+                </b>
                 <b className={styles.b18}>{registInfo.weight}톤</b>
                 <b className={styles.b19}>{registInfo.selectedBox}</b>
                 <b className={styles.b20}>{registInfo.selected2}</b>
@@ -164,7 +204,7 @@ const AI = () => {
                 <div className={styles.div3} > 인수증 </div>
             </div>
         </div>
-        ))}
+
         </div>
     );
 };

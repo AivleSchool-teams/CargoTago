@@ -7,8 +7,12 @@ import axios from "axios";
 const AI = () => {
     const navigate = useNavigate();
     const { id } = useParams();
-    const [username, setUsername] = useState(null);
-    const [registInfoList, setRegistInfoList] = useState([]);
+    const [carrierName, setCarrierName] = useState(null);
+    const [carrierPhone, setCarrierPhone] = useState(null);
+    const [registInfo, setRegistInfo] = useState([]);
+
+    const [totHours, setTotHours] = useState(null);
+    const [totMins, setTotMins] = useState(null);
 
     useEffect(() => {
         const token = localStorage.getItem('jwt-token');
@@ -25,8 +29,9 @@ const AI = () => {
                 .then(response => {
                     // 사용자 이름 표시
                     console.log('안녕하세요,', response.data.name, '님?');
-                    setUsername(response.data.name);
-                    console.log(username);
+                    setCarrierName(response.data.name);
+                    setCarrierPhone(response.data.phone);
+                    console.log(carrierName);
                 })
                 .catch(error => {
                     // 오류 처리
@@ -34,29 +39,33 @@ const AI = () => {
                 });
         }
 
-        axios.get('http://localhost:8080/user/shipper/mylist', {
+        axios.get(`http://localhost:8080/carrier/AIselect/${id}`, {
             headers: {
-                'Authorization': `Bearer ${token}`
+                Authorization: `Bearer ${token}`
             }
         })
             .then(res => {
-                const filteredData = res.data.filter(item => item.id === parseInt(id));  // id를 기반으로 데이터 필터링
-                //setRegistInfoList(filteredData);  // 필터링한 데이터를 상태로 설정
-                //console.log('dd',filteredData);
-                               setRegistInfoList(res.data);  // 필터링한 데이터를 상태로 설정
-                               console.log('dd',res.data);
+                console.log(res.data);
+                const startTime = new Date(res.data.departureDateTime);
+                const endTime = new Date(res.data.arrivalDateTime);
+                const diffInSeconds = (endTime - startTime) / 1000; // 밀리초를 초로 변환
+                setTotHours(Math.floor(diffInSeconds / 3600));
+                setTotMins(Math.floor((diffInSeconds % 3600) / 60).toString().padStart(2, '0'));
+                res.data.durationMin = res.data.durationMin.toString().padStart(2, '0')
+                setRegistInfo(res.data);
+
             })
             .catch(error => {
                 console.error('에러가 발생했습니다.', error);
             });
-    }, [navigate, username, id]);
+    }, [navigate, carrierName, id]);
 
     const onLogoClick = useCallback(() => {
         navigate('/'); // '화물 타고' 클릭 시 '/frame' 경로로 이동.
     }, [navigate]);
 
     const onApproveClick = useCallback(() => {
-        navigate('/Receipt'); // 승인 클릭 시 '/Receipt' 경로로 이동합니다
+        navigate(`/Receipt/${id}`); // 승인 클릭 시 '/Receipt/id' 경로로 이동합니다
     }, [navigate]);
 
     function formatNumber(num) {
@@ -65,7 +74,6 @@ const AI = () => {
 
     return (
         <div>
-        {registInfoList.map((registInfo, index) => (
         <div className={styles.ai}>
             <div className={styles.div}>
                 <img className={styles.child} alt="" src="/images/rectangle-60@2x.png" />
@@ -76,14 +84,15 @@ const AI = () => {
                     <div className={styles.kt}>{registInfo.headquarters2}</div>
                     <div className={styles.kt1}>{registInfo.departure_address}</div>
                     <div className={styles.div2}>{registInfo.departure_detailAddress}</div>
-                    <div className={styles.div3}>{registInfo.shipperInfo.name}</div>
+                    <div className={styles.div3}>{carrierName}</div>
                     <div className={styles.groupItem} />
-                    <div className={styles.div4}>{registInfo.shipperInfo.phone}</div>
+                    <div className={styles.div4}>{carrierPhone}</div>
                     <div className={styles.div5}>
                         <span>{`출발지 주소 `}</span>
                         <span className={styles.span}>*</span>
                     </div>
                     <div className={styles.div6}>
+
                     {
                         new Date(registInfo.departureDateTime).toLocaleString('ko-KR', {
                             year: 'numeric',
@@ -93,29 +102,32 @@ const AI = () => {
                             minute: '2-digit'
                         })
                     }
+
                     </div>
                 </div>
                 <div className={styles.rectangleGroup}>
                     <div className={styles.groupInner} />
                     <div className={styles.div8}>예상 시간</div>
-                    <div className={styles.div25}> {registInfo.tonnage} | {registInfo.selectedBox} | </div>
+                    <div className={styles.div25}>{registInfo.tonnage} | {registInfo.selectedBox} |</div>
                     <div className={styles.rectangleDiv} />
                     <div className={styles.rectangleContainer}>
                         <div className={styles.groupChild1} />
                         <div className={styles.div9}>{`총 소요시간 `}</div>
-                        <div className={styles.div10}>06:00</div>
+                        <div className={styles.div10}>{totHours} : {totMins}</div>
                         <div className={styles.lineDiv} />
                     </div>
                     <div className={styles.groupDiv}>
                         <div className={styles.groupChild1} />
                         <div className={styles.div11}>예상 운전 시간</div>
-                        <div className={styles.div10}>03:00</div>
+                        <div className={styles.div10}>{registInfo.durationHour} : {registInfo.durationMin}</div>
                         <div className={styles.lineDiv} />
                     </div>
                     <div className={styles.rectangleParent1}>
                         <div className={styles.groupChild1} />
                         <div className={styles.div13}>총 운송비</div>
-                        <div className={styles.div14}>{`${formatNumber(registInfo.yourcost)} 원`}</div>
+                        <div className={styles.div14}>
+                            {registInfo.yourcost ? `${formatNumber(registInfo.yourcost)} 원` : '로딩 중...'}
+                        </div>
                         <div className={styles.lineDiv} />
                     </div>
                 </div>
@@ -124,14 +136,15 @@ const AI = () => {
                     <div className={styles.kt}>{registInfo.headquarters3}</div>
                     <div className={styles.kt1}>{registInfo.arrival_Address}</div>
                     <div className={styles.div2}>{registInfo.arrival_detailAddress}</div>
-                    <div className={styles.div3}>{registInfo.shipperInfo.name} </div>
+                    <div className={styles.div3}>{carrierName} </div>
                     <div className={styles.groupItem} />
-                    <div className={styles.div4}>{registInfo.shipperInfo.phone}</div>
+                    <div className={styles.div4}>{carrierPhone}</div>
                     <div className={styles.div5}>
                         <span>{`도착지 주소 `}</span>
                         <span className={styles.span}>*</span>
                     </div>
                     <div className={styles.div6}>
+
                     {
                     new Date(registInfo.arrivalDateTime).toLocaleString('ko-KR', {
                         year: 'numeric',
@@ -141,6 +154,7 @@ const AI = () => {
                         minute: '2-digit'
                     })
                     }
+
                     </div>
                 </div>
                 <div className={styles.div21}>주문 정보</div>
@@ -157,7 +171,7 @@ const AI = () => {
                 <img className={styles.moa11} onClick={onLogoClick} alt=""  src="/images/moa-1-1@2x.png" />
             </div>
         </div>
-            ))}
+
         </div>
     );
 };

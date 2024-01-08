@@ -61,6 +61,10 @@ const CarrierMain = () => {
         navigate("/Post");
     }, [navigate]);
 
+    const onDetailClick = useCallback((registInfo) => {
+        navigate(`/Carrier/AIselect/${registInfo.id}`);
+    }, [navigate]);
+
     return (
         <div className={styles.div}>
             <div className={styles.center}>
@@ -113,7 +117,7 @@ const CarrierMain = () => {
 
                 {/* 배차 1개 */}
                 {registInfoList.map((registInfo, index) => (
-                <div key={index} className={styles.vectorContainer} onClick={() => onDetailClick(registInfo.id)}>
+                <div key={index} className={styles.vectorContainer} onClick={() => onDetailClick(registInfo)}>
                     <img
                         className={styles.rectangleIcon}
                         alt=""
