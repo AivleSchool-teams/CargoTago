@@ -4,6 +4,7 @@ import 'react-slideshow-image/dist/styles.css';
 import { Fade, Zoom, Slide } from "react-slideshow-image";
 import styles from "./Main.module.css";
 import "./Main.css";
+import {SectionsContainer, Section} from 'react-fullpage';
 
 const Main = () => {
     const onEllipse1Click = useCallback(() => {
@@ -51,12 +52,9 @@ const Main = () => {
         display : 'flex',
         alignItems : 'center',
         justifyContent : 'center',
-        height : '740px',
-        backgroundSize : 'cover', // 'contain'으로 수정
+        height : '600px',
         backgroundPosition : 'center',  // 가운데 정렬
         backgroundRepeat: 'no-repeat',  // 배경 이미지가 반복되지 않도록 설정
-        marginLeft: 'auto',
-        marginRight: 'auto',
         width: '100%',
 
     }
@@ -75,125 +73,152 @@ const Main = () => {
 
     }
 
+    let options = {
+        anchors: ['sectionOne', 'sectionTwo', 'sectionThree','sectionFour','sectionFive'],
+    };
 
     return (
         <div className={styles.div}>
-            <div className={styles.child}>
-                <img
-                    className={styles.logoimg}
-                    alt=""
-                    src="/images/logo.png"
-                    onClick={onLogoClick} // 이미지에 onClick 이벤트 핸들러를 추가합니다.
-                />
+            <SectionsContainer {...options}>
+                <section>
+                    <div className={styles.child}>
+                        <img
+                            className={styles.logoimg}
+                            alt=""
+                            src="/images/logo.png"
+                            onClick={onLogoClick} // 이미지에 onClick 이벤트 핸들러를 추가합니다.
+                        />
 
-                {/* 메인이미지 슬라이드 부분 */}
-                <div className={styles.mainslide}>
-                    <Fade>
-                        {slideImages.map((image, index) => (
-                            <div key={index}>
-                                <div style={{...divStyle, backgroundImage: `url(${image.url})`}}>
-                                </div>
-                            </div>
-                        ))}
-                    </Fade>
-                </div>
+                        <button className={styles.button} onClick={onLoginClick}>
+                            <img className={styles.child6} alt="" src="/images/rectangle-10@2x.png" />
+                            <div className={styles.div7}>로그인</div>
+                        </button>
+                        {/* 메인이미지 슬라이드 부분 */}
+                        <div className={styles.mainslide}>
 
-                <button className={styles.button} onClick={onLoginClick}>
-                    <img className={styles.child6} alt="" src="/images/rectangle-10@2x.png" />
-                    <div className={styles.div7}>로그인</div>
-                </button>
-            </div>
+                            <Fade>
+                                {slideImages.map((image, index) => (
+                                    <div key={index}>
+                                        <div style={{...divStyle, backgroundImage: `url(${image.url})`}}>
+                                        </div>
+                                    </div>
 
-            <img className={styles.icon} alt="" src="/images/2-1@2x.png" />
-            <div className={styles.div1}>화물타고만의 특별한 서비스</div>
-            <div className={styles.aiContainer}>
-                <p className={styles.ai}>
-                    AI 기술을 활용한 카고타고의 매칭 서비스와 명확한 표준 요금제를 통해
-                    운영의 효율성을 극대화해보세요.
-                </p>
-                <p className={styles.ai}>
-                    카고타고는 책임감 있는 운영과 AI 배차 시스템을 통해 안정적이고
-                    편안한 업무 환경을 약속합니다.
-                </p>
-            </div>
+                                ))}
+                            </Fade>
 
-            <div className={styles.centerround2}>
-                <div className={styles.item} />
-                <div className={styles.ai1}>AI 배차 최적화</div>
-                <div className={styles.inner} />
-                <div className={styles.rectangleDiv} />
-                <div className={styles.aiContainer1}>
-                    <p className={styles.ai}>{`AI 배차를 통해 최적의 차량을 추천하며, `}</p>
-                    <p className={styles.ai}>
-                        희망지역과 거리까지 고려하여 효율성을 극대화합니다.
-                    </p>
-                </div>
-                <div className={styles.child1} />
-                <div className={styles.div2}>적정 금액 추천</div>
-                <img className={styles.rectangleIcon} alt="" src="/images/rectangle-29@2x.png" />
-                <div className={styles.child2} />
-                <div className={styles.div3}>
-                    금액 추천 시스템이 공정한 거래를 위한 가격을 제안합니다.
-                    편리하고 합리적인 거래를 경험해보세요.
-                </div>
-                <div className={styles.child3} />
-                <div className={styles.div4}>채팅 시스템</div>
-                <div className={styles.child4} />
-                <div className={styles.child5} />
-                <div className={styles.div5}>
-                    <p
-                        className={styles.ai}
-                    >{`음성인식을 통한 채팅 시스템으로  `}</p>
-                    <p className={styles.ai}>
-                        편안하고 안전하게 화주와 차주를 연결합니다.
-                    </p>
-                </div>
-            </div>
-            <div>
-                <img className={styles.iconCargo} alt="" src="/images/2-1@2x.png" />
-                <div className={styles.divCargo}>
-                    <span className={styles.spanbr}>다양한 차량 옵션 :</span>
-                    <span className={styles.spanbr}>&nbsp;화물에 맞는 최적의 선택</span>
-
-                </div>
-                {/* 차량 이미지 슬라이드 부분 */}
-                <div className={styles.subslide}>
-                    <Fade>
-                        {CargoImages.map((image, index) => (
-                            <div key={index}>
-                                <div style={{...CargoStyle, backgroundImage: `url(${image.url})`}}>
-                                </div>
-                            </div>
-                        ))}
-                    </Fade>
-                </div>
-
-            </div>
-
-            <div className={styles.rectangleParent}>
-                <div className={styles.groupChild}>
-                    <img className={styles.icon5} alt="" src="/images/1-1@2x.png" />
-                    <div className={styles.fax020000000Container}>
-                        <p className={styles.p5}>
-                            사업자 등록번호 : 000-00-00000 | 정보보호책임자 : 홍길동 |
-                            화물운송주선사업자 : 제2023-00호 | 화물운송사업자 : 제2023-00호
-                        </p>
-                        <p className={styles.ai}>
-                            통신판매업신고번호 : 제2023-서울000호 | 대표번호 : 02-000-0000 | FAX
-                            : 02-000-0000 | aivle@cargotago.com
-                        </p>
-                    </div>
-                    <div>
-                        <div className={styles.div8}>서비스 소개</div>
-                        <div className={styles.ktAivleschoolAllRights}>
-                            ⓒ 2024. KT-AivleSchool All rights reserved.
                         </div>
-                        <div className={styles.div9}>개인정보 처리방침</div>
-                        <div className={styles.div10}>이용약관</div>
-                        <div className={styles.div11}>운송약관</div>
                     </div>
-                </div>
-            </div>
+                </section>
+                <section>
+                    <div className={styles.section2}>
+                        <div>
+                            <img className={styles.icon} alt="" src="/images/2-1@2x.png" />
+                            <div className={styles.div1}>화물타고만의 특별한 서비스</div>
+                            <div className={styles.aiContainer}>
+                                <p className={styles.ai}>
+                                    AI 기술을 활용한 카고타고의 매칭 서비스와 명확한 표준 요금제를 통해
+                                    운영의 효율성을 극대화해보세요.
+                                </p>
+                                <p className={styles.ai}>
+                                    카고타고는 책임감 있는 운영과 AI 배차 시스템을 통해 안정적이고
+                                    편안한 업무 환경을 약속합니다.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className={styles.centerround2}>
+                            <div className={styles.item} />
+                            <div className={styles.ai1}>AI 배차 최적화</div>
+                            <div className={styles.inner} />
+                            <div className={styles.rectangleDiv} />
+                            <div className={styles.aiContainer1}>
+                                <p className={styles.ai}>{`AI 배차를 통해 최적의 차량을 추천하며, `}</p>
+                                <p className={styles.ai}>
+                                    희망지역과 거리까지 고려하여 효율성을 극대화합니다.
+                                </p>
+                            </div>
+                            <div className={styles.child1} />
+                            <div className={styles.div2}>적정 금액 추천</div>
+                            <img className={styles.rectangleIcon} alt="" src="/images/rectangle-29@2x.png" />
+                            <div className={styles.child2} />
+                            <div className={styles.div3}>
+                                금액 추천 시스템이 공정한 거래를 위한 가격을 제안합니다.
+                                편리하고 합리적인 거래를 경험해보세요.
+                            </div>
+                            <div className={styles.child3} />
+                            <div className={styles.div4}>채팅 시스템</div>
+                            <div className={styles.child4} />
+                            <div className={styles.child5} />
+                            <div className={styles.div5}>
+                                <p
+                                    className={styles.ai}
+                                >{`음성인식을 통한 채팅 시스템으로  `}</p>
+                                <p className={styles.ai}>
+                                    편안하고 안전하게 화주와 차주를 연결합니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                        <img className={styles.iconCargo2} alt="" src="/images/2-1@2x.png" />
+                        <div className={styles.divCargo2}>
+                            <span className={styles.spanbr2}> AI기술 </span>
+                        </div>
+
+
+
+                </section>
+
+                <section>
+                    <div>
+                        <img className={styles.iconCargo} alt="" src="/images/2-1@2x.png" />
+                        <div className={styles.divCargo}>
+                            <span className={styles.spanbr}>다양한 차량 옵션 :</span>
+                            <span className={styles.spanbr}>&nbsp;화물에 맞는 최적의 선택</span>
+
+                        </div>
+                        {/* 차량 이미지 슬라이드 부분 */}
+                        <div className={styles.subslide}>
+                            <Fade>
+                                {CargoImages.map((image, index) => (
+                                    <div key={index}>
+                                        <div style={{...CargoStyle, backgroundImage: `url(${image.url})`}}>
+                                        </div>
+                                    </div>
+                                ))}
+                            </Fade>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div className={styles.rectangleParent}>
+                        <div className={styles.groupChild}>
+                            <img className={styles.icon5} alt="" src="/images/1-1@2x.png" />
+                            <div className={styles.fax020000000Container}>
+                                <p className={styles.p5}>
+                                    사업자 등록번호 : 000-00-00000 | 정보보호책임자 : 홍길동 |
+                                    화물운송주선사업자 : 제2023-00호 | 화물운송사업자 : 제2023-00호
+                                </p>
+                                <p className={styles.ai}>
+                                    통신판매업신고번호 : 제2023-서울000호 | 대표번호 : 02-000-0000 | FAX
+                                    : 02-000-0000 | aivle@cargotago.com
+                                </p>
+                            </div>
+                            <div>
+                                <div className={styles.div8}>서비스 소개</div>
+                                <div className={styles.ktAivleschoolAllRights}>
+                                    ⓒ 2024. KT-AivleSchool All rights reserved.
+                                </div>
+                                <div className={styles.div9}>개인정보 처리방침</div>
+                                <div className={styles.div10}>이용약관</div>
+                                <div className={styles.div11}>운송약관</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </SectionsContainer>
         </div>
     );
 };
