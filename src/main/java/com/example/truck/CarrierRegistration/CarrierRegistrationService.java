@@ -55,8 +55,8 @@ public class CarrierRegistrationService {
         return carrierCarInfoRepository.findByCarrierInfo_CarMember(carMemberId);
     }
 
-    public CarrierInfo getCarrierInfo(Long id) {
-        return carrierInfoRepository.findById(id)
+    public CarrierInfo getCarrierInfo(Long carMember) {
+        return carrierInfoRepository.findByCarMember(carMember)
                 .orElseThrow(() -> new NoSuchElementException("해당 ID의 정보가 없습니다."));
     }
 
