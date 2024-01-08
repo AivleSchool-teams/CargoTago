@@ -38,6 +38,9 @@ public class PostsInfo {
     @Column(nullable = false, updatable = false, length = 255)
     private String createdBy; // 생성자
 
+    @Column(columnDefinition = "integer default 0", nullable = false)
+    private Integer view; // 조회수입니다요
+
     @OneToMany(mappedBy = "postsInfo", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties("postsInfo")
     private List<FilesInfo> files; // 연관된 파일들

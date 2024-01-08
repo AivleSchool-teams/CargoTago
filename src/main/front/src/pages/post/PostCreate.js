@@ -25,7 +25,8 @@ const PostCreate = () => {
                 .then(response => {
 
                     setUseremail(response.data.email.split('@')[0]);
-                    console.log(useremail);
+                    console.log(response.data);
+                    console.log(response.data.email.split('@')[0]);
 
                 })
                 .catch(error => {
@@ -33,7 +34,7 @@ const PostCreate = () => {
                     console.error('비정상적인 접근입니다.', error);
                 });
         }
-    }, [navigate, useremail]);
+    }, [navigate]);
 
     const [id, setId] = useState(null);
     const [title, setTitle] = useState('');
@@ -72,7 +73,7 @@ const PostCreate = () => {
         const files = uploadReferenece.current.getSelectedFiles();
         console.log("첨부한 파일들:", files);
 
-        let formData = new FormData();
+        const formData = new FormData();
         formData.append('title', title);
         formData.append('content', content);
         formData.append('type', type);
@@ -90,7 +91,7 @@ const PostCreate = () => {
                 }
             })
             .then(res => {
-                console.log(res.data);
+                console.log('받아옴',res.data);
                 if (res.data && res.data.id) {
                     setId(res.data.id);
                     alert('저장 완료'); // 메시지 표시

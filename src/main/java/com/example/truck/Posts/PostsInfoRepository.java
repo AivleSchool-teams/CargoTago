@@ -8,6 +8,7 @@ import java.util.Optional;
 
 public interface PostsInfoRepository extends JpaRepository<PostsInfo, Long> {
 
+
     @EntityGraph(attributePaths = {"files"})
     Optional<PostsInfo> findById(Long id);
 
