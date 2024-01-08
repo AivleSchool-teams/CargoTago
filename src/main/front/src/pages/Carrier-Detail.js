@@ -13,6 +13,8 @@ const ShipperDetail = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [username, setUsername] = useState(null);
+    const [userphone, setUserphone] = useState(null);
+    const [useraccount, setUseraccount] = useState(null);
     const [registInfoList, setRegistInfoList] = useState([]);
     const [carrierInfoList, setCarrierInfoList] = useState([]);
 
@@ -29,13 +31,15 @@ const ShipperDetail = () => {
     }, [navigate, username, id]);
 
     const getUserInfo = (token) => {
-        axios.get('http://localhost:8080/user/mainpage', {
+        axios.get('http://localhost:8080/user/carrier/mypage', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
         })
             .then(response => {
                 setUsername(response.data.name);
+                setUserphone(response.data.phone);
+                setUseraccount(response.data.account);
                 console.log('안녕하세요,', response.data.name, '님?');
             })
             .catch(error => {
@@ -202,7 +206,7 @@ const ShipperDetail = () => {
                         <div className={styles.div13}>{registInfo.textAreaValue}</div>
                         <div className={styles.div14}>
                             {`계좌번호 :   `}
-                            <span className={styles.span}>홍길동 국민 620000-00-000000</span>
+                            <span className={styles.span}>{username}   {useraccount}</span>
                         </div>
                         <div className={styles.div15}>{`${formatNumber(registInfo.yourcost)} 원`}</div>
                         <div className={styles.div16}>{registInfo.selected2}</div>
