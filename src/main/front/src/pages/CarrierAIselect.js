@@ -59,6 +59,10 @@ const AI = () => {
         navigate('/Receipt'); // 승인 클릭 시 '/Receipt' 경로로 이동합니다
     }, [navigate]);
 
+    function formatNumber(num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
+
     return (
         <div>
         {registInfoList.map((registInfo, index) => (
@@ -111,7 +115,7 @@ const AI = () => {
                     <div className={styles.rectangleParent1}>
                         <div className={styles.groupChild1} />
                         <div className={styles.div13}>총 운송비</div>
-                        <div className={styles.div14}>{registInfo.yourcost} 원 </div>
+                        <div className={styles.div14}>{`${formatNumber(registInfo.yourcost)} 원`}</div>
                         <div className={styles.lineDiv} />
                     </div>
                 </div>

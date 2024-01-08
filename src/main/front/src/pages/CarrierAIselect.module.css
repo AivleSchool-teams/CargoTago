@@ -48,12 +48,12 @@
     position: absolute;
     left: 24px;
     display: inline-block;
+    width: 551px;
     height: 24.1px;
 }
 .kt {
     top: 56.2px;
     font-size: var(--font-size-5xl);
-    width: 103px;
 }
 .div2,
 .div3,
