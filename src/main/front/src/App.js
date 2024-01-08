@@ -106,8 +106,8 @@ function App() {
             <Route path='/Post/Create' element={<PostCreate />} />
             <Route path='/Post/Modify/:id' element={<PostModify />} />
 
-            <Route path="/Carrier/AIselect" element={<CarrierAIselect />} />
-            <Route path="/Receipt" element={<Receipt />} />
+            <Route path="/Carrier/AIselect/:id" element={<CarrierAIselect />} />
+            <Route path="/Receipt/:id" element={<Receipt />} />
 
             <Route path='/Chat' element={<Chat />} />
 
