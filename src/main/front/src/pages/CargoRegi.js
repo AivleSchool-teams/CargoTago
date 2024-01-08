@@ -124,6 +124,11 @@ const CargoRegi = () => {
     const [usertype, setUsertype] = useState(null);
     const [userphone, setUserphone] = useState(null);
 
+    const [newoption, setNewoption] = useState('');
+    function handleSizeChange1(event) {
+        setNewoption(event.target.value);
+    }
+
 
 
     useEffect(() => {
@@ -329,7 +334,7 @@ const CargoRegi = () => {
 
         navigate("/CargoRegiAI", { state: { userid, username, selected2, arrivalDateTime, departureDateTime, tonnage, selectedBox,
             isChecked1, isChecked2, text, selectedSize, selectedBoxNew, weight, textAreaValue, selectedValue,
-            selectedButton,headquarters2, headquarters3, location,  address, currentDateTime, status} });
+            selectedButton,headquarters2, headquarters3, location,  address, currentDateTime, status,newoption} });
         
         console.log("Cargo to CargoAI");
         console.log("shipmember:", userid);
@@ -533,7 +538,7 @@ const CargoRegi = () => {
                 <div className={styles.div26}>
                     <div className={styles.child13}/>
                     <select
-                        className={styles.child2}
+                        className={styles.c2}
                         onChange={handleSizeChange}
                     >
                         <option value=""> 화물 크기 *</option>
@@ -542,7 +547,19 @@ const CargoRegi = () => {
                         <option value="대형">대형</option>
                     </select>
 
+                    <select
+                        className={styles.c4}
+                        onChange={handleSizeChange1}
+                    >
+                        <option value=""> 선호 업종 선택 *</option>
+                        <option value="광업"> 광업</option>
+                        <option value="제조업"> 제조업</option>
+                        <option value="도소매업">도소매업</option>
+                        <option value="숙박 및 서비스업"> 숙박 및 서비스업</option>
+                        <option value="기타 서비스업"> 기타 서비스업</option>
+                        <option value="공공기관"> 공공기관</option>
 
+                    </select>
 
                     <textarea className={styles.child16}/>
                     <div className={styles.div27}>상세정보</div>
@@ -564,7 +581,7 @@ const CargoRegi = () => {
 
                     <select className={styles.child15} onChange={handleSelectChange}>
                         <option value="">개수</option>
-                        {Array.from({ length: 30 }, (_, i) => i + 1).map((num) => (
+                        {Array.from({length: 30}, (_, i) => i + 1).map((num) => (
                             <option value={num} key={num}>{num}개</option>
                         ))}
                     </select>

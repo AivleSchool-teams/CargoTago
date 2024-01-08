@@ -520,6 +520,8 @@
 
 .child1,
 .child2,
+.c2,
+.c4,
 .child3 {
     position: absolute;
     padding-left: 15px;
@@ -534,7 +536,9 @@
     height: 23px;
 }
 
-.child2{
+.child2,
+.c2,
+.c4{
     top: 58px;
     left: 29px;
     border-radius: var(--br-3xs);
@@ -546,6 +550,12 @@
     height: 39px;
     text-align: right;
     padding: 0 20px;
+}
+.c2,.c4{
+    width: 260px;
+}
+.c4{
+    left : 300px;
 }
 
 .child3 {

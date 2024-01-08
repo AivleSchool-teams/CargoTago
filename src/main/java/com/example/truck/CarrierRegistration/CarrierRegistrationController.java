@@ -33,9 +33,9 @@ public class CarrierRegistrationController {
     @Autowired
     private CarrierCarInfoRepository carrierCarInfoRepository;
 
-    @GetMapping("/{id}")
-    public CarrierInfo getCarrierInfo(@PathVariable Long id) {
-        return carrierRegistrationService.getCarrierInfo(id);
+    @GetMapping("/{carMember}")
+    public CarrierInfo getCarrierInfo(@PathVariable Long carMember) {
+        return carrierRegistrationService.getCarrierInfo(carMember);
     }
 
     @GetMapping("/carrier/car")

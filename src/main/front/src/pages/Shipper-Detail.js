@@ -55,14 +55,15 @@ const ShipperDetail = () => {
                 const filteredData = res.data.filter(item => item.id === parseInt(id));
                 setRegistInfoList(filteredData);
                 console.log(filteredData);
+                const carNum = filteredData[0].carrierInfo.carMember;
+                getCarrierInfo(token, carNum);
             })
             .catch(error => {
                 console.error('에러가 발생했습니다.', error);
             });
     }
-
-    const getCarrierInfo = (token) => {
-        axios.get(`http://localhost:8080/user/1`, {
+    const getCarrierInfo = (token, carNum) => {
+        axios.get(`http://localhost:8080/user/${carNum}`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }

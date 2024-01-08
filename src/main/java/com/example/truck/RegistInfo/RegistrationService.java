@@ -69,6 +69,7 @@ public class RegistrationService {
             newRegist.setYourcost(registInfoDTO.getYourcost());
 
             newRegist.setStatus(registInfoDTO.getStatus());
+            newRegist.setNewoption(registInfoDTO.getNewoption());
 
             newRegist.setShipperInfo(shipperInfo);
 
