@@ -260,102 +260,6 @@ const CargoRegi = () => {
         setSelectedSize(event.target.value);
     }
 
-
-    //const id = 100; // 임의의 id
-    //const username = "songhyunsung"; // 임의의 username
-
-    //=========================================================
-
-    {/*
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-
-        const now = new Date(); //한국은 UTC+9 시간대에 속하므로, UTC 시간으로 변환하면 한국 시간보다 9시간 빠른 시간이 나옴
-        const currentDateTime = now.getFullYear() + '-' +
-            ('0' + (now.getMonth()+1)).slice(-2) + '-' +
-            ('0' + now.getDate()).slice(-2) + 'T' +
-            ('0' + now.getHours()).slice(-2) + ':' +
-            ('0' + now.getMinutes()).slice(-2) + ':' +
-            ('0' + now.getSeconds()).slice(-2);
-        console.log(userid);
-        console.log(username);
-        console.log(selectedButton)
-        // console.log(selected);
-        console.log(selected2);
-        console.log(arrivalDateTime);
-        console.log(departureDateTime);
-        console.log(tonnage);
-        console.log(selectedBox);
-        console.log(isChecked1);
-        console.log(isChecked2);
-
-        console.log(text);
-        console.log(selectedSize);
-        console.log('selectedBoXNew' + ":" + selectedBoxNew);
-        console.log(weight);
-        console.log(textAreaValue);
-        console.log(selectedValue);
-
-        console.log("headquarters2"+ headquarters2);
-        console.log("headquarters3"+headquarters3);
-
-        console.log('location.zipCode'+ location.zipCode);
-        console.log(location.roadAddress);
-        console.log(location.detailAddress);
-
-        console.log(address.postcode);
-        console.log(address.address);
-        console.log(address.detailAddress);
-        console.log(currentDateTime);
-
-        const token = localStorage.getItem('jwt-token');
-        axios.post('http://localhost:8080/user/cargoregi/regi',{
-                shipmember : userid,
-                username : username,
-                // selected : selected,
-                selected2 : selected2,
-                arrivalDateTime : arrivalDateTime,
-                departureDateTime : departureDateTime,
-                tonnage : tonnage,
-                selectedBox : selectedBox,
-                isChecked1 :isChecked1,
-                isChecked2 : isChecked2,
-                isChecked3 : isChecked3,
-                text : text,
-                selectedSize : selectedSize,
-                selectedBoxNew : selectedBoxNew,
-                weight : weight,
-                textAreaValue : textAreaValue,
-                selectedValue : selectedValue,
-                selectedButton : selectedButton,
-                headquarters2 : headquarters2,
-                headquarters3 : headquarters3,
-                arrival_Code : location.zipCode,
-                arrival_Address : location.roadAddress,
-                arrival_detailAddress : location.detailAddress,
-                departure_code : address.postcode,
-                departure_address : address.address,
-                departure_detailAddress : address.detailAddress,
-                currentDateTime: currentDateTime,
-
-            }
-            , {
-                headers: {
-                    'Authorization': `Bearer ${token}` // 토큰을 헤더에 추가
-                }
-            })
-            .then(res => {
-                window.alert("화물 접수가 정상적으로 등록되었습니다.")
-                navigate('/Shipper/main');
-            })
-            .catch(error => {
-                console.error("There was an error!", error);
-                window.alert("등록 중 에러가 발생했습니다");
-            });
-
-    };
-    */}
-
     //출발지 인풋
     const [headquarters2, setHeadquarters2] = useState('');
 
@@ -415,7 +319,6 @@ const CargoRegi = () => {
             window.alert("수량을 선택해주세요.");
             return;
         }
-
         const now = new Date(); //한국은 UTC+9 시간대에 속하므로, UTC 시간으로 변환하면 한국 시간보다 9시간 빠른 시간이 나옴
         const currentDateTime = now.getFullYear() + '-' +
             ('0' + (now.getMonth()+1)).slice(-2) + '-' +
@@ -423,11 +326,44 @@ const CargoRegi = () => {
             ('0' + now.getHours()).slice(-2) + ':' +
             ('0' + now.getMinutes()).slice(-2) + ':' +
             ('0' + now.getSeconds()).slice(-2);
-
-
+        // 첫 번째 모델에 요청할 데이터를 정의합니다.
+        // const modelData = {
+        //     userid,
+        //     username, 
+        //     selected2, 
+        //     arrivalDateTime, 
+        //     departureDateTime, 
+        //     tonnage, 
+        //     selectedBox,
+        //     isChecked1, 
+        //     isChecked2, 
+        //     text, 
+        //     selectedSize, 
+        //     selectedBoxNew, 
+        //     weight, 
+        //     textAreaValue, 
+        //     selectedValue,
+        //     selectedButton,
+        //     headquarters2, 
+        //     headquarters3, 
+        //     location,  
+        //     address, 
+        //     currentDateTime, 
+        //     status
+        // };
+        // const sendRequest = async () => {
+        //     await axios.post('http://localhost:5000/predict1', modelData);
+        //     // console.log(response.data.prediction);
+        //     navigate("/CargoRegiAI", { state: { userid, username, selected2, arrivalDateTime, departureDateTime, tonnage, selectedBox,
+        //         isChecked1, isChecked2, text, selectedSize, selectedBoxNew, weight, textAreaValue, selectedValue,
+        //         selectedButton,headquarters2, headquarters3, location,  address, currentDateTime, status} });
+        // }
         navigate("/CargoRegiAI", { state: { userid, username, selected2, arrivalDateTime, departureDateTime, tonnage, selectedBox,
-                isChecked1, isChecked2, text, selectedSize, selectedBoxNew, weight, textAreaValue, selectedValue,
-                selectedButton,headquarters2, headquarters3, location,  address, currentDateTime, status} });
+            isChecked1, isChecked2, text, selectedSize, selectedBoxNew, weight, textAreaValue, selectedValue,
+            selectedButton,headquarters2, headquarters3, location,  address, currentDateTime, status} });
+        // 선언한 async 함수를 호출합니다.
+        // sendRequest();
+        
         console.log("Cargo to CargoAI");
         console.log("shipmember:", userid);
         console.log("username:", username);

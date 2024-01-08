@@ -17,7 +17,7 @@ const CargoRegiAI = () => {
 
     const [dist, setDist] = useState(60.5);
     const [elapsed, setElapsed] = useState(90); //min
-    const [aicost, setAicost] = useState(392000);
+    const [aicost, setAicost] = useState();
     const [hours, setHours] = useState();
     const [mins, setMins] = useState();
     const [yourcost, setYourcost] = useState();
@@ -32,8 +32,57 @@ const CargoRegiAI = () => {
 
     const [map, setMap] = useState(null);
     const [linePath, setLinePath] = useState([]);
+    const modelData = {
+        userid,
+        username, 
+        selected2, 
+        arrivalDateTime, 
+        departureDateTime, 
+        tonnage, 
+        selectedBox,
+        isChecked1, 
+        isChecked2, 
+        text, 
+        selectedSize, 
+        selectedBoxNew, 
+        weight, 
+        textAreaValue, 
+        selectedValue,
+        selectedButton,
+        headquarters2, 
+        headquarters3, 
+        location,  
+        address, 
+        currentDateTime, 
+        status
+    };
+    useEffect(() => {
+        fetch('http://127.0.0.1:5000/predict1', {method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(modelData)})
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Server response was not ok.');
+            }
+        })
+        .then(data => {
+            if (data.result) {
+                setAicost(data.result.toLocaleString());
+            } else {
+                throw new Error('Result is not defined in the response.');
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+            setAicost('Error: ' + error.message);
+        });
+    }, [])
 
-
+    
     const handleInputYourcost = (e) => {
         const value = e.target.value.replace(/,/g, ''); // 콤마 제거
         if (value === '') { // 입력값이 빈 문자열인 경우
@@ -285,7 +334,7 @@ const CargoRegiAI = () => {
                     <div className={styles.div2}>총 거리</div>
                     <div className={styles.km}>{distance} km</div>
                     <div className={styles.div3}>{durationHour}시간 {durationMin}분</div>
-                    <div className={styles.div4}>{aicost.toLocaleString()} 원</div>
+                    <div className={styles.div4}>{aicost ? aicost.toLocaleString() : 'Calculating...'} 원</div>
                     <div className={styles.div5}>
                         <input
                             type="text"
