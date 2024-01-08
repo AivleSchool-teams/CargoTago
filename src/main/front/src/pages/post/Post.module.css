@@ -302,4 +302,5 @@
     font-family: var(--font-jalnan-gothic);
     color: white;
     font-size: var(--font-size-xl);
+    cursor: pointer;
 }

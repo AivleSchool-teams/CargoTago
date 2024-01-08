@@ -634,9 +634,9 @@ const CargoRegi = () => {
                         onChange={handleSizeChange}
                     >
                         <option value=""> 화물 크기 *</option>
-                        <option value="small"> 소형</option>
-                        <option value="medium"> 중형</option>
-                        <option value="large">대형</option>
+                        <option value="소형"> 소형</option>
+                        <option value="중형"> 중형</option>
+                        <option value="대형">대형</option>
                     </select>
 
 

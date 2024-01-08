@@ -36,6 +36,7 @@ import CargoRegiAI from "./pages/CargoRegiAI";
 import PostList from "./pages/post/PostList"; // 게시판 목록
 import PostView from "./pages/post/PostView"; // 게시판 상세보기
 import PostCreate from "./pages/post/PostCreate"; // 게시판 게시글 작성
+import PostModify from "./pages/post/PostModify"; // 게시판 게시글 수정
 
 import Chat from "./pages/Chat"; // 채팅 페이지
 
@@ -103,6 +104,7 @@ function App() {
             <Route path='/post/view/:id' element={<PostView />} />
             <Route path='/Post' element={<PostList />} />
             <Route path='/Post/Create' element={<PostCreate />} />
+            <Route path='/Post/Modify/:id' element={<PostModify />} />
 
             <Route path="/Carrier/AIselect" element={<CarrierAIselect />} />
             <Route path="/Receipt" element={<Receipt />} />
