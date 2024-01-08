@@ -71,7 +71,7 @@ const CarrierMain = () => {
                 });
         }
 
-        axios.get('http://localhost:8080/user/carrier/mylist', {
+        axios.get('http://localhost:8080/user/carrier/alllist', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -79,6 +79,7 @@ const CarrierMain = () => {
             .then(res => {
                 setRegistInfoList(res.data);
                 console.log(res.data);
+                console.log(typeof(res.data));
             })
     }, [navigate, username]);
 
@@ -97,6 +98,20 @@ const CarrierMain = () => {
         navigate(`/Carrier/AIselect/${registInfo.id}`);
     }, [navigate]);
 
+    const onListClickOrig = useCallback(() => {
+        navigate('/Carrier/List');
+    })
+
+
+    const onGeoClick = useCallback(() =>{
+        axios.post('http', {
+            lat: location.coordinates.lat,
+            lng: location.coordinates.lng,
+        })
+            .then(res => {
+
+            })
+    })
 
 
     return (
@@ -113,7 +128,7 @@ const CarrierMain = () => {
                 <img className={styles.moa11} alt="" src="/images/moa-1-1@2x.png" />
             </div>
             <div className={styles.groupParent}>
-                <div className={styles.rectangleParent} onClick={onListClick}>
+                <div className={styles.rectangleParent} onClick={onListClickOrig}>
                     <div className={styles.groupItem} />
                     <div className={styles.div3} >운송 현황</div>
                     <img
@@ -208,8 +223,8 @@ const CarrierMain = () => {
                         alt=""
                         src="/images/rectangle-57@2x.png"
                     />
-                    <div className={styles.div11}>
-                        <p className={styles.p}>경기 김포시 양촌</p>
+                    <div className={styles.div11} onClick={onGeoClick}>
+                        <p className={styles.p}>경기 김포시ㅇㅇ 양촌</p>
                     </div>
                     <div className={styles.div12}>서울 강동 동남로</div>
                     <div className={styles.div13}>{`11톤 | 윙바디 | `}</div>
