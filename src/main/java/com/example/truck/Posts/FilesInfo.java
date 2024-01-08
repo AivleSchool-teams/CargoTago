@@ -26,5 +26,13 @@ public class FilesInfo {
     @JsonIgnoreProperties("files")
     @JoinColumn(name = "posts_info_id")
     private PostsInfo postsInfo; // 게시글 참조
+
+    public void setFileName(String originalFilename) {
+        this.filename = originalFilename;
+    }
+
+    public void setFilePath(String string) {
+        this.filepath = string;
+    }
 }
 

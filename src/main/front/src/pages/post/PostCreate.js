@@ -7,9 +7,7 @@ import styles from "./Post.module.css";
 
 const PostCreate = () => {
     const navigate = useNavigate();
-
     const [useremail, setUseremail] = useState(null);
-    const [Posts, setPosts] = useState(null);
 
     useEffect(() => {
         const token = localStorage.getItem('jwt-token');
@@ -44,7 +42,8 @@ const PostCreate = () => {
     const uploadReferenece = React.createRef();
 
     const onLogoClick = useCallback(() => {
-y    }, [navigate]);
+        navigate('/');
+    }, [navigate]);
 
     const onLoginClick = useCallback(() => {
         navigate('/Login');
@@ -67,57 +66,48 @@ y    }, [navigate]);
             return;
         }
 
-
         console.log({title, content, type});
         const token = localStorage.getItem('jwt-token');
 
         const files = uploadReferenece.current.getSelectedFiles();
         console.log("첨부한 파일들:", files);
 
-        const formData = new FormData();
+        let formData = new FormData();
         formData.append('title', title);
         formData.append('content', content);
         formData.append('type', type);
-
         if (files && files.length > 0) {
             for (let i = 0; i < files.length; i++) {
                 formData.append('files', files[i]);
             }
         }
-        console.log("첨부한 파일들4:", formData);
+        console.log("첨부한 파일들:", formData);
         axios.post('http://localhost:8080/post', formData,
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        'Content-Type': 'multipart/form-data',
-                    }
-                })
-                .then(res => {
-                    console.log(res.data);
-
-                    if (res.data && res.data.id) {
-                        alert('저장 완료');
-                        setId(res.data.id);
-                        // 파일 첨부 수정
-                        const files = uploadReferenece.current.getSelectedFiles();
-                        console.log("첨부한 파일들:", files);
-
-                        navigate(`/Post/view/${res.data.id}`);
-                    } else {
-                        alert('게시물을 저장하는 도중 오류가 발생하였습니다.')
-                    }
-
-                })
-                .catch(error => {
-                    console.error("There was an error!", error);
-                });
-        }
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data',
+                }
+            })
+            .then(res => {
+                console.log(res.data);
+                if (res.data && res.data.id) {
+                    setId(res.data.id);
+                    alert('저장 완료'); // 메시지 표시
+                    navigate(`/Post/view/${res.data.id}`); // 페이지 이동
+                } else {
+                    alert('게시물을 저장하는 도중 오류가 발생하였습니다.')
+                }
+            })
+            .catch(error => {
+                console.error("There was an error!", error.response.data); // 에러 메시지 출력
+            });
+    }
 
 
     const onEditorChange = (value) => {
         setContent(value)
     }
-
     return (
         <div>
             <div className={styles.child}>
@@ -127,7 +117,6 @@ y    }, [navigate]);
                     src="/images/logo.png"
                     onClick={onLogoClick} // 이미지에 onClick 이벤트 핸들러를 추가합니다.
                 />
-
                 <button className={styles.button} onClick={onLoginClick}>
                     <img className={styles.child6} alt="" src="/images/rectangle-10@2x.png" />
                     <div className={styles.div7}>{useremail}</div>
@@ -159,11 +148,9 @@ y    }, [navigate]);
                     <div className={styles.white}/>
                     <div className={styles.white}/>
                     <Editor value={content} onChange={onEditorChange} />
-
-                    <div className={styles.submitsave}>
-                        <button className={styles.submitsave_button} onClick={onClickSearch}>저장</button>
+                    <div className={styles.submitsave} onClick={onClickSearch}>
+                        <button className={styles.submitsave_button} >저장</button>
                     </div>
-
                     {id && <Link id="PostView" to={{ pathname: `/Post/view/${id}`, state: { _id: id } }}></Link>}
                     <div className={styles.white}/><div className={styles.white}/>
                 </div>
