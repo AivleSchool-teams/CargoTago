@@ -109,7 +109,7 @@ public class RegistInfo {
     private Integer status; // 배차 상태
 
     @Column(nullable = false,length = 20)
-    private String newoption; // 배차 상태
+    private String sectors; // 업종 Ex)
 
     @ManyToOne
     @JsonManagedReference
