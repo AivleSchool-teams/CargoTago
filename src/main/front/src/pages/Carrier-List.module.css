@@ -1,0 +1,827 @@
+.child {
+    position: absolute;
+    top: calc(50% - 417px);
+    left: calc(50% - 487px);
+    border-radius: var(--br-xl);
+    width: 974px;
+    height: 834px;
+    object-fit: cover;
+}
+div4_1{
+    top: 91px;
+    left: 0;
+    font-weight: 300;
+    color: var(--color-darkgray);
+    display: inline-block;
+    height: 24px;
+
+}
+.frameChild_1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.frameChild_1 {
+
+    border-radius: var(--br-3xs);
+    background-color: var(--color-white);
+    border: 2px solid var(--color-gainsboro);
+    box-sizing: border-box;
+    width: 915px;
+    height: 159px;
+
+}
+.rectangleParent_1 {
+    position: absolute;
+    top: 500px;
+    left: 178px;
+    width: 300px;
+    height: 110px;
+    cursor: pointer;
+
+}
+.container_1,
+.groupContainer_1 {
+    position: absolute;
+    width: 697px;
+}
+.container_1 {
+
+    top: 0;
+    left: 0;
+    height: 79px;
+    text-align: center;
+    font-size: var(--font-size-xl);
+}
+.groupContainer_1 {
+    position: absolute;
+    top: 523px;
+    height: 190px;
+    text-align: left;
+    left: calc(50% - 30px);
+
+}
+.image13Icon_1 {
+    position: absolute;
+    top: 50px;
+    left: 312px;
+    width: 42px;
+    height: 26px;
+    object-fit: cover;
+}
+.span_1 {
+    color: var(--color-darkslateblue);
+}
+.div15_1,
+.div16_1 {
+    position: absolute;
+    top: 50px;
+    left: 74px;
+    display: inline-block;
+    width: 101px;
+    height: 17px;
+    color: var(--color-darkgray);
+}
+.div16_1 {
+    left: 397px;
+    width: 103px;
+}
+.p_1 {
+    margin: 0;
+}
+.div11_1 {
+    top: 78px;
+    left: 71px;
+    font-size: var(--font-size-xl);
+    width: 197px;
+    height: 24px;
+}
+.div11_1,
+.div12_1,
+.div13_1,
+.div14_1,
+.km_1 {
+    position: absolute;
+    display: inline-block;
+}
+.div12_1 {
+    top: 60px;
+    left: 370px;
+    font-size: var(--font-size-xs);
+    width: 180px;
+    height: 24px;
+}
+.div12_2 {
+    position: absolute;
+    top: 30px;
+    left: 0px;
+    font-size: var(--font-size-xs);
+    width: 180px;
+    height: 24px;
+}
+.div13_1,
+.div14_1,
+.km_1 {
+    top: 21px;
+    left: 0;
+    text-align: center;
+    width: 241px;
+}
+.div14_1,
+.km_1 {
+    top: 93px;
+    left: 274px;
+    font-size: var(--font-size-smi);
+    width: 117px;
+}
+.div14_1 {
+    top: 125px;
+    left: 580px;
+    font-size: var(--font-size-mini);
+}
+.rectangleIcon_1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: var(--br-xl);
+    width: 701px;
+    height: 76px;
+    object-fit: cover;
+}
+.groupDiv_1 {
+    position: relative;
+
+    left : calc(50% - 20%);
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+    width: 652px;
+    height: 120px;
+    cursor: pointer;
+    margin-top: 50px;/* 칸 사이 간격*/
+}.div13_1{
+     position: absolute;
+     left : 500px;
+     top : -10px;
+ }
+.div40 {
+    position: absolute;
+    border: none;
+    top: 20px;
+    left: 200px;
+    display: inline-block;
+    width: 140px;
+    height: 36px;
+    font-size: var(--font-size-mid);
+    color: var(--color-black);
+    font-family: var(--font-jalnan-gothic);
+    outline: none;
+}.div42{
+     position: absolute;
+     border: none;
+     top: 20px;
+     left: 380px;
+     display: inline-block;
+     width: 140px;
+     height: 36px;
+     font-size: var(--font-size-mid);
+     color: var(--color-black);
+     font-family: var(--font-jalnan-gothic);
+     outline: none;
+ }
+.div2,
+.div3,
+.frameChild {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+.frameChild {
+
+    border-radius: var(--br-3xs);
+    background-color: var(--color-white);
+    border: 2px solid var(--color-gainsboro);
+    box-sizing: border-box;
+    width: 915px;
+    height: 159px;
+}
+.div2,
+.div3 {
+    display: inline-block;
+    width: 169px;
+    height: 24px;
+}
+.div3 {
+    top: 33px;
+    font-size: var(--font-size-xs);
+    font-weight: 300;
+    font-family: var(--font-sb-aggro);
+    color: var(--color-darkgray);
+}
+.parent {
+    top: 0;
+    left: 0;
+    height: 57px;
+}
+.b,
+.frameParent,
+.parent {
+    position: absolute;
+    width: 169px;
+}
+.b {
+    top: 90px;
+    left: 0;
+    font-size: var(--font-size-mini);
+    display: inline-block;
+    font-family: var(--font-sb-aggro);
+    height: 24px;
+}
+.frameParent {
+    top: 30px;
+    left: 575px;
+    height: 91px;
+    font-family: var(--font-jalnan-gothic);
+}
+.kt,
+.kt1 {
+    position: absolute;
+    display: inline-block;
+}
+.kt {
+    top: 0;
+    left: 1.6px;
+    font-size: var(--font-size-xl);
+    font-family: var(--font-jalnan-gothic);
+    width: 190px;
+    height: 24.1px;
+}
+.kt1 {
+    top: 32px;
+    left: 2.4px;
+    font-weight: 300;
+    width: 187.8px;
+    height: 24px;
+}
+.div4,
+.startloc,
+.startloc1 {
+    position: absolute;
+    width: 240px;
+}
+.div4 {
+    top: 91px;
+    left: 0;
+    font-weight: 300;
+    color: var(--color-darkgray);
+    font-size: var(--font-size-xs);
+    display: inline-block;
+    height: 24px;
+}
+.startloc,
+.startloc1 {
+    top: 30px;
+    left: 158px;
+    height: 115px;
+    font-size: var(--font-size-mini);
+}
+.startloc1 {
+    left: 367px;
+}
+.div6,
+.div7 {
+    left: 0;
+    font-weight: 300;
+    display: inline-block;
+}
+.div6 {
+    position: absolute;
+    top: 0;
+    width: 78px;
+    height: 24.1px;
+}
+.div7 {
+    top: 30px;
+    font-size: var(--font-size-xs);
+    width: 109.5px;
+    height: 24px;
+}
+.div7,
+.group,
+.n0001 {
+    position: absolute;
+}
+.group {
+    top: 51px;
+    left: 757px;
+    width: 109.5px;
+    height: 54px;
+    font-size: var(--font-size-lg);
+    color: var(--color-dimgray-100);
+}
+.n0001 {
+    top: 30px;
+    left: 13.6px;
+    display: flex;
+    align-items: center;
+    width: 94.3px;
+    height: 30px;
+}
+.div8,
+.frameItem {
+    position: absolute;
+    left: 0;
+    width: 88.9px;
+}
+.frameItem {
+    top: 0;
+    border-radius: var(--br-3xs);
+    background-color: var(--color-darkslateblue);
+    height: 25px;
+}
+.div8 {
+    top: 7px;
+    font-size: var(--font-size-xs);
+    color: var(--color-white);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.n0001Parent {
+    position: absolute;
+    top: 48px;
+    left: 29px;
+    width: 107.8px;
+    height: 60px;
+    color: var(--color-darkgray);
+    font-family: var(--font-jalnan-gothic);
+}
+.rectangleParent {
+    top: 0;
+    left: 0;
+    border-radius: var(--br-3xs);
+    border-color: var(--color-white);
+    height: 165px;
+    cursor: pointer;
+}
+.groupChild,
+.inner,
+.rectangleParent {
+    position: relative;
+    width: 915px;
+}
+.inner {
+    top: 143px;
+    left: 29px;
+    height: 150px;
+    font-family: var(--font-sb-aggro);
+}
+.groupChild {
+    top: 0;
+    left: 0;
+    border-radius: var(--br-3xs);
+    background-color: var(--color-white);
+    border: 2px solid var(--color-gainsboro);
+    box-sizing: border-box;
+    height: 57px;
+}
+.div10,
+.div11,
+.div12,
+.div13,
+.div9 {
+    position: absolute;
+    top: 18px;
+    left: 33px;
+    display: inline-block;
+    width: 100px;
+}
+.div10,
+.div11,
+.div12,
+.div13 {
+    left: 176px;
+    width: 133.4px;
+}
+.div11,
+.div12,
+.div13 {
+    left: 374px;
+}
+.div12,
+.div13 {
+    left: 552px;
+    width: 165.3px;
+}
+.div13 {
+    left: 757px;
+    width: 102px;
+}
+.rectangleGroup {
+    position: absolute;
+    top: 78px;
+    left: 29px;
+    width: 915px;
+    height: 57px;
+    font-size: var(--font-size-lg);
+}
+.div14 {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 24px;
+}
+.frameInner {
+    position: absolute;
+    top: 4px;
+    left: 138.3px;
+    border-radius: var(--br-11xs);
+    width: 27.8px;
+    height: 16px;
+    object-fit: contain;
+}
+.container {
+    position: absolute;
+    top: 32px;
+    left: 776.7px;
+    width: 166.1px;
+    height: 24px;
+    text-align: center;
+    font-size: var(--font-size-mini);
+}
+.div15,
+.div16,
+.div17,
+.div18 {
+    border: 0;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    display: inline-block;
+    height: 24px;
+
+    color: var(--color-black);
+    font-family: var(--font-jalnan-gothic);
+    font-size: 20px;
+    cursor: pointer;
+
+}
+.div15 {
+    width: 69.5px;
+    color: var(--font-jalnan-gothic);
+
+}
+
+.active {
+    color: var(--color-darkslateblue);
+}
+.div16 {
+    left: 75px;
+    width: 147.3px;
+}
+.div17 {
+    left: 230px;
+    width: 109.7px;
+}
+.div18 {
+    left: 340px;
+    width: 140.3px;
+}
+.groupChild1,
+.groupInner,
+.groupItem,
+.lineDiv {
+    position: absolute;
+    top: 32px;
+    left: -1px;
+    border-top: 2px solid var(--color-black);
+    box-sizing: border-box;
+    width: 65px;
+    height: 2px;
+}
+.groupChild1,
+.groupInner,
+.lineDiv {
+    left: 104px;
+    border-top: 2px solid var(--color-black);
+    width: 92px;
+}
+.groupChild1,
+.lineDiv {
+    left: 249px;
+    width: 72px;
+}
+.groupChild1 {
+    left: 370px;
+    width: 82px;
+}
+.div1,
+.groupDiv {
+    position: absolute;
+    top: 32px;
+    left: 43px;
+    width: 511.3px;
+    height: 33px;
+}
+.div1 {
+    width: 974px;
+    height: 834px;
+
+    position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
+    top: 645px; /* 상단에서부터의 위치를 지정합니다. */
+    left: 50%; /* 우측에서부터의 위치를 지정합니다. */
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+
+
+}
+.item {
+    top: 0;
+    left: 0;
+    border-radius: var(--br-xl);
+    width: 974px;
+    height: 76px;
+    object-fit: cover;
+}
+.child1,
+.div20,
+.item {
+    position: absolute;
+}
+.child1 {
+    top: 1px;
+    left: 543.7px;
+    border-right: 2px solid var(--color-midnightblue);
+    box-sizing: border-box;
+    width: 2px;
+    height: 75px;
+}
+.div20 {
+    top: 7px;
+    left: 0;
+    display: inline-block;
+    width: 273.7px;
+    height: 24px;
+}
+.div21,
+.polygonIcon {
+    position: absolute;
+    height: 20px;
+}
+.div21 {
+    left: 105px;
+    color: var(--color-dimgray-200);
+    display: inline-block;
+    width: 215px;
+    height: 30px;
+    font-family: var(--font-jalnan-gothic);
+    font-size: 15px;
+
+    border-radius: 10px;
+    border: 2px solid #D9D9D9;
+}
+.polygonIcon {
+    top: 8px;
+    left: 88.7px;
+    border-radius: var(--br-11xs);
+    width: 36.1px;
+    object-fit: contain;
+}
+
+.search1Icon {
+    background-color: unset;
+    border: none;
+    position: absolute;
+    height: 33px;
+    top: 0;
+    left: 337.6px;
+    width: 45.9px;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}
+.parent1 {
+    position: absolute;
+    height: 33px;
+    top: 21px;
+    left: 568.3px;
+    width: 383.5px;
+}
+.div22 {
+    position: absolute;
+    top: 7px;
+    left: 324.4px;
+    display: inline-block;
+    width: 17px;
+    height: 36px;
+}
+.div23 {
+    position: absolute;
+    top: -20px;
+    left: 174.4px;
+    width: 125px;
+    height: 36px;
+
+    color: var(--color-dimgray-200);
+    font-family: var(--font-jalnan-gothic);
+    font-size: 13px;
+    text-align: center;
+    border-radius: 10px;
+    border: 2px solid #D9D9D9;
+
+}
+
+.div24 {
+    position: absolute;
+    left: 355.4px;
+    top: -20px;
+    width: 125px;
+    height: 36px;
+    color: var(--color-dimgray-200);
+    font-family: var(--font-jalnan-gothic);
+    font-size: 13px;
+    text-align: center;
+    border-radius: 10px;
+    border: 2px solid #D9D9D9;
+}
+.calendar3Icon {
+    position: absolute;
+    top: 0;
+    left: 96.4px;
+    width: 48.6px;
+    height: 38.2px;
+    object-fit: cover;
+}
+.div25 {
+    position: absolute;
+    top: 7px;
+    left: 0;
+    color: var(--color-black);
+    display: inline-block;
+    width: 60px;
+    height: 24px;
+}
+.parent2 {
+    top: 22px;
+    left: 30.6px;
+    width: 600px;
+    height: 43px;
+    color: var(--color-darkgray);
+}
+.div19,
+.icon {
+    position: absolute;
+}
+.parent2 {
+    position: relative;
+    left : 30px;
+}
+.div19 {
+    width: 974px;
+    height: 76px;
+    font-size: var(--font-size-lgi);
+
+    position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
+    top: 173px; /* 상단에서부터의 위치를 지정합니다. */
+    left: 50%; /* 우측에서부터의 위치를 지정합니다. */
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+
+}
+.icon {
+    width: 300px;
+    object-fit: cover;
+    top: 65px; /* 상단에서부터의 위치를 지정합니다. */
+    left: calc(50% - 30px);
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+
+}
+.div {
+    position: relative;
+    background-color: var(--color-white);
+    width: 100%;
+    height: 1197px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--font-size-xl);
+    color: var(--color-black);
+    font-family: var(--font-jalnan-gothic);
+}
+
+/* datepicker */
+.react-datepicker__input-container input {
+    width: 82px;
+    height: 19px;
+    padding: 5px 10px;
+    background: #f5f5f5;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+    color: #2b2b2b;
+}
+
+.react-datepicker {
+    font-size: 1.3rem !important;
+}
+
+.react-datepicker__current-month {
+    font-size: 1.5rem !important;
+}
+
+.react-datepicker__header {
+    padding-top: 6px !important;
+}
+
+.react-datepicker__day-name, .react-datepicker__day {
+    margin: 0.5rem !important;
+}
+
+.saturday {
+    color: rgb(0, 0, 255) !important;
+}
+
+.sunday {
+    color: rgb(255, 0, 0) !important;
+}
+
+.react-datepicker__day--disabled {
+    color: #cccccc !important;
+}
+
+.react-datepicker-wrapper {
+    width: unset;
+    /* margin-right: 16px; */
+}
+
+.react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range,
+.react-datepicker__month-text--selected,
+.react-datepicker__month-text--in-selecting-range,
+.react-datepicker__month-text--in-range,
+.react-datepicker__quarter-text--selected,
+.react-datepicker__quarter-text--in-selecting-range,
+.react-datepicker__quarter-text--in-range,
+.react-datepicker__year-text--selected,
+.react-datepicker__year-text--in-selecting-range,
+.react-datepicker__year-text--in-range {
+    background-color: black;
+}
+
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__month-text--keyboard-selected,
+.react-datepicker__quarter-text--keyboard-selected,
+.react-datepicker__year-text--keyboard-selected {
+    background-color: black;
+}
+.react-datepicker__header {
+    background-color: unset;
+    border: none;
+}
+
+.react-datepicker__month-container {
+    padding: 0.5rem;
+}
+
+.react-datepicker__day-names {
+    color: #6b6b6b;
+    font-weight: 500;
+}
+
+.react-datepicker__day--outside-month {
+    color: #6b6b6b;
+}
+
+.react-datepicker__tab-loop {
+    background-color: royalblue;
+    position: absolute;
+
+}
+
+/*드롭다운 박스*/
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -o-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+}
+
+.arrowIcon {
+    position: absolute;
+    top: 50px;
+    max-height: 100%;
+    width: 60px;
+    left: calc(50% - 430px);
+    transform: translateX(-50%);
+}
+.arrowIcon {
+    position: absolute;
+    top: 50px;
+    max-height: 100%;
+    width: 60px;
+    left: calc(50% - 430px);
+    transform: translateX(-50%);
+}

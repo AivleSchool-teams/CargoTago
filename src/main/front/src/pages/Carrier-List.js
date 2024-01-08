@@ -9,16 +9,15 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Shipper-List.module.css";
 import axios from "axios";
 
-const ShipperList = () => {
+const CarrierList = () => {
+
     const navigate = useNavigate();
-
     const [username, setUsername] = useState(null);
-    const [userid, setUserid] = useState(null);
-    const [usertype, setUsertype] = useState(null);
+    const [userphone, setUserphone] = useState(null);
+    const [useraccount, setUseraccount] = useState(null);
+    const [usercarnumber, setUsercarnumber] = useState(null);
+
     const [registInfoList, setRegistInfoList] = useState([]);
-
-
-
 
     useEffect(() => {
         const token = localStorage.getItem('jwt-token');
@@ -27,22 +26,35 @@ const ShipperList = () => {
             navigate('/login');
             console.log('비정상적인 접근입니다.')
         } else {
-            axios.get('http://localhost:8080/user/shipper/mylist', {
+            axios.get('http://localhost:8080/user/carrier/mylist', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             })
                 .then(response => {
+
+                    axios
+                        .get('http://localhost:8080/user/carrier/mypage', {
+                            headers: {
+                                'Authorization': `Bearer ${token}`
+                            }
+                        })
+                        .then(res => {
+                            setUsername(res.data.name);
+                            setUserphone(res.data.phone);
+                            setUseraccount(res.data.account);
+                        })
+                        .catch(error => {
+                            // 오류 처리
+                            console.error('비정상적인 접근입니다.', error);
+                        });
                     // 사용자 이름 표시
                     if(response.data.length === 0) {
-                        console.log('등록한 화물이 없습니다.')
+                        console.log('배차 승인한 화물이 없습니다.')
                     } else {
                         console.log(response.data);
-                        console.log(response.data[0].id);
                         setRegistInfoList(response.data);
-                        console.log(response.data);
                     }
-
 
                 })
                 .catch(error => {
@@ -52,18 +64,15 @@ const ShipperList = () => {
         }
     }, [navigate]);
 
-
-
     const onLogoClick = useCallback(() => {
-        navigate('/Shipper/Main'); // 로고 클릭 시 '/' 경로로 이동합니다.
+        navigate('/Carrier/Main'); // 로고 클릭 시 '/' 경로로 이동합니다.
     }, [navigate]);
     const onBackClick = useCallback(() => {
-        navigate('/Shipper/Main'); // 로고 클릭 시 '/' 경로로 이동합니다.
+        navigate('/Carrier/Main'); // 로고 클릭 시 '/' 경로로 이동합니다.
     }, [navigate]);
 
     // 검색바
     const [search, setSearch] = useState("");
-
 
     const onChange = (e) => {
         setSearch(e.target.value);
@@ -87,7 +96,7 @@ const ShipperList = () => {
     };
 
     const onDetailClick = useCallback((registInfo) => {
-        navigate(`/Shipper/Detail/${registInfo.id}`);
+        navigate(`/Carrier/Detail/${registInfo.id}`);
     }, [navigate]);
 
     // 정렬 개수 선택
@@ -107,8 +116,6 @@ const ShipperList = () => {
     const handleArrivalDatePick = (event) => {
         setArrivalDate(event.target.value);
     };
-
-
 
     const [a, setA] = useState(4);
 
@@ -199,8 +206,8 @@ const ShipperList = () => {
                                         }</div>
                                     </div>
                                     <div className={styles.group}>
-                                        <div className={styles.div6}>홍길동</div>
-                                        <div className={styles.div7}>010-1234-5678</div>
+                                        <div className={styles.div6}>{username}</div>
+                                        <div className={styles.div7}>{userphone}</div>
                                     </div>
                                     <div className={styles.n0001Parent}>
                                         <div className={styles.n0001}>N{registInfo.id.toString().padStart(4, '0')}</div>
@@ -232,19 +239,14 @@ const ShipperList = () => {
                             onClick={() => handleClick(4)}>전체
                     </button>
                     <div className={styles.groupItem}/>
-                    <button className={`${styles.div16} ${a === 0 ? styles.active : ''}`}
-                            onClick={() => handleClick(0)}>접수 완료
-                    </button>
-                    <div className={styles.groupInner}/>
-                    <button className={`${styles.div17} ${a === 1 ? styles.active : ''}`}
+                    <button className={`${styles.div16} ${a === 1 ? styles.active : ''}`}
                             onClick={() => handleClick(1)}>배차 완료
                     </button>
-                    <div className={styles.lineDiv}/>
-                    <button className={`${styles.div18} ${a === 2 ? styles.active : ''}`}
+                    <div className={styles.groupInner}/>
+                    <button className={`${styles.div17} ${a === 2 ? styles.active : ''}`}
                             onClick={() => handleClick(2)}>운송 완료
                     </button>
-                    <div className={styles.groupChild1}/>
-
+                    <div className={styles.lineDiv}/>
                 </div>
             </div>
             <div className={styles.div19}>
@@ -319,5 +321,4 @@ const ShipperList = () => {
         </div>
     );
 };
-export default ShipperList;
-
+export default CarrierList;

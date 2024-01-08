@@ -24,6 +24,7 @@ public class CorsConfig {
         source.registerCorsConfiguration("/carrier/AIselect/**", config);
         source.registerCorsConfiguration("/carrier/recipt/**", config);
         source.registerCorsConfiguration("/carrier/approve/**", config);
+        source.registerCorsConfiguration("/carrier/mypage/**", config);
         return new CorsFilter(source);
     }
 }

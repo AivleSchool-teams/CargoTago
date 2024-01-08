@@ -1,5 +1,7 @@
 package com.example.truck.CarrierList;
 
+import com.example.truck.CarrierRegistration.CarrierInfo;
+import com.example.truck.CarrierRegistration.CarrierInfoRepository;
 import com.example.truck.DTO.PageDTO;
 import com.example.truck.RegistInfo.RegistInfo;
 import com.example.truck.RegistInfo.RegistInfoRepository;
@@ -32,15 +34,52 @@ public class CarrierListController {
     @Autowired
     private CarrierListService carrierListService;
 
+    @Autowired
+    private CarrierInfoRepository carrierInfoRepository;
 
-    @GetMapping("/carrier/mylist")
-    public ResponseEntity<?> getRegistInfo() {
-        // 차주에게 제공할 화물 리스트 보여주기 (현재든 모든 화물 리스트를 제공)
 
-        //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
+    @GetMapping("/carrier/alllist")
+    public ResponseEntity<?> getRegistInfoall() {
+        // 차주에게 제공할 화물 리스트 보여주기 (현재는 모든 화물 리스트를 제공)
         List<RegistInfo> registInfoList = carrierListService.getAllRegistInfo();
 
         return ResponseEntity.ok().body(registInfoList);
     }
+
+    @GetMapping("/carrier/mylist")
+    public ResponseEntity<?> getRegistInfo() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Optional<CarrierInfo> originalUserOpt1 = carrierInfoRepository.findByEmail(authentication.getName());
+
+        if(originalUserOpt1.isPresent()) {
+            CarrierInfo originalUser1 = originalUserOpt1.get();
+            List<RegistInfo> registInfoList = registInfoRepository.findByCarrierInfo_CarMember(originalUser1.getCarMember());
+
+            return ResponseEntity.ok().body(registInfoList);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found with email: " + authentication.getName());
+        }
+    }
+
+    @GetMapping("/carrier/mypage")
+    public CarrierListInfoDTO getCarrierInfo() {
+        CarrierListInfoDTO pageDTO = null; // pageDTO를 블록 외부에서 선언
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Optional<CarrierInfo> originalUserOpt1 = carrierInfoRepository.findByEmail(authentication.getName());
+
+        if (originalUserOpt1.isPresent()) {
+            CarrierInfo originalUser1 = originalUserOpt1.get();
+            pageDTO = CarrierListInfoDTO.builder()
+                    .id(originalUser1.getCarMember())
+                    .name(originalUser1.getName())
+                    .email(originalUser1.getEmail())
+                    .phone(originalUser1.getPhone())
+                    .account(originalUser1.getAccount())
+                    .build();
+        }
+
+        return pageDTO;
+    }
+
 }
