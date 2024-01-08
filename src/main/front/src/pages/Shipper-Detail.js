@@ -15,7 +15,7 @@ const ShipperDetail = () => {
     const [username, setUsername] = useState(null);
     const [registInfoList, setRegistInfoList] = useState([]);
     const [carrierInfoList, setCarrierInfoList] = useState([]);
-
+    const [carriercarInfoList, setCarriercarInfoList] = useState([]);
 
 
     useEffect(() => {
@@ -27,6 +27,7 @@ const ShipperDetail = () => {
             getUserInfo(token);
             getUserShipperList(token);
             getCarrierInfo(token);
+            getCarriercarInfo(token);
         }
     }, [navigate, username, id]);
 
@@ -56,7 +57,9 @@ const ShipperDetail = () => {
                 setRegistInfoList(filteredData);
                 console.log(filteredData);
                 const carNum = filteredData[0].carrierInfo.carMember;
+                const username = filteredData[0].carrierInfo.name;
                 getCarrierInfo(token, carNum);
+                getCarriercarInfo(token,username)
             })
             .catch(error => {
                 console.error('에러가 발생했습니다.', error);
@@ -74,6 +77,22 @@ const ShipperDetail = () => {
             })
             .catch(error => {
                 console.error(`carMemberId에 해당하는 CarrierCarInfo 데이터를 가져오는 데 실패했습니다.`, error);
+            });
+    }
+
+    const getCarriercarInfo = (token, username) => {
+        axios.get(`http://localhost:8080/user/carrierInfo/${username}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(response => {
+                setCarriercarInfoList(response.data);
+                console.log("확인용 "+ username )
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.error(`CarrierInfo 데이터를 가져오는 데 실패했습니다.`, error);
             });
     }
 
@@ -218,7 +237,7 @@ const ShipperDetail = () => {
                             <div className={styles.div20}>화물 현황</div>
                             <div className={styles.rectangleParent}>
                                 <div className={styles.groupChild}/>
-                                <div className={styles.xxxXxxx}>차량번호 : 서울 XXX XXXX</div>
+                                <div className={styles.xxxXxxx}>차량번호 : {carriercarInfoList.carnumber}</div>
                                 <div className={styles.div21}>차주명 : {carrierInfoList.name}</div>
                                 <div className={styles.div22}>연락처 : {carrierInfoList.phone}</div>
                             </div>
