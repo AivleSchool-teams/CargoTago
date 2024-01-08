@@ -36,37 +36,52 @@ const PostModify = () => {
     }, [updatedContent]);
 
     useEffect(() => {
-        if (currentPost) {
-            setPost(currentPost);
-            setContent(currentPost.content);
-            setUpdatedContent(currentPost.content);
-        } else {
-            try {
-                const token = localStorage.getItem('jwt-token');
-                console.log(token);
-                if (!token) {
-                    navigate('/login');
-                    console.error('비정상적인 접근입니다.')
-                } else {
-                    axios.get(`http://localhost:8080/post/view/${id}`, {
-                        headers: {
-                            Authorization: `Bearer ${token}`
-                        }
+        try {
+            const token = localStorage.getItem('jwt-token');
+            console.log(token);
+            if (!token) {
+                navigate('/login');
+            } else {
+                // 토큰이 있으면 사용자 정보를 가져옵니다.
+                axios.get('http://localhost:8080/user/mainpage', {
+                    headers: {Authorization: `Bearer ${token}`}
+                })
+                    .then(res2 => {
+                        setUsername(res2.data.email.split('@')[0]);
+                        console.log(username);
+                        loadPostData(username);
                     })
-                        .then(response => {
-                            setPost(response.data);
-                            setContent(response.data.content);
-                            setUpdatedContent(response.data.content);
-                        })
-                        .catch(error => {
-                            console.error('비정상적인 접근입니다.', error);
-                        });
-                }
-            } catch (error) {
-                console.error('로컬 스토리지 접근 중 오류가 발생했습니다.', error);
+                    .catch(error => {
+                        // 오류 처리
+                        console.error('비정상적인 접근입니다.', error);
+                    });
             }
+        } catch (error) {
+            console.error('로컬 스토리지 접근 중 오류가 발생했습니다.', error);
         }
     }, [navigate, id, currentPost]);
+
+    const loadPostData = (currentUsername) => {
+        const token = localStorage.getItem('jwt-token');
+        if (!token) {
+            navigate('/Login');
+        }
+
+        axios
+            .get(`http://localhost:8080/post/view/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            .then(res => {
+                setPost(res.data);
+                setContent(res.data.content);
+                setUpdatedContent(res.data.content);
+            })
+            .catch(error => {
+                console.error('비정상적인 접근입니다.', error);
+            });
+    };
 
     const onEditorChange = (value) => {
         setUpdatedContent(value);
