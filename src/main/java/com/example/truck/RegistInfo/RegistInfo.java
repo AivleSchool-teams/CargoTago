@@ -108,6 +108,9 @@ public class RegistInfo {
     @Column(nullable = false,length = 5)
     private Integer status; // 배차 상태
 
+    @Column(nullable = false,length = 20)
+    private String newoption; // 배차 상태
+
     @ManyToOne
     @JsonManagedReference
     @JoinColumn(name = "shipMember")

@@ -11,7 +11,7 @@ const CargoRegiAI = () => {
     const uselocation = useLocation();
     const { userid, username, selected2, arrivalDateTime, departureDateTime, tonnage, selectedBox,
         isChecked1, isChecked2, isChecked3, text, selectedSize, selectedBoxNew, weight, textAreaValue, selectedValue,
-        selectedButton,headquarters2, headquarters3, location,  address, currentDateTime, status } = uselocation.state;
+        selectedButton,headquarters2, headquarters3, location,  address, currentDateTime, status,newoption } = uselocation.state;
 
     // 초기값 설정
 
@@ -54,7 +54,8 @@ const CargoRegiAI = () => {
         location,  
         address, 
         currentDateTime, 
-        status
+        status,
+        newoption
     };
     useEffect(() => {
         fetch('http://127.0.0.1:5000/predict1', {method: 'POST',
@@ -136,6 +137,7 @@ const CargoRegiAI = () => {
         console.log(durationMin);
         console.log(yourcost);
         console.log(status);
+        console.log(newoption);
 
         const token = localStorage.getItem('jwt-token');
         axios.post('http://localhost:8080/user/cargoregi/regi', {
@@ -171,6 +173,7 @@ const CargoRegiAI = () => {
             durationMin: durationMin,
             yourcost: yourcost,
             status: status,
+                newoption:newoption,
         }
             , {
                 headers: {

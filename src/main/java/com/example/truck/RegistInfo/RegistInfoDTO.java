@@ -41,5 +41,7 @@ public class RegistInfoDTO {
 
     private Integer status;
 
+    private String newoption; // 배차 상태
+
     private Long shipmember;
 }
