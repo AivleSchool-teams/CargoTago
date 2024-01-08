@@ -13,6 +13,38 @@ const CarrierMain = () => {
     //화주가 등록한 화물 리스트
     const [registInfoList, setRegistInfoList] = useState([]);
 
+    const [location, setLocation] = useState({
+        loaded: false,
+        coordinates: { lat: '', lng: '' },
+    });
+
+
+    // 위치 정보 가져오기
+    useEffect(() => {
+        const onSuccess = location => {
+            setLocation({
+                loaded: true,
+                coordinates: {
+                    lat: location.coords.latitude,
+                    lng: location.coords.longitude,
+                },
+            });
+        };
+
+        const onError = error => {
+            setLocation({
+                loaded: true,
+                error: error.message,
+            });
+        };
+
+        if (!navigator.geolocation) {
+            onError({ message: 'Geolocation not supported' });
+        } else {
+            navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        }
+    }, []);
+
 
 
     useEffect(() => {
@@ -65,6 +97,8 @@ const CarrierMain = () => {
         navigate(`/Carrier/AIselect/${registInfo.id}`);
     }, [navigate]);
 
+
+
     return (
         <div className={styles.div}>
             <div className={styles.center}>
@@ -96,7 +130,10 @@ const CarrierMain = () => {
                     />
                     <div className={styles.parent}>
                         <div className={styles.div7}>오늘도 좋은 하루 되세요!</div>
-                        <div className={styles.div8}>{username}님, 안녕하세요!</div>
+                        <div className={styles.div8}>
+                            {username}님, 안녕하세요!
+                            Latitude: {location.coordinates.lat}, Longitude: {location.coordinates.lng}
+                        </div>
                     </div>
                 </div>
                 <div className={styles.rectangleGroup} onClick={onCarClick}>
@@ -126,7 +163,7 @@ const CarrierMain = () => {
                     <div className={styles.div11}>{registInfo.departure_address}</div>
                     <div className={styles.div12}>{registInfo.arrival_Address}</div>
                     <div className={styles.div13}>{`${registInfo.tonnage} | ${registInfo.selectedBox} | `}</div>
-                    <div className={styles.km}>{registInfo.dist} km</div>
+                    <div className={styles.km}>{registInfo.distance} km</div>
                     <div className={styles.div14}>{registInfo.yourcost} 원</div>
                     <img
                         className={styles.image13Icon}
