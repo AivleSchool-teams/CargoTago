@@ -58,6 +58,10 @@ const ShipperMain = () => {
         navigate(`/Shipper/Detail/${id}`);
     }, [navigate]);
 
+    const onBackClick = useCallback((id) => { // '화물 타고' 클릭 시 '/frame' 경로로 이동.
+        navigate('/');
+    }, [navigate]);
+
     const onCargoRegi = useCallback(() => {
         navigate('/CargoRegi'); // 로고 클릭 시 '/FindIDPW' 경로로 이동합니다
     }, [navigate]);
@@ -77,7 +81,7 @@ const ShipperMain = () => {
                     />
                     <button className={styles.div2} onClick={onPostClick}>게시판</button>
                 </div>
-                <img className={styles.moa11} alt="" src="/images/moa-1-1@2x.png" />
+                <img className={styles.moa11} onClick={onBackClick} alt="" src="/images/moa-1-1@2x.png" />
             </div>
             <div className={styles.groupParent}>
                 <div className={styles.rectangleParent} onClick={onListClick}>
