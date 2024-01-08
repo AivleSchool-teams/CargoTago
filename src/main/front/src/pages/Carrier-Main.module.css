@@ -320,7 +320,7 @@
 }
 .group{
     position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
-    top:1000px;
+    top:500px;
     left: calc(50% - 55px);
     transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
     height: 190px;
