@@ -49,11 +49,8 @@ const PostView = () => {
 
 
     useEffect(() => {
-        // username 상태가 바뀌었을 때 loadPostData를 호출합니다.
-        if (username) {
-            loadPostData(username);
-        }
-    }, [username, id]); // username과 id를 의존성으로 추가합니다.
+        loadPostData(username);
+    }, [username, id]);
 
     const loadPostData = (currentUsername) => {
         const token = localStorage.getItem('jwt-token');
@@ -68,27 +65,13 @@ const PostView = () => {
                 }
             })
             .then(res => {
-                console.log('받아온 데이터', res.data);
-                console.log('파일 수', res.data.files.length);
-                res.data.files.forEach(file => {
-                    console.log('파일 이름', file.origFilename);
-                });
-
-
                 setCurrentPosts([res.data]);
                 const fileNames = res.data.files.map(file => file.origFilename);
                 setFileList(fileNames);
 
-                //const loggedInUser = /* 로그인한 사용자 아이디를 가져옵니다. */
                 setIsWriter(currentUsername === res.data.createdBy.split('@')[0]);
-
-                console.log('사용자:', currentUsername, '게시글 작성자',res.data.createdBy.split('@')[0]);
-                console.log(id);
             });
     };
-
-
-
     const onClickDeleteNotice = () => {
         if (window.confirm('삭제 하시겠습니까?')) {
             const token = localStorage.getItem('jwt-token');
@@ -101,7 +84,7 @@ const PostView = () => {
                 window.alert('삭제되었습니다.')
 
                 navigate('/post');
-
+                loadPostData(username); // 삭제 후 게시글 정보를 다시 불러옵니다.
             });
         }
     }
@@ -180,8 +163,15 @@ const PostView = () => {
                         isWriter &&
                         currentPosts.map((post) => (
                             <div className="text-center mb8" key={post.id}>
-                                <button className="lf-button primary ml8" onClick={onClickDeleteNotice}>삭제</button>
-                                <Link to={{ pathname: '/PostsModify', state: { _id: post._id } }}><button className="lf-button primary ml8">수정</button></Link>
+                                <button className="lf-button primary ml8" onClick={() => onClickDeleteNotice(post.id)}>삭제</button>
+                                <Link
+                                    to={{
+                                        pathname: `/Post/modify/${post.id}`,
+                                        state: { currentPost: post }
+                                    }}
+                                >
+                                    <button className="lf-button primary ml8">수정</button>
+                                </Link>
                             </div>
                         ))
                     }

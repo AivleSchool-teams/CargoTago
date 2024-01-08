@@ -71,6 +71,7 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    font-family: var(--font-jalnan-gothic);
 }
 
 
@@ -104,4 +105,9 @@
     height: 40px;
     left: calc(50% + 200px);
     cursor: pointer;
+}
+
+.text-center{
+    position: absolute;
+    left: calc(50% - 603px);
 }

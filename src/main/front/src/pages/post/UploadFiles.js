@@ -41,11 +41,8 @@ const UploadFiles = forwardRef((props, ref) => {
                             reject();
                         });
                 } else {
-
                     resolve([]);
                 }
-
-
             })
         },
 

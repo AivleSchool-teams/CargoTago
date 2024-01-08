@@ -33,7 +33,7 @@ public class PostsController {
     @Value("${project.upload.path}")
     private String uploadPath;
 
-    @PostMapping ////
+    @PostMapping
     public PostsInfo newPostInfo(@RequestParam("title") String title,
                                  @RequestParam("content") String content,
                                  @RequestParam("type") String type,
@@ -45,12 +45,14 @@ public class PostsController {
         PostsInfo newPostsInfo = new PostsInfo();
         newPostsInfo.setTitle(title);
         newPostsInfo.setContent(content);
-        newPostsInfo.setType(type); // type 필드 추가
+        newPostsInfo.setType(type);
         newPostsInfo.setCreatedBy(email);
-        newPostsInfo.setCreatedAt(LocalDateTime.now()); // 'createdAt' 필드 설정. 현재 시간을 사용함
-        PostsInfo newposts = service.newPostInfo(newPostsInfo);
+        newPostsInfo.setCreatedAt(LocalDateTime.now());
 
-        if(files != null) {
+        PostsInfo newposts = null; // 변수를 블록 바깥에서 선언하고 초기화
+
+        if (files != null) {
+            newposts = service.newPostInfo(newPostsInfo, files); // 이미 선언된 변수를 사용해 값을 할당
             for (MultipartFile file : files) {
                 String filename = file.getOriginalFilename();
                 String realpath = uploadPath + File.separator + filename;
@@ -58,8 +60,8 @@ public class PostsController {
 
                 FilesInfo newFilesInfo = new FilesInfo();
                 newFilesInfo.setOrigFilename(file.getOriginalFilename()); //찐 파일이름
-                newFilesInfo.setFilename(file.getName()); //files라는 이름때문인가?
-                newFilesInfo.setFilepath(uploadPath); //C:\\uploads -> properties에 작성한 그대로
+                newFilesInfo.setFileName(file.getName()); //files라는 이름때문인가?
+                newFilesInfo.setFilePath(uploadPath); //C:\\uploads -> properties에 작성된 경로
                 newFilesInfo.setPostsInfo(newposts); // 게시글의 id불러옴
                 service.newFileInfo(newFilesInfo);
                 try {
