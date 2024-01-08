@@ -326,43 +326,10 @@ const CargoRegi = () => {
             ('0' + now.getHours()).slice(-2) + ':' +
             ('0' + now.getMinutes()).slice(-2) + ':' +
             ('0' + now.getSeconds()).slice(-2);
-        // 첫 번째 모델에 요청할 데이터를 정의합니다.
-        // const modelData = {
-        //     userid,
-        //     username, 
-        //     selected2, 
-        //     arrivalDateTime, 
-        //     departureDateTime, 
-        //     tonnage, 
-        //     selectedBox,
-        //     isChecked1, 
-        //     isChecked2, 
-        //     text, 
-        //     selectedSize, 
-        //     selectedBoxNew, 
-        //     weight, 
-        //     textAreaValue, 
-        //     selectedValue,
-        //     selectedButton,
-        //     headquarters2, 
-        //     headquarters3, 
-        //     location,  
-        //     address, 
-        //     currentDateTime, 
-        //     status
-        // };
-        // const sendRequest = async () => {
-        //     await axios.post('http://localhost:5000/predict1', modelData);
-        //     // console.log(response.data.prediction);
-        //     navigate("/CargoRegiAI", { state: { userid, username, selected2, arrivalDateTime, departureDateTime, tonnage, selectedBox,
-        //         isChecked1, isChecked2, text, selectedSize, selectedBoxNew, weight, textAreaValue, selectedValue,
-        //         selectedButton,headquarters2, headquarters3, location,  address, currentDateTime, status} });
-        // }
+
         navigate("/CargoRegiAI", { state: { userid, username, selected2, arrivalDateTime, departureDateTime, tonnage, selectedBox,
             isChecked1, isChecked2, text, selectedSize, selectedBoxNew, weight, textAreaValue, selectedValue,
             selectedButton,headquarters2, headquarters3, location,  address, currentDateTime, status} });
-        // 선언한 async 함수를 호출합니다.
-        // sendRequest();
         
         console.log("Cargo to CargoAI");
         console.log("shipmember:", userid);
