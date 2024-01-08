@@ -9,6 +9,8 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -49,4 +51,13 @@ public class CarrierCarService {
             return 1;
         }
     }
+
+    public CarrierCarInfo getCarrierCarInfo(String username) {
+        return carrierCarInfoRepository.findByUsername(username)
+                .orElseThrow(() -> new NoSuchElementException("해당 이름의 정보가 없습니다."));
+    }
+
+
+
+
 }

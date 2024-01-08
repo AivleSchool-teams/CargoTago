@@ -11,4 +11,12 @@ public interface CarrierCarInfoRepository extends JpaRepository<CarrierCarInfo, 
 
     Optional<CarrierCarInfo> findByUsername(String username);
     List<CarrierCarInfo> findByCarrierInfo_CarMember(Long carMember);
+
+
+
+
+
+
+
+
 }
