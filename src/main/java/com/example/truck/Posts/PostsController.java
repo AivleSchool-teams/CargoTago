@@ -25,6 +25,8 @@ public class PostsController {
 
     private final PostsService service;
 
+    private final PostsInfoRepository repository;
+
     @GetMapping
     public List<PostsInfo> all() {
         return service.all();
@@ -48,11 +50,12 @@ public class PostsController {
         newPostsInfo.setType(type);
         newPostsInfo.setCreatedBy(email);
         newPostsInfo.setCreatedAt(LocalDateTime.now());
+        newPostsInfo.setView(0);
 
-        PostsInfo newposts = null; // 변수를 블록 바깥에서 선언하고 초기화
+        PostsInfo newposts = repository.save(newPostsInfo);//null; // 변수를 블록 바깥에서 선언하고 초기화
 
         if (files != null) {
-            newposts = service.newPostInfo(newPostsInfo, files); // 이미 선언된 변수를 사용해 값을 할당
+            //newposts = service.newFileInfo(newPostsInfo, files); // 이미 선언된 변수를 사용해 값을 할당
             for (MultipartFile file : files) {
                 String filename = file.getOriginalFilename();
                 String realpath = uploadPath + File.separator + filename;
@@ -77,6 +80,13 @@ public class PostsController {
 
     @GetMapping("/view/{id}")
     public PostsInfo one(@PathVariable Long id) {
+        PostsInfo post = service.one(id);
+
+        if (post != null) {
+            post.setView(post.getView() + 1); // 조회수 증가
+            repository.save(post); // 변경된 게시글 저장
+        }
+
         return service.one(id);
     }
 

@@ -9,7 +9,7 @@ const socket = io.connect('http://localhost:4000');
 
 const room = '1'
 
-const ShipperDetail = () => {
+const CarrierDetail = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [username, setUsername] = useState(null);
@@ -278,4 +278,4 @@ const ShipperDetail = () => {
 
 }
 
-export default ShipperDetail;
+export default CarrierDetail;

@@ -36,7 +36,7 @@ const PostView = () => {
                 .then(res2 => {
                     setUsername(res2.data.email.split('@')[0]);
                     console.log(username);
-                    loadPostData(username);
+                    loadPostData(username); //// //// ////
                 })
                 .catch(error => {
                     // 오류 처리
@@ -90,6 +90,18 @@ const PostView = () => {
                 });
         }
     }
+
+    const downloadFile = async (fileName) => {
+        const response = await fetch(`http://localhost:8080/uploads/${fileName}`);
+        const blob = await response.blob();
+        const downloadUrl = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = downloadUrl;
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
 
     return (
         <div>
@@ -145,7 +157,8 @@ const PostView = () => {
                                 <th>첨부파일</th>
                                 <td colSpan="3">
                                     {fileList.map((name, index) => (
-                                        <span key={index}> <a href={'http://localhost:8080/uploads/' + name} target="_blank">{name}</a> |</span>
+
+                                        <span key={index}> <a href="#" onClick={() => downloadFile(name)}>{name}</a> |</span>
                                     ))}
                                 </td>
                             </tr>

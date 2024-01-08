@@ -143,10 +143,10 @@ const PostList = (props) => {
                                     </td>
                                     <td>{post.createdBy.split('@')[0]}</td>
                                     <td>{moment(post.date).format('YYYY-MM-DD')}</td>
-                                    <td>{post.readCount}</td>
+                                    <td>{post.view}</td>
                                     <td>
-                                        {post.fileList && post.fileList.length > 0 &&
-                                            <img src="/images/board_attach.gif" />
+                                        {post.files.length > 0 &&
+                                            <img src="/images/cloud.png" width="20px" height="15px" />
                                         }
                                     </td>
                                 </tr>
