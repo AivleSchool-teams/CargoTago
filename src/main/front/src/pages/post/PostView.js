@@ -80,12 +80,14 @@ const PostView = () => {
                     Authorization: `Bearer ${token}`
                 }
             };
-            axios.delete(`/post/view/${id}`, config).then((res) => {
-                window.alert('삭제되었습니다.')
-
-                navigate('/post');
-                loadPostData(username); // 삭제 후 게시글 정보를 다시 불러옵니다.
-            });
+            axios.delete(`/post/view/${id}`, config)
+                .then((res) => {
+                    window.alert('삭제되었습니다.')
+                    navigate('/post');
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
         }
     }
 
