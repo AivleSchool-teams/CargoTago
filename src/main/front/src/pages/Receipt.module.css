@@ -36,6 +36,7 @@
     display: inline-block;
     width: 239.4px;
     height: 35px;
+    cursor: pointer;
 }
 .vectorGroup {
     position: absolute;
@@ -600,8 +601,7 @@
     height: 1024px;
     overflow: hidden;
     text-align: center;
-    font-size: var(--font-
-    size-5xl);
+    font-size: var(--font-size-5xl);
     color: var(--color-black);
     font-family: var(--font-inter);
 }

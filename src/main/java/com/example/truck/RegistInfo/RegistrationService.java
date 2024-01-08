@@ -73,6 +73,7 @@ public class RegistrationService {
             newRegist.setShipperInfo(shipperInfo);
 
 
+
 //            private boolean isChecked1; // 무진동 여부 T/F
 //            private boolean isChecked2; // 냉동 여부 T/F
 //            private boolean isChecked3;// 냉장 여부 T/F

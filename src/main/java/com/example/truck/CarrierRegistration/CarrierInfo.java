@@ -1,6 +1,7 @@
 package com.example.truck.CarrierRegistration;
 
 import com.example.truck.CarrierCarInfo.CarrierCarInfo;
+import com.example.truck.RegistInfo.RegistInfo;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
@@ -49,4 +50,8 @@ public class CarrierInfo {
     @OneToMany(mappedBy = "carrierInfo")
     @JsonBackReference
     private List<CarrierCarInfo> carrierCarInfo;
+
+    @OneToMany(mappedBy = "carrierInfo")
+    @JsonBackReference
+    private List<RegistInfo> registInfo ;
 }
