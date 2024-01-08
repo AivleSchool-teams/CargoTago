@@ -18,6 +18,8 @@ const CarrierMain = () => {
         coordinates: { lat: '', lng: '' },
     });
 
+    const [fetchLocation, setFetchLocation] = useState(false);
+
 
     // 위치 정보 가져오기
     useEffect(() => {
@@ -28,7 +30,7 @@ const CarrierMain = () => {
                     lat: location.coords.latitude,
                     lng: location.coords.longitude,
                 },
-            });
+            });alert(`위도: ${location.coords.latitude}, 경도: ${location.coords.longitude}`);  // 메시지 표시
         };
 
         const onError = error => {
@@ -43,7 +45,7 @@ const CarrierMain = () => {
         } else {
             navigator.geolocation.getCurrentPosition(onSuccess, onError);
         }
-    }, []);
+    }, [fetchLocation]);
 
 
 
@@ -125,7 +127,7 @@ const CarrierMain = () => {
                     />
                     <button className={styles.div2} onClick={onPostClick}>게시판</button>
                 </div>
-                <img className={styles.moa11} alt="" src="/images/moa-1-1@2x.png" />
+                <img onClick={() => setFetchLocation(!fetchLocation)} className={styles.moa11} alt="" src="/images/moa-1-1@2x.png" />
             </div>
             <div className={styles.groupParent}>
                 <div className={styles.rectangleParent} onClick={onListClickOrig}>
@@ -199,56 +201,56 @@ const CarrierMain = () => {
             </div>
             {/* AI 추천 배차 리스트 */}
 
-            <div className={styles.groupContainer}>
-                <div className={styles.container}>
-                    <div className={styles.div23}>내 주변 차량</div>
-                    <div className={styles.ellipseDiv} />
-                    <div className={styles.groupChild3} />
-                    <div className={styles.ai}>AI 추천</div>
-                    <div className={styles.groupChild4} />
-                    <div className={styles.div24}>?</div>
-                    <div
-                        className={styles.hoverIcon}
-                        alt="">
-                        <span className={styles.hoverIcon_text}>  AI 배차 추천은 생각중입니다. AI 배차 추천은 생각중입니다.</span><br/>
-                        <span className={styles.hoverIcon_text}>  AI 배차 추천은 생각중입니다. </span>
-                    </div>
-                </div>
+            {/*<div className={styles.groupContainer}>*/}
+            {/*    <div className={styles.container}>*/}
+            {/*        <div className={styles.div23}>내 주변 차량</div>*/}
+            {/*        <div className={styles.ellipseDiv} />*/}
+            {/*        <div className={styles.groupChild3} />*/}
+            {/*        <div className={styles.ai}>AI 추천</div>*/}
+            {/*        <div className={styles.groupChild4} />*/}
+            {/*        <div className={styles.div24}>?</div>*/}
+            {/*        <div*/}
+            {/*            className={styles.hoverIcon}*/}
+            {/*            alt="">*/}
+            {/*            <span className={styles.hoverIcon_text}>  AI 배차 추천은 생각중입니다. AI 배차 추천은 생각중입니다.</span><br/>*/}
+            {/*            <span className={styles.hoverIcon_text}>  AI 배차 추천은 생각중입니다. </span>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
 
-                {/* 배차 1개 */}
-                {registInfoList.map((registInfo, index) => (
-                <div key={index}  className={styles.groupDiv} onClick={() => onListClick(registInfo.id)}>
-                    <img
-                        className={styles.rectangleIcon}
-                        alt=""
-                        src="/images/rectangle-57@2x.png"
-                    />
-                    <div className={styles.div11} onClick={onGeoClick}>
-                        <p className={styles.p}>경기 김포시ㅇㅇ 양촌</p>
-                    </div>
-                    <div className={styles.div12}>서울 강동 동남로</div>
-                    <div className={styles.div13}>{`11톤 | 윙바디 | `}</div>
-                    <div className={styles.km}>17 km</div>
-                    <div className={styles.div14}>335,000 원</div>
-                    <img
-                        className={styles.image13Icon}
-                        alt=""
-                        src="/images/image-13@2x.png"
-                    />
-                    <div className={styles.div15}>
-                        <span>{`출발지 주소 `}</span>
-                        <span className={styles.span}>*</span>
-                    </div>
-                    <div className={styles.div16}>
-                        <span>{`도착지 주소 `}</span>
-                        <span className={styles.span}>*</span>
-                    </div>
-                    <div className={styles.groupChild2} />
-                </div>
-                ))}
+            {/*    /!* 배차 1개 *!/*/}
+            {/*    {registInfoList.map((registInfo, index) => (*/}
+            {/*    <div key={index}  className={styles.groupDiv} onClick={() => onListClick(registInfo.id)}>*/}
+            {/*        <img*/}
+            {/*            className={styles.rectangleIcon}*/}
+            {/*            alt=""*/}
+            {/*            src="/images/rectangle-57@2x.png"*/}
+            {/*        />*/}
+            {/*        <div className={styles.div11} onClick={onGeoClick}>*/}
+            {/*            <p className={styles.p}>경기 김포시ㅇㅇ 양촌</p>*/}
+            {/*        </div>*/}
+            {/*        <div className={styles.div12}>서울 강동 동남로</div>*/}
+            {/*        <div className={styles.div13}>{`11톤 | 윙바디 | `}</div>*/}
+            {/*        <div className={styles.km}>17 km</div>*/}
+            {/*        <div className={styles.div14}>335,000 원</div>*/}
+            {/*        <img*/}
+            {/*            className={styles.image13Icon}*/}
+            {/*            alt=""*/}
+            {/*            src="/images/image-13@2x.png"*/}
+            {/*        />*/}
+            {/*        <div className={styles.div15}>*/}
+            {/*            <span>{`출발지 주소 `}</span>*/}
+            {/*            <span className={styles.span}>*</span>*/}
+            {/*        </div>*/}
+            {/*        <div className={styles.div16}>*/}
+            {/*            <span>{`도착지 주소 `}</span>*/}
+            {/*            <span className={styles.span}>*</span>*/}
+            {/*        </div>*/}
+            {/*        <div className={styles.groupChild2} />*/}
+            {/*    </div>*/}
+            {/*    ))}*/}
 
 
-            </div>
+            {/*</div>*/}
         </div>
     );
 };
