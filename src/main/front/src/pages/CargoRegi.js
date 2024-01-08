@@ -124,9 +124,9 @@ const CargoRegi = () => {
     const [usertype, setUsertype] = useState(null);
     const [userphone, setUserphone] = useState(null);
 
-    const [newoption, setNewoption] = useState('');
+    const [sectors, setSectors] = useState('');
     function handleSizeChange1(event) {
-        setNewoption(event.target.value);
+        setSectors(event.target.value);
     }
 
 
@@ -334,7 +334,7 @@ const CargoRegi = () => {
 
         navigate("/CargoRegiAI", { state: { userid, username, selected2, arrivalDateTime, departureDateTime, tonnage, selectedBox,
             isChecked1, isChecked2, text, selectedSize, selectedBoxNew, weight, textAreaValue, selectedValue,
-            selectedButton,headquarters2, headquarters3, location,  address, currentDateTime, status,newoption} });
+            selectedButton,headquarters2, headquarters3, location,  address, currentDateTime, status,sectors} });
         
         console.log("Cargo to CargoAI");
         console.log("shipmember:", userid);
@@ -364,9 +364,10 @@ const CargoRegi = () => {
         console.log("departure_address:", address.address);
         console.log("departure_detailAddress:", address.detailAddress);
         console.log("currentDateTime:", currentDateTime);
+        console.log("sectors: ", sectors);
     }, [navigate, userid, username, selected2, arrivalDateTime, departureDateTime, tonnage, selectedBox,
         isChecked1, isChecked2, text, selectedSize, selectedBoxNew, weight, textAreaValue, selectedValue,
-        selectedButton,headquarters2, headquarters3, location,  address, currentDateTime, status]);
+        selectedButton,headquarters2, headquarters3, location,  address, currentDateTime, status,sectors]);
 
     return (
         <div className={styles.div}>
@@ -552,11 +553,12 @@ const CargoRegi = () => {
                         onChange={handleSizeChange1}
                     >
                         <option value=""> 선호 업종 선택 *</option>
-                        <option value="광업"> 광업</option>
+                        <option value="농림축산업"> 농림축산업</option>
                         <option value="제조업"> 제조업</option>
-                        <option value="도소매업">도소매업</option>
-                        <option value="숙박 및 서비스업"> 숙박 및 서비스업</option>
-                        <option value="기타 서비스업"> 기타 서비스업</option>
+                        <option value="광업">광업</option>
+                        <option value="도소매업"> 도소매업</option>
+                        <option value="숙박 및 서비스업">숙박 및 서비스업</option>
+                        <option value="기타 서비스업">기타 서비스업</option>
                         <option value="공공기관"> 공공기관</option>
 
                     </select>
