@@ -153,59 +153,65 @@ const ShipperList = () => {
                             return statusCondition && dateCondition;
                         })
                         .map((registInfo, index) => (
-                    <div key={index}  className={styles.rectangleParent} onClick={() => onDetailClick(registInfo)}>
-                        <div className={styles.frameChild}/>
-                        <div className={styles.frameParent}>
-                            <div className={styles.parent}>
-                                <div className={styles.div2}>{`${registInfo.tonnage}  ${registInfo.selectedBox}  `}</div>
-                                <div className={styles.div3}>호루, 리프트에 뭘넣어?</div>
-                            </div>
-                            <b className={styles.b}>{`${formatNumber(registInfo.yourcost)} 원`}</b>
-                        </div>
-                        <div className={styles.startloc}>
-                            <div className={styles.kt}>{registInfo.headquarters2}</div>
-                            <div className={styles.kt1}>
-                                {registInfo.departure_address}
-                            </div>
-                            <div className={styles.div4}>접수일 : {
-                                new Date(registInfo.departureDateTime).toLocaleString('ko-KR', {
-                                    year: 'numeric',
-                                    month: '2-digit',
-                                    day: '2-digit',
-                                    hour: '2-digit',
-                                    minute: '2-digit'
-                                })
-                            }</div>
-                        </div>
-                        <div className={styles.startloc1}>
-                            <div className={styles.kt}>{registInfo.headquarters3}</div>
-                            <div className={styles.kt1}>
-                                {registInfo.arrival_Address}
-                            </div>
-                            <div className={styles.div4}>접수일 : {
-                                new Date(registInfo.arrivalDateTime).toLocaleString('ko-KR', {
-                                    year: 'numeric',
-                                    month: '2-digit',
-                                    day: '2-digit',
-                                    hour: '2-digit',
-                                    minute: '2-digit'
-                                })
-                            }</div>
-                        </div>
-                        <div className={styles.group}>
-                            <div className={styles.div6}>홍길동</div>
-                            <div className={styles.div7}>010-1234-5678</div>
-                        </div>
-                        <div className={styles.n0001Parent}>
-                            <div className={styles.n0001}>N0001</div>
-                            <div className={styles.frameItem}/>
-                            <div className={styles.div8}>
-                                {registInfo.status === 0 ? '접수 완료' :
-                                    registInfo.status === 1 ? '배차 완료' :
-                                        '운송 완료'}
-                            </div>
-                        </div>
-                    </div>
+                                <div key={index}  className={styles.rectangleParent} onClick={() => onDetailClick(registInfo)}>
+                                    <div className={styles.frameChild}/>
+                                    <div className={styles.frameParent}>
+                                        <div className={styles.parent}>
+                                            <div
+                                                className={styles.div2}>{`${registInfo.tonnage}  ${registInfo.selectedBox}  `}</div>
+
+                                            <div className={styles.div3}>
+                                                {registInfo.isChecked1 && registInfo.isChecked2 ? '냉동 / 냉장, 무진동' :
+                                                    (registInfo.isChecked1 ? '냉동 / 냉장' :
+                                                        (registInfo.isChecked2 ? '무진동' : ''))}
+                                            </div>
+                                        </div>
+                                        <b className={styles.b}>{`${formatNumber(registInfo.yourcost)} 원`}</b>
+                                    </div>
+                                    <div className={styles.startloc}>
+                                        <div className={styles.kt}>{registInfo.headquarters2}</div>
+                                        <div className={styles.kt1}>
+                                            {registInfo.departure_address}
+                                        </div>
+                                        <div className={styles.div4}>접수일 : {
+                                            new Date(registInfo.departureDateTime).toLocaleString('ko-KR', {
+                                                year: 'numeric',
+                                                month: '2-digit',
+                                                day: '2-digit',
+                                                hour: '2-digit',
+                                                minute: '2-digit'
+                                            })
+                                        }</div>
+                                    </div>
+                                    <div className={styles.startloc1}>
+                                        <div className={styles.kt}>{registInfo.headquarters3}</div>
+                                        <div className={styles.kt1}>
+                                            {registInfo.arrival_Address}
+                                        </div>
+                                        <div className={styles.div4}>접수일 : {
+                                            new Date(registInfo.arrivalDateTime).toLocaleString('ko-KR', {
+                                                year: 'numeric',
+                                                month: '2-digit',
+                                                day: '2-digit',
+                                                hour: '2-digit',
+                                                minute: '2-digit'
+                                            })
+                                        }</div>
+                                    </div>
+                                    <div className={styles.group}>
+                                        <div className={styles.div6}>홍길동</div>
+                                        <div className={styles.div7}>010-1234-5678</div>
+                                    </div>
+                                    <div className={styles.n0001Parent}>
+                                        <div className={styles.n0001}>N0001</div>
+                                        <div className={styles.frameItem}/>
+                                        <div className={styles.div8}>
+                                            {registInfo.status === 0 ? '접수 완료' :
+                                                registInfo.status === 1 ? '배차 완료' :
+                                                    '운송 완료'}
+                                        </div>
+                                    </div>
+                                </div>
                             )
                         )}
                 </div>
@@ -314,3 +320,4 @@ const ShipperList = () => {
     );
 };
 export default ShipperList;
+
