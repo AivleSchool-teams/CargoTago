@@ -25,6 +25,7 @@ public class CorsConfig {
         source.registerCorsConfiguration("/carrier/recipt/**", config);
         source.registerCorsConfiguration("/carrier/approve/**", config);
         source.registerCorsConfiguration("/carrier/mypage/**", config);
+        source.registerCorsConfiguration("/carrier/comDelivery/**", config);
         source.registerCorsConfiguration("/uploads/**", config);
         return new CorsFilter(source);
     }

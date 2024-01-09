@@ -199,7 +199,7 @@ const ShipperList = () => {
                                         }</div>
                                     </div>
                                     <div className={styles.group}>
-                                        <div className={styles.div6}>홍길동</div>
+                                        <div className={styles.div6}>{registInfo.status === 0 ? '' : registInfo.CarrierInfo.name} </div>
                                         <div className={styles.div7}>010-1234-5678</div>
                                     </div>
                                     <div className={styles.n0001Parent}>
