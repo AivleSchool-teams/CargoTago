@@ -5,6 +5,7 @@ import { Fade, Zoom, Slide } from "react-slideshow-image";
 import styles from "./Main.module.css";
 import "./Main.css";
 import {SectionsContainer, Section} from 'react-fullpage';
+import axios from 'axios';
 
 const Main = () => {
 
@@ -35,6 +36,14 @@ const Main = () => {
         }
     }, [navigate]);
 
+    const onSignUpClick = useCallback(() => {
+        if (token) {
+            navigate('/Login');
+        } else {
+            navigate('/Joinmain'); //  회원가입 클릭 시 '/Joinmain' 경로로 이동합니다
+        }
+    }, [navigate]);
+
     // 메인 이미지 슬라이드 부분
     const slideImages = [
         {
@@ -60,15 +69,15 @@ const Main = () => {
         },
     ];
     const divStyle = {
-        display : 'flex',
-        alignItems : 'center',
-        justifyContent : 'center',
-        height : '600px',
-        backgroundPosition : 'center',  // 가운데 정렬
-        backgroundRepeat: 'no-repeat',  // 배경 이미지가 반복되지 않도록 설정
-        width: '100%',
-
-    }
+            display : 'flex',
+            alignItems : 'center',
+            justifyContent : 'center',
+            height : '602px',
+            backgroundPosition : 'center',  // 가운데 정렬
+            backgroundRepeat: 'no-repeat',  // 배경 이미지가 반복되지 않도록 설정
+            backgroundSize: '100%',  // 배경 이미지의 가로 폭을 100%로 설정
+            width: '100%',
+        }
 
     const CargoStyle = {
         display : 'flex',
@@ -100,13 +109,22 @@ const Main = () => {
                             onClick={onLogoClick} // 이미지에 onClick 이벤트 핸들러를 추가합니다.
                         />
 
-                        <button className={styles.button} onClick={onLoginClick}>
+                        <button className={styles.button} onClick={onSignUpClick}>
                             <img className={styles.child6} alt="" src="/images/rectangle-10@2x.png" />
                             {token
-                                ? <div className={styles.div7out}>로그아웃</div> // 토큰이 있으면 로그아웃 표시
-                                : <div className={styles.div7}>로그인</div>   // 토큰이 없으면 로그인 표시
+                                ?<div className={styles.div7out}>Main</div> // 토큰이 있으면 Main 표시
+                                :<div className={styles.div7}>회원가입</div>   // 토큰이 없으면 회원가입 표시
                             }
                         </button>
+
+                        <button className={styles.button2} onClick={onLoginClick} >
+                            <img className={styles.child12} alt="" src="/images/rectangle-10@2x.png" />
+                            {token
+                                ?<div className={styles.div12out}>로그아웃</div> // 토큰이 있으면 로그아웃 표시
+                                :<div className={styles.div12}>로그인</div>   // 토큰이 없으면 로그인 표시
+                            }
+                        </button>
+
                         {/* 메인이미지 슬라이드 부분 */}
                         <div className={styles.mainslide}>
 

@@ -209,12 +209,32 @@
     position: absolute;
 }
 .div7 {
-    left: 43px;
+    left: 33px;
     top: 15px;
     font-size: 25px;
     color: var(--color-white);
     display: inline-block;
-    width: 79px;
+    width: 100px;
+    height: 33px;
+}
+.child12 {
+    border-radius: 30px;
+    width: 152px;
+    height: 54px;
+    object-fit: cover;
+}
+child12,
+.div12,
+.icon1 {
+    position: absolute;
+}
+.div12 {
+    left: 33px;
+    top: 15px;
+    font-size: 25px;
+    color: var(--color-white);
+    display: inline-block;
+    width: 100px;
     height: 33px;
 }
 .mainslide {
@@ -303,6 +323,16 @@
     position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
     top: 40px; /* 상단에서부터의 위치를 지정합니다. */
     right: 15%; /* 우측에서부터의 위치를 지정합니다. */
+    transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+}
+.button2 {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-jalnan-gothic);
+    position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
+    top: 69px; /* 상단에서부터의 위치를 지정합니다. */
+    right: 12%; /* 우측에서부터의 위치를 지정합니다. */
     transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
 }
 .moa11 {
@@ -501,6 +531,16 @@
 }
 
 .div7out {
+    position: absolute;
+    left: 39px;
+    top: 17px;
+    font-size: 22px;
+    color: var(--color-white);
+    display: inline-block;
+    width: 88px;
+    height: 33px;
+}
+.div12out {
     position: absolute;
     left: 39px;
     top: 17px;
