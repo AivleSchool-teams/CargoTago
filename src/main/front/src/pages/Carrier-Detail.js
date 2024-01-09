@@ -142,11 +142,11 @@ const CarrierDetail = () => {
             .then(res => {
                 console.log('test', res.data);
                 if (res.data === 0) {
-                    window.alert('비정상적인 접근입니다.');
+                    window.alert('배송완료된 화물입니다.');
                     window.location.reload();
                 } else {
                     window.location.reload();
-                    window.alert('배송이 완료되었습니다..');
+                    window.alert('배송이 완료되었습니다.');
                     //navigate('/Carrier/List'); // 승인 클릭 시 '/Carrier/main' 경로로 이동합니다!
                 }
             })

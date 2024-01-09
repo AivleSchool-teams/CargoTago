@@ -156,11 +156,11 @@ const Main = () => {
                             <div className={styles.div1}>화물타고만의 특별한 서비스</div>
                             <div className={styles.aiContainer}>
                                 <p className={styles.ai}>
-                                    AI 기술을 활용한 카고타고의 매칭 서비스와 명확한 표준 요금제를 통해
+                                    AI 기술을 활용한 화물타고의 매칭 서비스와 명확한 표준 요금제를 통해
                                     운영의 효율성을 극대화해보세요.
                                 </p>
                                 <p className={styles.ai}>
-                                    카고타고는 책임감 있는 운영과 AI 배차 시스템을 통해 안정적이고
+                                    화물타고는 책임감 있는 운영과 AI 배차 시스템을 통해 안정적이고
                                     편안한 업무 환경을 약속합니다.
                                 </p>
                             </div>
