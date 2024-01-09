@@ -248,10 +248,6 @@ const ShipperDetail = () => {
                             <div className={styles.div24} style={registInfo.status === 1 ? {color: 'var(--color-cornflowerblue)'} : {}}>배차 완료</div>
                             <div className={styles.div25} style={registInfo.status === 2 ? {color: 'var(--color-cornflowerblue)'} : {}}>운송 완료</div>
 
-
-                            <div className={styles.div26}>운행중</div>
-                            <div className={styles.child2}/>
-                            <div className={styles.div27}>운송완료</div>
                         </div>
                         <div className={styles.div28}>
                             <div className={styles.div29}>
@@ -288,6 +284,5 @@ const ShipperDetail = () => {
         </div>
     );
 };
-//export { socket, username, room, ShipperDetail as default };
 export { socket, room, ShipperDetail as default };
 

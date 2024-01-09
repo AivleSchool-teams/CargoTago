@@ -321,7 +321,7 @@
 .rectangleParent {
     position: absolute;
     top: 0;
-    left: 293px;
+    left: 470px;
     width: 234px;
     height: 119px;
     font-size: var(--font-size-smi);
@@ -329,7 +329,7 @@
 }
 .child1,
 .lineDiv {
-    top: 64px;
+    top: 68px;
     border-top: 2px solid var(--color-black);
     box-sizing: border-box;
     width: 23px;
@@ -337,10 +337,10 @@
 }
 .lineDiv {
     position: absolute;
-    left: 73px;
+    left: 125px;
 }
 .child1 {
-    left: 170px;
+    left: 270px;
 }
 .child1,
 .div23,
@@ -349,30 +349,32 @@
 }
 .div23 {
     color: var(--color-lightgray);
-    top: 50px;
-    left: 0;
+    top: 55px;
+    left: 10px;
     display: flex;
     align-items: center;
-    width: 97.2px;
+    width: 110px;
     height: 30px;
+    font-size: var(--font-size-4xl);
 }
 .div24 {
-    left: 110px;
+    left: 160px;
     color: var(--color-lightgray);
 }
 .div24,
 .div25,
 .div26 {
-    top: 50px;
+    top: 55px;
     display: flex;
     align-items: center;
-    width: 97.2px;
+    width: 110px;
     height: 30px;
     color: var(--color-lightgray);
+    font-size: var(--font-size-4xl);
 }
 .div25 {
     position: absolute;
-    left: 210px;
+    left: 310px;
     color: var(--color-lightgray);
 }
 .div26 {
