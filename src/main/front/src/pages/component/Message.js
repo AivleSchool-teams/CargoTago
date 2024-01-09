@@ -6,6 +6,7 @@ export const Message = (props) => {
     const username = props.username;
     const [who, setWho] = useState('me');
     useEffect(() => {
+        console.log('username은?', username);
       username === messageContent.author ? setWho('me') : setWho('other');
     }, [props]);
 
