@@ -13,6 +13,10 @@ const CarrierMain = () => {
     //화주가 등록한 화물 리스트
     const [registInfoList, setRegistInfoList] = useState([]);
 
+    const onBackClick = useCallback((id) => { // '화물 타고' 클릭 시 '/frame' 경로로 이동.
+        navigate('/');
+    }, [navigate]);
+
     const [location, setLocation] = useState({
         loaded: false,
         coordinates: { lat: '', lng: '' },
@@ -92,6 +96,7 @@ const CarrierMain = () => {
     const onCarClick = useCallback(() => { // 차주 차량 등록 페이지 이동
         navigate('/Carrier/Car');
     }, [navigate]);
+
     const onPostClick = useCallback(() => { // 화주 배차완료 리스트 페이지 이동
         navigate("/Post");
     }, [navigate]);
@@ -127,7 +132,7 @@ const CarrierMain = () => {
                     />
                     <button className={styles.div2} onClick={onPostClick}>게시판</button>
                 </div>
-                <img onClick={() => setFetchLocation(!fetchLocation)} className={styles.moa11} alt="" src="/images/moa-1-1@2x.png" />
+                <img onClick={() => setFetchLocation(!fetchLocation)} className={styles.moa11} onClick={onBackClick} alt="" src="/images/moa-1-1@2x.png" />
             </div>
             <div className={styles.groupParent}>
                 <div className={styles.rectangleParent} onClick={onListClickOrig}>
