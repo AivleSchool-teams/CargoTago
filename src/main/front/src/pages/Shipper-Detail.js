@@ -10,13 +10,15 @@ const socket = io.connect('http://localhost:4000');
 const room = '1'
 
 const ShipperDetail = () => {
+    const [role, setRole] = useState('shipper');
+
     const { id } = useParams();
     const navigate = useNavigate();
     const [username, setUsername] = useState(null);
     const [registInfoList, setRegistInfoList] = useState([]);
     const [carrierInfoList, setCarrierInfoList] = useState([]);
     const [carriercarInfoList, setCarriercarInfoList] = useState([]);
-
+    const [showChat, setShowChat] = useState(false);
 
 
     useEffect(() => {
@@ -56,11 +58,11 @@ const ShipperDetail = () => {
             .then(res => {
                 const filteredData = res.data.filter(item => item.id === parseInt(id));
                 setRegistInfoList(filteredData);
-                console.log(filteredData);
+                console.log('filterd',filteredData);
                 const carNum = filteredData[0].carrierInfo.carMember;
                 const username = filteredData[0].carrierInfo.name;
                 getCarrierInfo(token, carNum);
-                getCarriercarInfo(token,username)
+                getCarriercarInfo(token,username);
             })
             .catch(error => {
                 console.error('에러가 발생했습니다.', error);
@@ -82,6 +84,7 @@ const ShipperDetail = () => {
     }
 
     const getCarriercarInfo = (token, username) => {
+        console.log('namesss:', username);
         axios.get(`http://localhost:8080/user/carrierInfo/${username}`, {
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -90,7 +93,7 @@ const ShipperDetail = () => {
             .then(response => {
                 setCarriercarInfoList(response.data);
                 console.log("확인용 "+ username )
-                console.log(response.data);
+                console.log('dzmdk',response.data);
             })
             .catch(error => {
                 console.error(`CarrierInfo 데이터를 가져오는 데 실패했습니다.`, error);
@@ -248,10 +251,6 @@ const ShipperDetail = () => {
                             <div className={styles.div24} style={registInfo.status === 1 ? {color: 'var(--color-cornflowerblue)'} : {}}>배차 완료</div>
                             <div className={styles.div25} style={registInfo.status === 2 ? {color: 'var(--color-cornflowerblue)'} : {}}>운송 완료</div>
 
-
-                            <div className={styles.div26}>운행중</div>
-                            <div className={styles.child2}/>
-                            <div className={styles.div27}>운송완료</div>
                         </div>
                         <div className={styles.div28}>
                             <div className={styles.div29}>
@@ -288,6 +287,5 @@ const ShipperDetail = () => {
         </div>
     );
 };
-//export { socket, username, room, ShipperDetail as default };
 export { socket, room, ShipperDetail as default };
 

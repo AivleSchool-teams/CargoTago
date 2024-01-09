@@ -285,12 +285,24 @@
     left: 0;
 }
 .div20 {
+    position: absolute;
     font-size: var(--font-size-xl);
     display: flex;
     align-items: center;
     width: 98px;
     height: 30px;
     top: 10px;
+}
+.div201 {
+    position: absolute;
+    font-size: var(--font-size-mini);
+    display: flex;
+    align-items: center;
+    width: 230px;
+    height: 30px;
+    top: 90px;
+    left: 495px;
+    color: var(--color-lightcoral);
 }
 .groupChild {
     border-radius: var(--br-3xs);
@@ -329,7 +341,7 @@
 }
 .child1,
 .lineDiv {
-    top: 64px;
+    top: 68px;
     border-top: 2px solid var(--color-black);
     box-sizing: border-box;
     width: 23px;
@@ -337,10 +349,10 @@
 }
 .lineDiv {
     position: absolute;
-    left: 73px;
+    left: 125px;
 }
 .child1 {
-    left: 170px;
+    left: 270px;
 }
 .child1,
 .div23,
@@ -349,36 +361,45 @@
 }
 .div23 {
     color: var(--color-lightgray);
-    top: 50px;
-    left: 0;
+    top: 55px;
+    left: 10px;
     display: flex;
     align-items: center;
-    width: 97.2px;
+    width: 110px;
     height: 30px;
+    font-size: var(--font-size-4xl);
 }
 .div24 {
-    left: 110px;
+    left: 160px;
     color: var(--color-lightgray);
-}
-.div24,
-.div25,
-.div26 {
-    top: 50px;
+    top: 55px;
     display: flex;
     align-items: center;
-    width: 97.2px;
+    width: 110px;
+    height: 30px;
+    font-size: var(--font-size-4xl);
+}
+.div25,
+.div26,
+.div261 {
+    top: 55px;
+    display: flex;
+    align-items: center;
+    width: 110px;
     height: 30px;
     color: var(--color-lightgray);
+    font-size: var(--font-size-4xl);
 }
 .div25 {
     position: absolute;
-    left: 210px;
+    left: 310px;
     color: var(--color-lightgray);
 }
 
 .div19,
 .div26,
-.div27 {
+.div27,
+.div261 {
     position: absolute;
 }
 .div27 {
@@ -432,12 +453,30 @@
     height: 50px;
     cursor: pointer;
 }
+.arrend {
+    all:unset;
+    position: absolute;
+    top: 33px;
+    left: calc(50% + 40px);
+    width: 180px;
+    height: 50px;
+    cursor: pointer;
+}
 .chatItem {
     position: absolute;
     top: -20px;
     left: calc(50% + 29px);
     border-radius: var(--br-3xs);
     background-color: var(--color-darkslateblue);
+    width: 160px;
+    height: 60px;
+}
+.chatItem1 {
+    position: absolute;
+    top: -20px;
+    left: calc(50% + 29px);
+    border-radius: var(--br-3xs);
+    background-color: var(--color-lightcoral);
     width: 160px;
     height: 60px;
 }
@@ -554,4 +593,10 @@
 .div26 {
     left: 547px;
     cursor: pointer;
+}
+.div261 {
+    left: 150px;
+    top: -3px;
+    cursor: pointer;
+    color: white;
 }

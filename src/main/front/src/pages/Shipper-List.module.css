@@ -375,6 +375,8 @@ div4_1{
     left: 29px;
     height: 150px;
     font-family: var(--font-sb-aggro);
+    overflow-y: auto; /* 세로 스크롤바를 필요할 때만 나타나도록 설정 */
+    height : 600px;
 }
 .groupChild {
     top: 0;

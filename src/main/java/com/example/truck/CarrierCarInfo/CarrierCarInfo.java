@@ -44,6 +44,9 @@ public class CarrierCarInfo {
     private String sectors; // 선호 업종
 
     @Column(nullable = false, length = 20)
+    private String trips; // 선호 유형 편도/왕복
+
+    @Column(nullable = false, length = 20)
     private String carnumber; // 차량 번호
 
     @ManyToOne

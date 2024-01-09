@@ -68,6 +68,10 @@ const AI = () => {
         navigate(`/Receipt/${id}`); // 승인 클릭 시 '/Receipt/id' 경로로 이동합니다
     }, [navigate]);
 
+    const onBackClick = useCallback(() => { // 화주 메인페이지로 링크 변경 해야함.
+        navigate("/Carrier/main");
+    }, [navigate]);
+
     function formatNumber(num) {
         return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
     }
@@ -76,8 +80,7 @@ const AI = () => {
         <div>
         <div className={styles.ai}>
             <div className={styles.div}>
-                <img className={styles.child} alt="" src="/images/rectangle-60@2x.png" />
-                /*<div className={styles.div1}>다음</div>*/
+                <img className={styles.child} alt="" src="/images/rectangle-60@2x.png"/>
                 <div className={styles.item} />
                 <div className={styles.rectangleParent}>
                     <div className={styles.groupChild} />
@@ -167,7 +170,7 @@ const AI = () => {
             </div>
             <div className={styles.vParent}>
                 <div className={styles.div24}>화물 접수</div>
-                <img className={styles.aiChild} alt="" src="/images/arrow-3@2x.png" />
+                <img className={styles.aiChild} alt="" src="/images/arrow-3@2x.png"  onClick={onBackClick}/>
                 <img className={styles.moa11} onClick={onLogoClick} alt=""  src="/images/moa-1-1@2x.png" />
             </div>
         </div>
