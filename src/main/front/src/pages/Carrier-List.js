@@ -126,6 +126,17 @@ const CarrierList = () => {
         return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
     }
 
+    const options1 = [
+        { value: 1, label: "1개씩 보기" },
+        { value: 3, label: "3개씩 보기" },
+        { value: 10, label: "10개씩 보기" },
+    ];
+
+    const [itemCount, setItemCount] = useState(options[0].value); // 기본값으로 options 배열의 첫 번째 요소의 value를 사용합니다.
+    const handleSelectChange = (selectedOption) => {
+        setItemCount(selectedOption.value);
+    }
+
 
     return (
         <div className={styles.div}>
@@ -158,7 +169,7 @@ const CarrierList = () => {
                                     selectedDepartureDate <= registArrivalDate && registArrivalDate <= selectedArrivalDate) : true;
 
                             return statusCondition && dateCondition;
-                        })
+                        }).slice(0, itemCount)
                         .map((registInfo, index) => (
                                 <div key={index}  className={styles.rectangleParent} onClick={() => onDetailClick(registInfo)}>
                                     <div className={styles.frameChild}/>
@@ -232,7 +243,7 @@ const CarrierList = () => {
                     <div className={styles.div13}>기사 정보</div>
                 </div>
                 <div className={styles.container}>
-                    <Select options={options} className={styles.div14} defaultValue={options[0]}/>
+                    <Select options={options1} className={styles.div14} onChange={handleSelectChange} defaultValue={options1[0]}/>
                 </div>
                 <div className={styles.groupDiv}>
                     <button className={`${styles.div15} ${a === 4 ? styles.active : ''}`}

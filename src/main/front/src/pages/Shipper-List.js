@@ -92,10 +92,15 @@ const ShipperList = () => {
 
     // 정렬 개수 선택
     const options = [
-        { value: "five", label: "5개씩 보기" },
-        { value: "ten", label: "10개씩 보기" },
-        { value: "fifteen", label: "15개씩 보기" },
-    ]
+        { value: 3, label: "3개씩 보기" },
+        { value: 5, label: "5개씩 보기" },
+        { value: 10, label: "10개씩 보기" },
+    ];
+
+    const [itemCount, setItemCount] = useState(options[0].value); // 기본값으로 options 배열의 첫 번째 요소의 value를 사용합니다.
+    const handleSelectChange = (selectedOption) => {
+        setItemCount(selectedOption.value);
+    }
 
     const [departureDate, setDepartureDate] = useState("");
     const [arrivalDate, setArrivalDate] = useState("");
@@ -151,7 +156,7 @@ const ShipperList = () => {
                                     selectedDepartureDate <= registArrivalDate && registArrivalDate <= selectedArrivalDate) : true;
 
                             return statusCondition && dateCondition;
-                        })
+                        }).slice(0, itemCount)
                         .map((registInfo, index) => (
                                 <div key={index}  className={styles.rectangleParent} onClick={() => onDetailClick(registInfo)}>
                                     <div className={styles.frameChild}/>
@@ -199,7 +204,7 @@ const ShipperList = () => {
                                         }</div>
                                     </div>
                                     <div className={styles.group}>
-                                        <div className={styles.div6}>{registInfo.status === 0 ? '' : registInfo.CarrierInfo.name} </div>
+                                        <div className={styles.div6}>{registInfo.status === 0 ? '' : registInfo.carrierInfo.name} </div>
                                         <div className={styles.div7}>010-1234-5678</div>
                                     </div>
                                     <div className={styles.n0001Parent}>
@@ -225,7 +230,7 @@ const ShipperList = () => {
                     <div className={styles.div13}>기사 정보</div>
                 </div>
                 <div className={styles.container}>
-                    <Select options={options} className={styles.div14} defaultValue={options[0]}/>
+                    <Select options={options} className={styles.div14} onChange={handleSelectChange} defaultValue={options[0]}/>
                 </div>
                 <div className={styles.groupDiv}>
                     <button className={`${styles.div15} ${a === 4 ? styles.active : ''}`}
@@ -320,4 +325,3 @@ const ShipperList = () => {
     );
 };
 export default ShipperList;
-
