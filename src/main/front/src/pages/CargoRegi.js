@@ -432,7 +432,7 @@ const CargoRegi = () => {
                     />
 
                     <select className={styles.child2} value={tonnage} onChange={e => setTonnage(e.target.value)}>
-                        <option value="">톤 단위를 선택하세요</option>
+                        <option value="" disabled defaultSelected>톤 단위를 선택하세요</option>
                         <option value="1톤">1톤</option>
                         <option value="1.4톤">1.4톤</option>
                         <option value="2.5톤">2.5톤</option>
@@ -537,12 +537,12 @@ const CargoRegi = () => {
 
                 </div>
                 <div className={styles.div26}>
-                    <div className={styles.child13}/>
+                <div className={styles.child13}/>
                     <select
                         className={styles.c2}
                         onChange={handleSizeChange}
                     >
-                        <option value=""> 화물 크기 *</option>
+                        <option value="" disabled defaultSelected> 화물 크기 *</option>
                         <option value="소형"> 소형</option>
                         <option value="중형"> 중형</option>
                         <option value="대형">대형</option>
@@ -552,7 +552,7 @@ const CargoRegi = () => {
                         className={styles.c4}
                         onChange={handleSizeChange1}
                     >
-                        <option value=""> 선호 업종 선택 *</option>
+                        <option value="" disabled defaultSelected> 선호 업종 선택 *</option>
                         <option value="농림축산업"> 농림축산업</option>
                         <option value="제조업"> 제조업</option>
                         <option value="광업">광업</option>
