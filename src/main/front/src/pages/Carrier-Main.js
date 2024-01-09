@@ -29,7 +29,7 @@ const CarrierMain = () => {
                     lat: location.coords.latitude,
                     lng: location.coords.longitude,
                 },
-            });alert(`위도: ${location.coords.latitude}, 경도: ${location.coords.longitude}`);  // 메시지 표시
+            });
         };
 
         const onError = error => {
@@ -173,15 +173,17 @@ const CarrierMain = () => {
                     />
                     <div className={styles.parent}>
                         <div className={styles.div7}>오늘도 좋은 하루 되세요!</div>
+                        <div className={styles.divstatus1}>주문 {registInfoList.length}건</div>
+                        <div className={styles.divstatus2}>배차 {registInfoList.filter(registInfo => registInfo.status === 1).length}건</div>
+                        <div className={styles.divstatus3}>완료 {registInfoList.filter(registInfo => registInfo.status === 2).length}건</div>
                         <div className={styles.div8}>
                             {username}님, 안녕하세요!
-                            Latitude: {location.coordinates.lat}, Longitude: {location.coordinates.lng}
                         </div>
                     </div>
                 </div>
                 <div className={styles.rectangleGroup} onClick={onCarClick}>
                     <div className={styles.groupItem} />
-                    <div className={styles.div3}>차량등록</div>
+                    <div className={styles.div3}>차량 등록</div>
                     <img
                         className={styles.image12Icon}
                         alt=""
@@ -196,7 +198,9 @@ const CarrierMain = () => {
 
 
                 {/* 배차 1개 */}
-                {registInfoList.map((registInfo, index) => (
+                <div className={styles.inner}>
+                {registInfoList.filter(registInfo => registInfo.status === 0)
+                    .map((registInfo, index) => (
                 <div key={index} className={styles.vectorContainer} onClick={() => onDetailClick(registInfo)}>
                     <img
                         className={styles.rectangleIcon}
@@ -215,14 +219,15 @@ const CarrierMain = () => {
                     />
                     <div className={styles.div15}>
                         <span>{`출발지 주소 `}</span>
-                        <span className={styles.span}>*</span>
+                        <span className={styles.span}></span>
                     </div>
                     <div className={styles.div16}>
                         <span>{`도착지 주소 `}</span>
-                        <span className={styles.span}>*</span>
+                        <span className={styles.span}></span>
                     </div>
                 </div>
                 ))}
+            </div>
             </div>
             {/* AI 추천 배차 리스트 */}
 
@@ -262,11 +267,11 @@ const CarrierMain = () => {
                     />
                     <div className={styles.div15}>
                         <span>{`출발지 주소 `}</span>
-                        <span className={styles.span}>*</span>
-                    </div>*/}
+                        <span className={styles.span}></span>
+                    </div>
                     <div className={styles.div16}>
                         <span>{`도착지 주소 `}</span>
-                        <span className={styles.span}>*</span>
+                        <span className={styles.span}></span>
                     </div>
                     <div className={styles.groupChild2} />
                 </div>

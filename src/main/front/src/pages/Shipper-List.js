@@ -205,7 +205,7 @@ const ShipperList = () => {
                                     </div>
                                     <div className={styles.group}>
                                         <div className={styles.div6}>{registInfo.status === 0 ? '' : registInfo.carrierInfo.name} </div>
-                                        <div className={styles.div7}>010-1234-5678</div>
+                                        <div className={styles.div7}>{registInfo.status === 0 ? '' : registInfo.carrierInfo.phone}</div>
                                     </div>
                                     <div className={styles.n0001Parent}>
                                         <div className={styles.n0001}>N{registInfo.id.toString().padStart(4, '0')}</div>

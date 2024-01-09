@@ -126,7 +126,9 @@ const ShipperMain = () => {
                 </div>
 
                 {/* 배차 1개 */}
-                {registInfoList.map((registInfo, index) => (
+                {registInfoList.filter(registInfo => registInfo.status !== 2)
+                    .map((registInfo, index) => (
+
                     <div key={index} className={styles.groupDiv} onClick={() => onDetailClick(registInfo.id)}>
                         <img
                             className={styles.rectangleIcon}
