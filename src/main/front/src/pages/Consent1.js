@@ -8,7 +8,7 @@ const Consent1 = () => {
             <div className={styles.karryContainer}>
                 <p className={styles.p}>이용약관</p>
                 <p className={styles.p}>
-                    주식회사 롤랩(이하 “회사”)의 화물타고 서비스 (이하 “서비스”)를
+                    주식회사 화물타고(이하 “회사”)의 화물타고 서비스 (이하 “서비스”)를
                     이용하고자 하는 자는 본 이용약관의 내용을 확인하고 이에 동의해야
                     합니다.
                 </p>
