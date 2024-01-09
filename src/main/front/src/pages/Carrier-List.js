@@ -127,12 +127,12 @@ const CarrierList = () => {
     }
 
     const options1 = [
-        { value: 1, label: "1개씩 보기" },
         { value: 3, label: "3개씩 보기" },
+        { value: 5, label: "5개씩 보기" },
         { value: 10, label: "10개씩 보기" },
     ];
 
-    const [itemCount, setItemCount] = useState(options[0].value); // 기본값으로 options 배열의 첫 번째 요소의 value를 사용합니다.
+    const [itemCount, setItemCount] = useState(options1[1].value); // 기본값으로 options 배열의 첫 번째 요소의 value를 사용합니다.
     const handleSelectChange = (selectedOption) => {
         setItemCount(selectedOption.value);
     }

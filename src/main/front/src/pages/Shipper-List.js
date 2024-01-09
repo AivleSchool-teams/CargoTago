@@ -97,7 +97,7 @@ const ShipperList = () => {
         { value: 10, label: "10개씩 보기" },
     ];
 
-    const [itemCount, setItemCount] = useState(options[0].value); // 기본값으로 options 배열의 첫 번째 요소의 value를 사용합니다.
+    const [itemCount, setItemCount] = useState(options[1].value); // 기본값으로 options 배열의 첫 번째 요소의 value를 사용합니다.
     const handleSelectChange = (selectedOption) => {
         setItemCount(selectedOption.value);
     }
