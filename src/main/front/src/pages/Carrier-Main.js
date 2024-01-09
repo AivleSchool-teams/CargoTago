@@ -30,7 +30,7 @@ const CarrierMain = () => {
                     lat: location.coords.latitude,
                     lng: location.coords.longitude,
                 },
-            });alert(`위도: ${location.coords.latitude}, 경도: ${location.coords.longitude}`);  // 메시지 표시
+            });  // 메시지 표시
         };
 
         const onError = error => {
