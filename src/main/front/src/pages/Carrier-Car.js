@@ -82,6 +82,7 @@ const CarrierCar = () => {
     const [area2, setArea2] = useState('');
     const [distance, setDistance] = useState('');
     const [sectors, setSectors] = useState('');
+    const [trips, setTrips] = useState('');
 
     //=========================================================
 
@@ -99,6 +100,7 @@ const CarrierCar = () => {
         console.log(area2);
         console.log(distance);
         console.log(sectors);
+        console.log(trips);
         console.log(carnumber);
 
         const token = localStorage.getItem('jwt-token');
@@ -114,6 +116,7 @@ const CarrierCar = () => {
                 area2 : area2,
                 distance : distance,
                 sectors : sectors,
+                trips : trips,
                 carnumber: carnumber,
             }
             , {
@@ -170,6 +173,13 @@ const CarrierCar = () => {
                     <div className={styles.groupChild} />
                     <div className={styles.div2}>
                         <span>{`선호 화물 종류 `}</span>
+                        <span className={styles.span}>*</span>
+                    </div>
+                </div>
+                <div className={styles.groupDiv2}>
+                    <div className={styles.groupChild} />
+                    <div className={styles.div2}>
+                        <span>{`선호 유형 `}</span>
                         <span className={styles.span}>*</span>
                     </div>
                 </div>
@@ -278,7 +288,7 @@ const CarrierCar = () => {
                 <input className={styles.div18} value={carnumber} onChange={handleCarnumber} placeholder="00가 0000" />
 
                 <select className={styles.div21} value={area1} onChange={e => setArea1(e.target.value)}>
-                    <option value="">지역 선택</option>
+                    <option value="" disabled defaultSelected>지역 선택</option>
                     <option value="서울">서울</option>
                     <option value="경기도">경기도</option>
                     <option value="부산">부산</option>
@@ -298,7 +308,7 @@ const CarrierCar = () => {
                 </select>
 
                 <select className={styles.div19} value={area2} onChange={e => setArea2(e.target.value)}>
-                    <option value="">지역 선택</option>
+                    <option value="" disabled defaultSelected>지역 선택</option>
                     <option value="서울">서울</option>
                     <option value="경기도">경기도</option>
                     <option value="부산">부산</option>
@@ -318,13 +328,13 @@ const CarrierCar = () => {
                 </select>
 
                 <select className={styles.div20} value={distance} onChange={e => setDistance(e.target.value)}>
-                    <option value="">이동 거리 선택</option>
+                    <option value="" disabled defaultSelected>이동 거리 선택</option>
                     <option value="장거리">장거리</option>
                     <option value="단거리">단거리</option>
                 </select>
 
                 <select className={styles.div201} value={sectors} onChange={e => setSectors(e.target.value)}>
-                    <option value="">선호 업종 선택</option>
+                    <option value="" disabled defaultSelected>선호 업종 선택</option>
                     <option value="농림축산업">농림축산업</option>
                     <option value="제조업">제조업</option>
                     <option value="광업">광업</option>
@@ -333,6 +343,12 @@ const CarrierCar = () => {
                     <option value="숙박 및 서비스업">숙박 및 서비스업</option>
                     <option value="기타 서비스업">기타 서비스업</option>
                     <option value="공공기관">공공기관</option>
+                </select>
+
+                <select className={styles.div2011} value={trips} onChange={e => setTrips(e.target.value)}>
+                    <option value="" disabled defaultSelected>선호 유형 선택</option>
+                    <option value="편도">편도</option>
+                    <option value="왕복">왕복</option>
                 </select>
             </div>
             

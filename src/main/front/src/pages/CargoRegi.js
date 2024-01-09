@@ -379,6 +379,7 @@ const CargoRegi = () => {
 
                     <div className={styles.kt}>
                         <input
+                            tabIndex={1}
                             type="text"
                             value={headquarters2}
                             onChange={handleChange2}
@@ -401,6 +402,7 @@ const CargoRegi = () => {
                     {/*<div className={styles.kt2}>KT 본사</div>*/}
                     <div className={styles.kt2}>
                         <input
+                            tabIndex={3}
                             type="text"
                             value={headquarters3}
                             onChange={handleChange3}
@@ -425,13 +427,14 @@ const CargoRegi = () => {
                     <div className={styles.child3}/>
 
                     <textarea
+                        tabIndex={7}
                         className={`${styles.child3}  ${styles.text_1}`}
                         value={text}
                         onChange={handleTextareaChange}
                         placeholder="차량 관련 요청사항을 입력하세요."
                     />
 
-                    <select className={styles.child2} value={tonnage} onChange={e => setTonnage(e.target.value)}>
+                    <select tabIndex={5} className={styles.child2} value={tonnage} onChange={e => setTonnage(e.target.value)}>
                         <option value="" disabled defaultSelected>톤 단위를 선택하세요</option>
                         <option value="1톤">1톤</option>
                         <option value="1.4톤">1.4톤</option>
@@ -501,6 +504,7 @@ const CargoRegi = () => {
                     </div>
                     <div className={styles.div12_1}>
                         <input
+                            tabIndex={6}
                             type="checkbox"
                             className={styles.child1}
                             checked={isChecked1}
@@ -510,6 +514,7 @@ const CargoRegi = () => {
 
 
                         <input
+                            tabIndex={5}
                             type="checkbox"
                             className={styles.child11}
                             checked={isChecked2}
@@ -521,6 +526,7 @@ const CargoRegi = () => {
                         <div>
                             {buttons.map((button, index) => (
                                 <button
+                                    tabIndex={6}
                                     key={index}
                                     className={`${styles.customButton} ${selectedButton === button ? styles.selected_1 : ''}`}
                                     onClick={() => handleSelect(button)}
@@ -539,6 +545,7 @@ const CargoRegi = () => {
                 <div className={styles.div26}>
                 <div className={styles.child13}/>
                     <select
+                        tabIndex={8}
                         className={styles.c2}
                         onChange={handleSizeChange}
                     >
@@ -551,6 +558,7 @@ const CargoRegi = () => {
                     <select
                         className={styles.c4}
                         onChange={handleSizeChange1}
+                        tabIndex={9}
                     >
                         <option value="" disabled defaultSelected> 선호 업종 선택 *</option>
                         <option value="농림축산업"> 농림축산업</option>
@@ -567,6 +575,7 @@ const CargoRegi = () => {
                     <div className={styles.div27}>상세정보</div>
 
                     <textarea
+                        tabIndex={12}
                         className={`${styles.child16} ${styles.text_1}`}
                         value={textAreaValue}
                         onChange={handleChange}
@@ -581,7 +590,7 @@ const CargoRegi = () => {
                         <span className={styles.span}>*</span>
                     </div>
 
-                    <select className={styles.child15} onChange={handleSelectChange}>
+                    <select className={styles.child15} onChange={handleSelectChange} tabIndex={10}>
                         <option value="">개수</option>
                         {Array.from({length: 30}, (_, i) => i + 1).map((num) => (
                             <option value={num} key={num}>{num}개</option>
@@ -596,7 +605,7 @@ const CargoRegi = () => {
                         <span>{`총 중량 `}</span>
                         <span className={styles.span}>*</span>
                     </div>
-                    <input type="number" className={styles.child19} value={weight}
+                    <input type="number" className={styles.child19} value={weight} tabIndex={11}
                            onChange={(e) => setWeight(e.target.value)}/>
 
                     <div className={styles.div34}>톤</div>
@@ -756,6 +765,7 @@ const CargoRegi = () => {
                         className={styles.postNum}
                     /><br/>
                     <input
+                        tabIndex={2}
                         type="text"
                         id="sample6_detailAddress"
                         placeholder="상세주소"
@@ -785,6 +795,7 @@ const CargoRegi = () => {
                         readOnly
                     /><br/>
                     <input
+                        tabIndex={4}
                         type="text"
                         id="sample_detailAddress"
                         placeholder="상세주소"

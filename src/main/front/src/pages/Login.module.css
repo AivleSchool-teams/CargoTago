@@ -65,9 +65,10 @@
     transform: translateX(-50%);
 }
 .div1 {
+    all: unset;
     position: absolute;
     top: 524px;
-
+    font-family: var(--font-jalnan-gothic);
     color: var(--color-white);
     display: inline-block;
     width: 173px;

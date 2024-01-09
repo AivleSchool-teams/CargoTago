@@ -43,6 +43,7 @@ public class CarrierCarService {
             newCar.setArea2(carrierCarInfoDTO.getArea2());
             newCar.setDistance(carrierCarInfoDTO.getDistance());
             newCar.setSectors(carrierCarInfoDTO.getSectors());
+            newCar.setTrips(carrierCarInfoDTO.getTrips());
             newCar.setCarnumber(carrierCarInfoDTO.getCarnumber());
 
             newCar.setCarrierInfo(carrierInfo);

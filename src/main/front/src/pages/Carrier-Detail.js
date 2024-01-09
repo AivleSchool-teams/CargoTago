@@ -118,10 +118,10 @@ const CarrierDetail = () => {
             .then(res => {
                 console.log('test', res.data);
                 if (res.data === 0) {
-                    window.alert('비정상적인 접근입니다.');
+                    window.alert('이미 완료된 배송입니다.');
                     navigate('/Carrier/Detail/');
                 } else {
-                    window.alert('배차 승인이 완료되었습니다.');
+                    window.alert('배송이 완료되었습니다..');
                     //navigate('/Carrier/List'); // 승인 클릭 시 '/Carrier/main' 경로로 이동합니다!
                 }
             })
@@ -250,22 +250,18 @@ const CarrierDetail = () => {
                         />
                         <div className={styles.div19}>
                             <div className={styles.div20}>화물 현황</div>
-                            <div className={styles.rectangleParent}>
-                                <div className={styles.groupChild}/>
-                                <div className={styles.xxxXxxx}>차량번호 : 서울 XXX XXXX</div>
-                                <div className={styles.div21}>차주명 : {carrierInfoList.name}</div>
-                                <div className={styles.div22}>연락처 : {carrierInfoList.phone}</div>
-                            </div>
                             <div className={styles.lineDiv}/>
                             <div className={styles.child1}/>
                             <div className={styles.div23} style={registInfo.status === 0 ? {color: 'var(--color-cornflowerblue)'} : {}}>접수 완료</div>
                             <div className={styles.div24} style={registInfo.status === 1 ? {color: 'var(--color-cornflowerblue)'} : {}}>배차 완료</div>
                             <div className={styles.div25} style={registInfo.status === 2 ? {color: 'var(--color-cornflowerblue)'} : {}}>운송 완료</div>
 
+                            <button className={styles.arrend} onClick={() => onDelivery(registInfo)}>
+                                <div className={styles.chatItem1} />
+                                <div className={styles.div261}>배송 완료</div>
+                            </button>
+                            <div className={styles.div201}>* 배송완료 후 버튼을 눌러주세요</div>
 
-                            <div className={styles.div26} onClick={() => onDelivery(registInfo)}>운행중</div>
-                            <div className={styles.child2}/>
-                            <div className={styles.div27}>운송완료</div>
                         </div>
                         <div className={styles.div28}>
                             <div className={styles.div29}>
