@@ -112,7 +112,7 @@ const Main = () => {
                         <button className={styles.button} onClick={onSignUpClick}>
                             <img className={styles.child6} alt="" src="/images/rectangle-10@2x.png" />
                             {token
-                                ?<div className={styles.div7out}>Main</div> // 토큰이 있으면 Main 표시
+                                ?<div className={styles.div7out}>메인페이지</div> // 토큰이 있으면 Main 표시
                                 :<div className={styles.div7}>회원가입</div>   // 토큰이 없으면 회원가입 표시
                             }
                         </button>
