@@ -112,16 +112,24 @@ const Main = () => {
                         <button className={styles.button} onClick={onSignUpClick}>
                             <img className={styles.child6} alt="" src="/images/rectangle-10@2x.png" />
                             {token
-                                ?<div className={styles.div7out}>Main</div> // 토큰이 있으면 Main 표시
+                                ?<div className={styles.div7out}>메인페이지</div> // 토큰이 있으면 메인페이지 표시
                                 :<div className={styles.div7}>회원가입</div>   // 토큰이 없으면 회원가입 표시
                             }
                         </button>
 
                         <button className={styles.button2} onClick={onLoginClick} >
-                            <img className={styles.child12} alt="" src="/images/rectangle-10@2x.png" />
+
                             {token
-                                ?<div className={styles.div12out}>로그아웃</div> // 토큰이 있으면 로그아웃 표시
-                                :<div className={styles.div12}>로그인</div>   // 토큰이 없으면 로그인 표시
+                                ?
+                                <div>
+                                    <img className={styles.child12} alt="" src="/images/rectangle-10.png" />
+                                    <div className={styles.div12out}>로그아웃</div>
+                                </div>
+                                :
+                                <div>
+                                    <img className={styles.child12} alt="" src="/images/rectangle-10@2x.png" />
+                                    <div className={styles.div12}>로그인</div>
+                                </div>
                             }
                         </button>
 

@@ -532,14 +532,15 @@ child12,
 
 .div7out {
     position: absolute;
-    left: 39px;
+    left: 23px;
     top: 17px;
     font-size: 22px;
     color: var(--color-white);
     display: inline-block;
-    width: 88px;
+    width: 120px;
     height: 33px;
 }
+
 .div12out {
     position: absolute;
     left: 39px;
