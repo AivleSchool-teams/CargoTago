@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import {useCallback, useEffect} from "react";
 import { useNavigate } from 'react-router-dom'; // v6에서는 useNavigate를 사용합니다.
 import 'react-slideshow-image/dist/styles.css';
 import { Fade, Zoom, Slide } from "react-slideshow-image";
@@ -7,6 +7,11 @@ import "./Main.css";
 import {SectionsContainer, Section} from 'react-fullpage';
 
 const Main = () => {
+
+
+    const token = localStorage.getItem('jwt-token');
+
+
     const onEllipse1Click = useCallback(() => {
         // Please sync "slide02" to the project
     }, []);
@@ -21,7 +26,13 @@ const Main = () => {
     }, [navigate]);
 
     const onLoginClick = useCallback(() => {
-        navigate('/Login'); // 로고 클릭 시 '/Login' 경로로 이동합니다 --> 주소 수정 요망
+        if (token) {
+            localStorage.removeItem('jwt-token');
+            window.alert('정상적으로 로그아웃 되었습니다.')
+            navigate('/');
+        } else {
+            navigate('/Login'); // 로고 클릭 시 '/Login' 경로로 이동합니다 --> 주소 수정 요망
+        }
     }, [navigate]);
 
     // 메인 이미지 슬라이드 부분
@@ -91,7 +102,10 @@ const Main = () => {
 
                         <button className={styles.button} onClick={onLoginClick}>
                             <img className={styles.child6} alt="" src="/images/rectangle-10@2x.png" />
-                            <div className={styles.div7}>로그인</div>
+                            {token
+                                ? <div className={styles.div7out}>로그아웃</div> // 토큰이 있으면 로그아웃 표시
+                                : <div className={styles.div7}>로그인</div>   // 토큰이 없으면 로그인 표시
+                            }
                         </button>
                         {/* 메인이미지 슬라이드 부분 */}
                         <div className={styles.mainslide}>

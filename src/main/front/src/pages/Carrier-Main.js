@@ -149,7 +149,6 @@ const CarrierMain = () => {
                         <div className={styles.div7}>오늘도 좋은 하루 되세요!</div>
                         <div className={styles.div8}>
                             {username}님, 안녕하세요!
-                            Latitude: {location.coordinates.lat}, Longitude: {location.coordinates.lng}
                         </div>
                     </div>
                 </div>

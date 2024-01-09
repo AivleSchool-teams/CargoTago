@@ -375,9 +375,7 @@
     left: 210px;
     color: var(--color-lightgray);
 }
-.div26 {
-    left: 547px;
-}
+
 .div19,
 .div26,
 .div27 {
@@ -551,4 +549,9 @@
     width: 60px;
     left: calc(50% - 430px);
     transform: translateX(-50%);
+}
+
+.div26 {
+    left: 547px;
+    cursor: pointer;
 }

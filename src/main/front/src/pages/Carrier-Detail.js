@@ -1,6 +1,6 @@
 import { useCallback, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import styles from "./Shipper-Detail.module.css";
+import styles from "./Carrier-Detail.module.css";
 // chat socket
 import { useNavigate } from "react-router-dom";
 import io from 'socket.io-client';
@@ -15,6 +15,7 @@ const CarrierDetail = () => {
     const [username, setUsername] = useState(null);
     const [userphone, setUserphone] = useState(null);
     const [useraccount, setUseraccount] = useState(null);
+    const [useremail, setUseremail] = useState(null);
     const [registInfoList, setRegistInfoList] = useState([]);
     const [carrierInfoList, setCarrierInfoList] = useState([]);
 
@@ -40,6 +41,7 @@ const CarrierDetail = () => {
                 setUsername(response.data.name);
                 setUserphone(response.data.phone);
                 setUseraccount(response.data.account);
+                setUseremail(response.data.email);
                 console.log('안녕하세요,', response.data.name, '님?');
             })
             .catch(error => {
@@ -104,6 +106,32 @@ const CarrierDetail = () => {
         }
     };
 
+    const onDelivery = useCallback((registInfo) => {
+        const token = localStorage.getItem('jwt-token');
+        axios.post(`http://localhost:8080/carrier/comDelivery/${registInfo.id}`, useremail,
+            {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'text/plain'
+                }
+            })
+            .then(res => {
+                console.log('test', res.data);
+                if (res.data === 0) {
+                    window.alert('비정상적인 접근입니다.');
+                    navigate('/Carrier/Detail/');
+                } else {
+                    window.alert('배차 승인이 완료되었습니다.');
+                    //navigate('/Carrier/List'); // 승인 클릭 시 '/Carrier/main' 경로로 이동합니다!
+                }
+            })
+            .catch(error => {
+                console.error('비정상적인 접근입니다.', error);
+                navigate('/Carrier/List');
+                // status가 0이 아닌 경우 '이미 배차된 화물입니다' 라는 메시지 출력하고
+                // 메인페이지로 돌려보내자.
+            });
+    }, [navigate, useremail]);
 
 
 
@@ -235,7 +263,7 @@ const CarrierDetail = () => {
                             <div className={styles.div25} style={registInfo.status === 2 ? {color: 'var(--color-cornflowerblue)'} : {}}>운송 완료</div>
 
 
-                            <div className={styles.div26}>운행중</div>
+                            <div className={styles.div26} onClick={() => onDelivery(registInfo)}>운행중</div>
                             <div className={styles.child2}/>
                             <div className={styles.div27}>운송완료</div>
                         </div>

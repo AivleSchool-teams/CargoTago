@@ -83,4 +83,38 @@ public class ApproveController {
 
     }
 
+
+    @PostMapping("/comDelivery/{id}")
+    public Integer comDelivery(@PathVariable Long id, @RequestBody String useremail) {
+
+        // id에 걸맞는 화물을 불러와서
+        // update하는 ㅂ아법
+        Optional<CarrierInfo> carrierInfoOptional = carrierInfoRepository.findByEmail(useremail);
+        if (carrierInfoOptional.isPresent()) {
+            CarrierInfo carrierInfo = carrierInfoOptional.get();
+
+            Long carmember = carrierInfo.getCarMember(); // car_member 값 가져오기
+
+            Optional<RegistInfo> registInfoOptional = registInfoRepository.findById(id);
+
+            if (registInfoOptional.isPresent()) {
+                RegistInfo registInfo = registInfoOptional.get();
+
+                registInfo.setCarrierInfo(carrierInfo);
+
+                if (registInfo.getStatus() == 1) {
+                    registInfo.setStatus(2);
+                    registInfoRepository.save(registInfo);
+
+                    return 1;
+                }
+
+            }
+
+        }
+
+        return 0;
+
+    }
+
 }

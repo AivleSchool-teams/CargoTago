@@ -30,15 +30,19 @@ public class ShipperInfoController {
 
 
     @GetMapping("/shipper/mylist")
+
     public ResponseEntity<?> getRegistInfo() {
         PageDTO pageDTO = null; // pageDTO를 블록 외부에서 선언
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Optional<ShipperInfo> originalUserOpt2 = shipperInfoRepository.findByEmail(authentication.getName());
 
+
+
         if(originalUserOpt2.isEmpty()) {
             return ResponseEntity.ofNullable(null);
         }
+
         ShipperInfo originalUser2 = originalUserOpt2.get();
         pageDTO = PageDTO.builder()
                 .id(originalUser2.getShipMember())

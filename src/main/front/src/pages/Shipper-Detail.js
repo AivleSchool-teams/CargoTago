@@ -18,6 +18,7 @@ const ShipperDetail = () => {
     const [carriercarInfoList, setCarriercarInfoList] = useState([]);
 
 
+
     useEffect(() => {
         const token = localStorage.getItem('jwt-token');
         if (!token) {
@@ -219,7 +220,7 @@ const ShipperDetail = () => {
                         <div className={styles.div13}>{registInfo.textAreaValue}</div>
                         <div className={styles.div14}>
                             {`계좌번호 :   `}
-                            <span className={styles.span}>홍길동 국민 620000-00-000000</span>
+                            <span className={styles.span}>{carrierInfoList.name}   {carrierInfoList.account}</span>
                         </div>
                         <div className={styles.div15}>{`${formatNumber(registInfo.yourcost)} 원`}</div>
                         <div className={styles.div16}>{registInfo.selected2}</div>

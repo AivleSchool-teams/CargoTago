@@ -499,3 +499,14 @@
 .react-slideshow-container .nav:nth-child(1) {
     left: 20px; /* 왼쪽 화살표의 위치를 20px 안쪽으로 이동시킵니다. */
 }
+
+.div7out {
+    position: absolute;
+    left: 39px;
+    top: 17px;
+    font-size: 22px;
+    color: var(--color-white);
+    display: inline-block;
+    width: 88px;
+    height: 33px;
+}
