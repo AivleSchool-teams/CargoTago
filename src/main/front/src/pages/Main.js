@@ -29,7 +29,7 @@ const Main = () => {
         if (token) {
             localStorage.removeItem('jwt-token');
             window.alert('정상적으로 로그아웃 되었습니다.')
-            navigate('/');
+            window.location.reload();
         } else {
             navigate('/Login'); // 로고 클릭 시 '/Login' 경로로 이동합니다 --> 주소 수정 요망
         }

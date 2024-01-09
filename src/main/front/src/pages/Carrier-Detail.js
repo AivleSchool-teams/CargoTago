@@ -10,6 +10,7 @@ const socket = io.connect('http://localhost:4000');
 const room = '1'
 
 const CarrierDetail = () => {
+    const [role, setRole] = useState('carrier');
     const { id } = useParams();
     const navigate = useNavigate();
     const [username, setUsername] = useState(null);
@@ -18,6 +19,8 @@ const CarrierDetail = () => {
     const [useremail, setUseremail] = useState(null);
     const [registInfoList, setRegistInfoList] = useState([]);
     const [carrierInfoList, setCarrierInfoList] = useState([]);
+    const [carriercarInfoList, setCarriercarInfoList] = useState([]);
+    const [showChat, setShowChat] = useState(false);
 
     useEffect(() => {
         const token = localStorage.getItem('jwt-token');
@@ -28,6 +31,7 @@ const CarrierDetail = () => {
             getUserInfo(token);
             getUserShipperList(token);
             getCarrierInfo(token);
+            getCarriercarInfo(token);
         }
     }, [navigate, username, id]);
 
@@ -60,14 +64,18 @@ const CarrierDetail = () => {
                 const filteredData = res.data.filter(item => item.id === parseInt(id));
                 setRegistInfoList(filteredData);
                 console.log(filteredData);
+                const carNum = filteredData[0].carrierInfo.carMember;
+                const username = filteredData[0].carrierInfo.name;
+                getCarrierInfo(token, carNum);
+                getCarriercarInfo(token,username);
             })
             .catch(error => {
                 console.error('에러가 발생했습니다.', error);
             });
     }
 
-    const getCarrierInfo = (token) => {
-        axios.get(`http://localhost:8080/user/1`, {
+    const getCarrierInfo = (token, carNum) => {
+        axios.get(`http://localhost:8080/user/${carNum}`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -93,7 +101,23 @@ const CarrierDetail = () => {
         return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
     }
 
-
+    const getCarriercarInfo = (token, username) => {
+        console.log("here:", username);
+        axios.get(`http://localhost:8080/user/carrierInfo/${username}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(response => {
+                console.log('username:',username)
+                setCarriercarInfoList(response.data);
+                console.log("확인용 "+ username )
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.error(`CarrierInfo 데이터를 가져오는 데 실패했습니다.`, error);
+            });
+    }
 
     const joinRoom = (e) => {
         e.preventDefault();
@@ -118,9 +142,10 @@ const CarrierDetail = () => {
             .then(res => {
                 console.log('test', res.data);
                 if (res.data === 0) {
-                    window.alert('이미 완료된 배송입니다.');
-                    navigate('/Carrier/Detail/');
+                    window.alert('비정상적인 접근입니다.');
+                    window.location.reload();
                 } else {
+                    window.location.reload();
                     window.alert('배송이 완료되었습니다..');
                     //navigate('/Carrier/List'); // 승인 클릭 시 '/Carrier/main' 경로로 이동합니다!
                 }
@@ -250,6 +275,7 @@ const CarrierDetail = () => {
                         />
                         <div className={styles.div19}>
                             <div className={styles.div20}>화물 현황</div>
+
                             <div className={styles.lineDiv}/>
                             <div className={styles.child1}/>
                             <div className={styles.div23} style={registInfo.status === 0 ? {color: 'var(--color-cornflowerblue)'} : {}}>접수 완료</div>
@@ -302,4 +328,4 @@ const CarrierDetail = () => {
 
 }
 
-export default CarrierDetail;
+export { socket, room, CarrierDetail as default };
