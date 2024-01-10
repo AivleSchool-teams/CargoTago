@@ -167,6 +167,9 @@ const Main = () => {
                         </div>
 
                         <div className={styles.centerround2}>
+                            <div className={styles.item}>
+                                <img src="/images/page1.png" alt="" style={{height: '90%', width: '90%', borderRadius:'30px'}}/>
+                            </div>
                             <div className={styles.ai1}>AI 배차 최적화</div>
                             <div className={styles.inner} />
                             <div className={styles.rectangleDiv} />
