@@ -123,13 +123,34 @@
     display: inline-block;
 }
 .div7 {
-    top: 36px;
+    top: 21px;
     left: 0;
     width: 670px;
     height: 36px;
 }
+.divstatus1 {
+    position: absolute;
+    top: 57px;
+    left: -25%;
+    width: 670px;
+    height: 36px;
+}
+.divstatus2 {
+    position: absolute;
+    top: 57px;
+    left: 0%;
+    width: 670px;
+    height: 36px;
+}
+.divstatus3 {
+    position: absolute;
+    top: 57px;
+    left: 25%;
+    width: 670px;
+    height: 36px;
+}
 .div8 {
-    top: 0;
+    top: -15px;
     left: 124px;
     width: 423px;
 }
@@ -183,14 +204,17 @@
 .child,
 .div10,
 .lineDiv {
-    position: absolute;
+    position: relative;
 }
 .div10 {
-    top: 0;
-    left: 0;
+    top: 20%;
+    left: -23%;
     display: inline-block;
-    width: 197px;
+    text-align: left;
     height: 43px;
+    font-size: var(--font-size-mid);
+    width: 197px;
+
 }
 .lineDiv {
     top: 21.5px;
@@ -322,7 +346,7 @@
 }
 .group{
     position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
-    top:500px;
+    top:960px;
     left: calc(50% - 55px);
     transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
     height: 190px;
@@ -447,4 +471,13 @@
     position: absolute; /* 요소의 위치를 조절하기 위해 position 속성을 사용합니다. */
     left: 50%;
     transform: translate(-50%, -50%); /* 요소의 중심점을 조정합니다. */
+}
+.inner {
+    position: relative;
+    top: 30px;
+    left: 0;
+    font-family: var(--font-sb-aggro);
+    overflow-y: auto; /* 세로 스크롤바를 필요할 때만 나타나도록 설정 */
+    height : 390px;
+    width: 108%;
 }

@@ -8,23 +8,18 @@ const CarrierMain = () => {
 
     const navigate = useNavigate();
 
-    const [username, setUsername] = useState(null);
 
+    const [username, setUsername] = useState(null);
     //화주가 등록한 화물 리스트
     const [registInfoList, setRegistInfoList] = useState([]);
-
-    const onBackClick = useCallback((id) => { // '화물 타고' 클릭 시 '/frame' 경로로 이동.
-        navigate('/');
-    }, [navigate]);
-
     const [location, setLocation] = useState({
         loaded: false,
         coordinates: { lat: '', lng: '' },
     });
 
     const [fetchLocation, setFetchLocation] = useState(false);
-
-
+    const [carrierInfoList, setCarrierInfoList] = useState([]);
+    const [recommand, setRecommand] = useState([]);
     // 위치 정보 가져오기
     useEffect(() => {
         const onSuccess = location => {
@@ -34,7 +29,7 @@ const CarrierMain = () => {
                     lat: location.coords.latitude,
                     lng: location.coords.longitude,
                 },
-            });  // 메시지 표시
+            });
         };
 
         const onError = error => {
@@ -67,16 +62,14 @@ const CarrierMain = () => {
             })
                 .then(response => {
                     // 사용자 이름 표시
-                    console.log('안녕하세요,', response.data.name, '님?');
                     setUsername(response.data.name);
-                    console.log(username);
+
                 })
                 .catch(error => {
                     // 오류 처리
                     console.error('비정상적인 접근입니다.', error);
                 });
         }
-
         axios.get('http://localhost:8080/user/carrier/alllist', {
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -84,10 +77,24 @@ const CarrierMain = () => {
         })
             .then(res => {
                 setRegistInfoList(res.data);
-                console.log(res.data);
-                console.log(typeof(res.data));
+                // console.log(res.data);
+                // console.log(typeof(res.data));
             })
-    }, [navigate, username]);
+        axios.get(`http://localhost:8080/user/carrier/car`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(response => {
+                setCarrierInfoList(response.data);
+                // console.log(registInfo => Object.keys(recommand).includes(String(registInfo.id)));
+            })
+            
+            .catch(error => {
+                console.error(`carMemberId에 해당하는 CarrierCarInfo 데이터를 가져오는 데 실패했습니다.`, error);
+            });
+    }, []);
+
 
     const onListClick = useCallback(() => { // 차주 배차완료 리스트 페이지 이동
         navigate('/Carrier/Main');
@@ -96,7 +103,6 @@ const CarrierMain = () => {
     const onCarClick = useCallback(() => { // 차주 차량 등록 페이지 이동
         navigate('/Carrier/Car');
     }, [navigate]);
-
     const onPostClick = useCallback(() => { // 화주 배차완료 리스트 페이지 이동
         navigate("/Post");
     }, [navigate]);
@@ -109,17 +115,32 @@ const CarrierMain = () => {
         navigate('/Carrier/List');
     })
 
-
-    const onGeoClick = useCallback(() =>{
-        axios.post('http', {
-            lat: location.coordinates.lat,
-            lng: location.coordinates.lng,
+    useEffect(() => {
+        fetch('http://127.0.0.1:5000/predict2', {method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({registInfoList, location, carrierInfoList})})
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Server response was not ok.');
+            }
         })
-            .then(res => {
-
-            })
-    })
-
+        .then(data => {
+            if (data.result) {
+                setRecommand(data.result);
+                console.log(Object.values(data.result))
+            } else {
+                throw new Error('Result is not defined in the response.');
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+            setRecommand('Error: ' + error.message);
+        });
+    }, [])
 
     return (
         <div className={styles.div}>
@@ -132,7 +153,7 @@ const CarrierMain = () => {
                     />
                     <button className={styles.div2} onClick={onPostClick}>게시판</button>
                 </div>
-                <img onClick={() => setFetchLocation(!fetchLocation)} className={styles.moa11} onClick={onBackClick} alt="" src="/images/moa-1-1@2x.png" />
+                <img onClick={() => setFetchLocation(!fetchLocation)} className={styles.moa11} alt="" src="/images/moa-1-1@2x.png" />
             </div>
             <div className={styles.groupParent}>
                 <div className={styles.rectangleParent} onClick={onListClickOrig}>
@@ -152,6 +173,9 @@ const CarrierMain = () => {
                     />
                     <div className={styles.parent}>
                         <div className={styles.div7}>오늘도 좋은 하루 되세요!</div>
+                        <div className={styles.divstatus1}>주문 {registInfoList.length}건</div>
+                        <div className={styles.divstatus2}>배차 {registInfoList.filter(registInfo => registInfo.status === 1).length}건</div>
+                        <div className={styles.divstatus3}>완료 {registInfoList.filter(registInfo => registInfo.status === 2).length}건</div>
                         <div className={styles.div8}>
                             {username}님, 안녕하세요!
                         </div>
@@ -159,7 +183,7 @@ const CarrierMain = () => {
                 </div>
                 <div className={styles.rectangleGroup} onClick={onCarClick}>
                     <div className={styles.groupItem} />
-                    <div className={styles.div3}>차량등록</div>
+                    <div className={styles.div3}>차량 등록</div>
                     <img
                         className={styles.image12Icon}
                         alt=""
@@ -174,7 +198,9 @@ const CarrierMain = () => {
 
 
                 {/* 배차 1개 */}
-                {registInfoList.map((registInfo, index) => (
+                <div className={styles.inner}>
+                {registInfoList.filter(registInfo => registInfo.status === 0)
+                    .map((registInfo, index) => (
                 <div key={index} className={styles.vectorContainer} onClick={() => onDetailClick(registInfo)}>
                     <img
                         className={styles.rectangleIcon}
@@ -193,68 +219,66 @@ const CarrierMain = () => {
                     />
                     <div className={styles.div15}>
                         <span>{`출발지 주소 `}</span>
-                        <span className={styles.span}>*</span>
+                        <span className={styles.span}></span>
                     </div>
                     <div className={styles.div16}>
                         <span>{`도착지 주소 `}</span>
-                        <span className={styles.span}>*</span>
+                        <span className={styles.span}></span>
                     </div>
                 </div>
                 ))}
-
+            </div>
             </div>
             {/* AI 추천 배차 리스트 */}
 
-            {/*<div className={styles.groupContainer}>*/}
-            {/*    <div className={styles.container}>*/}
-            {/*        <div className={styles.div23}>내 주변 차량</div>*/}
-            {/*        <div className={styles.ellipseDiv} />*/}
-            {/*        <div className={styles.groupChild3} />*/}
-            {/*        <div className={styles.ai}>AI 추천</div>*/}
-            {/*        <div className={styles.groupChild4} />*/}
-            {/*        <div className={styles.div24}>?</div>*/}
-            {/*        <div*/}
-            {/*            className={styles.hoverIcon}*/}
-            {/*            alt="">*/}
-            {/*            <span className={styles.hoverIcon_text}>  AI 배차 추천은 생각중입니다. AI 배차 추천은 생각중입니다.</span><br/>*/}
-            {/*            <span className={styles.hoverIcon_text}>  AI 배차 추천은 생각중입니다. </span>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
+            <div className={styles.groupContainer}>
+                <div className={styles.container}>
+                   <div className={styles.div23}>내 주변 차량</div>
+                   <div className={styles.ellipseDiv} />
+                   <div className={styles.groupChild3} />
+                   <div className={styles.ai}>AI 추천</div>
+                   <div className={styles.groupChild4} />
+                   <div className={styles.div24}>?</div>
+                   <div
+                       className={styles.hoverIcon}
+                       alt="">
+                       <span className={styles.hoverIcon_text}>  AI 배차 추천은 생각중입니다. AI 배차 추천은 생각중입니다.</span><br/>
+                       <span className={styles.hoverIcon_text}>  AI 배차 추천은 생각중입니다. </span>
+                   </div>
+               </div>
 
-            {/*    /!* 배차 1개 *!/*/}
-            {/*    {registInfoList.map((registInfo, index) => (*/}
-            {/*    <div key={index}  className={styles.groupDiv} onClick={() => onListClick(registInfo.id)}>*/}
-            {/*        <img*/}
-            {/*            className={styles.rectangleIcon}*/}
-            {/*            alt=""*/}
-            {/*            src="/images/rectangle-57@2x.png"*/}
-            {/*        />*/}
-            {/*        <div className={styles.div11} onClick={onGeoClick}>*/}
-            {/*            <p className={styles.p}>경기 김포시ㅇㅇ 양촌</p>*/}
-            {/*        </div>*/}
-            {/*        <div className={styles.div12}>서울 강동 동남로</div>*/}
-            {/*        <div className={styles.div13}>{`11톤 | 윙바디 | `}</div>*/}
-            {/*        <div className={styles.km}>17 km</div>*/}
-            {/*        <div className={styles.div14}>335,000 원</div>*/}
-            {/*        <img*/}
-            {/*            className={styles.image13Icon}*/}
-            {/*            alt=""*/}
-            {/*            src="/images/image-13@2x.png"*/}
-            {/*        />*/}
-            {/*        <div className={styles.div15}>*/}
-            {/*            <span>{`출발지 주소 `}</span>*/}
-            {/*            <span className={styles.span}>*</span>*/}
-            {/*        </div>*/}
-            {/*        <div className={styles.div16}>*/}
-            {/*            <span>{`도착지 주소 `}</span>*/}
-            {/*            <span className={styles.span}>*</span>*/}
-            {/*        </div>*/}
-            {/*        <div className={styles.groupChild2} />*/}
-            {/*    </div>*/}
-            {/*    ))}*/}
+               {/* /!* 배차 1개 *!/ */}
+               {registInfoList.filter(registInfo => String(Object.values(recommand)).includes(String(registInfo.id))).map((registInfo, index) => (
+                <div key={index}  className={styles.groupDiv} onClick={() => onListClick(registInfo.id)}>
+                    <img
+                        className={styles.rectangleIcon}
+                        alt=""
+                        src="/images/rectangle-57@2x.png"
+                    />
+                    <div className={styles.div11}>{registInfo.departure_address}</div>
+                    <div className={styles.div12}>{registInfo.arrival_Address}</div>
+                    <div className={styles.div13}>{`${registInfo.tonnage} | ${registInfo.selectedBox} | `}</div>
+                    <div className={styles.km}>{registInfo.distance} km</div>
+                    <div className={styles.div14}>{registInfo.yourcost} 원</div>
+                    <img
+                        className={styles.image13Icon}
+                        alt=""
+                        src="/images/image-13@2x.png"
+                    />
+                    <div className={styles.div15}>
+                        <span>{`출발지 주소 `}</span>
+                        <span className={styles.span}></span>
+                    </div>
+                    <div className={styles.div16}>
+                        <span>{`도착지 주소 `}</span>
+                        <span className={styles.span}></span>
+                    </div>
+                    <div className={styles.groupChild2} />
+                </div>
+                ))}
 
 
-            {/*</div>*/}
+            </div>
         </div>
     );
 };

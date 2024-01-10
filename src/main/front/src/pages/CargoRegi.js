@@ -549,7 +549,7 @@ const CargoRegi = () => {
                         className={styles.c2}
                         onChange={handleSizeChange}
                     >
-                        <option value="" disabled defaultSelected> 화물 크기 *</option>
+                        <option value="" selected disabled> 화물 크기 *</option>
                         <option value="소형"> 소형</option>
                         <option value="중형"> 중형</option>
                         <option value="대형">대형</option>
@@ -560,7 +560,7 @@ const CargoRegi = () => {
                         onChange={handleSizeChange1}
                         tabIndex={9}
                     >
-                        <option value="" disabled defaultSelected> 선호 업종 선택 *</option>
+                        <option value="" selected disabled> 선호 업종 선택 *</option>
                         <option value="농림축산업"> 농림축산업</option>
                         <option value="제조업"> 제조업</option>
                         <option value="광업">광업</option>

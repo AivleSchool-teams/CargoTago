@@ -152,22 +152,24 @@ const Main = () => {
                 <section>
                     <div className={styles.section2}>
                         <div>
-                            <img className={styles.icon} alt="" src="/images/2-1@2x.png" />
+                            {/*<img className={styles.icon} alt="" src="/images/2-1@2x.png" />*/}
                             <div className={styles.div1}>화물타고만의 특별한 서비스</div>
                             <div className={styles.aiContainer}>
                                 <p className={styles.ai}>
-                                    AI 기술을 활용한 카고타고의 매칭 서비스와 명확한 표준 요금제를 통해
+                                    AI 기술을 활용한 화물타고의 매칭 서비스와 명확한 표준 요금제를 통해
                                     운영의 효율성을 극대화해보세요.
                                 </p>
                                 <p className={styles.ai}>
-                                    카고타고는 책임감 있는 운영과 AI 배차 시스템을 통해 안정적이고
+                                    화물타고는 책임감 있는 운영과 AI 배차 시스템을 통해 안정적이고
                                     편안한 업무 환경을 약속합니다.
                                 </p>
                             </div>
                         </div>
 
                         <div className={styles.centerround2}>
-                            <div className={styles.item} />
+                            <div className={styles.item}>
+                                <img src="/images/page1.png" alt="" style={{height: '90%', width: '90%', borderRadius:'30px'}}/>
+                            </div>
                             <div className={styles.ai1}>AI 배차 최적화</div>
                             <div className={styles.inner} />
                             <div className={styles.rectangleDiv} />
@@ -177,18 +179,25 @@ const Main = () => {
                                     희망지역과 거리까지 고려하여 효율성을 극대화합니다.
                                 </p>
                             </div>
-                            <div className={styles.child1} />
-                            <div className={styles.div2}>적정 금액 추천</div>
+                            <div className={styles.child1}>
+                                <img src="/images/page1.png" alt="" style={{height: '90%', width: '90%',borderRadius:'30px'}}/>
+                            </div>
+                            <div className={styles.div2}>적정 운임 추천</div>
+
                             <img className={styles.rectangleIcon} alt="" src="/images/rectangle-29@2x.png" />
                             <div className={styles.child2} />
                             <div className={styles.div3}>
-                                금액 추천 시스템이 공정한 거래를 위한 가격을 제안합니다.
-                                편리하고 합리적인 거래를 경험해보세요.
+                                <p className={styles.ai}>
+                                    운임 추천 시스템이 공정한 거래를 위한 가격을 제안합니다.
+                                    편리하고 합리적인 거래를 경험해보세요.
+                                </p>
                             </div>
-                            <div className={styles.child3} />
+                            <div className={styles.child3}>
+                            <img src="/images/page1.png" alt="" style={{height: '90%', width: '90%',borderRadius:'30px'}}/>
+                            </div>
                             <div className={styles.div4}>채팅 시스템</div>
-                            <div className={styles.child4} />
-                            <div className={styles.child5} />
+                            <div className={styles.child4}/>
+                            <div className={styles.child5}/>
                             <div className={styles.div5}>
                                 <p
                                     className={styles.ai}
