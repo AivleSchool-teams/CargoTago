@@ -142,6 +142,11 @@ const CarrierMain = () => {
         });
     }, [])
 
+    const onBackClick = useCallback((id) => { // '화물 타고' 클릭 시 '/frame' 경로로 이동.
+        navigate('/');
+    }, [navigate]);
+
+
     return (
         <div className={styles.div}>
             <div className={styles.center}>
@@ -153,7 +158,7 @@ const CarrierMain = () => {
                     />
                     <button className={styles.div2} onClick={onPostClick}>게시판</button>
                 </div>
-                <img onClick={() => setFetchLocation(!fetchLocation)} className={styles.moa11} alt="" src="/images/moa-1-1@2x.png" />
+                <img className={styles.moa11} onClick={onBackClick} alt="" src="/images/moa-1-1@2x.png"/>
             </div>
             <div className={styles.groupParent}>
                 <div className={styles.rectangleParent} onClick={onListClickOrig}>
@@ -249,7 +254,7 @@ const CarrierMain = () => {
 
                {/* /!* 배차 1개 *!/ */}
                {registInfoList.filter(registInfo => String(Object.values(recommand)).includes(String(registInfo.id))).map((registInfo, index) => (
-                <div key={index}  className={styles.groupDiv} onClick={() => onListClick(registInfo.id)}>
+                <div key={index}  className={styles.groupDiv} onClick={() => onDetailClick(registInfo)}>
                     <img
                         className={styles.rectangleIcon}
                         alt=""
