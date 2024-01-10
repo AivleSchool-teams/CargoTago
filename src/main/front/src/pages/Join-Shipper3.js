@@ -143,16 +143,14 @@ const JoinShipper3 = () => {
             </div>
 
             <div className={styles.div12} onClick={onBackClickLogin}>등록</div>
-            <div>
-                <input type="text" className={styles.child9}
-                       tabIndex={5}
-                       placeholder="사업자 등록증 *"/>
-            </div>
+            {/*<div>*/}
+            {/*    <input type="text" className={styles.child9}*/}
+            {/*           tabIndex={5}*/}
+            {/*           placeholder="사업자 등록증 *"/>*/}
+            {/*</div>*/}
 
             <img className={styles.rectangleIcon} alt="" src="/images/rectangle-23@2x.png"/>
             <div className={styles.div14}>인증</div>
-            <img className={styles.child10} alt="" src="/images/rectangle-23@2x.png"/>
-            <div className={styles.div15}>인증</div>
             <img className={styles.child11} alt="" src="/images/rectangle-23@2x.png"/>
             <div className={styles.div16}>인증</div>
         </div>
