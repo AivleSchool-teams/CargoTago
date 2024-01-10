@@ -433,7 +433,7 @@ child12,
     position: absolute;
     top: 2270px;
     left: 50%;
-    font-size: 40px;
+    font-size: var(--font-size-21xl);
     transform: translateX(-50%);
 }
 .divCargo2 {

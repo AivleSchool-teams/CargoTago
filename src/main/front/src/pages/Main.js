@@ -211,7 +211,7 @@ const Main = () => {
                 </section>
 
                 <section>
-                        <img className={styles.iconCargo2} alt="" src="/images/2-1@2x.png" />
+
                         <div className={styles.divCargo2}>
                             <span className={styles.spanbr2}> AI기술 </span>
                         </div>
@@ -222,7 +222,7 @@ const Main = () => {
 
                 <section>
                     <div>
-                        <img className={styles.iconCargo} alt="" src="/images/2-1@2x.png" />
+
                         <div className={styles.divCargo}>
                             <span className={styles.spanbr}>다양한 차량 옵션 :</span>
                             <span className={styles.spanbr}>&nbsp;화물에 맞는 최적의 선택</span>
