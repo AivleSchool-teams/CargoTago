@@ -258,7 +258,7 @@
     transform: translateX(-120%);
 }
 .child5 {
-    top: 933px;
+    top: 821px;
     border-radius: var(--br-xl);
     background-color: var(--color-white);
     border: 1px solid var(--color-gainsboro);
@@ -312,7 +312,7 @@
     transform: translateX(-50%);
 }
 .rectangleParent {
-    top: 1065px;
+    top: 940px;
     width: 475px;
     height: 88px;
     cursor: pointer;
@@ -360,7 +360,7 @@
 .child7,
 .rectangleIcon {
     position: absolute;
-    top: 952px;
+    top: 835px;
     border-radius: var(--br-mini);
     width: 90px;
     height: 50px;
@@ -375,7 +375,7 @@
 .div14,
 .div15 {
     position: absolute;
-    top: 965px;
+    top: 855px;
     font-family: var(--font-jalnan-gothic);
     color: var(--color-white);
     display: inline-block;
@@ -392,7 +392,7 @@
     position: relative;
     background-color: var(--color-white);
     width: 100%;
-    height: 1197px;
+    height: 1097px;
     overflow: hidden;
     text-align: center;
     font-size: var(--font-size-xl);

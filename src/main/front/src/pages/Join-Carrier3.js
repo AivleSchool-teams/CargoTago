@@ -129,16 +129,9 @@ const JoinCarrier3 = () => {
                 <div className={styles.groupChild}/>
                 <div className={styles.div12}>등록</div>
             </div>
-            <div>
-                <input type="text" className={styles.child6}
-                       tabIndex={5}
-                       placeholder="사업자 등록증 *"/>
-            </div>
 
             <img className={styles.rectangleIcon} alt="" src="/images/rectangle-23@2x.png"/>
-            <img className={styles.child7} alt="" src="/images/rectangle-23@2x.png"/>
             <div className={styles.div14}>인증</div>
-            <div className={styles.div15}>인증</div>
         </div>
     );
 };
