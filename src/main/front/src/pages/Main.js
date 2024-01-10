@@ -68,6 +68,7 @@ const Main = () => {
             url : "/images/Cargo3.png",
         },
     ];
+
     const divStyle = {
             display : 'flex',
             alignItems : 'center',
@@ -94,7 +95,7 @@ const Main = () => {
     }
 
     let options = {
-        anchors: ['sectionOne', 'sectionTwo', 'sectionThree','sectionFour','sectionFive'],
+        anchors: ['sectionOne', 'sectionTwo', 'sectionThree','sectionFour'],
     };
 
     return (
@@ -145,10 +146,10 @@ const Main = () => {
 
                                 ))}
                             </Fade>
-
                         </div>
                     </div>
                 </section>
+
                 <section>
                     <div className={styles.section2}>
                         <div>
@@ -165,10 +166,9 @@ const Main = () => {
                                 </p>
                             </div>
                         </div>
-
                         <div className={styles.centerround2}>
                             <div className={styles.item}>
-                                <img src="/images/page1.png" alt="" style={{height: '90%', width: '90%', borderRadius:'30px'}}/>
+                                <img src="/images/page2.png" alt="" style={{height: '90%', width: '90%', borderRadius:'30px'}}/>
                             </div>
                             <div className={styles.ai1}>AI 배차 최적화</div>
                             <div className={styles.inner} />
@@ -180,7 +180,7 @@ const Main = () => {
                                 </p>
                             </div>
                             <div className={styles.child1}>
-                                <img src="/images/page1.png" alt="" style={{height: '90%', width: '90%',borderRadius:'30px'}}/>
+                                <img src="/images/page3.png" alt="" style={{height: '90%', width: '90%',borderRadius:'30px'}}/>
                             </div>
                             <div className={styles.div2}>적정 운임 추천</div>
 
@@ -211,22 +211,11 @@ const Main = () => {
                 </section>
 
                 <section>
-                        <img className={styles.iconCargo2} alt="" src="/images/2-1@2x.png" />
-                        <div className={styles.divCargo2}>
-                            <span className={styles.spanbr2}> AI기술 </span>
-                        </div>
-
-
-
-                </section>
-
-                <section>
                     <div>
-                        <img className={styles.iconCargo} alt="" src="/images/2-1@2x.png" />
+
                         <div className={styles.divCargo}>
                             <span className={styles.spanbr}>다양한 차량 옵션 :</span>
                             <span className={styles.spanbr}>&nbsp;화물에 맞는 최적의 선택</span>
-
                         </div>
                         {/* 차량 이미지 슬라이드 부분 */}
                         <div className={styles.subslide}>
@@ -241,7 +230,35 @@ const Main = () => {
                         </div>
                     </div>
                 </section>
+
                 <section>
+                    <div className={styles.profile}>
+                        <div className={styles.team}> 팀원 소개 </div>
+                        <img className={styles.s1} alt="" src="/images/s1.png" />
+                        <div className={styles.name1}> 김재은 </div>
+                        <div className={styles.web1}> WEB팀 </div>
+                        <img className={styles.s2} alt="" src="/images/s2.png" />
+                        <div className={styles.name2}> 장현지 </div>
+                        <div className={styles.web2}> WEB팀 </div>
+                        <img className={styles.s3} alt="" src="/images/s3.png" />
+                        <div className={styles.name3}> 이민욱 </div>
+                        <div className={styles.web3}> WEB팀 </div>
+                        <img className={styles.s4} alt="" src="/images/s4.png" />
+                        <div className={styles.name4}> 이가연 </div>
+                        <div className={styles.web4}> WEB팀 </div>
+                        <img className={styles.s5} alt="" src="/images/s5.png" />
+                        <div className={styles.name5}> 신수환 </div>
+                        <div className={styles.ai11}> AI팀 </div>
+                        <img className={styles.s6} alt="" src="/images/s6.png" />
+                        <div className={styles.name6}> 김예은 </div>
+                        <div className={styles.ai2}> AI팀 </div>
+                        <img className={styles.s7} alt="" src="/images/s7.png" />
+                        <div className={styles.name7}> 허정아 </div>
+                        <div className={styles.ai3}> AI팀 </div>
+                        <img className={styles.s8} alt="" src="/images/s8.png" />
+                        <div className={styles.name8}> 박예진 </div>
+                        <div className={styles.ai4}> AI팀 </div>
+                    </div>
                     <div className={styles.rectangleParent}>
                         <div className={styles.groupChild}>
                             <img className={styles.icon5} alt="" src="/images/1-1@2x.png" />
@@ -267,6 +284,7 @@ const Main = () => {
                         </div>
                     </div>
                 </section>
+
             </SectionsContainer>
         </div>
     );
