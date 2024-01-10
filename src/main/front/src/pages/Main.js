@@ -145,7 +145,6 @@ const Main = () => {
 
                                 ))}
                             </Fade>
-
                         </div>
                     </div>
                 </section>
