@@ -517,8 +517,7 @@ child12,
     margin-left: auto;
     margin-right: auto;
 }
-.profile,
-.s1
+.profile
 {
     position:absolute;
     top:1150px;
@@ -526,11 +525,19 @@ child12,
     width:150px;
     height:150px;
 }
+.s1
+{
+    position:absolute;
+    top:1150px;
+    left:90px;
+    width:150px;
+    height:150px;
+}
 .name1
 {
     position:absolute;
     top:1320px;
-    left:70px;
+    left:90px;
     width:150px;
     height:150px;
     color:var(--color-darkslateblue);
@@ -539,7 +546,7 @@ child12,
 {
     position:absolute;
     top:1360px;
-    left:70px;
+    left:90px;
     width:150px;
     height:150px;
     font-size:var(--font-size-base);
