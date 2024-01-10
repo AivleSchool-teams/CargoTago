@@ -29,6 +29,7 @@
 }
 .ai {
     margin: 0;
+    line-height: 1.6;
 }
 .aiContainer,
 .componentItem {
@@ -45,13 +46,13 @@
 }
 .item {
     position: absolute;
-    top: 1010px;
+    top: 980px;
     left: 45px;
     border-radius: var(--br-21xl);
     /*background-image: ;*/
-    background-color: var(--color-darkslateblue);
+    background-color: var(--color-white);
     width: 426px;
-    height: 206px;
+    height: 265px;
 }
 .ai1,
 .inner,
@@ -61,19 +62,19 @@
 }
 .ai1 {
     top: 1262px;
-    left: 116px;
+    left: 120px;
     display: inline-block;
-    width: 263px;
+    width: 271px;
 }
 .inner,
 .rectangleDiv {
     top: 1257px;
-    left: 127px;
+    left: 139px;
     background-color: var(--color-cornflowerblue);
     width: 10px;
 }
 .rectangleDiv {
-    left: 357px;
+    left: 363px;
 }
 .aiContainer1 {
     top: 1319px;
@@ -90,16 +91,16 @@
     position: absolute;
 }
 .child1 {
-    top: 1010px;
+    top: 980px;
     left: 507px;
     border-radius: var(--br-21xl);
-    background-color: var(--color-darkslateblue);
+    background-color: transparent;
     width: 426px;
-    height: 206px;
+    height: 265px;
 }
 .div2 {
     top: 1262px;
-    left: 578px;
+    left: 590px;
     display: inline-block;
     width: 263px;
     height: 38px;
@@ -112,12 +113,12 @@
 }
 .rectangleIcon {
     top: 1256px;
-    left: 594px;
+    left: 606px;
     object-fit: cover;
 }
 .child2 {
     top: 1257px;
-    left: 814px;
+    left: 826px;
     background-color: var(--color-cornflowerblue);
 }
 .child3,
@@ -134,11 +135,15 @@
     display: inline-block;
 }
 .child3 {
-    top: 1010px;
+    top: 980px;
     left: 970px;
     border-radius: var(--br-21xl);
-    background-color: var(--color-darkslateblue);
-    height: 206px;
+    background-color: transparent;
+    height: 265px;
+}
+.img_round {
+    border-radius: 20px; /* 모든 모서리가 20픽셀의 곡률을 가짐 */
+
 }
 .child4,
 .child5,
@@ -150,17 +155,17 @@
     top: 1262px;
     left: 1041px;
     display: inline-block;
-    width: 263px;
+    width: 275px;
 }
 .child4,
 .child5 {
     top: 1256px;
-    left: 1061px;
+    left: 1073px;
     background-color: var(--color-cornflowerblue);
     width: 10px;
 }
 .child5 {
-    left: 1272px;
+    left: 1284px;
 }
 .div5,
 .div6 {
