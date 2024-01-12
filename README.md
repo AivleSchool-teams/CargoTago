@@ -1,14 +1,6 @@
-
-# CARGO TAGO
+# 화물타고
 <img src="https://img.shields.io/badge/Java-007396?style=flat&logo=OpenJDK&logoColor=white"/>
 <img src="https://img.shields.io/badge/Python-007396?style=flat&logo=Python&logoColor=white"/><br>
-AI 화물  중개로  차주와  화주  모두를  만족시키는  중개  플랫폼입니다.
-
-![image](https://github.com/AivleSchool-teams/CargoTago/assets/74652164/db84b14a-a6aa-4b3d-a0f6-febeae24773f)
-
-
-
-# 화물타고
 AI 화물  중개로  차주와  화주  모두를  만족시키는  중개  플랫폼입니다.
 ![image](https://github.com/AivleSchool-teams/CargoTago/assets/74652164/572d4928-45b7-4187-b3e7-1c0a9a556ff6)
 
