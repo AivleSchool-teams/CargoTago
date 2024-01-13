@@ -43,5 +43,6 @@
 # 서비스 플로우
 ![image](https://github.com/AivleSchool-teams/CargoTago/assets/74652164/a7f33cb1-1e68-4eee-aa8c-34b647b8b2d7)
 
+
 # ERD
 ![image](https://github.com/AivleSchool-teams/CargoTago/assets/74652164/0695427d-3a6b-4525-9b87-21b39a7656e3)
