@@ -1,6 +1,6 @@
 # 화물타고
 
-#### AI 기반 중개플랫폼
+### AI 기반 중개플랫폼
 
 [//]: # (<img src="https://img.shields.io/badge/Java-007396?style=flat&logo=OpenJDK&logoColor=white"/>)
 
@@ -22,9 +22,9 @@
 
 ### 🚛 메인기능
 
-* AI 배차 최적화
-* 적정 운임 추천 
-* 채팅 시스템 
+* **AI 배차 최적화**
+* **적정 운임 추천** 
+* **채팅 시스템** 
 
 ![image](https://github.com/AivleSchool-teams/CargoTago/assets/74652164/572d4928-45b7-4187-b3e7-1c0a9a556ff6)
 
