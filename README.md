@@ -56,6 +56,8 @@
 
 # 서비스 시연 영상
 
+[//]: # (# 시연영상 추가 예정)
+
 # 서비스 플로우
 ![image](https://github.com/AivleSchool-teams/CargoTago/assets/74652164/a7f33cb1-1e68-4eee-aa8c-34b647b8b2d7)
 
