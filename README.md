@@ -2,12 +2,15 @@
 
 ### AI 기반 중개플랫폼
 
+![메인페이지](https://github.com/AivleSchool-teams/CargoTago/assets/136284855/4ffb6c8f-ec5d-49bb-a01e-64f4433a4b40)
+
 [//]: # (<img src="https://img.shields.io/badge/Java-007396?style=flat&logo=OpenJDK&logoColor=white"/>)
 
 [//]: # (<img src="https://img.shields.io/badge/Python-007396?style=flat&logo=Python&logoColor=white"/>)
 
 [//]: # (# 이미지 삽입예정)
 
+</br></br>
 
 # 선정배경
 ![image](https://github.com/AivleSchool-teams/CargoTago/assets/74652164/58e4d5f3-9e78-4989-ab2f-795996ca3d42)
