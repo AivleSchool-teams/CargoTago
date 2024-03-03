@@ -67,8 +67,3 @@
 
 # ERD
 ![image](https://github.com/AivleSchool-teams/CargoTago/assets/74652164/0695427d-3a6b-4525-9b87-21b39a7656e3)
-
-
-# 팀원 소개
-![image](https://github.com/AivleSchool-teams/CargoTago/assets/74652164/644d0718-7c49-47ee-af23-42e1c670c007)
-![image](https://github.com/AivleSchool-teams/CargoTago/assets/74652164/8607e0f7-ed13-4c92-a375-3f796fe5d7a0)
